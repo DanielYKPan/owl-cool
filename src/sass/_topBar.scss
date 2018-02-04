@@ -1,0 +1,64 @@
+@import "variables";
+
+a {
+  display: block;
+  text-decoration: none;
+  color: currentColor;
+  cursor: pointer;
+}
+
+.top-bar-logo {
+  height: 100%;
+  padding: .5em 0;
+  margin: 0 .5em;
+  box-sizing: border-box;
+
+  img {
+    height: $topbar-height - 1em;
+    width: auto;
+    margin-right: 2em;
+  }
+}
+
+.top-bar-nav {
+  display: flex;
+
+  .top-bar-nav-link {
+    margin: 0 .2em;
+    padding: .5em 1em;
+    text-transform: uppercase;
+    border-radius: .3em;
+
+    &.active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:not(.active):hover {
+      opacity: .7;
+    }
+  }
+}
+
+.hamburger-button {
+  color: currentColor;
+  width: 5em;
+  height: 100%;
+  min-width: 5em;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  transition: margin 400ms cubic-bezier(.25, .8, .25, 1);
+
+  &.hamburger-hide {
+    margin: 0 1em 0 -5em;
+  }
+
+  svg {
+    fill: currentColor;
+    height: 1.2em;
+    width: 1.2em;
+  }
+}

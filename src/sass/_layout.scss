@@ -1,0 +1,18 @@
+@import "variables";
+
+body {
+  font-size: $base-font-size;
+  color: $base-font-color;
+}
+
+.layout-top-bar {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $topbar-height;
+  background: $header-bg $header-bg-color;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
