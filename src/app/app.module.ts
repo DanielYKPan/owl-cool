@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { OwlRippleModule } from '../../npmdist/components/ripple';
+import { AppRoutingModule } from './app.routing';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
     declarations: [
@@ -13,7 +15,9 @@ import { OwlRippleModule } from '../../npmdist/components/ripple';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        AppRoutingModule,
         CoreModule,
+        HomeModule,
         OwlRippleModule,
     ],
     providers: [],

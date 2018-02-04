@@ -15,4 +15,17 @@ body {
   height: $topbar-height;
   background: $header-bg $header-bg-color;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+  color: $header-font-color;
+}
+
+.layout-content-wrapper {
+  height: auto;
+  box-sizing: border-box;
+  z-index: 1;
+
+  .layout-content {
+    padding: $topbar-height 0 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
 }
