@@ -1,4 +1,4 @@
-<app-top-bar>
+<app-top-bar (hamburgerClick)="changeSidePanelState()">
     <nav class="top-bar-nav">
         <a class="top-bar-nav-link" owlRipple [owlRippleColor]="'rgba(255, 255, 255, .1)'">Home</a>
         <a class="top-bar-nav-link" owlRipple [owlRippleColor]="'rgba(255, 255, 255, .1)'">Owl NG</a>
@@ -9,3 +9,6 @@
 <div class="layout-content-wrapper">
     <router-outlet></router-outlet>
 </div>
+
+<div class="layout-side-panel-backdrop" (click)="changeSidePanelState()"></div>
+<app-side-panel [@showSidePanelAnimation]="sidePanelExpanded"></app-side-panel>
