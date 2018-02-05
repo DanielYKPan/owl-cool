@@ -22,12 +22,14 @@ a {
 
 .top-bar-nav {
   display: flex;
+  height: 100%;
+  line-height: $topbar-height;
 
   .top-bar-nav-link {
     margin: 0 .2em;
-    padding: .5em 1em;
+    padding: 0 1em;
     text-transform: uppercase;
-    border-radius: .3em;
+    height: 100%;
 
     &.active {
       background-color: rgba(255, 255, 255, 0.1);

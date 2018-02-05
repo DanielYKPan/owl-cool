@@ -7,6 +7,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {
+        path: 'owlng',
+        loadChildren: 'app/owl/owl.module#OwlNGModule',
+        data: {
+            name: 'page-owlng',
+            showSidePanel: true,
+        }
+    },
 ];
 
 @NgModule({
