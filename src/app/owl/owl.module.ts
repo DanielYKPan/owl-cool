@@ -9,6 +9,7 @@ import { OwlNGRoutingModule } from './owl.routing';
 import { OwlNGStartComponent } from './getting-start.component';
 import { OwlNGIntroductionComponent } from './owl-introduction.component';
 import { OwlIntroductionService } from './owl-introduction.service';
+import { OwlNGRippleComponent } from './ripple/ripple.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,8 @@ import { OwlIntroductionService } from './owl-introduction.service';
         OwlComponent,
         OwlNGIntroductionComponent,
         OwlNGStartComponent,
+
+        OwlNGRippleComponent,
     ],
     providers: [
         OwlIntroductionService
