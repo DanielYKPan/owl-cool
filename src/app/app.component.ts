@@ -1,10 +1,16 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import {
+    AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy,
+    OnInit
+} from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators/filter';
 import { map } from 'rxjs/operators/map';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 import { Subscription } from 'rxjs/Subscription';
+import { ViewportRuler } from '@angular/cdk/scrolling';
+import { startWith } from 'rxjs/operators/startWith';
+import { AppService } from './app.service';
 
 @Component({
     selector: 'app-root',
@@ -25,9 +31,10 @@ import { Subscription } from 'rxjs/Subscription';
         ])
     ],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
 
     private routerSub: Subscription;
+    private viewResizeSub = Subscription.EMPTY;
 
     private _isSidePanelExpanded = false;
     get isSidePanelExpanded(): boolean {
@@ -41,12 +48,28 @@ export class AppComponent implements OnInit, OnDestroy {
         return this._pageName;
     }
 
-    constructor( private router: Router,
+    constructor( private viewportRuler: ViewportRuler,
+                 private appService: AppService,
+                 private router: Router,
                  private route: ActivatedRoute,
                  private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnInit(): void {
+    }
+
+    public ngAfterContentInit(): void {
+
+        this.appService.checkIsDesktopSize();
+
+        this.viewResizeSub = this.viewportRuler.change(150)
+            .pipe(
+                startWith(null)
+            )
+            .subscribe(() => {
+                this.appService.checkIsDesktopSize();
+            });
+
         this.routerSub = this.router.events
             .pipe(
                 filter(e => e instanceof NavigationEnd),
@@ -62,13 +85,15 @@ export class AppComponent implements OnInit, OnDestroy {
             )
             .subscribe(( data: any ) => {
                 this._pageName = data.name;
-                this._isSidePanelExpanded = data.showSidePanel;
+                this._isSidePanelExpanded =
+                    this.appService.isDesktopSize && data.showSidePanel;
                 this.cdRef.markForCheck();
             });
     }
 
     public ngOnDestroy(): void {
         this.routerSub.unsubscribe();
+        this.viewResizeSub.unsubscribe();
     }
 
     public changeSidePanelState() {

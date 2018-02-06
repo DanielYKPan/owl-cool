@@ -23,4 +23,6 @@
     <img src="./assets/images/yk-logo-banner.png">
 </a>
 
-<ng-content select=".top-bar-nav"></ng-content>
+<ng-container *ngIf="showTopBarNav">
+    <ng-content select=".top-bar-nav"></ng-content>
+</ng-container>

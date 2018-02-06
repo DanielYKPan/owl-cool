@@ -2,11 +2,14 @@
  * side-nav.component
  */
 
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit
+} from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { filter } from 'rxjs/operators/filter';
 import { SideNavItem } from './side-nav-item.interface';
+import { AppService } from '../../app.service';
 
 @Component({
     selector: 'app-side-nav',
@@ -25,12 +28,30 @@ export class SideNavComponent implements OnInit, OnDestroy {
         return this._currentUrl;
     }
 
-    private _sideNavItems: SideNavItem[];
-    get sideNavItems(): SideNavItem[] {
-        return this._sideNavItems;
+    private _showTabletNav: boolean;
+    get showTabletNav(): boolean {
+        return this._showTabletNav;
     }
 
-    constructor( private _router: Router ) {
+    private _homeItems: SideNavItem[];
+    get homeItems(): SideNavItem[] {
+        return this._homeItems;
+    }
+
+    private _owlItems: SideNavItem[];
+    get owlItems(): SideNavItem[] {
+        return this._owlItems;
+    }
+
+    private _viewPortSizeChangeSub = Subscription.EMPTY;
+
+    constructor( private _router: Router,
+                 private appService: AppService,
+                 private cdRef: ChangeDetectorRef ) {
+        this._viewPortSizeChangeSub = this.appService.viewPortSizeChange
+            .subscribe(( event: any ) => {
+                this.checkShowTabletNavState(event.isDesktopSize);
+            });
     }
 
     public ngOnInit() {
@@ -42,12 +63,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
                 this._currentUrl = event.url;
             });
 
-        this._sideNavItems = [
-            {
-                name: 'getting started',
-                level: 1,
-                slug: 'home',
-            },
+        this._owlItems = [
             {
                 name: 'owl ng',
                 level: 1,
@@ -64,43 +80,25 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                 ]
-            },
+            }
+        ];
+
+        this._homeItems = [
             {
-                name: 'game',
+                name: 'Home',
                 level: 1,
-                slug: 'game',
-                children: [
-                    {
-                        name: '1. game day',
-                        slug: '/game/game-center',
-                        level: 2
-                    },
-                    {
-                        name: '2. game day',
-                        slug: '/game/game-center2',
-                        level: 2
-                    },
-                    {
-                        name: '3. game day',
-                        slug: '/game/game-center3',
-                        level: 2
-                    },
-                    {
-                        name: '4. game day',
-                        slug: '/game/game-center4',
-                        level: 2
-                    },
-                    {
-                        name: '5. game day',
-                        slug: '/game/game-center5',
-                        level: 2
-                    }
-                ]
+                slug: 'home',
             }
         ];
     }
 
     public ngOnDestroy(): void {
         this._routerSub.unsubscribe();
+        this._viewPortSizeChangeSub.unsubscribe();
+    }
+
+    private checkShowTabletNavState( isDesktopSize: boolean ): void {
+        this._showTabletNav = !isDesktopSize;
+        this.cdRef.markForCheck();
     }
 }

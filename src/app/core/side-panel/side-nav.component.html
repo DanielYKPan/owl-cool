@@ -1,3 +1,6 @@
+<div class="side-nav" *ngIf="showTabletNav">
+    <app-side-nav-item *ngFor="let item of homeItems" [item]="item" [currentUrl]="currentUrl"></app-side-nav-item>
+</div>
 <div class="side-nav">
-    <app-side-nav-item *ngFor="let item of sideNavItems" [item]="item" [currentUrl]="currentUrl" ></app-side-nav-item>
+    <app-side-nav-item *ngFor="let item of owlItems" [item]="item" [currentUrl]="currentUrl"></app-side-nav-item>
 </div>
