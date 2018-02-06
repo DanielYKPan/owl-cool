@@ -11,10 +11,13 @@ import { OwlNGIntroductionComponent } from './owl-introduction.component';
 import { OwlIntroductionService } from './owl-introduction.service';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 
+import { OwlRippleModule } from '../../../npmdist/components/ripple';
+
 @NgModule({
     imports: [
         CommonModule,
         OwlNGRoutingModule,
+        OwlRippleModule
     ],
     exports: [],
     declarations: [

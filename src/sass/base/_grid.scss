@@ -1,0 +1,90 @@
+@import "breakPoints";
+
+.yk-g {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.yk-row {
+  margin-bottom: 1.5em;
+}
+
+.yk-g-1,
+.yk-g-2,
+.yk-g-3,
+.yk-g-4,
+.yk-g-5,
+.yk-g-6,
+.yk-g-7,
+.yk-g-8,
+.yk-g-9,
+.yk-g-10,
+.yk-g-11,
+.yk-g-12 {
+  box-sizing: border-box;
+  padding: .5em;
+}
+
+.yk-lg-6 {
+  @media #{$large-up} {
+    width: 50%;
+  }
+}
+
+.yk-g-12 {
+  width: 100%;
+}
+
+.yk-md-1,
+.yk-md-2,
+.yk-md-3,
+.yk-md-4,
+.yk-md-5,
+.yk-md-6,
+.yk-md-7,
+.yk-md-8,
+.yk-md-9,
+.yk-md-10,
+.yk-md-11,
+.yk-md-12 {
+  @media #{$medium-up} {
+    box-sizing: border-box;
+    padding: .5em;
+  }
+}
+
+.yk-md-2 {
+  @media #{$medium-up} {
+    width: calc(100% / 6);
+  }
+}
+
+.yk-md-3 {
+  @media #{$medium-up} {
+    width: calc(100% / 4);
+  }
+}
+
+.yk-md-4 {
+  @media #{$medium-up} {
+    width: calc(100% / 3);
+  }
+}
+
+.yk-md-6 {
+  @media #{$medium-up} {
+    width: calc(100% / 2);
+  }
+}
+
+.yk-md-8 {
+  @media #{$medium-up} {
+    width: calc(100% * 8 / 12);
+  }
+}
+
+.yk-md-10 {
+  @media #{$medium-up} {
+    width: calc(100% * 5 / 6);
+  }
+}

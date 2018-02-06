@@ -2,7 +2,7 @@
  * owl-introduction.component
  */
 
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { OwlIntroductionService } from './owl-introduction.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,18 +21,24 @@ export class OwlNGIntroductionComponent implements OnInit, OnDestroy {
 
     private subId: Subscription;
 
-    constructor( private introductionService: OwlIntroductionService ) {
+    constructor( private introductionService: OwlIntroductionService,
+                 private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnInit() {
         this.subId = this.introductionService.introductionStream
-            .subscribe(( introduction: any ) => {
-                this.title = introduction.title;
-                this.desc = introduction.desc;
+            .subscribe(( event: any ) => {
+                this.updateIntroduction(event);
             });
     }
 
     public ngOnDestroy(): void {
         this.subId.unsubscribe();
+    }
+
+    private updateIntroduction( introduction: any ): void {
+        this.title = introduction.title;
+        this.desc = introduction.desc;
+        this.cdRef.markForCheck();
     }
 }

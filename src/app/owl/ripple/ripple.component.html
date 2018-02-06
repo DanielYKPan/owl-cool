@@ -1,0 +1,64 @@
+<section class="owlng-demo">
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Basic</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <button class="owlng-btn" owlRipple>Click Me</button>
+            </div>
+
+            <div class="yk-g-12 yk-md-3">
+                <div class="owlng-ripple-iconWrapper" owlRipple>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Centered Ripple</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <button class="owlng-btn" owlRipple [owlRippleCentered]="true">Click Me</button>
+            </div>
+
+            <div class="yk-g-12 yk-md-3">
+                <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleCentered]="true">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Different colors</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <button class="owlng-btn" owlRipple [owlRippleColor]="'rgba(81, 45, 168, 0.4)'">Click Me</button>
+            </div>
+
+            <div class="yk-g-12 yk-md-3">
+                <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleColor]="'rgba(189, 50, 50, 0.4)'">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Unbounded with a different radius</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <button class="owlng-btn" owlRipple [owlRippleCentered]="true"
+                        [owlRippleUnbounded]="true" [owlRippleRadius]="80">Click Me
+                </button>
+            </div>
+
+            <div class="yk-g-12 yk-md-3">
+                <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleCentered]="true"
+                     [owlRippleUnbounded]="true" [owlRippleRadius]="50">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
