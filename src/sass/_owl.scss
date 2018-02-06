@@ -1,0 +1,70 @@
+@import "base/variables";
+@import "base/breakPoints";
+
+$introduction-color: #fafafa;
+
+.owlng-introduction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: $introduction-color;
+  padding: 10px;
+
+  @media #{$medium-up} {
+    padding: 30px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    background: $header-bg;
+    z-index: -1;
+  }
+
+  .featured-text {
+    flex: 1 1 280px;
+    padding-right: 16px;
+
+    h1, h2 {
+      margin: 0;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2em;
+      margin-bottom: .5em;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.2em;
+    }
+  }
+
+  .featured-banner {
+    width: 40%;
+    min-width: 280px;
+    max-width: 430px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media #{$small-only} {
+    .featured-banner {
+      order: 1;
+    }
+
+    .featured-text {
+      order: 2;
+    }
+  }
+}

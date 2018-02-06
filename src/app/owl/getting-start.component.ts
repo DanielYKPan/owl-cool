@@ -3,6 +3,7 @@
  */
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { OwlIntroductionService } from './owl-introduction.service';
 
 @Component({
     selector: 'app-owl-start',
@@ -13,9 +14,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 
 export class OwlNGStartComponent implements OnInit {
-    constructor() {
+
+    constructor( private introductionService: OwlIntroductionService ) {
     }
 
     public ngOnInit() {
+        this.introductionService.setIntroduction({
+            title: 'Getting Start',
+            desc: 'OwlNG is a rich set of open source native Angular UI components.'
+        });
     }
 }
