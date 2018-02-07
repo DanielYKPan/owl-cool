@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
+import { OwlNGTabsComponent } from './tabs/tabs.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -30,6 +31,14 @@ import { OwlNGRippleComponent } from './ripple/ripple.component';
                 {
                     path: 'ripple-effect',
                     component: OwlNGRippleComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                    },
+                },
+                {
+                    path: 'tab-view',
+                    component: OwlNGTabsComponent,
                     data: {
                         name: 'page-owlng',
                         showSidePanel: true,

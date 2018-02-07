@@ -9,11 +9,13 @@ import { OwlNGRoutingModule } from './owl.routing';
 import { OwlNGStartComponent } from './getting-start.component';
 import { OwlNGIntroductionComponent } from './owl-introduction.component';
 import { OwlIntroductionService } from './owl-introduction.service';
-import { OwlNGRippleComponent } from './ripple/ripple.component';
 
 import { OwlRippleModule } from '../../../npmdist/components/ripple';
 import { OwlTabsModule } from '../../../npmdist/components/tabs';
 import { CodeHighlightDirective } from './code-highlight.directive';
+
+import { OwlNGRippleComponent } from './ripple/ripple.component';
+import { OwlNGTabsComponent } from './tabs/tabs.component';
 
 @NgModule({
     imports: [
@@ -31,6 +33,7 @@ import { CodeHighlightDirective } from './code-highlight.directive';
         OwlNGStartComponent,
 
         OwlNGRippleComponent,
+        OwlNGTabsComponent,
     ],
     providers: [
         OwlIntroductionService

@@ -79,6 +79,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         slug: '/owlng/ripple-effect',
                         level: 2
                     },
+                    {
+                        name: 'Tab View',
+                        slug: '/owlng/tab-view',
+                        level: 2
+                    },
                 ]
             }
         ];

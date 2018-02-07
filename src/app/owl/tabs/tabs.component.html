@@ -1,0 +1,529 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Basic</h5>
+        <owl-tab-view>
+            <owl-tab label="Game of Thrones">
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    Set on the fictional continents of Westeros and Essos, Game of Thrones has several plot lines and a
+                    large ensemble cast but centers on three primary story arcs. The first story arc centers on the Iron
+                    Throne of the Seven Kingdoms and follows a web of alliances and conflicts among the dynastic noble
+                    families either vying to claim the throne or fighting for independence from the throne. The second
+                    story arc focuses on the last descendant of the realm's deposed ruling dynasty, exiled and plotting
+                    a return to the throne. The third story arc centers on the longstanding brotherhood charged with
+                    defending the realm against the ancient threats of the fierce peoples and legendary creatures that
+                    lie far north, and an impending winter that threatens the realm.
+                </div>
+            </owl-tab>
+            <owl-tab label="The Walking Dead">
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    The Walking Dead takes place after the onset of a worldwide zombie apocalypse. The zombies,
+                    colloquially referred to as "walkers", shamble towards living humans and other creatures to eat them
+                    (they are attracted to noise, e.g., gunshots, and to different scents, e.g., humans). Humans that
+                    they bite or scratch become infected and slowly turn into walkers as well. It is revealed early in
+                    the series that all living humans carry this pathogen, so that if they die from any other cause,
+                    they will also turn into walkers. The only way to permanently kill a walker is to damage its brain
+                    or otherwise fully destroy the body, such as by cremating it.
+                </div>
+            </owl-tab>
+            <owl-tab label="Modern Family">
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    Modern Family revolves around three different types of families (nuclear, step- and same-sex) living
+                    in the Los Angeles area who are interrelated through Jay Pritchett and his children, Claire Dunphy
+                    (née Pritchett) and Mitchell Pritchett. Patriarch Jay is remarried to a much younger woman, Gloria
+                    Delgado Pritchett (née Ramirez), a passionate[5] Colombian with whom he has an infant son, Fulgencio
+                    (Joe) Pritchett, and a son from Gloria's previous marriage,[6] Manny Delgado. Jay's daughter Claire
+                    was a homemaker, but has returned to the business world. She now works in her father's closet
+                    business. She is married to Phil Dunphy, a realtor and self-professed "cool Dad". They have three
+                    children: Haley Dunphy, a stereotypical ditzy teenage girl;[7] Alex Dunphy, a nerdy, smart middle
+                    child;[8] and Luke Dunphy, the off-beat only son.[9] Jay's lawyer son Mitchell and his husband
+                    Cameron Tucker have an adopted Vietnamese daughter, Lily Tucker-Pritchett. As the name suggests,
+                    this family represents a modern-day family and episodes are comically based on situations which many
+                    families encounter in real life.
+                </div>
+            </owl-tab>
+        </owl-tab-view>
+    </div>
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Custom Tab Label and Disabled Label</h5>
+        <owl-tab-view>
+            <owl-tab label="Game of Thrones">
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    Set on the fictional continents of Westeros and Essos, Game of Thrones has several plot lines and a
+                    large ensemble cast but centers on three primary story arcs. The first story arc centers on the Iron
+                    Throne of the Seven Kingdoms and follows a web of alliances and conflicts among the dynastic noble
+                    families either vying to claim the throne or fighting for independence from the throne. The second
+                    story arc focuses on the last descendant of the realm's deposed ruling dynasty, exiled and plotting
+                    a return to the throne. The third story arc centers on the longstanding brotherhood charged with
+                    defending the realm against the ancient threats of the fierce peoples and legendary creatures that
+                    lie far north, and an impending winter that threatens the realm.
+                </div>
+            </owl-tab>
+            <owl-tab label="Disabled Tab" [disabled]="true">
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    Modern Family revolves around three different types of families (nuclear, step- and same-sex) living
+                    in the Los Angeles area who are interrelated through Jay Pritchett and his children, Claire Dunphy
+                    (née Pritchett) and Mitchell Pritchett. Patriarch Jay is remarried to a much younger woman, Gloria
+                    Delgado Pritchett (née Ramirez), a passionate[5] Colombian with whom he has an infant son, Fulgencio
+                    (Joe) Pritchett, and a son from Gloria's previous marriage,[6] Manny Delgado. Jay's daughter Claire
+                    was a homemaker, but has returned to the business world. She now works in her father's closet
+                    business. She is married to Phil Dunphy, a realtor and self-professed "cool Dad". They have three
+                    children: Haley Dunphy, a stereotypical ditzy teenage girl;[7] Alex Dunphy, a nerdy, smart middle
+                    child;[8] and Luke Dunphy, the off-beat only son.[9] Jay's lawyer son Mitchell and his husband
+                    Cameron Tucker have an adopted Vietnamese daughter, Lily Tucker-Pritchett. As the name suggests,
+                    this family represents a modern-day family and episodes are comically based on situations which many
+                    families encounter in real life.
+                </div>
+            </owl-tab>
+            <owl-tab>
+                <ng-template owl-tab-label>
+                    ⭐ Customised Tab Label
+                </ng-template>
+                <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                    The Walking Dead takes place after the onset of a worldwide zombie apocalypse. The zombies,
+                    colloquially referred to as "walkers", shamble towards living humans and other creatures to eat them
+                    (they are attracted to noise, e.g., gunshots, and to different scents, e.g., humans). Humans that
+                    they bite or scratch become infected and slowly turn into walkers as well. It is revealed early in
+                    the series that all living humans carry this pathogen, so that if they die from any other cause,
+                    they will also turn into walkers. The only way to permanently kill a walker is to damage its brain
+                    or otherwise fully destroy the body, such as by cremating it.
+                </div>
+            </owl-tab>
+        </owl-tab-view>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Angular TabView is a Angular container component to group different content with tabs. People could
+                    switch to different content panel by choosing a desire tab.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlTabsModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-tab-view>
+    <owl-tab label="Content I">
+        Content I Here
+    </owl-tab>
+    <owl-tab label="Content II">
+        Content II Here
+    </owl-tab>
+    <owl-tab label="Content III">
+        Content III Here
+    </owl-tab>
+</owl-tab-view>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Label"> -->
+                <h3 id="labels" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#labels">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Labels
+                </h3>
+                <p>
+                    If a tab's label is only text, then set <b>label</b> in <b>owl-tab</b>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-tab-view>
+    <owl-tab label="Content I">
+        Content I Here
+    </owl-tab>
+    <owl-tab label="Content II">
+        Content II Here
+    </owl-tab>
+    <owl-tab label="Content III">
+        Content III Here
+    </owl-tab>
+</owl-tab-view>
+]]></code>
+</pre>
+                <p>
+                    For more complex labels, add a template with the <b>owl-tab-label</b> directive inside the <b>owl-tab</b>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-tab-view>
+    <owl-tab>
+        <ng-template owl-tab-label>
+            ⭐ <em>Complex</em> Tab Label
+        </ng-template>
+        Content I Here
+    </owl-tab>
+    <owl-tab label="Content II">
+        Content II Here
+    </owl-tab>
+    <owl-tab label="Content III">
+        Content III Here
+    </owl-tab>
+</owl-tab-view>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Selection"> -->
+                <h3 id="selection" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#selection">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Selection
+                </h3>
+                <p>
+                    By default, the first tab is selected. To customise this, set <b>[selectedIndex]</b> to the desired
+                    index in <b>owl-tab-view</b>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-tab-view [selectedIndex]="2">
+    <owl-tab label="Content I">
+        Content I Here
+    </owl-tab>
+    <owl-tab label="Content II">
+        Content II Here
+    </owl-tab>
+    <owl-tab label="Content III">
+        Content III Here
+    </owl-tab>
+</owl-tab-view>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Disabled Tab"> -->
+                <h3 id="disabled-tab" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#disabled-tab">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Disabled Tab
+                </h3>
+                <p>To set property <b>[disabled]</b> to true, A tab could be disable to prevent being selected.</p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-tab-view>
+    <owl-tab label="Content I">
+        Content I Here
+    </owl-tab>
+    <owl-tab label="Content II" [disabled]="true">
+        Content II Here
+    </owl-tab>
+    <owl-tab label="Content III">
+        Content III Here
+    </owl-tab>
+</owl-tab-view>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Accessibility"> -->
+                <h3 id="accessibility" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#accessibility">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Accessibility
+                </h3>
+                <p>Keyboard shortcuts</p>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">LEFT_ARROW</td>
+                            <td align="left">Move focus to previous tab.</td>
+                        </tr>
+                        <tr>
+                            <td align="left">RIGHT_ARROW</td>
+                            <td align="left">Move focus to next tab.</td>
+                        </tr>
+                        <tr>
+                            <td align="left">SPACE or ENTER</td>
+                            <td align="left">Switch to focused tab.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dependencies"> -->
+                <h3 id="dependencies" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tab-view#dependencies">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dependencies
+                </h3>
+                <p>None</p>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties & Events for owl-tab-view "> -->
+                <h3 id="properties-tab-view" class="owlng-doc-header">
+                    Properties For owl-tab-view
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disableRipple</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">When specified to true, the ripple effect on the tab labels would be
+                                disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selectedIndex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">Define the active tab.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 id="events-tab-view" class="owlng-doc-header">
+                    Events For owl-tab-view
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>selectedTabChange</code></td>
+                            <td align="left">
+                                event.index -- the selected tab index<br/>
+                                event.tab -- the selected tab
+                            </td>
+                            <td align="left">Emits when the selected tab changes</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selectedIndexChange</code></td>
+                            <td align="left">
+                                event -- the selected tab index<br/>
+                            </td>
+                            <td align="left">Emits when the selected tab changes</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>focusChange</code></td>
+                            <td align="left">
+                                event.index -- the focused tab index<br/>
+                                event.tab -- the focused tab
+                            </td>
+                            <td align="left">Emits when the focused tab changes</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties & Events for owl-tab"> -->
+                <h3 id="properties-tab" class="owlng-doc-header">
+                    Properties For owl-tab
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the tab would be disabled and could not be selected or focused.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                The plain text label for the tab, used when there is no template label.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+            </div>
+            <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Basic</h5>
+    <owl-tab-view>
+        <owl-tab label="Game of Thrones">
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                Set on the fictional continents of Westeros and Essos, Game of Thrones has several plot lines and a
+                large ensemble cast but centers on three primary story arcs. The first story arc centers on the Iron
+                Throne of the Seven Kingdoms and follows a web of alliances and conflicts among the dynastic noble
+                families either vying to claim the throne or fighting for independence from the throne. The second
+                story arc focuses on the last descendant of the realm's deposed ruling dynasty, exiled and plotting
+                a return to the throne. The third story arc centers on the longstanding brotherhood charged with
+                defending the realm against the ancient threats of the fierce peoples and legendary creatures that
+                lie far north, and an impending winter that threatens the realm.
+            </div>
+        </owl-tab>
+        <owl-tab label="The Walking Dead">
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                The Walking Dead takes place after the onset of a worldwide zombie apocalypse. The zombies,
+                colloquially referred to as "walkers", shamble towards living humans and other creatures to eat them
+                (they are attracted to noise, e.g., gunshots, and to different scents, e.g., humans). Humans that
+                they bite or scratch become infected and slowly turn into walkers as well. It is revealed early in
+                the series that all living humans carry this pathogen, so that if they die from any other cause,
+                they will also turn into walkers. The only way to permanently kill a walker is to damage its brain
+                or otherwise fully destroy the body, such as by cremating it.
+            </div>
+        </owl-tab>
+        <owl-tab label="Modern Family">
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                Modern Family revolves around three different types of families (nuclear, step- and same-sex) living
+                in the Los Angeles area who are interrelated through Jay Pritchett and his children, Claire Dunphy
+                (née Pritchett) and Mitchell Pritchett. Patriarch Jay is remarried to a much younger woman, Gloria
+                Delgado Pritchett (née Ramirez), a passionate[5] Colombian with whom he has an infant son, Fulgencio
+                (Joe) Pritchett, and a son from Gloria's previous marriage,[6] Manny Delgado. Jay's daughter Claire
+                was a homemaker, but has returned to the business world. She now works in her father's closet
+                business. She is married to Phil Dunphy, a realtor and self-professed "cool Dad". They have three
+                children: Haley Dunphy, a stereotypical ditzy teenage girl;[7] Alex Dunphy, a nerdy, smart middle
+                child;[8] and Luke Dunphy, the off-beat only son.[9] Jay's lawyer son Mitchell and his husband
+                Cameron Tucker have an adopted Vietnamese daughter, Lily Tucker-Pritchett. As the name suggests,
+                this family represents a modern-day family and episodes are comically based on situations which many
+                families encounter in real life.
+            </div>
+        </owl-tab>
+    </owl-tab-view>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Custom Tab Label and Disabled Label</h5>
+    <owl-tab-view>
+        <owl-tab label="Game of Thrones">
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                Set on the fictional continents of Westeros and Essos, Game of Thrones has several plot lines and a
+                large ensemble cast but centers on three primary story arcs. The first story arc centers on the Iron
+                Throne of the Seven Kingdoms and follows a web of alliances and conflicts among the dynastic noble
+                families either vying to claim the throne or fighting for independence from the throne. The second
+                story arc focuses on the last descendant of the realm's deposed ruling dynasty, exiled and plotting
+                a return to the throne. The third story arc centers on the longstanding brotherhood charged with
+                defending the realm against the ancient threats of the fierce peoples and legendary creatures that
+                lie far north, and an impending winter that threatens the realm.
+            </div>
+        </owl-tab>
+        <owl-tab label="Disabled Tab" [disabled]="true">
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                Modern Family revolves around three different types of families (nuclear, step- and same-sex) living
+                in the Los Angeles area who are interrelated through Jay Pritchett and his children, Claire Dunphy
+                (née Pritchett) and Mitchell Pritchett. Patriarch Jay is remarried to a much younger woman, Gloria
+                Delgado Pritchett (née Ramirez), a passionate[5] Colombian with whom he has an infant son, Fulgencio
+                (Joe) Pritchett, and a son from Gloria's previous marriage,[6] Manny Delgado. Jay's daughter Claire
+                was a homemaker, but has returned to the business world. She now works in her father's closet
+                business. She is married to Phil Dunphy, a realtor and self-professed "cool Dad". They have three
+                children: Haley Dunphy, a stereotypical ditzy teenage girl;[7] Alex Dunphy, a nerdy, smart middle
+                child;[8] and Luke Dunphy, the off-beat only son.[9] Jay's lawyer son Mitchell and his husband
+                Cameron Tucker have an adopted Vietnamese daughter, Lily Tucker-Pritchett. As the name suggests,
+                this family represents a modern-day family and episodes are comically based on situations which many
+                families encounter in real life.
+            </div>
+        </owl-tab>
+        <owl-tab>
+            <ng-template owl-tab-label>
+                ⭐ Customised Tab Label
+            </ng-template>
+            <div class="owlng-tabs-demo-content" [style.padding.px]="20">
+                The Walking Dead takes place after the onset of a worldwide zombie apocalypse. The zombies,
+                colloquially referred to as "walkers", shamble towards living humans and other creatures to eat them
+                (they are attracted to noise, e.g., gunshots, and to different scents, e.g., humans). Humans that
+                they bite or scratch become infected and slowly turn into walkers as well. It is revealed early in
+                the series that all living humans carry this pathogen, so that if they die from any other cause,
+                they will also turn into walkers. The only way to permanently kill a walker is to damage its brain
+                or otherwise fully destroy the body, such as by cremating it.
+            </div>
+        </owl-tab>
+    </owl-tab-view>
+</div>
+]]></code>
+</pre>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
