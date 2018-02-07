@@ -12,16 +12,21 @@ import { OwlIntroductionService } from './owl-introduction.service';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 
 import { OwlRippleModule } from '../../../npmdist/components/ripple';
+import { OwlTabsModule } from '../../../npmdist/components/tabs';
+import { CodeHighlightDirective } from './code-highlight.directive';
 
 @NgModule({
     imports: [
         CommonModule,
         OwlNGRoutingModule,
-        OwlRippleModule
+
+        OwlRippleModule,
+        OwlTabsModule,
     ],
     exports: [],
     declarations: [
         OwlComponent,
+        CodeHighlightDirective,
         OwlNGIntroductionComponent,
         OwlNGStartComponent,
 

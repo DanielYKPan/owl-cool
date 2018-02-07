@@ -1,4 +1,4 @@
-<section class="owlng-demo">
+<section class="owlng-content owlng-demo">
     <div class="owlng-demo-row">
         <h5 class="demo-header">Basic</h5>
         <div class="yk-g">
@@ -61,4 +61,370 @@
             </div>
         </div>
     </div>
+</section>
+
+<section class="owlng-doc owlng-content">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>It is an Angular directive to make element have material ripple effects. Inspired by Angular Material
+                    Design, this implementation
+                    contains the ripple animation for buttons and links.</p>
+                <div class="owlng-doc-alert">
+                    <em>
+                        If the ripple directive's host element has a 'static' css position, it would make its position
+                        to be 'relative'. If this would affect your design, you could wrap the element
+                        into a 'div' block, and set your desire css position value to that 'div' block.
+                    </em>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlRippleModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple>Click Me</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Animation"> -->
+                <h3 id="animation" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#animation">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Animation
+                </h3>
+                <p>
+                    By setting property <b>[owlRippleFadeInDuration]</b>, user could slow down or speed up the ripple
+                    spread process. The default value is 600ms.
+                </p>
+                <p>
+                    By setting property <b>[owlRippleFadeOutDuration]</b>, user could slow down or speed up the ripple
+                    disappear process. The default value is 400ms.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple
+        [owlRippleFadeInDuration]="600"
+        [owlRippleFadeOutDuration]="400">
+    Click Me
+</button>
+]]></code>
+</pre>
+                <p>
+                    In addition, specify property <b>[owlRippleCentered]</b> to true, the ripple would always start from
+                    the center of the element. By default, the ripple starts from the position where the user clicks on
+                    the element.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple [owlRippleCentered]="true">Click Me</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Customise"> -->
+                <h3 id="customise" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#customise">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Ripple Color and Radius
+                </h3>
+                <p>
+                    User could set property <b>[owlRippleColor]</b> to change the ripple's color. The default color is
+                    'rgba(0, 0, 0, .1)'.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple [owlRippleColor]="'rgba(233, 50, 50, 0.4)'">Click Me</button>
+]]></code>
+</pre>
+                <p>
+                    By default, the ripple effect is not visible outside the host element. User could override this by
+                    setting property <b>[owlRippleUnbounded]</b> to true.
+                </p>
+                <p>
+                    Besides, the radius will be the distance from the center of the ripple to the furthest corner of the
+                    host element's bounding rectangle. Set <b>[owlRippleRadius]</b> to a value, which would define the
+                    radius in pixels of foreground ripples when fully expanded.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple
+        [owlRippleUnbounded]="true"
+        [owlRippleRadius]="80">
+    Click Me
+</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Trigger Element"> -->
+                <h3 id="trigger-element" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#trigger-element">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Trigger Element
+                </h3>
+                <p>
+                    The element that triggers the ripple effect is the ripple directive's host element. User could set
+                    <b>[owlRippleTriggerElement]</b> to a different HTML element.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button #btn>
+    Click Me
+    <span owlRipple [owlRippleTriggerElement]="btn"></span>
+</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dependencies"> -->
+                <h3 id="dependencies" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#dependencies">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dependencies
+                </h3>
+                <p>None</p>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties"> -->
+                <h3 id="properties" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#properties">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>owlRippleDisabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">When specified to true, click events will not trigger the ripple.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleCentered</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">When specified to true, the ripple would always start from the center of
+                                the
+                                element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleFadeInDuration</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>600</code></td>
+                            <td align="left">The duration of ripple to fade in. The unit is 'ms'.</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleFadeOutDuration</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>400</code></td>
+                            <td align="left">The duration of ripple to fade out. The unit is 'ms'.</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleRadius</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">The radius of the ripple in 'px'.</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleColor</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>rgba(0, 0, 0, .1)</code></td>
+                            <td align="left">The color of the ripple.</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">Class that is assign to ripple element.</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleTriggerElement</code></td>
+                            <td align="left">HTMLElement</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>ripple directive's host element</code></td>
+                            <td align="left">Define the element that triggers the ripple when click events are received.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlRippleUnbounded</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">Whether foreground ripples should be visible outside the ripple directive's
+                                host element bounds
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/ripple-effect#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.owl-ripple {
+  overflow: hidden;
+  user-select: none;
+
+  &.owl-ripple-unbounded {
+    overflow: visible;
+  }
+}
+
+.owl-ripple-element {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, .1);
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Basic</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" owlRipple>Click Me</button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <div class="owlng-ripple-iconWrapper" owlRipple>
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Centered Ripple</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" owlRipple [owlRippleCentered]="true">Click Me</button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleCentered]="true">
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Different colors</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" owlRipple [owlRippleColor]="'rgba(81, 45, 168, 0.4)'">Click Me</button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleColor]="'rgba(189, 50, 50, 0.4)'">
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Unbounded with a different radius</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" owlRipple [owlRippleCentered]="true"
+                    [owlRippleUnbounded]="true" [owlRippleRadius]="80">Click Me
+            </button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <div class="owlng-ripple-iconWrapper" owlRipple [owlRippleCentered]="true"
+                 [owlRippleUnbounded]="true" [owlRippleRadius]="50">
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
 </section>
