@@ -158,6 +158,7 @@ $dark-white: #f5f7f8;
   .owlng-doc-table-wrapper {
     margin-top: .5em;
     box-sizing: border-box;
+    overflow-x: scroll;
 
     .owlng-doc-table {
       width: 100%;
