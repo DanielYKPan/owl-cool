@@ -26,6 +26,7 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
                     data: {
                         name: 'page-owlng',
                         showSidePanel: true,
+                        animation: 'getting-start',
                     },
                 },
                 {
@@ -34,6 +35,7 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
                     data: {
                         name: 'page-owlng',
                         showSidePanel: true,
+                        animation: 'ripple-effect',
                     },
                 },
                 {
@@ -42,6 +44,7 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
                     data: {
                         name: 'page-owlng',
                         showSidePanel: true,
+                        animation: 'tab-view',
                     },
                 },
             ]

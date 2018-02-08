@@ -1,5 +1,8 @@
 <div class="layout-content">
     <app-owl-introduction></app-owl-introduction>
-    <router-outlet (deactivate)="onDeactivate()"></router-outlet>
+    <div class="layout-route-content"
+         [@routerAnimations]="prepareRouteTransition(outlet)">
+        <router-outlet (deactivate)="onDeactivate()" #outlet="outlet"></router-outlet>
+    </div>
     <owl-back-top></owl-back-top>
 </div>
