@@ -18,4 +18,12 @@ export class OwlComponent implements OnInit {
 
     public ngOnInit() {
     }
+
+    /**
+     * Scroll to top when route changed
+     * https://github.com/angular/angular/issues/7791
+     * */
+    public onDeactivate() {
+        window.scrollTo(0, 0);
+    }
 }
