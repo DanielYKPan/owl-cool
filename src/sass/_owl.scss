@@ -253,3 +253,24 @@ Ripple Effect
     font-size: 20px;
   }
 }
+
+/*
+  Back to Top
+*/
+
+.owlng-backTop-docPanel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border: solid 1px #cfd8dc;
+  background-color: #e2e2e2;
+
+  .owlng-backTop-docPanelContent {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}

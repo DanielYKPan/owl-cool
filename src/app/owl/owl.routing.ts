@@ -8,6 +8,7 @@ import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
+import { OwlNGBackTopComponent } from './backTop/back-top.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -27,6 +28,15 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'getting-start',
+                    },
+                },
+                {
+                    path: 'back-top',
+                    component: OwlNGBackTopComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'back-top',
                     },
                 },
                 {
