@@ -89,6 +89,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         slug: '/owlng/tab-view',
                         level: 2
                     },
+                    {
+                        name: 'Tooltip',
+                        slug: '/owlng/tooltip',
+                        level: 2
+                    },
                 ]
             }
         ];

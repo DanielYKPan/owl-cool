@@ -14,11 +14,13 @@ import { CodeHighlightDirective } from './code-highlight.directive';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
+import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
     OwlBackTopBtnModule,
     OwlRippleModule,
     OwlTabsModule,
+    OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
 
 @NgModule({
@@ -29,6 +31,7 @@ import {
         OwlBackTopBtnModule,
         OwlRippleModule,
         OwlTabsModule,
+        OwlTooltipModule,
     ],
     exports: [],
     declarations: [
@@ -40,6 +43,7 @@ import {
         OwlNGBackTopComponent,
         OwlNGRippleComponent,
         OwlNGTabsComponent,
+        OwlNGTooltipComponent,
     ],
     providers: [
         OwlIntroductionService

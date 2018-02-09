@@ -6,9 +6,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
+
+import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
-import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -55,6 +57,15 @@ import { OwlNGBackTopComponent } from './backTop/back-top.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'tab-view',
+                    },
+                },
+                {
+                    path: 'tooltip',
+                    component: OwlNGTooltipComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'tooltip',
                     },
                 },
             ]

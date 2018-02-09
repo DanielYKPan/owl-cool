@@ -1,0 +1,577 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Basic</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'left'">Hover to show tooltip!</span>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'right'">Hover to show tooltip!</span>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'above'">Hover to show tooltip!</span>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'below'">Hover to show tooltip!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Trigger Tooltip by focus</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <input [owlTooltip]="'I am your tooltip!'"
+                       [owlTooltipPosition]="'left'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <input [owlTooltip]="'I am your tooltip!'"
+                       [owlTooltipPosition]="'right'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <input [owlTooltip]="'I am your tooltip!'"
+                       [owlTooltipPosition]="'above'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <input [owlTooltip]="'I am your tooltip!'"
+                       [owlTooltipPosition]="'below'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Delay to show or hide a tooltip</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'"
+                      [owlTooltipShowDelay]="1000">Tooltip wait 1 second to show</span>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <span [owlTooltip]="'I am your tooltip!'"
+                      [owlTooltipHideDelay]="1000">Tooltip wait 1 second to hide</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Manually calling showTooltip() and hideTooltip()</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-2">
+                <button class="owlng-btn" owlRipple (click)="tooltip.showTooltip()">Show Tooltip</button>
+            </div>
+            <div class="yk-g-12 yk-md-2">
+                <button class="owlng-btn" owlRipple (click)="tooltip.hideTooltip()">Hide Tooltip</button>
+            </div>
+            <div class="yk-g-12">
+                <span [owlTooltip]="'I am your tooltip!'" #tooltip="owlTooltip">Here is a tooltip!</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Tooltip is an Angular directive that provides a text label for a host element. The tooltip would
+                    be displayed with styles and animations when user hovers over or longpresses an element.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlTooltipModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Tooltip is applied to an element with <span class="owlng-doc-code-tag">owlTooltip</span>
+                    directive where the value of the directive defines the text to display.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'I am your tooltip!'">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Position"> -->
+                <h3 id="position" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#position">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tooltip Position
+                </h3>
+                <p>
+                    The tooltip will be displayed below the element by default and this can be configured using
+                    <span class="owlng-doc-code-tag">[owlTooltipPosition]</span>. There are four choices:
+                    'below'(default), 'above', 'left' and 'right'.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'I am your tooltip!'"
+      [owlTooltipPosition]="'right'">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Trigger"> -->
+                <h3 id="trigger" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#trigger">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tooltip Trigger
+                </h3>
+                <p>
+                    Owl Tooltip gets displayed on hover event of its target by default, other option is the focus event
+                    to display and blur to hide. This can be configured via <span class="owlng-doc-code-tag">[owlTooltipTrigger]</span>
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlTooltip]="'I am your tooltip!'"
+       [owlTooltipTrigger]="'focus'"
+       placeholder="Focus to show a tooltip"/>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Delay"> -->
+                <h3 id="delay" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#delay">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tooltip Delay
+                </h3>
+                <p>
+                    Owl Tooltip is displayed or hidden instantly by default. However, user may add delays via
+                    <span class="owlng-doc-code-tag">[owlTooltipShowDelay]</span> and
+                    <span class="owlng-doc-code-tag">[owlTooltipHideDelay]</span>. They accept a number value in terms
+                    of milliseconds.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'I am your tooltip!'"
+      [owlTooltipShowDelay]="1000"
+      [owlTooltipHideDelay]="1000">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <p>
+                    If users want the tooltip stay forever once it shows, set property <span class="owlng-doc-code-tag">[owlTooltipSticky]</span>
+                    to true.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'I am your tooltip!'"
+      [owlTooltipSticky]="true">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Content"> -->
+                <h3 id="content" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#content">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tooltip Content
+                </h3>
+                <p>
+                    If the tooltip's content is only text, then set the content via <span class="owlng-doc-code-tag">[owlTooltip]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'I am your tooltip!'">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <p>
+                    For more complex content (HTML content), then set the content as string via
+                    <span class="owlng-doc-code-tag">[owlTooltip]</span> and set <span class="owlng-doc-code-tag">[owlTooltipEscape]</span>
+                    to false.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span [owlTooltip]="'<span>Complex Tooltip Content</span>'"
+      [owlTooltipEscape]="false">Hover to show a tooltip</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Manual"> -->
+                <h3 id="manual" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#manual">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Manually calling showTooltip() and hideTooltip()
+                </h3>
+                <p>
+                    To manually cause the tooltip to show or hide, you can call the showTooltip() and hideTooltip()
+                    directive methods, which both accept a number in milliseconds to delay before applying the display
+                    change.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button (click)="tooltip.showTooltip()">Show Tooltip</button>
+<button (click)="tooltip.hideTooltip()">Hide Tooltip</button>
+<span [owlTooltip]="'I am your tooltip!'" #tooltip="owlTooltip">Here is a tooltip</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Global Config"> -->
+                <h3 id="config" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#config">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tooltip Global Config
+                </h3>
+                <p>
+                    Tooltip default config could be set by providing options via the <span class="owlng-doc-code-tag">OWL_TOOLTIP_DEFAULT_CONFIG</span>
+                    injection token. In this case, every tooltip in your app would have that default config. Beware, user
+                    could still override individual tooltip's config via tooltip directive API.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { OwlTooltipModule, OWL_TOOLTIP_DEFAULT_CONFIG } from './owl-ng';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        OwlTooltipModule,
+    ],
+    declarations: [
+        AppComponent,
+    ],
+    providers: [
+        {
+            provide: OWL_TOOLTIP_DEFAULT_CONFIG,
+            useValue: {
+                showDelay: 0,
+                hideDelay: 0,
+                touchendHideDelay: 1500,
+                sticky: false,
+                position: 'below',
+                trigger: 'hover'
+            }
+        }
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dependencies"> -->
+                <h3 id="dependencies" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#dependencies">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dependencies
+                </h3>
+                <p>None</p>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <h3 id="properties" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#properties">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owlTooltip</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>owlTooltip</code></td>
+                            <td align="left">string</td>
+                            <td align="left">required</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the content of the tooltip.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipTrigger</code></td>
+                            <td align="left">'hover' | 'focus'</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'hover'</code></td>
+                            <td align="left">
+                                Defines the trigger event to show the tooltip.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipDisabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the tooltip would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipEscape</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                When specified to false, it supports HTML tags in the content.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipPosition</code></td>
+                            <td align="left">'left' | 'top' | 'right' | 'bottom'</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'bottom'</code></td>
+                            <td align="left">
+                                Defines the position of the tooltip.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipHideDelay</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Delay to hide the tooltip in milliseconds.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipShowDelay</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Delay to show the tooltip in milliseconds.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipSticky</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the tooltip would stick forever once it appears.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlTooltipTouchendHideDelay</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>1500</code></td>
+                            <td align="left">
+                                Delay to hide the tooltip in milliseconds in touch device.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/tooltip#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$tooltip-bg-color: rgba(#616161, 0.9);
+$tooltip-color: #ffffff;
+$tooltip-font-size: .7em;
+$arrow-size: .3em;
+
+.owl-tooltip, .owl-tooltip *, .owl-tooltip *:before {
+  box-sizing: border-box;
+}
+
+.owl-tooltip {
+  max-width: 12.5em;
+  border-radius: 0.2em;
+  background-color: $tooltip-bg-color;
+  color: $tooltip-color;
+  pointer-events: none !important;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 2px rgba(56, 54, 54, 0.86);
+  z-index: 1000;
+  margin: .8em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    box-sizing: border-box;
+  }
+
+  &.owl-tooltip-left:before {
+    top: 50%;
+    right: -$arrow-size;
+    margin-top: -$arrow-size;
+    border-width: $arrow-size 0 $arrow-size $arrow-size;
+    border-left-color: $tooltip-bg-color;
+  }
+
+  &.owl-tooltip-above:before {
+    bottom: -$arrow-size;
+    left: 50%;
+    margin-left: -$arrow-size;
+    border-width: $arrow-size $arrow-size 0;
+    border-top-color: $tooltip-bg-color;
+  }
+
+  &.owl-tooltip-right:before {
+    top: 50%;
+    left: -$arrow-size;
+    margin-top: -$arrow-size;
+    border-width: $arrow-size $arrow-size $arrow-size 0;
+    border-right-color: $tooltip-bg-color;
+  }
+
+  &.owl-tooltip-below:before {
+    top: -$arrow-size;
+    left: 50%;
+    margin-left: -$arrow-size;
+    border-width: 0 $arrow-size $arrow-size;
+    border-bottom-color: $tooltip-bg-color;
+  }
+}
+
+.owl-tooltip-container {
+  font-size: $tooltip-font-size;
+  padding: .5em;
+  white-space: pre-line;
+}
+
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Basic</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'left'">Hover to show tooltip!</span>
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'right'">Hover to show tooltip!</span>
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'above'">Hover to show tooltip!</span>
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'" [owlTooltipPosition]="'below'">Hover to show tooltip!</span>
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Trigger Tooltip by focus</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <input [owlTooltip]="'I am your tooltip!'"
+                   [owlTooltipPosition]="'left'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <input [owlTooltip]="'I am your tooltip!'"
+                   [owlTooltipPosition]="'right'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <input [owlTooltip]="'I am your tooltip!'"
+                   [owlTooltipPosition]="'above'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <input [owlTooltip]="'I am your tooltip!'"
+                   [owlTooltipPosition]="'below'" [owlTooltipTrigger]="'focus'" placeholder="Focus to show tooltip">
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Delay to show or hide a tooltip</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'"
+                  [owlTooltipShowDelay]="1000">Tooltip wait 1 second to show</span>
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <span [owlTooltip]="'I am your tooltip!'"
+                  [owlTooltipHideDelay]="1000">Tooltip wait 1 second to hide</span>
+        </div>
+    </div>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Manually calling showTooltip() and hideTooltip()</h5>
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-2">
+            <button class="owlng-btn" owlRipple (click)="tooltip.showTooltip()">Show Tooltip</button>
+        </div>
+        <div class="yk-g-12 yk-md-2">
+            <button class="owlng-btn" owlRipple (click)="tooltip.hideTooltip()">Hide Tooltip</button>
+        </div>
+        <div class="yk-g-12">
+            <span [owlTooltip]="'I am your tooltip!'" #tooltip="owlTooltip">Here is a tooltip!</span>
+        </div>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
