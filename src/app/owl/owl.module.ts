@@ -13,6 +13,7 @@ import { OwlIntroductionService } from './owl-introduction.service';
 import { CodeHighlightDirective } from './code-highlight.directive';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -21,6 +22,7 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 import {
     OwlBackTopBtnModule,
     OwlFormFieldModule,
+    OwlInputModule,
     OwlRippleModule,
     OwlSelectModule,
     OwlTabsModule,
@@ -36,6 +38,7 @@ import {
 
         OwlBackTopBtnModule,
         OwlFormFieldModule,
+        OwlInputModule,
         OwlRippleModule,
         OwlSelectModule,
         OwlTabsModule,
@@ -49,6 +52,7 @@ import {
         OwlNGStartComponent,
 
         OwlNGBackTopComponent,
+        OwlNGInputComponent,
         OwlNGRippleComponent,
         OwlNGSelectComponent,
         OwlNGTabsComponent,

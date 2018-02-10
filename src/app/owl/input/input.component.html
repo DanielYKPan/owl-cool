@@ -1,0 +1,535 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Basic</h5>
+            <owl-form-field>
+                <input owlInput [(ngModel)]="movieInput" id="movie" name="movie" placeholder="Favourite Movie">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Error Message</h5>
+            <form class="example-form">
+                <owl-form-field>
+                    <input owlInput placeholder="Email"
+                           [formControl]="emailFormControl1">
+                    <owl-error *ngIf="emailFormControl1.hasError('pattern')">
+                        Please enter a valid email address
+                    </owl-error>
+                    <owl-error *ngIf="emailFormControl1.hasError('required')">
+                        Email is <strong>required</strong>
+                    </owl-error>
+                </owl-form-field>
+            </form>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Customise Error Matcher</h5>
+            <form class="example-form">
+                <owl-form-field>
+                    <input owlInput placeholder="Email"
+                           [errorStateMatcher]="matcher"
+                           [formControl]="emailFormControl2">
+                    <owl-error *ngIf="emailFormControl2.hasError('pattern')">
+                        Please enter a valid email address
+                    </owl-error>
+                    <owl-error *ngIf="emailFormControl2.hasError('required')">
+                        Email is <strong>required</strong>
+                    </owl-error>
+                </owl-form-field>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Prefix and Suffix</h5>
+            <owl-form-field>
+                <span owlPrefix>+1 &nbsp;</span>
+                <input owlInput placeholder="Contact Number" [(ngModel)]="telephoneInput">
+                <span owlSuffix><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Hints Labels</h5>
+            <owl-form-field>
+                <input owlInput #message maxlength="256" placeholder="Message">
+                <owl-hint align="start"><strong>Don't disclose personal info</strong></owl-hint>
+                <owl-hint align="end">{{message.value.length}} / 256</owl-hint>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Customise Color</h5>
+            <owl-form-field class="owlng-input-customised">
+                <input owlInput placeholder="Message">
+            </owl-form-field>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Input is an Angular directive for native HTML
+                    <code class="owlng-doc-code-tag"><![CDATA[<input>]]></code> and
+                    <code class="owlng-doc-code-tag"><![CDATA[<textarea>]]></code>.
+                    It works inside of an
+                    <code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-form-field>]]>
+                    </code>, having floating placeholder and underline animation.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlFormFieldModule, OwlInputModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    All of the attributes that can be used with native HTML
+                    <code class="owlng-doc-code-tag"><![CDATA[<input>]]></code> and
+                    <code class="owlng-doc-code-tag"><![CDATA[<textarea>]]></code>
+                    can be used on elements inside
+                    <code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-form-field>]]>
+                    </code>.
+                </p>
+                <p>
+                    The following input types can be used with owlInput: date, datetime-local, email,
+                    month, number, password, search, tel, text, time, url and week.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field>
+    <input owlInput [(ngModel)]="movieInput" id="movie" name="movie" placeholder="Favourite Movie">
+</owl-form-field>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public movieInput = 'Star Wars: The Last Jedi';
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="NG Form"> -->
+                <h3 id="with-ng-form" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#with-ng-form">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Use with @angular/forms
+                </h3>
+                <p><code class="code-tag"><![CDATA[<input owlInput/>]]></code>
+                    is compatible with <b>@angular/forms</b> and supports both <b>FormsModule</b> and <b>ReactiveFormsModule</b>.
+                    This means Angular Form directives <span class="owlng-doc-code-tag">ngModel</span> and
+                    <span class="owlng-doc-code-tag">formControl</span> can be used to bind to your input value.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Form Field"> -->
+                <h3 id="form-field" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#form-field">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Owl Form Field Features
+                </h3>
+                <p>
+                    There are a number of <span class="owlng-doc-code-tag">owl-form-field</span>
+                    features that can be used with
+                    <code class="owlng-doc-code-tag"><![CDATA[<input owlInput>]]></code> or
+                    <code class="owlng-doc-code-tag"><![CDATA[<textarea owlInput>]]></code>.
+                    These include error messages, hint text, prefix & suffix.
+                    For additional information about these features, see the <a class="owlng-doc-link" routerLink="/owlng/form-field">form field
+                    documentation</a>.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Placeholder"> -->
+                <h3 id="placeholder" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#placeholder">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Placeholder
+                </h3>
+                <p>
+                    The placeholder specifies a short hint that describes the expected value of an input field (e.g. a
+                    sample value or a short description of the expected format). This short hint is displayed in the
+                    input field before the user enters a value. When text value is present, the indicative text will
+                    float above this input zone.
+                </p>
+
+                <p>
+                    User could hide the placeholder by setting property <span class="owlng-doc-code-tag">[floatPlaceholder]</span>
+                    to 'never', or have a always floated placeholder by setting <span class="owlng-doc-code-tag">[floatPlaceholder]</span>
+                    to 'always'.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Customise Error Matcher"> -->
+                <h3 id="customise-error-matcher" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#customise-error-matcher">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Error Matcher
+                </h3>
+                <p>
+                    The <span class="owlng-doc-code-tag">owl-form-field</span> allows you to associate error messages
+                    with your owlInput. By default, these error messages are shown when the control is invalid and
+                    either the user has interacted with (touched) the element or the parent form has been submitted. If
+                    you wish to override this behavior (e.g. to show the error as soon as the invalid control is dirty
+                    or when a parent form group is invalid), you can use the errorStateMatcher property of the owlInput.
+                    The property takes an instance of an ErrorStateMatcher object. An ErrorStateMatcher must implement a
+                    single method isErrorState which takes the FormControl for this owlInput as well as the parent form
+                    and returns a boolean indicating whether errors should be shown. (true indicating that they should
+                    be shown, and false indicating that they should not.)
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field>
+    <input owlInput placeholder="Email"
+           [errorStateMatcher]="matcher"
+           [formControl]="emailFormControl">
+    <owl-error *ngIf="emailFormControl.hasError('pattern')">
+        Please enter a valid email address
+    </owl-error>
+    <owl-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+    </owl-error>
+</owl-form-field>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { Component} from '@angular/core';
+import { ErrorStateMatcher } from 'owl-ng';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+        const isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
+}
+
+@Component({
+    selector: 'app-my-component',
+    templateUrl: './my.component.html',
+})
+export class MyComponent {
+
+    public emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.pattern(EMAIL_REGEX)]);
+
+    public matcher = new MyErrorStateMatcher();
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties"> -->
+                <h3 id="properties" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#properties">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owlInput</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>errorStateMatcher</code></td>
+                            <td align="left">ErrorStateMatcher</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                An object used to control when error messages are shown.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the input would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>owl-input-0</code></td>
+                            <td align="left">
+                                Set the unique id for the input.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>placeholder</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the placeholder attribute of the input.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>readonly</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the input would be set to readonly.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>required</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the input would be required to fill value.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'text'</code></td>
+                            <td align="left">
+                                Defines the type of the input
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value of the input
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owlInput
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.owl-input-element {
+  font: inherit;
+  background: 0 0;
+  color: currentColor;
+  border: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+
+  margin-top: -.0625em;
+
+  &::placeholder {
+    color: transparent !important;
+  }
+
+  &::-moz-placeholder {
+    color: transparent !important;
+  }
+
+  &::-webkit-input-placeholder {
+    color: transparent !important;
+  }
+
+  &:-ms-input-placeholder {
+    color: transparent !important;
+  }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+            </div>
+            <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Basic</h5>
+        <owl-form-field>
+            <input owlInput [(ngModel)]="movieInput" id="movie" name="movie" placeholder="Favourite Movie">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Error Message</h5>
+        <form class="example-form">
+            <owl-form-field>
+                <input owlInput placeholder="Email"
+                       [formControl]="emailFormControl1">
+                <owl-error *ngIf="emailFormControl1.hasError('pattern')">
+                    Please enter a valid email address
+                </owl-error>
+                <owl-error *ngIf="emailFormControl1.hasError('required')">
+                    Email is <strong>required</strong>
+                </owl-error>
+            </owl-form-field>
+        </form>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Customise Error Matcher</h5>
+        <form class="example-form">
+            <owl-form-field>
+                <input owlInput placeholder="Email"
+                       [errorStateMatcher]="matcher"
+                       [formControl]="emailFormControl2">
+                <owl-error *ngIf="emailFormControl2.hasError('pattern')">
+                    Please enter a valid email address
+                </owl-error>
+                <owl-error *ngIf="emailFormControl2.hasError('required')">
+                    Email is <strong>required</strong>
+                </owl-error>
+            </owl-form-field>
+        </form>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Prefix and Suffix</h5>
+            <owl-form-field>
+                <span owlPrefix>+1 &nbsp;</span>
+                <input owlInput placeholder="Contact Number" [(ngModel)]="telephoneInput">
+                <span owlSuffix><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Hints Labels</h5>
+            <owl-form-field>
+                <input owlInput #message maxlength="256" placeholder="Message">
+                <owl-hint align="start"><strong>Don't disclose personal info</strong></owl-hint>
+                <owl-hint align="end">{{message.value.length}} / 256</owl-hint>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Customise Color</h5>
+            <owl-form-field class="owlng-input-customised">
+                <input owlInput placeholder="Message">
+            </owl-form-field>
+        </div>
+    </div>
+]]></code>
+</pre>
+            <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { Component} from '@angular/core';
+import { ErrorStateMatcher } from 'owl-ng';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+        const isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
+}
+
+@Component({
+    selector: 'app-my-component',
+    templateUrl: './my.component.html',
+})
+export class MyComponent {
+
+    public movieInput = 'Star Wars: The Last Jedi';
+    public telephoneInput: string;
+
+    public emailFormControl1 = new FormControl('', [
+        Validators.required,
+        Validators.pattern(EMAIL_REGEX)]);
+
+    public emailFormControl2 = new FormControl('', [
+        Validators.required,
+        Validators.pattern(EMAIL_REGEX)]);
+
+    public matcher = new MyErrorStateMatcher();
+}
+]]></code>
+            </pre>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

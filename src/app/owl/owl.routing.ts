@@ -8,6 +8,7 @@ import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -40,6 +41,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'back-top',
+                    },
+                },
+                {
+                    path: 'input',
+                    component: OwlNGInputComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'input',
                     },
                 },
                 {

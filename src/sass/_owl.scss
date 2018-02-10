@@ -214,6 +214,15 @@ $dark-white: #f5f7f8;
       background-color: darken(#444, 15%);
     }
   }
+
+  .owlng-doc-link {
+    display: inline-block;
+    color: #3f51b5;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .owlng-btn {
