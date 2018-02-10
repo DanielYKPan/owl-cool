@@ -1,0 +1,971 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row">
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Basic</h5>
+                <owl-form-field>
+                    <owl-select placeholder="Favorite Team">
+                        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Multiple</h5>
+                <owl-form-field>
+                    <owl-select [multiple]="true" placeholder="Favorite Teams">
+                        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Group</h5>
+                <owl-form-field>
+                    <owl-select placeholder="Favorite Beverage">
+                        <owl-option-group [label]="'Soft Drinks'">
+                            <owl-option [value]="'Coke'">Coke</owl-option>
+                            <owl-option [value]="'Sprite'">Sprite</owl-option>
+                        </owl-option-group>
+                        <owl-option-group [label]="'Beers'">
+                            <owl-option [value]="'Corona'">Corona</owl-option>
+                            <owl-option [value]="'Heineken'">Heineken</owl-option>
+                        </owl-option-group>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="owlng-demo-row">
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">[ngModel]</h5>
+                <owl-form-field>
+                    <owl-select [(ngModel)]="favoriteTeam" placeholder="Favorite Team">
+                        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">[formControl]</h5>
+                <owl-form-field>
+                    <owl-select [formControl]="favoriteTeams" [multiple]="true" placeholder="Favorite Team">
+                        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Multiple with Limit</h5>
+                <owl-form-field>
+                    <owl-select [(ngModel)]="limitTeams"
+                                [owlSelectRange]="[3, 3]"
+                                #teamInput="ngModel"
+                                [multiple]="true" placeholder="3 Favorite Teams">
+                        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                    </owl-select>
+                    <div *ngIf="teamInput.invalid && (teamInput.dirty || teamInput.touched) && teamInput.errors.owlSelectRange"
+                         owlError>
+                        Selected Teams must 3
+                    </div>
+                </owl-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="owlng-demo-row">
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Select Object Option</h5>
+                <owl-form-field>
+                    <owl-select
+                            [(ngModel)]="selectedCar"
+                            [compareFn]="carCompareFn"
+                            placeholder="Select a Car">
+                        <owl-option *ngFor="let car of cars" [value]="car">{{car.brand}} {{car.year}}</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Disable Option</h5>
+                <owl-form-field>
+                    <owl-select placeholder="Select a option">
+                        <owl-option value="option1">Option 1</owl-option>
+                        <owl-option value="option2" [disabled]="true">Option 2 (disabled)</owl-option>
+                        <owl-option value="option3">Option 3</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+
+            <div class="yk-g-12 yk-md-4">
+                <h5 class="demo-header">Custom Style to Dropdown</h5>
+                <owl-form-field>
+                    <owl-select placeholder="Panel color" [formControl]="panelColor"
+                                panelClass="example-panel-{{panelColor.value}}">
+                        <owl-option value="red">Red</owl-option>
+                        <owl-option value="green">Green</owl-option>
+                        <owl-option value="blue">Blue</owl-option>
+                    </owl-select>
+                </owl-form-field>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Select is an Angular component for selecting a value / multiplie values from a set of options.
+                    It is designed to work like a native HTML element
+                    <code class="owlng-doc-code-tag"><![CDATA[<select></select>]]></code>. It works inside of an
+                    <code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-form-field></owl-form-field>
+                        ]]></code>
+                    element, having floating placeholder and underline animation.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlFormFieldModule, OwlSelectModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Select requires a value to bind and a collection of options.
+                </p>
+                <p>
+                    Options could be wrap inside <span class="owlng-doc-code-tag">owl-option</span>, and use property
+                    <span class="owlng-doc-code-tag">[value]</span> to define the option's value. User could also
+                    use it with <span class="owlng-doc-code-tag">ngFor</span> to iterate through an array of objects.
+                    Note that user can disable certain options by adding the disabled boolean attribute or binding to
+                    it.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-option [value]="'BMW'">BMW</owl-option>
+
+<owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+]]></code>
+</pre>
+                <p>
+                    In addition, options could be grouped with <span class="owlng-doc-code-tag">owl-option-group</span>,
+                    and use property <span class="owlng-doc-code-tag">[label]</span> to label the option group.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-option-group [label]="'Soft Drinks'">
+    <owl-option [value]="'Coke'">Coke</owl-option>
+    <owl-option [value]="'Sprite'">Sprite</owl-option>
+</owl-option-group>
+]]></code>
+</pre>
+                <p>
+                    Owl Select is set up for both Template-driven Forms and Reactive Forms. User can manipulate the
+                    select's value using any of the form directives from the core <span class="owlng-doc-code-tag">FormsModule</span>
+                    or <span class="owlng-doc-code-tag">ReactiveFormsModule</span>: <span class="owlng-doc-code-tag">ngModel</span>,
+                    <span class="owlng-doc-code-tag">formControl</span>, etc.
+                </p>
+
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field>
+    <owl-select [(ngModel)]="selectedTeam" placeholder="Favorite Team">
+        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+    </owl-select>
+</owl-form-field>
+
+<owl-form-field>
+    <owl-select [formControl]="selectedTeam" placeholder="Favorite Team">
+        <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+    </owl-select>
+</owl-form-field>
+]]></code>
+</pre>
+
+                <p>
+                    If the value of the options is an object, bind property
+                    <span class="owlng-doc-code-tag">[compareFn]</span> to a function to compare the option values with
+                    the selected values.
+                </p>
+
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field>
+    <owl-select [(ngModel)]="selectedCar"
+                [compareFn]="carCompareFn"
+                placeholder="Favorite Car">
+        <owl-option *ngFor="let car of cars" [value]="car">{{car.brand}}</owl-option>
+    </owl-select>
+</owl-form-field>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    public selectedCar = {'id': 'gwregre345', 'brand': 'Audi', 'year': 2011, 'color': 'Black'};
+
+    public cars: any[] = [
+        {'id': 'dsad231ff', 'brand': 'VW', 'year': 2012, 'color': 'Orange'},
+        {'id': 'gwregre345', 'brand': 'Audi', 'year': 2011, 'color': 'Black'},
+        {'id': 'h354htr', 'brand': 'Renault', 'year': 2005, 'color': 'Gray'},
+        {'id': 'j6w54qgh', 'brand': 'BMW', 'year': 2003, 'color': 'Blue'},
+    ];
+
+    public carCompareFn = ( car1: any, car2: any ): boolean => {
+        return car1.id === car2.id;
+    }
+
+    constructor() {
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dependencies"> -->
+                <h3 id="dependencies" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#dependencies">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dependencies
+                </h3>
+                <p>None</p>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties owl-select"> -->
+                <h3 id="properties-owl-select" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#properties-owl-select">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owl-select</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>aria-describedby</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                The aria-describedby attribute on the select for improved a11y.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Aria label of the select. If not specified, the placeholder will be used as label.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-labelledby</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Input that can be used to specify the `aria-labelledby` attribute.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>compareFn</code></td>
+                            <td align="left">Function</td>
+                            <td align="left">optional</td>
+                            <td align="left">
+                                <pre><code><![CDATA[
+                                    ( o1: any, o2: any ) => o1 === o2;
+                                    ]]></code></pre>
+                            </td>
+                            <td align="left">
+                                A function to compare the option values with the selected values.
+                                The 1st argument is a value from an option.
+                                The 2nd argument is a value from the selection.
+                                A boolean value would be returned.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the select element would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disableRipple</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the ripple effect would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>errorStateMatcher</code></td>
+                            <td align="left">ErrorStateMatcher</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                By default, the select error messages are shown when the control is invalid and either
+                                the user has interacted with (touched) the element or the parent form has been
+                                submitted.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>owl-select-0</code></td>
+                            <td align="left">
+                                Set the unique id for select input.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>multiple</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, user could select multiple option.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>overlapTrigger</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the options panel should overlap this select trigger.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>panelClass</code></td>
+                            <td align="left">string | string[]</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Classes to be passed to the select panel. Supports the same syntax as `ngClass`.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>placeholder</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Placeholder to be shown if no value has been selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>required</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether this select control need to be filling out.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>scrollHeight</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>256</code></td>
+                            <td align="left">
+                                The height of the overlay panel in pixels, a scrollbar is defined if height of option
+                                list exceeds this value.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tabindex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines the value of the host element tabindex attribute
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value of the select control
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-select"> -->
+                <h3 id="events-owl-select" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#events-owl-select">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-select</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>selectPanelOpen</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emitted when the select options panel has been opened.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selectPanelClose</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emitted when the select options panel has been closed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-option"> -->
+                <h3 id="properties-owl-option" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#properties-owl-option">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owl-option</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the option would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">require</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value of the option
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-option"> -->
+                <h3 id="events-owl-option" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#events-owl-option">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-option</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>selectionChange</code></td>
+                            <td align="left">
+                                event.source -- the option component,
+                                event.selected -- boolean value, whether the option is selected
+                            </td>
+                            <td align="left">
+                                Event emitted when the option's selected state has been changed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-option-group"> -->
+                <h3 id="properties-owl-option-group" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#properties-owl-option-group">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owl-option-group</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the option group would be disabled, options in this group could
+                                not be selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">require</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the label for the option group.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="style" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/select#style">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-select, owl-option and owl-option-group
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$check-box-size: 1.25em;
+$check-box-margin: .5em;
+
+.owl-option {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 3em;
+  height: 3em;
+  padding: 0 1em;
+  text-align: left;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  outline: 0;
+
+  color: rgba(0, 0, 0, .9);
+
+  &:hover:not(.owl-option-disabled),
+  &.owl-option-active:not(.owl-option-disabled) {
+    background: rgba(0, 0, 0, .05);
+  }
+
+  &.owl-option-selected:not(.owl-option-disabled) {
+    background: rgba(0, 0, 0, .15);
+
+    .owl-option-text {
+      color: #3f51b5;
+    }
+  }
+}
+
+.owl-option-disabled {
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+  cursor: default !important;
+}
+
+.owl-option-ripple {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.owl-pseudo-checkbox {
+  width: $check-box-size;
+  height: $check-box-size;
+  border: 2px solid;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),
+  background-color 90ms cubic-bezier(0, 0, 0.2, 0.1);
+  color: rgba(0, 0, 0, .54);
+
+  &.owl-pseudo-checkbox-checked,
+  &.owl-pseudo-checkbox-indeterminate {
+    border: none;
+    background-color: #3f51b5;
+    color: #fafafa;
+
+    &.owl-pseudo-checkbox-disabled {
+      background: #b0b0b0;
+      cursor: default;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    opacity: 0;
+    content: '';
+    border-bottom: 2px solid currentColor;
+    transition: opacity 90ms cubic-bezier(0, 0, 0.2, 0.1);
+    box-sizing: border-box;
+  }
+
+  &.owl-pseudo-checkbox-checked:after {
+    top: .35em;
+    left: .2em;
+    width: .8em;
+    height: .4em;
+    border-left: 2px solid currentColor;
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+
+  &.owl-pseudo-checkbox-indeterminate:after {
+    top: .49em;
+    left: .2em;
+    width: .8em;
+    opacity: 1;
+  }
+}
+
+.owl-option-pseudo-checkbox {
+  margin-right: $check-box-margin;
+}
+
+.owl-option-group {
+
+  .owl-option-group-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 3em;
+    height: 3em;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    user-select: none;
+    cursor: default;
+
+    color: rgba(0, 0, 0, .5);
+  }
+
+  .owl-option:not(.owl-option-multiple) {
+    padding: 0 2em;
+  }
+}
+
+.owl-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.owl-select-trigger-wrapper {
+  display: inline-flex;
+  width: 100%;
+  height: 1.125em;
+}
+
+.owl-select-value-wrapper {
+  flex: 1;
+}
+
+.owl-select-arrow-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.owl-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: .3em solid transparent;
+  border-right: .3em solid transparent;
+  border-top: .3em solid;
+  margin: 0 4px;
+}
+
+.owl-select-arrow,
+.owl-select-disabled .owl-select-value {
+  color: rgba(0, 0, 0, .6);
+}
+
+.owl-select-panel {
+  position: relative;
+  height: auto;
+  max-width: 95vw;
+  max-height: 256px;
+  overflow: auto;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+}
+
+.owl-select-options-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Basic</h5>
+            <owl-form-field>
+                <owl-select placeholder="Favorite Team">
+                    <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Multiple</h5>
+            <owl-form-field>
+                <owl-select [multiple]="true" placeholder="Favorite Teams">
+                    <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Group</h5>
+            <owl-form-field>
+                <owl-select placeholder="Favorite Beverage">
+                    <owl-option-group [label]="'Soft Drinks'">
+                        <owl-option [value]="'Coke'">Coke</owl-option>
+                        <owl-option [value]="'Sprite'">Sprite</owl-option>
+                    </owl-option-group>
+                    <owl-option-group [label]="'Beers'">
+                        <owl-option [value]="'Corona'">Corona</owl-option>
+                        <owl-option [value]="'Heineken'">Heineken</owl-option>
+                    </owl-option-group>
+                </owl-select>
+            </owl-form-field>
+        </div>
+    </div>
+</div>
+<div class="owlng-demo-row">
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">[ngModel]</h5>
+            <owl-form-field>
+                <owl-select [(ngModel)]="favoriteTeam" placeholder="Favorite Team">
+                    <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">[formControl]</h5>
+            <owl-form-field>
+                <owl-select [formControl]="favoriteTeams" [multiple]="true" placeholder="Favorite Team">
+                    <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Multiple with Limit</h5>
+            <owl-form-field>
+                <owl-select [(ngModel)]="limitTeams"
+                            [owlSelectRange]="[3, 3]"
+                            #teamInput="ngModel"
+                            [multiple]="true" placeholder="3 Favorite Teams">
+                    <owl-option *ngFor="let team of teams" [value]="team">{{team}}</owl-option>
+                </owl-select>
+                <div *ngIf="teamInput.invalid && (teamInput.dirty || teamInput.touched) && teamInput.errors.owlSelectRange"
+                     owlError>
+                    Selected Teams must 3
+                </div>
+            </owl-form-field>
+        </div>
+    </div>
+</div>
+<div class="owlng-demo-row">
+    <div class="yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Select Object Option</h5>
+            <owl-form-field>
+                <owl-select
+                        [(ngModel)]="selectedCar"
+                        [compareFn]="carCompareFn"
+                        placeholder="Select a Car">
+                    <owl-option *ngFor="let car of cars" [value]="car">{{car.brand}} {{car.year}}</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Disable Option</h5>
+            <owl-form-field>
+                <owl-select placeholder="Select a option">
+                    <owl-option value="option1">Option 1</owl-option>
+                    <owl-option value="option2" [disabled]="true">Option 2 (disabled)</owl-option>
+                    <owl-option value="option3">Option 3</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Custom Style to Dropdown</h5>
+            <owl-form-field>
+                <owl-select placeholder="Panel color" [formControl]="panelColor"
+                            panelClass="example-panel-{{panelColor.value}}">
+                    <owl-option value="red">Red</owl-option>
+                    <owl-option value="green">Green</owl-option>
+                    <owl-option value="blue">Blue</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    public teams = [
+        'Warriors',
+        'Lakers',
+        '76ers',
+        'Celtics',
+        'Raptors',
+    ];
+
+    public favoriteTeam = 'Lakers';
+
+    public favoriteTeams = new FormControl(['Warriors', 'Lakers', 'Celtics', ]);
+
+    public limitTeams: string[];
+
+    public panelColor = new FormControl('red');
+
+    public selectedCar = {'id': 'gwregre345', 'brand': 'Audi', 'year': 2011, 'color': 'Black'};
+
+    public cars: any[] = [
+        {'id': 'dsad231ff', 'brand': 'VW', 'year': 2012, 'color': 'Orange'},
+        {'id': 'gwregre345', 'brand': 'Audi', 'year': 2011, 'color': 'Black'},
+        {'id': 'h354htr', 'brand': 'Renault', 'year': 2005, 'color': 'Gray'},
+        {'id': 'j6w54qgh', 'brand': 'BMW', 'year': 2003, 'color': 'Blue'},
+    ];
+
+    public carCompareFn = ( car1: any, car2: any ): boolean => {
+        return car1.id === car2.id;
+    }
+
+    constructor() {
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

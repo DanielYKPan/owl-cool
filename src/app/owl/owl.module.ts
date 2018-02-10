@@ -4,6 +4,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlComponent } from './owl.component';
 import { OwlNGRoutingModule } from './owl.routing';
 import { OwlNGStartComponent } from './getting-start.component';
@@ -13,12 +14,15 @@ import { CodeHighlightDirective } from './code-highlight.directive';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
+import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
     OwlBackTopBtnModule,
+    OwlFormFieldModule,
     OwlRippleModule,
+    OwlSelectModule,
     OwlTabsModule,
     OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
@@ -26,10 +30,14 @@ import {
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         OwlNGRoutingModule,
 
         OwlBackTopBtnModule,
+        OwlFormFieldModule,
         OwlRippleModule,
+        OwlSelectModule,
         OwlTabsModule,
         OwlTooltipModule,
     ],
@@ -42,6 +50,7 @@ import {
 
         OwlNGBackTopComponent,
         OwlNGRippleComponent,
+        OwlNGSelectComponent,
         OwlNGTabsComponent,
         OwlNGTooltipComponent,
     ],

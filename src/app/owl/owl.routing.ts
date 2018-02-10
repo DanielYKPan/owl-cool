@@ -9,6 +9,7 @@ import { OwlNGStartComponent } from './getting-start.component';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
+import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
@@ -48,6 +49,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'ripple-effect',
+                    },
+                },
+                {
+                    path: 'select',
+                    component: OwlNGSelectComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'select',
                     },
                 },
                 {
