@@ -28,6 +28,7 @@ import {
     OwlTabsModule,
     OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
+import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 
 @NgModule({
     imports: [
@@ -52,6 +53,7 @@ import {
         OwlNGStartComponent,
 
         OwlNGBackTopComponent,
+        OwlNGFormFieldComponent,
         OwlNGInputComponent,
         OwlNGRippleComponent,
         OwlNGSelectComponent,

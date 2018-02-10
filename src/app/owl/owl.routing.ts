@@ -13,6 +13,7 @@ import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
+import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -41,6 +42,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'back-top',
+                    },
+                },
+                {
+                    path: 'form-field',
+                    component: OwlNGFormFieldComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'form-field',
                     },
                 },
                 {
