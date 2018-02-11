@@ -21,6 +21,7 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
     OwlBackTopBtnModule,
+    OwlChipsModule,
     OwlFormFieldModule,
     OwlInputModule,
     OwlRippleModule,
@@ -29,6 +30,7 @@ import {
     OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
+import { OwlNGChipsComponent } from './chips/chips.component';
 
 @NgModule({
     imports: [
@@ -38,6 +40,7 @@ import { OwlNGFormFieldComponent } from './form-field/form-field.component';
         OwlNGRoutingModule,
 
         OwlBackTopBtnModule,
+        OwlChipsModule,
         OwlFormFieldModule,
         OwlInputModule,
         OwlRippleModule,
@@ -53,6 +56,7 @@ import { OwlNGFormFieldComponent } from './form-field/form-field.component';
         OwlNGStartComponent,
 
         OwlNGBackTopComponent,
+        OwlNGChipsComponent,
         OwlNGFormFieldComponent,
         OwlNGInputComponent,
         OwlNGRippleComponent,

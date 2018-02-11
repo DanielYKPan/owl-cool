@@ -8,12 +8,13 @@ import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGChipsComponent } from './chips/chips.component';
+import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
-import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -42,6 +43,15 @@ import { OwlNGFormFieldComponent } from './form-field/form-field.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'back-top',
+                    },
+                },
+                {
+                    path: 'chips',
+                    component: OwlNGChipsComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'chips',
                     },
                 },
                 {

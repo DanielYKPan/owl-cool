@@ -1,0 +1,910 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Basic</h5>
+            <owl-chip-list>
+                <owl-chip>Stephen Curry</owl-chip>
+                <owl-chip>Klay Thompson</owl-chip>
+                <owl-chip [selected]="true">Kevin Durant</owl-chip>
+                <owl-chip [selected]="true">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Customise Color</h5>
+            <owl-chip-list>
+                <owl-chip [ngStyle]="{background: '#00897b', color: '#ffffff'}">Stephen Curry</owl-chip>
+                <owl-chip [ngStyle]="{background: '#c0ca33', color: '#ffffff'}">Klay Thompson</owl-chip>
+                <owl-chip [ngStyle]="{background: '#ffb300', color: '#ffffff'}">Kevin Durant</owl-chip>
+                <owl-chip [ngStyle]="{background: '#f4511e', color: '#ffffff'}">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Chips with Avatar</h5>
+            <owl-chip-list>
+                <owl-chip>
+                    <owl-chip-prefix class="demo-pic-wrapper">
+                        <img class="demo-pic" src="./assets/images/demo/curry.png">
+                    </owl-chip-prefix>
+                    Stephen Curry
+                </owl-chip>
+                <owl-chip>
+                    <owl-chip-prefix class="demo-pic-wrapper">
+                        <img class="demo-pic" src="./assets/images/demo/thompson.png">
+                    </owl-chip-prefix>
+                    Klay Thompson
+                </owl-chip>
+                <owl-chip>
+                    <owl-chip-prefix class="demo-pic-wrapper">
+                        <img class="demo-pic" src="./assets/images/demo/durant.png">
+                    </owl-chip-prefix>
+                    Kevin Durant
+                </owl-chip>
+                <owl-chip>
+                    <owl-chip-prefix class="demo-pic-wrapper">
+                        <img class="demo-pic" src="./assets/images/demo/green.png">
+                    </owl-chip-prefix>
+                    Draymond Green
+                </owl-chip>
+            </owl-chip-list>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Chips with remove icon</h5>
+            <owl-chip-list>
+                <owl-chip [removable]="true">
+                    Stephen Curry
+                    <owl-chip-remove></owl-chip-remove>
+                </owl-chip>
+                <owl-chip [removable]="true">
+                    Klay Thompson
+                    <owl-chip-remove></owl-chip-remove>
+                </owl-chip>
+                <owl-chip [removable]="true">
+                    Kevin Durant
+                    <owl-chip-remove></owl-chip-remove>
+                </owl-chip>
+                <owl-chip [removable]="true">
+                    Draymond Green
+                    <owl-chip-remove></owl-chip-remove>
+                </owl-chip>
+            </owl-chip-list>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Disabled Chips</h5>
+            <owl-chip-list>
+                <owl-chip [disabled]="true">Stephen Curry</owl-chip>
+                <owl-chip [disabled]="true">Klay Thompson</owl-chip>
+                <owl-chip [disabled]="true">Kevin Durant</owl-chip>
+                <owl-chip [disabled]="true">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Unselectable Chips</h5>
+            <owl-chip-list>
+                <owl-chip [selectable]="false">Stephen Curry</owl-chip>
+                <owl-chip [selectable]="false">Klay Thompson</owl-chip>
+                <owl-chip [selectable]="false">Kevin Durant</owl-chip>
+                <owl-chip [selectable]="false">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Chips with input</h5>
+            <owl-form-field>
+                <owl-chip-list [multiple]="true" #chipList>
+                    <owl-chip *ngFor="let drink of drinks"
+                              [removable]="true" (remove)="removeDrinks(drink)">{{drink.name}}
+                        <owl-chip-remove></owl-chip-remove>
+                    </owl-chip>
+                    <input placeholder="Drinks"
+                           [owlChipInputFor]="chipList"
+                           (inputConfirm)="addDrinks($event)">
+                </owl-chip-list>
+            </owl-form-field>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Chip is a Angular component showing a chip-like individual. User could group several chips into
+                    a list, or add/remove them with a chip input.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlChipsModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <h4>Single Chip</h4>
+                <p>
+                    Wrap the chip text into <span class="owlng-doc-code-tag">owl-chip</span> to show a single chip.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip>My Chip</owl-chip>
+]]></code>
+</pre>
+                <p>
+                    User could style a single chip by using inline style or css style class. In addition, individual
+                    chips may be disabled by applying the <span class="owlng-doc-code-tag">[disabled]</span> attribute
+                    to the chip. When disabled, chips are neither selectable nor focusable.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip class="myStyleClass" [ngStyle]="{background: '#673ab7'}">My Chip</owl-chip>
+]]></code>
+</pre>
+                <p>
+                    <span class="owlng-doc-code-tag">owl-chip</span> can have an avatar prefix by adding
+                    <span class="owlng-doc-code-tag">owl-chip-prefix</span> inside it.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip>
+     <owl-chip-prefix>
+        <img src="./your-pic.png">
+    </owl-chip-prefix>
+    My Chip
+</owl-chip>
+]]></code>
+</pre>
+
+                <p>
+                    <span class="owlng-doc-code-tag">owl-chip</span> can have a remove icon by using
+                    <span class="owlng-doc-code-tag">owl-chip-remove</span>. Clicking the remove icon would fire
+                    callback function <span class="owlng-doc-code-tag">(remove)</span> in
+                    <span class="owlng-doc-code-tag">owl-chip</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip [removable]="true" (remove)="yourRemoveFn($event)">
+    My Chip
+    <owl-chip-remove></owl-chip-remove>
+</owl-chip>
+]]></code>
+</pre>
+
+                <h4>Chip List</h4>
+                <p>
+                    Chips could be grouped into a list by using <span class="owlng-doc-code-tag">owl-chip-list</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip-list>
+    <owl-chip>Chip One</owl-chip>
+    <owl-chip>Chip Two</owl-chip>
+    <owl-chip>Chip Three</owl-chip>
+    <owl-chip>Chip Four</owl-chip>
+</owl-chip-list>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Chips Input"> -->
+                <h3 id="chips-with-input" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#chips-with-input">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Chips with input
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">owlChipInput</span> is a directive that can be used together with a
+                    <span class="owlng-doc-code-tag">owl-chip-list</span>. User could put text into input and click
+                    ENTER to fire callback function <span class="owlng-doc-code-tag">(inputConfirm)</span> to get value
+                    from owlChipInput. Using with <span class="owlng-doc-code-tag">owl-form-field</span> can also bring
+                    the floating placeholder and underline style to the input.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field>
+    <owl-chip-list [multiple]="true" #chipList>
+        <owl-chip *ngFor="let drink of drinks"
+                  [removable]="true" (remove)="removeDrinks(drink)">
+            {{drink.name}}
+            <owl-chip-remove></owl-chip-remove>
+        </owl-chip>
+        <input placeholder="Drinks"
+               [owlChipInputFor]="chipList"
+               (inputConfirm)="addDrinks($event)">
+    </owl-chip-list>
+</owl-form-field>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    public drinks = [
+        {name: 'Coke'},
+        {name: 'Sprite'},
+        {name: 'Soda'},
+    ];
+
+    public addDrinks( event: any ): void {
+        let input = event.input;
+        let value = event.value;
+
+        if ((value || '').trim()) {
+            this.drinks.push({name: value.trim()});
+        }
+
+        if (input) {
+            input.value = '';
+        }
+    }
+
+    public removeDrinks( drink: any ): void {
+        let index = this.drinks.indexOf(drink);
+
+        if (index >= 0) {
+            this.drinks.splice(index, 1);
+        }
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Select Chip"> -->
+                <h3 id="select-chip" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#select-chip">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Select Chip
+                </h3>
+                <p>
+                    Chips can be selected by clicking SPACE when they are on focus. Users can also manually calling
+                    <span class="owlng-doc-code-tag">toggleSelected</span> on
+                    <span class="owlng-doc-code-tag">owl-chip</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-chip (click)="chip.toggleSelected()" #chip="owlChip">My Chip</owl-chip>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Keyboard Interaction"> -->
+                <h3 id="keyboard-interaction" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#keyboard-interaction">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Keyboard Interaction
+                </h3>
+                <p>
+                    User could use arrow keys to navigate among chips. Use <b>SPACE</b> to select/deselect them, and
+                    use <b>DELETE/BACKSPACE</b> to fire callback function <span class="code-tag">(remove)</span>
+                    to get a removable chip reference. Chips also gain focus when clicked, ensuring keyboard navigation
+                    starts at the appropriate chip.</p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dependencies"> -->
+                <h3 id="dependencies" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#dependencies">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dependencies
+                </h3>
+                <p>None</p>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-chip"> -->
+                <h3 id="properties-owl-chip" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#properties-owl-chip">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties <span class="owlng-doc-code-tag">owl-chip</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">When specified to true, the chip would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>removable</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">When specified to true, the chip could be removed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selectable</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                When specified to false, the chip could NOT be selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selected</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the chip is set to be selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value of the chip
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-chip"> -->
+                <h3 id="events-owl-chip" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#events-owl-chip">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-chip</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>remove</code></td>
+                            <td align="left">
+                                event.originalEvent -- MouseEvent <br/>
+                                event.chip -- OwlChipComponent <br/>
+                                event.value -- the chip's value
+                            </td>
+                            <td align="left">
+                                Event emitted when the chip is being removed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>destroy</code></td>
+                            <td align="left">
+                                event.chip -- OwlChipComponent
+                            </td>
+                            <td align="left">
+                                Event emitted when the chip element is destroyed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>selectionChange</code></td>
+                            <td align="left">
+                                event.chip -- OwlChipComponent <br/>
+                                event.selected -- boolean value, the state of the chip selected
+                            </td>
+                            <td align="left">
+                                Event emitted when the chip's select state changed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-chip-list"> -->
+                <h3 id="properties-owl-chip-list" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#properties-owl-chip-list">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties <span class="owlng-doc-code-tag">owl-chip-list</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>aria-orientation</code></td>
+                            <td align="left">'horizontal' | 'vertical'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'horizontal'</code></td>
+                            <td align="left">
+                                Defines the orientation of the chip list.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>compareFn</code></td>
+                            <td align="left">Function</td>
+                            <td align="left">optional</td>
+                            <td align="left">
+                                <pre><code><![CDATA[
+                                    ( o1: any, o2: any ) => o1 === o2;
+                                    ]]></code></pre>
+                            </td>
+                            <td align="left">
+                                A function to compare the chip value with the selected value.
+                                The 1st argument is a value from an chip.
+                                The 2nd argument is a value from the selection.
+                                A boolean value would be returned.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the chip list would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>errorStateMatcher</code></td>
+                            <td align="left">ErrorStateMatcher</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                By default, the chip list error messages are shown when the control is invalid and
+                                either
+                                the user has interacted with (touched) the element or the parent form has been
+                                submitted.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>owl-chip-list-0</code></td>
+                            <td align="left">
+                                Set the unique id for chip list.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>multiple</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, user could select multiple chips.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>placeholder</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Placeholder to be shown if no value has been selected. It would be overridden by chip
+                                input's placehoder if there is a chip input
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>required</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether this chip list should have value.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tabindex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines the value of the chip list tabindex attribute
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value of the chip list
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-chip-list"> -->
+                <h3 id="events-owl-chip-list" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#events-owl-chip-list">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-chip-list</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>valueChange</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event that emits whenever the raw value of the chip-list changes. This is here primarily
+                                to facilitate the two-way binding for the `value` input.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>change</code></td>
+                            <td align="left">
+                                event.source -- OwlChipListComponent <br/>
+                                event.value -- the chip list's value
+                            </td>
+                            <td align="left">
+                                Callback to invoke when the selected chip list value has been changed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/chips#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-chip, owl-chip-list, owl-chip-remove and owl-chip-prefix
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$chip-height: 2em;
+$theme-color: #3f51b5;
+
+.owl-chip {
+  display: inline-flex;
+  height: $chip-height;
+  border-radius: $chip-height;
+  align-items: center;
+  cursor: default;
+  outline: none;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, .87);
+
+  &.owl-chip-selectable:not(.owl-chip-disabled):not([aria-disabled="true"]):focus {
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+    outline: none;
+  }
+}
+
+.owl-chip-text {
+  display: inline-block;
+  padding: 0 .7em;
+}
+
+.owl-chip-prefix {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: $chip-height;
+  height: $chip-height;
+  background-color: rgba(0, 0, 0, .4);
+  color: currentColor;
+  border-radius: 50%;
+}
+
+.owl-chip-remove {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 1.2em;
+  height: 1.2em;
+  color: rgba(255, 255, 255, .75);
+  background-color: rgba(0, 0, 0, .87);
+  border-radius: 50%;
+  margin-right: .7em;
+  opacity: .4;
+  transition: opacity 200ms ease;
+
+  &:hover {
+    opacity: .55;
+  }
+
+  svg {
+    width: 50%;
+    height: 50%;
+    fill: currentColor;
+  }
+}
+
+.owl-chip-selected {
+  background-color: $theme-color;
+  color: #e0e0e0;
+}
+
+.owl-chip-disabled {
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+  cursor: default !important;
+  outline: none;
+}
+
+.owl-chip-list {
+  display: block;
+  outline: none;
+
+  .owl-chip-list-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    .owl-chip {
+      margin: 0 0 .3em .5em;
+    }
+  }
+
+  &[aria-orientation='vertical'] {
+    .owl-chip-list-wrapper {
+      flex-direction: column;
+    }
+  }
+}
+
+.owl-chip-input {
+  margin: 0 .3em;
+  width: 150px;
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Basic</h5>
+            <owl-chip-list>
+                <owl-chip>Stephen Curry</owl-chip>
+                <owl-chip>Klay Thompson</owl-chip>
+                <owl-chip [selected]="true">Kevin Durant</owl-chip>
+                <owl-chip [selected]="true">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+
+    <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Customise Color</h5>
+            <owl-chip-list>
+                <owl-chip [ngStyle]="{background: '#00897b', color: '#ffffff'}">Stephen Curry</owl-chip>
+                <owl-chip [ngStyle]="{background: '#c0ca33', color: '#ffffff'}">Klay Thompson</owl-chip>
+                <owl-chip [ngStyle]="{background: '#ffb300', color: '#ffffff'}">Kevin Durant</owl-chip>
+                <owl-chip [ngStyle]="{background: '#f4511e', color: '#ffffff'}">Draymond Green</owl-chip>
+            </owl-chip-list>
+        </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Chips with Avatar</h5>
+        <owl-chip-list>
+            <owl-chip>
+                <owl-chip-prefix class="demo-pic-wrapper">
+                    <img class="demo-pic" src="./assets/images/demo/curry.png">
+                </owl-chip-prefix>
+                Stephen Curry
+            </owl-chip>
+            <owl-chip>
+                <owl-chip-prefix class="demo-pic-wrapper">
+                    <img class="demo-pic" src="./assets/images/demo/thompson.png">
+                </owl-chip-prefix>
+                Klay Thompson
+            </owl-chip>
+            <owl-chip>
+                <owl-chip-prefix class="demo-pic-wrapper">
+                    <img class="demo-pic" src="./assets/images/demo/durant.png">
+                </owl-chip-prefix>
+                Kevin Durant
+            </owl-chip>
+            <owl-chip>
+                <owl-chip-prefix class="demo-pic-wrapper">
+                    <img class="demo-pic" src="./assets/images/demo/green.png">
+                </owl-chip-prefix>
+                Draymond Green
+            </owl-chip>
+        </owl-chip-list>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Chips with remove icon</h5>
+        <owl-chip-list>
+            <owl-chip [removable]="true">
+                Stephen Curry
+                <owl-chip-remove></owl-chip-remove>
+            </owl-chip>
+            <owl-chip [removable]="true">
+                Klay Thompson
+                <owl-chip-remove></owl-chip-remove>
+            </owl-chip>
+            <owl-chip [removable]="true">
+                Kevin Durant
+                <owl-chip-remove></owl-chip-remove>
+            </owl-chip>
+            <owl-chip [removable]="true">
+                Draymond Green
+                <owl-chip-remove></owl-chip-remove>
+            </owl-chip>
+        </owl-chip-list>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Disabled Chips</h5>
+        <owl-chip-list>
+            <owl-chip [disabled]="true">Stephen Curry</owl-chip>
+            <owl-chip [disabled]="true">Klay Thompson</owl-chip>
+            <owl-chip [disabled]="true">Kevin Durant</owl-chip>
+            <owl-chip [disabled]="true">Draymond Green</owl-chip>
+        </owl-chip-list>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Unselectable Chips</h5>
+        <owl-chip-list>
+            <owl-chip [selectable]="false">Stephen Curry</owl-chip>
+            <owl-chip [selectable]="false">Klay Thompson</owl-chip>
+            <owl-chip [selectable]="false">Kevin Durant</owl-chip>
+            <owl-chip [selectable]="false">Draymond Green</owl-chip>
+        </owl-chip-list>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Chips with input</h5>
+        <owl-form-field>
+            <owl-chip-list [multiple]="true" #chipList>
+                <owl-chip *ngFor="let drink of drinks"
+                          [removable]="true" (remove)="removeDrinks(drink)">{{drink.name}}
+                    <owl-chip-remove></owl-chip-remove>
+                </owl-chip>
+                <input placeholder="Drinks"
+                       [owlChipInputFor]="chipList"
+                       (inputConfirm)="addDrinks($event)">
+            </owl-chip-list>
+        </owl-form-field>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    public drinks = [
+        {name: 'Coke'},
+        {name: 'Sprite'},
+        {name: 'Soda'},
+    ];
+
+    constructor() {
+    }
+
+    public addDrinks( event: any ): void {
+        let input = event.input;
+        let value = event.value;
+
+        if ((value || '').trim()) {
+            this.drinks.push({name: value.trim()});
+        }
+
+        if (input) {
+            input.value = '';
+        }
+    }
+
+    public removeDrinks( drink: any ): void {
+        let index = this.drinks.indexOf(drink);
+
+        if (index >= 0) {
+            this.drinks.splice(index, 1);
+        }
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>
