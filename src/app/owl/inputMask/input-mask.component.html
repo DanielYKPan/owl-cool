@@ -1,0 +1,295 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <owl-form-field [floatLabel]="'always'">
+                <input owlInput [owlInputMask]="'99-999999'" placeholder="Basic">
+                <owl-hint>99-999999</owl-hint>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <owl-form-field [floatLabel]="'always'">
+                <input owlInput [owlInputMask]="'999-99-9999'" placeholder="SSN">
+                <owl-hint>999-99-9999</owl-hint>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <owl-form-field [floatLabel]="'always'">
+                <input owlInput [owlInputMask]="'(999) 999-9999'" placeholder="Phone">
+                <owl-hint>(999) 999-9999</owl-hint>
+            </owl-form-field>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <owl-form-field [floatLabel]="'always'">
+                <input owlInput [owlInputMask]="'(999) 999-9999? x99999'" placeholder="Phone Ext">
+                <owl-hint>(999) 999-9999? x99999</owl-hint>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <owl-form-field [floatLabel]="'always'">
+                <input owlInput [owlInputMask]="'a*-999-a999'" placeholder="Serial Number">
+                <owl-hint>a*-999-a999</owl-hint>
+            </owl-form-field>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/mask#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Input Mask is an Angular directive used with HTML input element. It ensure input value in a
+                    certain format such as numeric, date, currency, email, phone and serial number.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/mask#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlInputMaskModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/mask#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">owlInputMask</span> is used with HTML input element with a regex
+                    mask string. It is compatible with <b>@angular/forms</b> and supports both <b>FormsModule</b> and
+                    <b>ReactiveFormsModule</b>. This means Angular Form directives <span class="owlng-doc-code-tag">ngModel</span>
+                    and <span class="owlng-doc-code-tag">formControl</span> can be used to bind to your input value.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [(ngModel)]="yourInputVariable" name="input" [owlInputMask]="'99-999999'">
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Mask"> -->
+                <h3 id="mask" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/mask#mask">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Mask
+                </h3>
+                <p>
+                    Mask format can be a combination of the the following built-in definitions
+                </p>
+                <ul>
+                    <li>a - Alpha character (default: A-Z,a-z)</li>
+                    <li>9 - Numeric character (0-9)</li>
+                    <li>* - Alpha numberic character (A-Z,a-z,0-9)</li>
+                </ul>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlInputMask]="'a*-999-a999'">
+]]></code>
+</pre>
+                <p>
+                    Users can also define their own regex pattern for alpha character
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlInputMask]="'a*-999-a999'" [owlInputMaskCharacterPattern]="'[А-Яа-я]'">
+]]></code>
+</pre>
+                <p>
+                    Underscore(_) is the default placeholder for a mask and this can be customized using
+                    <span class="owlng-doc-code-tag">[owlInputMaskSlotChar]</span> option.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlInputMask]="'a*-999-a999'" [owlInputMaskSlotChar]="' '">
+]]></code>
+</pre>
+                <p>
+                    If the input does not complete the mask definition, it is cleared by default. Use
+                    <span class="owlng-doc-code-tag">[owlInputMaskAutoClear]</span> property to control this behavior.
+                    In addition, certain part of a mask can be made optional by using
+                    <span class="owlng-doc-code-tag">?</span> symbol where anything after the question mark becomes
+                    optional.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlInputMask]="'(999) 999-9999? x99999'" [owlInputMaskAutoClear]="false">
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties"> -->
+                <h3 id="properties" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/mask#properties">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owlInputMask</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th [style.width]="'6em'">Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>owlInputMask</code></td>
+                            <td align="left">string</td>
+                            <td align="left">require</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the mask pattern.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlInputMaskAutoClear</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                When specified to false, the directive would clear the incomplete value on blur.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlInputMaskCharacterPattern</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'[A-Za-z]'</code></td>
+                            <td align="left">
+                                Defines the regex pattern for alpha characters
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the input would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>readonly</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the input would be set to readonly.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlInputMaskSlotChar</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'_'</code></td>
+                            <td align="left">
+                                Defines the placeholder character in mask, default is underscore.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>owlInputMaskUnMask</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines if ngModel sets the raw unmasked value to bound value or the formatted mask value.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+            </div>
+            <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <owl-form-field [floatLabel]="'always'">
+            <input owlInput [owlInputMask]="'99-999999'" placeholder="Basic">
+            <owl-hint>99-999999</owl-hint>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <owl-form-field [floatLabel]="'always'">
+            <input owlInput [owlInputMask]="'999-99-9999'" placeholder="SSN">
+            <owl-hint>999-99-9999</owl-hint>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <owl-form-field [floatLabel]="'always'">
+            <input owlInput [owlInputMask]="'(999) 999-9999'" placeholder="Phone">
+            <owl-hint>(999) 999-9999</owl-hint>
+        </owl-form-field>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <owl-form-field [floatLabel]="'always'">
+            <input owlInput [owlInputMask]="'(999) 999-9999? x99999'" placeholder="Phone Ext">
+            <owl-hint>(999) 999-9999? x99999</owl-hint>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <owl-form-field [floatLabel]="'always'">
+            <input owlInput [owlInputMask]="'a*-999-a999'" placeholder="Serial Number">
+            <owl-hint>a*-999-a999</owl-hint>
+        </owl-form-field>
+    </div>
+</div>
+]]></code>
+</pre>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

@@ -13,7 +13,10 @@ import { OwlIntroductionService } from './owl-introduction.service';
 import { CodeHighlightDirective } from './code-highlight.directive';
 
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGChipsComponent } from './chips/chips.component';
+import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
+import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -24,13 +27,12 @@ import {
     OwlChipsModule,
     OwlFormFieldModule,
     OwlInputModule,
+    OwlInputMaskModule,
     OwlRippleModule,
     OwlSelectModule,
     OwlTabsModule,
     OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
-import { OwlNGFormFieldComponent } from './form-field/form-field.component';
-import { OwlNGChipsComponent } from './chips/chips.component';
 
 @NgModule({
     imports: [
@@ -43,6 +45,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
         OwlChipsModule,
         OwlFormFieldModule,
         OwlInputModule,
+        OwlInputMaskModule,
         OwlRippleModule,
         OwlSelectModule,
         OwlTabsModule,
@@ -59,6 +62,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
         OwlNGChipsComponent,
         OwlNGFormFieldComponent,
         OwlNGInputComponent,
+        OwlNGInputMaskComponent,
         OwlNGRippleComponent,
         OwlNGSelectComponent,
         OwlNGTabsComponent,

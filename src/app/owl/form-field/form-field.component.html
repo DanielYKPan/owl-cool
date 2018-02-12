@@ -1,0 +1,695 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <h5 class="demo-header yk-g-12">Simple Form Field</h5>
+        <div class="yk-g-12 yk-md-6">
+            <owl-form-field>
+                <input owlInput placeholder="Input">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <owl-form-field>
+                <owl-chip-list [multiple]="true" #chipList>
+                    <owl-chip *ngFor="let drink of drinks">
+                        {{drink.name}}
+                    </owl-chip>
+                    <input placeholder="Drinks"
+                           [owlChipInputFor]="chipList"
+                           (inputConfirm)="addDrinks($event)">
+                </owl-chip-list>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <owl-form-field>
+                <textarea owlInput placeholder="Textarea"></textarea>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <owl-form-field>
+                <owl-select placeholder="Select">
+                    <owl-option value="option1">Option 1</owl-option>
+                    <owl-option value="option2">Option 2</owl-option>
+                    <owl-option value="option3">Option 3</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+    </div>
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Error Message</h5>
+            <form class="example-form">
+                <owl-form-field>
+                    <input owlInput placeholder="Email"
+                           [formControl]="emailFormControl1">
+                    <owl-error *ngIf="emailFormControl1.hasError('pattern')">
+                        Please enter a valid email address
+                    </owl-error>
+                    <owl-error *ngIf="emailFormControl1.hasError('required')">
+                        Email is <strong>required</strong>
+                    </owl-error>
+                </owl-form-field>
+            </form>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Prefix and Suffix</h5>
+            <owl-form-field>
+                <span owlPrefix>+1 &nbsp;</span>
+                <input owlInput placeholder="Contact Number">
+                <span owlSuffix><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Hints Labels</h5>
+            <owl-form-field>
+                <input owlInput #message maxlength="256" placeholder="Message">
+                <owl-hint align="start"><strong>Don't disclose personal info</strong></owl-hint>
+                <owl-hint align="end">{{message.value.length}} / 256</owl-hint>
+            </owl-form-field>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">owl-form-field</span> is a component used to wrap several
+                    components and apply the underline styles, floating label, error message, and hint messages.
+                </p>
+                <p>
+                    The following component is designed to work inside
+                    <span class="owlng-doc-code-tag">owl-form-field</span>:
+                </p>
+                <ul>
+                    <li><code class="owlng-doc-code-tag"><![CDATA[<input owlInput>]]></code></li>
+                    <li><code class="owlng-doc-code-tag"><![CDATA[<textarea owlInput>]]></code></li>
+                    <li><code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-select>]]>
+                    </code></li>
+                    <li><code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-chip-list>]]>
+                    </code></li>
+                </ul>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlFormFieldModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Label"> -->
+                <h3 id="label" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#label">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Label
+                </h3>
+                <p>
+                    Label in <span class="owlng-doc-code-tag">owl-form-field</span> is a caption on top of the form
+                    field control when the control does not contain any value. When the form field control has value,
+                    the label floats above it by default. The label for a form field can be defined either by wrapping
+                    content inside <span class="owlng-doc-code-tag">owl-label</span>, by using
+                    <span class="owlng-doc-code-tag">owlLabel</span> directive on your html element, by setting the
+                    placeholder attribute on the form control or using the <span class="owlng-doc-code-tag">owl-placeholder</span>
+                    component. If there are multiple values (such as there are both label and placeholder values), the
+                    <span class="owlng-doc-code-tag">owlLabel</span> will take precedence.
+                </p>
+                <p>
+                    The placeholder specifies a short hint that describes the expected value of form control field (e.g.
+                    a sample value or a short description of the expected format). It can be specified using the
+                    <span class="owlng-doc-code-tag">placeholder</span> property on the form control field, or by
+                    wrapping html content with <span class="owlng-doc-code-tag">owl-placeholder</span> and using it
+                    inside the form control field.
+                </p>
+                <p>
+                    <span class="owlng-doc-code-tag">[floatLabel]</span> can be set on <span class="owlng-doc-code-tag">owl-form-field</span>
+                    to change the behavior of floating the label. There are the options:
+                </p>
+                <ul>
+                    <li>
+                        <span class="owlng-doc-code-tag">[floatLabel]=" 'auto' "</span> -- the label would float as the
+                        form control field has value. (default)
+                    </li>
+                    <li>
+                        <span class="owlng-doc-code-tag">[floatLabel]=" 'always' "</span> -- the label would be always
+                        above the form control field.
+                    </li>
+                    <li>
+                        <span class="owlng-doc-code-tag">[floatLabel]=" 'never' "</span> -- the label would never float,
+                        and when the form control field has value, the label would be disappear.
+                    </li>
+                </ul>
+                <p>
+                    If the form field control is marked with <span class="owlng-doc-code-tag">[required]="true"</span>,
+                    an asterisk symbol(*) will be appended to the
+                    label to indicate the fact that it is a required field. If this is a undesired effect, this can be
+                    disabled by setting the <span class="owlng-doc-code-tag">[hideRequiredMarker]</span> to true on
+                    <span class="owlng-doc-code-tag">owl-form-field</span>.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Error"> -->
+                <h3 id="error" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#error">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Error Message
+                </h3>
+                <p>
+                    Form field error messages can be show under the form field underline by using
+                    <span class="owlng-doc-code-tag">owl-error</span> inside <span class="owlng-doc-code-tag">owl-form-field</span>.
+                    Errors messages are hidden initially and will appear on invalid form fields after user has
+                    interacted with the element or the parent form has been submitted. By design,
+                    <span class="owlng-doc-code-tag">owl-form-field</span> has enough space to display only one error
+                    message at a time. If a form field has more than one error messages, user can use
+                    <span class="owlng-doc-code-tag">ngIf</span> or <span class="owlng-doc-code-tag">ngSwitch</span> to
+                    choose which error message should be displayed. You could learn more this from here.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Hints"> -->
+                <h3 id="hints" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#hints">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Hints Message
+                </h3>
+                <p>
+                    Hint message are descriptive text that is shown below the form field’s underline. Each
+                    <span class="owlng-doc-code-tag">owl-form-field</span> can have up to two hint messages: one on the
+                    start-align of the line, and one on the end. Hint message can be created either by wrapping html
+                    content or text content with <span class="owlng-doc-code-tag">owl-hint</span> or by setting property
+                    <span class="owlng-doc-code-tag">[hintLabel]</span> in <span class="owlng-doc-code-tag">owl-form-field</span>.
+                    By default, hint message will be set as the start-align hint. Set property
+                    <span class="owlng-doc-code-tag">[align]</span> to ‘start’ or ‘end’ to specify the place of the hint
+                    message. When there is an error message shown in the form field, the hint messages would be hidden.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Prefix & Suffix"> -->
+                <h3 id="prefix-suffix" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#prefix-suffix">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Prefix & Suffix
+                </h3>
+                <p>
+                    Content can be included before and after the input tag, as a prefix or suffix. Adding the
+                    <span class="owlng-doc-code-tag">owlPrefix</span> directive to an element inside the
+                    <span class="owlng-doc-code-tag">owl-form-field</span> will designate it as the prefix. Similarly,
+                    adding <span class="owlng-doc-code-tag">owlSuffix</span> will designate it as the suffix.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Customise Color"> -->
+                <h3 id="customise-color" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#customise-color">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Color
+                </h3>
+                <p>The underline and the label/placeholder text color could be customised via user's css design</p>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.user-css-class.owl-form-field-focused  .owl-form-field-placeholder {
+  color: #00897b;
+}
+
+.user-css-class.owl-form-field-focused  .owl-form-field-underline-graphic {
+  stroke: #00897b;
+}
+]]></code>
+</pre>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-form-field class="user-css-class">
+    <input owlInput placeholder="Message">
+</owl-form-field>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-form-field"> -->
+                <h3 id="properties-owl-form-field" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#properties-owl-form-field">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-form-field</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>floatLabel</code></td>
+                            <td align="left">'always' | 'never' | 'auto'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'auto'</code></td>
+                            <td align="left">
+                                Whether the label should always float, never float or float as the user types. <br/>
+                                'auto' -- the label would float as the user types <br/>
+                                'always' -- the label would always float <br/>
+                                'never' -- the label would never float
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>hideRequiredMarker</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether the required marker should be hidden.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>hintLabel</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the text for the form field hint message. If the owl-hint was used, this
+                                hintLabel content would be shown.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-label"> -->
+                <h3 id="properties-owl-hint" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#properties-owl-hint">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-hint</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>align</code></td>
+                            <td align="left">'start' | 'end'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'start'</code></td>
+                            <td align="left">
+                                Whether to align the hint message at the start or end of the underline.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>owl-hint-0</code></td>
+                            <td align="left">
+                                Unique ID for the hint. Used for the aria-describedby on the form field control.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-error"> -->
+                <h3 id="properties-owl-error" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#properties-owl-error">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-error</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>owl-error-0</code></td>
+                            <td align="left">
+                                Unique ID for the error message.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/form-field#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-form-field, owl-error, owl-hint, owlPrefix and owlSuffix
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.owl-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.owl-form-field-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 1.25em;
+  width: 100%;
+}
+
+.owl-form-field-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+
+  .owl-form-field-underline-graphic {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-height: 65px;
+    overflow: hidden;
+    fill: none;
+    stroke: #92989e;
+    stroke-width: 2px;
+    pointer-events: none;
+    transition: transform 0.7s, stroke 0.7s;
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  }
+}
+
+.owl-form-field-inner {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.owl-form-field-prefix,
+.owl-form-field-suffix {
+  white-space: nowrap;
+  flex: none;
+}
+
+.owl-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  padding: .4375em 0;
+  border-top: .84375em solid transparent;
+}
+
+.owl-form-field-placeholder-wrapper {
+  position: absolute;
+  left: 0;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  top: -.84375em;
+  padding-top: .84375em;
+}
+
+.owl-form-field-placeholder {
+  display: none;
+  position: absolute;
+  left: 0;
+  font: inherit;
+  pointer-events: none;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transform: perspective(100px);
+  transform-origin: 0 0;
+  transition: transform .4s cubic-bezier(.25, .8, .25, 1),
+  color .4s cubic-bezier(.25, .8, .25, 1),
+  width .4s cubic-bezier(.25, .8, .25, 1);
+
+  color: rgba(0, 0, 0, .54);
+  top: 1.28125em;
+
+  &:not(.owl-form-field-empty) {
+    transition: none;
+  }
+}
+
+.owl-form-field-inform-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-size: 75%;
+  padding: .2em 0;
+}
+
+.owl-form-field-hint-wrapper {
+  display: flex;
+
+  .owl-form-field-hint {
+    display: block;
+    color: rgba(0, 0, 0, .54);
+  }
+
+  .owl-form-field-hint-spacer {
+    flex: 1 0 1em;
+  }
+}
+
+.owl-form-field-can-float.owl-form-field-should-float .owl-form-field-placeholder,
+.owl-form-field-empty.owl-form-field-placeholder {
+  display: block;
+}
+
+.owl-form-field-can-float.owl-form-field-should-float {
+  .owl-form-field-placeholder {
+    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+    width: 133.33333333%;
+  }
+}
+
+.owl-form-field-focused {
+
+  .owl-form-field-required-marker {
+    color: #ff347f;
+  }
+
+  .owl-form-field-placeholder {
+    color: #3f51b5;
+  }
+
+  .owl-form-field-underline-graphic {
+    stroke: #3f51b5;
+    stroke-width: 3px;
+    transform: translate3d(-66.6%, 0, 0);
+  }
+}
+
+.owl-form-field-invalid {
+  .owl-form-field-placeholder {
+    color: #e91439;
+  }
+
+  .owl-form-field-underline-graphic {
+    stroke: #e91439;
+    stroke-width: 3px;
+  }
+}
+
+.owl-form-field-error {
+  display: block;
+  color: #e91439;
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+            </div>
+            <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <h5 class="demo-header yk-g-12">Simple Form Field</h5>
+    <div class="yk-g-12 yk-md-6">
+        <owl-form-field>
+            <input owlInput placeholder="Input">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <owl-form-field>
+            <owl-chip-list [multiple]="true" #chipList>
+                <owl-chip *ngFor="let drink of drinks">
+                    {{drink.name}}
+                </owl-chip>
+                <input placeholder="Drinks"
+                       [owlChipInputFor]="chipList"
+                       (inputConfirm)="addDrinks($event)">
+            </owl-chip-list>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <owl-form-field>
+            <textarea owlInput placeholder="Textarea"></textarea>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <owl-form-field>
+            <owl-select placeholder="Select">
+                <owl-option value="option1">Option 1</owl-option>
+                <owl-option value="option2">Option 2</owl-option>
+                <owl-option value="option3">Option 3</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+</div>
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Error Message</h5>
+        <form class="example-form">
+            <owl-form-field>
+                <input owlInput placeholder="Email"
+                       [formControl]="emailFormControl1">
+                <owl-error *ngIf="emailFormControl1.hasError('pattern')">
+                    Please enter a valid email address
+                </owl-error>
+                <owl-error *ngIf="emailFormControl1.hasError('required')">
+                    Email is <strong>required</strong>
+                </owl-error>
+            </owl-form-field>
+        </form>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Prefix and Suffix</h5>
+        <owl-form-field>
+            <span owlPrefix>+1 &nbsp;</span>
+            <input owlInput placeholder="Contact Number">
+            <span owlSuffix><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Hints Labels</h5>
+        <owl-form-field>
+            <input owlInput #message maxlength="256" placeholder="Message">
+            <owl-hint align="start"><strong>Don't disclose personal info</strong></owl-hint>
+            <owl-hint align="end">{{message.value.length}} / 256</owl-hint>
+        </owl-form-field>
+    </div>
+</div>
+]]></code>
+</pre>
+            <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { Component} from '@angular/core';
+import { ErrorStateMatcher } from 'owl-ng';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+@Component({
+    selector: 'app-my-component',
+    templateUrl: './my.component.html',
+})
+export class MyComponent {
+
+    public drinks = [
+        {name: 'Coke'},
+        {name: 'Sprite'},
+        {name: 'Soda'},
+    ];
+
+    public emailFormControl1 = new FormControl('', [
+        Validators.required,
+        Validators.pattern(EMAIL_REGEX)]);
+
+    public addDrinks( event: any ): void {
+        let input = event.input;
+        let value = event.value;
+
+        if ((value || '').trim()) {
+            this.drinks.push({name: value.trim()});
+        }
+
+        if (input) {
+            input.value = '';
+        }
+    }
+}
+]]></code>
+            </pre>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>
