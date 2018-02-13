@@ -75,6 +75,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Accordion Panel',
+                        slug: '/owlng/accordion',
+                        level: 2
+                    },
+                    {
                         name: 'Back To Top',
                         slug: '/owlng/back-top',
                         level: 2

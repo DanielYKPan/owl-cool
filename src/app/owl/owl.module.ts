@@ -12,6 +12,7 @@ import { OwlNGIntroductionComponent } from './owl-introduction.component';
 import { OwlIntroductionService } from './owl-introduction.service';
 import { CodeHighlightDirective } from './code-highlight.directive';
 
+import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
@@ -23,6 +24,7 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
+    OwlAccordionModule,
     OwlBackTopBtnModule,
     OwlChipsModule,
     OwlFormFieldModule,
@@ -41,6 +43,7 @@ import {
         ReactiveFormsModule,
         OwlNGRoutingModule,
 
+        OwlAccordionModule,
         OwlBackTopBtnModule,
         OwlChipsModule,
         OwlFormFieldModule,
@@ -58,6 +61,7 @@ import {
         OwlNGIntroductionComponent,
         OwlNGStartComponent,
 
+        OwlNGAccordionComponent,
         OwlNGBackTopComponent,
         OwlNGChipsComponent,
         OwlNGFormFieldComponent,

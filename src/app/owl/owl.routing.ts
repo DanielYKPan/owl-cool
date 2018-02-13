@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 
+import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
@@ -35,6 +36,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'getting-start',
+                    },
+                },
+                {
+                    path: 'accordion',
+                    component: OwlNGAccordionComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'accordion',
                     },
                 },
                 {
