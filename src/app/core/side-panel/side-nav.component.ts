@@ -125,6 +125,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Switch',
+                        slug: '/owlng/switch',
+                        level: 2
+                    },
+                    {
                         name: 'Tab View',
                         slug: '/owlng/tab-view',
                         level: 2
