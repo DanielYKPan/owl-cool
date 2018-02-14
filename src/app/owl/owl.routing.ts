@@ -14,6 +14,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
+import { OwlNGRadioComponent } from './radio/radio.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -100,6 +101,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'mask',
+                    },
+                },
+                {
+                    path: 'radio',
+                    component: OwlNGRadioComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'radio',
                     },
                 },
                 {

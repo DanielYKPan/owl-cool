@@ -1,0 +1,7 @@
+.owlng-radio-group {
+  display: flex;
+
+  .owlng-radio:not(:first-child) {
+    margin-left: 1.5em;
+  }
+}

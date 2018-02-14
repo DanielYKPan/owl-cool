@@ -110,6 +110,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Radio Button',
+                        slug: '/owlng/radio',
+                        level: 2
+                    },
+                    {
                         name: 'Ripple Effect',
                         slug: '/owlng/ripple-effect',
                         level: 2
