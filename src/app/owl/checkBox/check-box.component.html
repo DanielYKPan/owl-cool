@@ -1,0 +1,1178 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Basic</h5>
+            <owl-check-box [(ngModel)]="checked_1">Click To check/uncheck this box</owl-check-box>
+            <h5>Value: {{checked_1}}</h5>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Select Multiple Value</h5>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedDramas" [binary]="false"
+                           [id]="'got'" [name]="'dramas'" [value]="'Game of Thrones'">
+                Game of Thrones
+            </owl-check-box>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedDramas" [binary]="false"
+                           [id]="'twd'" [name]="'dramas'" [value]="'The Walking Dead'">
+                The Walking Dead
+            </owl-check-box>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedDramas" [binary]="false"
+                           [id]="'hoc'" [name]="'dramas'" [value]="'House of Cards'">
+                House of Cards
+            </owl-check-box>
+            <h5>Value: {{selectedDramas | json}}</h5>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Preselection</h5>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedBrands" [binary]="false"
+                           [id]="'Apple'" [name]="'brands'" [value]="'Apple'">
+                Apple
+            </owl-check-box>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedBrands" [binary]="false"
+                           [id]="'Google'" [name]="'brands'" [value]="'Google'">
+                Google
+            </owl-check-box>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedBrands" [binary]="false"
+                           [id]="'Samsung'" [name]="'brands'" [value]="'Samsung'">
+                Samsung
+            </owl-check-box>
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="selectedBrands" [binary]="false"
+                           [id]="'Yahoo'" [name]="'brands'" [value]="'Yahoo'">
+                Yahoo
+            </owl-check-box>
+            <h5>Value: {{selectedBrands | json}}</h5>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4 yk-g">
+            <h5 class="demo-header">Indeterminate Checkbox</h5>
+            <div class="yk-g-12 yk-md-6">
+                <owl-check-box class="demo-chkbox"
+                               [(ngModel)]="fruitChecked"
+                               [(indeterminate)]="fruitIndeterminate"
+                               (change)="toggleFruitCheck($event)">
+                    Fruit
+                </owl-check-box>
+
+                <owl-check-box class="demo-chkbox"
+                               [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                               [name]="'grocery'" [value]="'Apple'"
+                               (change)="onFruitChange($event)">
+                    Apple
+                </owl-check-box>
+
+                <owl-check-box class="demo-chkbox"
+                               [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                               [name]="'grocery'" [value]="'Orange'"
+                               (change)="onFruitChange($event)">
+                    Orange
+                </owl-check-box>
+            </div>
+
+            <div class="yk-g-12 yk-md-6">
+                <owl-check-box class="demo-chkbox"
+                               [(ngModel)]="meatChecked"
+                               [(indeterminate)]="meatIndeterminate"
+                               (change)="toggleMeatCheck($event)">
+                    Meat
+                </owl-check-box>
+
+                <owl-check-box class="demo-chkbox"
+                               [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                               [name]="'grocery'" [value]="'Pork'" (change)="onMeatChange($event)">
+                    Pork
+                </owl-check-box>
+
+                <owl-check-box class="demo-chkbox"
+                               [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                               [name]="'grocery'" [value]="'Beef'" (change)="onMeatChange($event)">
+                    Beef
+                </owl-check-box>
+            </div>
+            <h5>Value: {{selectedGroceries | json}}</h5>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Disable Checkbox</h5>
+
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="disabled_checked_2">Disabled
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox"
+                           [disabled]="disabled_checked_2"
+                           [(ngModel)]="checked_2">Click To check/uncheck this box
+            </owl-check-box>
+            <h5>Value: {{checked_2}}</h5>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Customise</h5>
+
+            <owl-check-box class="demo-chkbox" [checkedIcon]="'cross'">
+                Cross Icon
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox" [labelPosition]="'before'">
+                Label on the left
+            </owl-check-box>
+
+            <owl-check-box
+                    [(ngModel)]="checked_3"
+                    class="demo-chkbox" #likeBox="owlCheckBox">
+                <owl-check-box-toggle>
+                    <span *ngIf="likeBox.checked;else elseBlock">
+                        <i class="fas fa-heart demo-chkbox-icon"></i>
+                    </span>
+                    <ng-template #elseBlock>
+                        <span>
+                            <i class="far fa-heart demo-chkbox-icon"></i>
+                        </span>
+                    </ng-template>
+                </owl-check-box-toggle>
+
+                {{checked_3? 'I like it' : 'I don\'t like it'}}
+            </owl-check-box>
+        </div>
+
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Checkbox <span class="owlng-doc-code-tag">owl-check-box</span> is an Angular component.
+                    It provides the same functionality as a native HTML Input Element
+                    <code class="owlng-doc-code-tag"><![CDATA[<input type="checkbox">]]></code>, enhanced with
+                    styles and animation.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlCheckBoxModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox
+                    to provide a boolean value. It is set up for both Template-driven Forms and Reactive Forms. User can
+                    manipulate the select's value using any of the form directives from the core
+                    <span class="owlng-doc-code-tag">FormsModule</span> or <span class="owlng-doc-code-tag">ReactiveFormsModule</span>:
+                    <span class="owlng-doc-code-tag">ngModel</span>, <span class="owlng-doc-code-tag">formControl</span>,
+                    etc.
+                </p>
+
+                <h4>Boolean Value</h4>
+                <p>
+                    By default, Owl Checkbox is in binary mode. Users could use Angular built-in ngModel to bind
+                    checkbox to a boolean variable.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box [(ngModel)]="checked">Click to check/uncheck this box</owl-check-box>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public checked = false;
+}
+]]></code>
+</pre>
+                <h4>Multiple Value</h4>
+                <p>
+                    Setting property <b>[binary]</b> to false, Owl Checkbox could be bounded to an array with selected
+                    object.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box name="group_name" [(ngModel)]="selectedValue" [value]="'value1'">Value 1</owl-check-box>
+<owl-check-box name="group_name" [(ngModel)]="selectedValue" [value]="'value2'">Value 2</owl-check-box>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    selectedValues: string[] = []
+}
+]]></code>
+</pre>
+                <p>
+                    Because of the two-way binding(awesome feature) coming form ngModel, prepopulating the model array
+                    with values is enough to display the related checkboxes as checked by default.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    selectedValues: string[] = ['value1', 'value2'];
+}
+]]></code>
+</pre>
+                <p>
+                    In addition, the value in each check box could be an object. Users could set <b>[compareFn]</b> to a
+                    function
+                    to determine whether the checkbox's value in your binded model value.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box name="group_name" [(ngModel)]="selectedBooks" [value]="{id: 1, name: 'Book 1'}"
+               [compareFn]="compareFn">
+    Book 1
+</owl-check-box>
+<owl-check-box name="group_name" [(ngModel)]="selectedBooks" [value]="{id: 2, name: 'Book 2'}"
+               [compareFn]="compareFn">
+    Book 2
+</owl-check-box>
+<owl-check-box name="group_name" [(ngModel)]="selectedBooks" [value]="{id: 3, name: 'Book 3'}"
+               [compareFn]="compareFn">
+    Book 3
+</owl-check-box>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    selectedBooks: Book[] = [
+        {id: 1, name: 'Book 1'},
+        {id: 2, name: 'Book 2'}
+    ]
+
+    compareFn = ( ob1: Book, ob2: Book ): boolean => {
+        return ob1.id === ob2.id;
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Indeterminate Checkbox"> -->
+                <h3 id="indeterminate" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#indeterminate">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Indeterminate Checkbox
+                </h3>
+                <p>
+                    Sometimes, a checkbox could be in an indeterminate state. You could control the checkbox
+                    indeterminate value via property <span class="owlng-doc-code-tag">[(indeterminate)]</span>. While
+                    the indeterminate property of the checkbox is true, it will render as indeterminate regardless of
+                    the checked value. Any interaction with the checkbox by a user (i.e., clicking) will remove the
+                    indeterminate state.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box [(ngModel)]="fruitChecked" [(indeterminate)]="fruitIndeterminate"
+               (change)="toggleFruitCheck($event)">
+    Fruit
+</owl-check-box>
+<owl-check-box [(ngModel)]="selectedGroceries" [binary]="false"
+               [name]="'grocery'" [value]="'Apple'" (change)="onFruitChange($event)">
+    Apple
+</owl-check-box>
+<owl-check-box [(ngModel)]="selectedGroceries" [binary]="false"
+               [name]="'grocery'" [value]="'Orange'" (change)="onFruitChange($event)">
+    Orange
+</owl-check-box>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public fruitChecked = false;
+    public fruitIndeterminate = false;
+    public selectedGroceries: string[];
+
+    public toggleFruitCheck( event: any ): void {
+        if (event.checked) {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Apple' && v !== 'Orange';
+            });
+
+            this.selectedGroceries = [...this.selectedGroceries, 'Apple', 'Orange'];
+
+        } else {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Apple' && v !== 'Orange';
+            });
+        }
+    }
+
+    public onFruitChange( event: any ): void {
+        let hasApple = this.selectedGroceries.includes('Apple');
+        let hasOrange = this.selectedGroceries.includes('Orange');
+
+        this.fruitChecked = hasApple && hasOrange;
+        this.fruitIndeterminate = (hasApple && !hasOrange) || (!hasApple && hasOrange);
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Customise Checkbox"> -->
+                <h3 id="customise" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#customise">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Checkbox
+                </h3>
+                <h4>Cross Icon</h4>
+                <p>
+                    Owl Checkbox provides two types of checked-icon, tick(default) or cross. User could change it via
+                    property <span class="owlng-doc-code-tag">[checkedIcon]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box [checkedIcon]="'cross'">Click to check/uncheck this box</owl-check-box>
+]]></code>
+</pre>
+                <h4>Checkbox Label</h4>
+                <p>
+                    The checkbox label is provided as the content of your checkbox. The label can be positioned before
+                    or after the checkbox by setting the property
+                    <span class="owlng-doc-code-tag">[labelPosition]</span> to 'before'(default) or 'after'.
+                </p>
+                <p>
+                    If you don't want the label to appear next to the checkbox, you can use
+                    <span class="owlng-doc-code-tag">[aria-label]</span> or <span class="owlng-doc-code-tag">[aria-labelledby]</span>
+                    to specify an appropriate label.
+                </p>
+
+                <h4>Appearance</h4>
+                <p>
+                    Owl Checkbox is flexible and allows users to have a different appearance of the checkbox.
+                    Write your own html syntax and wrap it inside
+                    <code class="owlng-doc-code-tag"><![CDATA[
+                        <owl-check-box-toggle></owl-check-box-toggle>
+                        ]]></code>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-check-box #chkbox="owlCheckBox">
+    <owl-check-box-toggle>
+        <i class="owlng-heart fa" [ngClass]="{'fa-heart': chkbox.checked, 'fa-heart-o': !chkbox.checked}"></i>
+    </owl-check-box-toggle>
+    I like this
+</owl-check-box>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties owl-check-box"> -->
+                <h3 id="properties-owl-check-box" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#properties-owl-check-box">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-check-box</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>animate</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether to animate the checking process
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Attached to the aria-label attribute of the checkbox
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-labelledby</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Users can specify the 'aria-labelledby' attribute which will be forwarded to
+                                the checkbox
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>binary</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Whether to return object values from ngModel instead of return boolean value
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>boxClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Style class of the checkbox box.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>checked</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether the checkbox is checked.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>checkedIcon</code></td>
+                            <td align="left">'tick' | 'cross'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'tick'</code></td>
+                            <td align="left">
+                                The icon displayed when checkbox is checked.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>compareFn</code></td>
+                            <td align="left">Function</td>
+                            <td align="left">optional</td>
+                            <td align="left">
+                                <pre><code><![CDATA[
+                                    ( o1: any, o2: any ) => o1 === o2;
+                                    ]]></code></pre>
+                            </td>
+                            <td align="left">
+                                A function to compare the checkbox value with the model binding values.
+                                The 1st argument is a value from model binding value.
+                                The 2nd argument is the checkbox's value.
+                                A boolean value would be returned.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the checkbox would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disableRipple</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the ripple effect would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'owl-checkbox-0'</code></td>
+                            <td align="left">A unique id for the checkbox input. If none is supplied, it will be
+                                auto-generated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>indeterminate</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether the checkbox is in indeterminate state.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>labelPosition</code></td>
+                            <td align="left">'after' | 'before'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'after'</code></td>
+                            <td align="left">
+                                Whether the label should appear after or before the checkbox.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>labelClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Define the class of the checkbox label text.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>name</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                The name attribute of the checkbox group
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>required</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Whether the checkbox's value is required.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tabIndex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">Index of the element in tabbing order</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">any</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">The value attribute of the checkbox</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-check-box"> -->
+                <h3 id="events-owl-check-box" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#events-owl-check-box">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-check-box</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>change</code></td>
+                            <td align="left">
+                                source: the checkbox component<br/>
+                                originalEvent: event<br/>
+                                value: ngModel value<br/>
+                                checked: Boolean value to represent new state of checkbox
+                            </td>
+                            <td align="left">
+                                Event emit when checkbox's checked state changes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>indeterminateChange</code></td>
+                            <td align="left">return boolean value
+                            </td>
+                            <td align="left">
+                                Event emits when checkbox indeterminate state is changed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/checkbox#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-check-box
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$chkbox-bg-color: #ffffff;
+$chkbox-border-color: rgba(0, 0, 0, .54);
+$chkbox-boxShadow-color: #673ab7;
+$chkbox-filled-bg-color: #512da8;
+$chkbox-filled-border-color: #4527a0;
+$chkbox-disabled-color: #b0b0b0;
+$chkbox-checkmark-color: #fafafa;
+$chkbox-size: 1.3em;
+$chkbox-border-size: 2px;
+$ripple-size: $chkbox-size * 1.7;
+
+.owl-chkbox,
+.owl-chkbox * {
+  box-sizing: border-box;
+}
+
+.owl-chkbox {
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 1em;
+  outline: none;
+}
+
+.owl-chkbox-box {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: $chkbox-size;
+  height: $chkbox-size;
+  border: $chkbox-border-size solid $chkbox-border-color;
+  border-radius: 2px;
+  background: $chkbox-bg-color;
+}
+
+.owl-chkbox-label {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: inherit;
+}
+
+.owl-chkbox-label-content {
+  margin-left: .5em;
+}
+
+.owl-chkbox-checkmark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+
+  fill: none;
+  .owl-tick-checkmark-path {
+    stroke: $chkbox-checkmark-color;
+    stroke-dashoffset: 22.91026;
+    stroke-dasharray: 22.91026;
+    stroke-width: .25em;
+  }
+
+  .owl-cross-checkmark-path {
+    stroke: $chkbox-checkmark-color;
+    stroke-dashoffset: 113.3;
+    stroke-dasharray: 113.3;
+    stroke-width: .8em;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+}
+
+.owl-line-checkmark-path {
+  display: block;
+  width: calc(100% - 4px);
+  height: .2em;
+  background: $chkbox-checkmark-color;
+  opacity: 0;
+}
+
+.owl-chkbox-focused:not(.owl-chkbox-disabled) {
+  .owl-chkbox-box {
+    box-shadow: 0px 0px 5px $chkbox-boxShadow-color;
+  }
+}
+
+.owl-chkbox-filled {
+  .owl-chkbox-box {
+    background: $chkbox-filled-bg-color;
+    border-color: $chkbox-filled-border-color;
+  }
+}
+
+.owl-chkbox-checked {
+
+  .owl-tick-checkmark-path {
+    stroke-dashoffset: 0;
+  }
+
+  .owl-cross-checkmark-path {
+    stroke-dashoffset: 0;
+  }
+}
+
+.owl-chkbox-indeterminate {
+  .owl-line-checkmark-path {
+    opacity: 1;
+  }
+}
+
+.owl-chkbox-label-before {
+  .owl-chkbox-label-content {
+    order: -1;
+    margin-left: 0;
+    margin-right: .5em;
+  }
+}
+
+.owl-chkbox-anim-unchecked-checked {
+  .owl-chkbox-box {
+    transition: background .2s cubic-bezier(.25, .8, .25, 1);
+  }
+}
+
+.owl-chkbox-anim-checked-unchecked,
+.owl-chkbox-box {
+  transition: background .2s cubic-bezier(.25, .8, .25, 1) 200ms,
+  border .2s cubic-bezier(.25, .8, .25, 1) 200ms;
+}
+
+.owl-chkbox-anim-checked-unchecked {
+
+  .owl-checkmark-path {
+    animation-duration: 90ms;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: initial;
+    animation-direction: initial;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+  }
+
+  .owl-tick-checkmark-path {
+    animation-name: chkbox-tick-checked-unchecked-path;
+  }
+
+  .owl-cross-checkmark-path {
+    &.a {
+      animation-name: chkbox-cross-checked-unchecked-path;
+      animation-fill-mode: backwards;
+      animation-delay: 90ms;
+    }
+
+    &.b {
+      animation-name: chkbox-cross-checked-unchecked-path;
+    }
+  }
+}
+
+.owl-chkbox-anim-unchecked-checked {
+  .owl-checkmark-path {
+    animation-duration: 180ms;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: initial;
+    animation-direction: initial;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+  }
+
+  .owl-tick-checkmark-path {
+    animation-name: chkbox-tick-unchecked-checked-path;
+  }
+
+  .owl-cross-checkmark-path {
+    &.a {
+      animation-name: chkbox-cross-unchecked-checked-path;
+    }
+
+    &.b {
+      animation-name: chkbox-cross-unchecked-checked-path;
+      animation-fill-mode: backwards;
+      animation-delay: 180ms;
+    }
+  }
+}
+
+.owl-chkbox-anim-indeterminate-checked {
+  .owl-line-checkmark-path {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+  .owl-chkbox-checkmark {
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-iteration-count: initial;
+    animation-direction: initial;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+    animation-name: chkbox-indeterminate-checked;
+  }
+}
+
+.owl-chkbox-disabled {
+
+  cursor: default !important;
+
+  .owl-chkbox-label-content {
+    color: $chkbox-disabled-color;
+  }
+
+  .owl-chkbox-box {
+    border-color: $chkbox-disabled-color;
+    transition: none;
+  }
+
+  &.owl-chkbox-filled .owl-chkbox-box {
+    background: $chkbox-disabled-color;
+  }
+}
+
+@keyframes chkbox-tick-unchecked-checked-path {
+  0%, 50% {
+    stroke-dashoffset: 22.91026;
+  }
+  50% {
+    animation-timing-function: cubic-bezier(0, 0, .2, .1);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes chkbox-indeterminate-checked {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
+    transform: rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes chkbox-tick-checked-unchecked-path {
+  0% {
+    animation-timing-function: cubic-bezier(.4, 0, 1, 1);
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -22.91026;
+  }
+}
+
+@keyframes chkbox-cross-unchecked-checked-path {
+  0%, 50% {
+    stroke-dashoffset: 113.3;
+  }
+  50% {
+    animation-timing-function: cubic-bezier(0, 0, .2, .1);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes chkbox-cross-checked-unchecked-path {
+  0% {
+    animation-timing-function: cubic-bezier(.4, 0, 1, 1);
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -113.3;
+  }
+}
+
+.owl-chkbox-ripple {
+  top: calc(#{$chkbox-size} / 2 - #{$ripple-size} / 2 - #{$chkbox-border-size});
+  left: calc(#{$chkbox-size} / 2 - #{$ripple-size} / 2 - #{$chkbox-border-size});
+  width: $ripple-size;
+  height: $ripple-size;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.owl-chkbox-ripple-ring {
+  background-color: rgba($chkbox-filled-bg-color, .15);
+}
+
+.owl-chkbox-toggle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Basic</h5>
+        <owl-check-box [(ngModel)]="checked_1">Click To check/uncheck this box</owl-check-box>
+        <h5>Value: {{checked_1}}</h5>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Select Multiple Value</h5>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedDramas" [binary]="false"
+                       [id]="'got'" [name]="'dramas'" [value]="'Game of Thrones'">
+            Game of Thrones
+        </owl-check-box>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedDramas" [binary]="false"
+                       [id]="'twd'" [name]="'dramas'" [value]="'The Walking Dead'">
+            The Walking Dead
+        </owl-check-box>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedDramas" [binary]="false"
+                       [id]="'hoc'" [name]="'dramas'" [value]="'House of Cards'">
+            House of Cards
+        </owl-check-box>
+        <h5>Value: {{selectedDramas | json}}</h5>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Preselection</h5>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedBrands" [binary]="false"
+                       [id]="'Apple'" [name]="'brands'" [value]="'Apple'">
+            Apple
+        </owl-check-box>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedBrands" [binary]="false"
+                       [id]="'Google'" [name]="'brands'" [value]="'Google'">
+            Google
+        </owl-check-box>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedBrands" [binary]="false"
+                       [id]="'Samsung'" [name]="'brands'" [value]="'Samsung'">
+            Samsung
+        </owl-check-box>
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="selectedBrands" [binary]="false"
+                       [id]="'Yahoo'" [name]="'brands'" [value]="'Yahoo'">
+            Yahoo
+        </owl-check-box>
+        <h5>Value: {{selectedBrands | json}}</h5>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4 yk-g">
+        <h5 class="demo-header">Indeterminate Checkbox</h5>
+        <div class="yk-g-12 yk-md-6">
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="fruitChecked"
+                           [(indeterminate)]="fruitIndeterminate"
+                           (change)="toggleFruitCheck($event)">
+                Fruit
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox"
+                           [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                           [name]="'grocery'" [value]="'Apple'"
+                           (change)="onFruitChange($event)">
+                Apple
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox"
+                           [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                           [name]="'grocery'" [value]="'Orange'"
+                           (change)="onFruitChange($event)">
+                Orange
+            </owl-check-box>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <owl-check-box class="demo-chkbox"
+                           [(ngModel)]="meatChecked"
+                           [(indeterminate)]="meatIndeterminate"
+                           (change)="toggleMeatCheck($event)">
+                Meat
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox"
+                           [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                           [name]="'grocery'" [value]="'Pork'" (change)="onMeatChange($event)">
+                Pork
+            </owl-check-box>
+
+            <owl-check-box class="demo-chkbox"
+                           [style.marginLeft]="'2em'" [(ngModel)]="selectedGroceries" [binary]="false"
+                           [name]="'grocery'" [value]="'Beef'" (change)="onMeatChange($event)">
+                Beef
+            </owl-check-box>
+        </div>
+        <h5>Value: {{selectedGroceries | json}}</h5>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Disable Checkbox</h5>
+
+        <owl-check-box class="demo-chkbox"
+                       [(ngModel)]="disabled_checked_2">Disabled
+        </owl-check-box>
+
+        <owl-check-box class="demo-chkbox"
+                       [disabled]="disabled_checked_2"
+                       [(ngModel)]="checked_2">Click To check/uncheck this box
+        </owl-check-box>
+        <h5>Value: {{checked_2}}</h5>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Customise</h5>
+
+        <owl-check-box class="demo-chkbox" [checkedIcon]="'cross'">
+            Cross Icon
+        </owl-check-box>
+
+        <owl-check-box class="demo-chkbox" [labelPosition]="'before'">
+            Label on the left
+        </owl-check-box>
+
+        <owl-check-box
+                [(ngModel)]="checked_3"
+                class="demo-chkbox" #likeBox="owlCheckBox">
+            <owl-check-box-toggle>
+                <span *ngIf="likeBox.checked;else elseBlock">
+                    <i class="fas fa-heart demo-chkbox-icon"></i>
+                </span>
+                <ng-template #elseBlock>
+                    <span>
+                        <i class="far fa-heart demo-chkbox-icon"></i>
+                    </span>
+                </ng-template>
+            </owl-check-box-toggle>
+
+            {{checked_3? 'I like it' : 'I don\'t like it'}}
+        </owl-check-box>
+    </div>
+
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public selectedDramas: string[];
+
+    public selectedBrands: string[] = ['Apple', 'Samsung'];
+
+    public selectedGroceries: string[] = [];
+
+    public checked_1 = false;
+
+    public checked_2 = false;
+
+    public disabled_checked_2 = false;
+
+    public checked_3 = false;
+
+    public fruitChecked = false;
+    public fruitIndeterminate = false;
+    public meatChecked = false;
+    public meatIndeterminate = false;
+
+    public toggleFruitCheck( event: any ): void {
+        if (event.checked) {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Apple' && v !== 'Orange';
+            });
+            this.selectedGroceries = [...this.selectedGroceries, 'Apple', 'Orange'];
+        } else {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Apple' && v !== 'Orange';
+            });
+        }
+    }
+
+    public onFruitChange( event: any ): void {
+        const hasApple = this.selectedGroceries.includes('Apple');
+        const hasOrange = this.selectedGroceries.includes('Orange');
+
+        this.fruitChecked = hasApple && hasOrange;
+        this.fruitIndeterminate = (hasApple && !hasOrange) || (!hasApple && hasOrange);
+    }
+
+    public toggleMeatCheck( event: any ): void {
+        if (event.checked) {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Pork' && v !== 'Beef';
+            });
+            this.selectedGroceries = [...this.selectedGroceries, 'Pork', 'Beef'];
+        } else {
+            this.selectedGroceries = this.selectedGroceries.filter(( v ) => {
+                return v !== 'Pork' && v !== 'Beef';
+            });
+        }
+    }
+
+    public onMeatChange( event: any ): void {
+        const hasPork = this.selectedGroceries.includes('Pork');
+        const hasBeef = this.selectedGroceries.includes('Beef');
+
+        this.meatChecked = hasPork && hasBeef;
+        this.meatIndeterminate = (hasPork && !hasBeef) || (!hasPork && hasBeef);
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

@@ -9,6 +9,7 @@ import { OwlNGStartComponent } from './getting-start.component';
 
 import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
@@ -54,6 +55,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'back-top',
+                    },
+                },
+                {
+                    path: 'checkbox',
+                    component: OwlNGCheckBoxComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'checkbox',
                     },
                 },
                 {

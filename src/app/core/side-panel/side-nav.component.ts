@@ -85,6 +85,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Checkbox',
+                        slug: '/owlng/checkbox',
+                        level: 2
+                    },
+                    {
                         name: 'Chips',
                         slug: '/owlng/chips',
                         level: 2
