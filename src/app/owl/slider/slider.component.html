@@ -1,0 +1,942 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Basic</h5>
+            <div class="yk-g yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Value" type="number" [(ngModel)]="basicSliderValue"/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g">
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Min" type="number" [(ngModel)]="basicMin"/>
+                    </owl-form-field>
+                </div>
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Max" type="number" [(ngModel)]="basicMax"/>
+                    </owl-form-field>
+                </div>
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Step" type="number" [(ngModel)]="basicStep"/>
+                    </owl-form-field>
+                </div>
+            </div>
+
+            <div class="yk-g" [ngStyle]="{'align-items': 'center'}">
+                <owl-check-box class="yk-g-12 yk-md-3" [(ngModel)]="basicShowTicks">Show ticks</owl-check-box>
+                <owl-form-field class="yk-g-12 yk-md-3" *ngIf="basicShowTicks">
+                    <input owlInput placeholder="Tick Interval" type="number" [(ngModel)]="basicTickInterval"/>
+                </owl-form-field>
+            </div>
+
+            <owl-check-box class="yk-g-12" [(ngModel)]="basicDisabled">Disable Slider</owl-check-box>
+            <owl-check-box class="yk-g-12" [(ngModel)]="basicShowBalloonLabel">Show Balloon Label</owl-check-box>
+            <owl-check-box class="yk-g-12" [(ngModel)]="basicVertical">Vertical Mode</owl-check-box>
+
+            <div class="yk-g" [ngStyle]="{'justify-content': 'center'}">
+                <owl-slider [(ngModel)]="basicSliderValue"
+                            [tickInterval]="basicTickInterval"
+                            [min]="basicMin" [max]="basicMax" [step]="basicStep"
+                            [disabled]="basicDisabled" [vertical]="basicVertical"
+                            [showBalloonLabel]="basicShowBalloonLabel"></owl-slider>
+            </div>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Range</h5>
+            <div class="yk-g">
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Low Value" type="number" [(ngModel)]="rangeSliderValue[0]"
+                               readonly/>
+                    </owl-form-field>
+                </div>
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="High Value" type="number" [(ngModel)]="rangeSliderValue[1]"
+                               readonly/>
+                    </owl-form-field>
+                </div>
+            </div>
+            <div class="yk-g">
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Min" type="number" [(ngModel)]="rangeMin"/>
+                    </owl-form-field>
+                </div>
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Max" type="number" [(ngModel)]="rangeMax"/>
+                    </owl-form-field>
+                </div>
+                <div class="yk-g-12 yk-md-3">
+                    <owl-form-field>
+                        <input owlInput placeholder="Step" type="number" [(ngModel)]="rangeStep"/>
+                    </owl-form-field>
+                </div>
+            </div>
+
+            <div class="yk-g" [ngStyle]="{'align-items': 'center'}">
+                <owl-check-box class="yk-g-12 yk-md-3" [(ngModel)]="rangeShowTicks">Show ticks</owl-check-box>
+                <owl-form-field class="yk-g-12 yk-md-3" *ngIf="rangeShowTicks">
+                    <input owlInput placeholder="Tick Interval" type="number" [(ngModel)]="rangeTickInterval"/>
+                </owl-form-field>
+            </div>
+
+            <owl-check-box class="yk-g-12" [(ngModel)]="rangeDisabled">Disable Slider</owl-check-box>
+            <owl-check-box class="yk-g-12" [(ngModel)]="rangeShowBalloonLabel">Show Balloon Label</owl-check-box>
+            <owl-check-box class="yk-g-12" [(ngModel)]="rangeVertical">Vertical Mode</owl-check-box>
+            <div class="yk-g" [ngStyle]="{'justify-content': 'center'}">
+                <owl-slider [(ngModel)]="rangeSliderValue" [range]="true"
+                            [tickInterval]="rangeTickInterval"
+                            [min]="rangeMin" [max]="rangeMax" [step]="rangeStep"
+                            [disabled]="rangeDisabled" [vertical]="rangeVertical"
+                            [showBalloonLabel]="rangeShowBalloonLabel"></owl-slider>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+
+                <p>
+                    Owl Slider is an Angular component for selecting a value from an range input.
+                    User could control a slider via a mouse move, touch or keyboard.
+                    It is similar to <code class="owlng-doc-code-tag"><![CDATA[<input type="range"/>]]></code>.
+                </p>
+
+                <div class="owlng-doc-alert">
+                    <em>
+                        Note: the sliding behavior for this component requires that HammerJS is loaded on the page. If
+                        you use this component on a lazy-loaded module, you also have to add custom gesture config in
+                        your AppModule. You could learn more about this from here.
+                    </em>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlSliderModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Slider is set up for both Template-driven Forms and Reactive Forms. User can manipulate the
+                    slider's value using any of the form directives from the core <span class="owlng-doc-code-tag">FormsModule</span>
+                    or <span class="owlng-doc-code-tag">ReactiveFormsModule</span>: <span class="owlng-doc-code-tag">ngModel</span>,
+                    <span class="owlng-doc-code-tag">formControl</span>, etc.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue"></owl-slider>
+]]></code>
+</pre>
+                <p>
+                    Owl Slider could increment or decrement value by 1 step at a time. Step value is 1 by default and
+                    user could
+                    change it via <span class="code-tag">[step]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue" [step]="5"></owl-slider>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Max & Min"> -->
+                <h3 id="max-min" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#max-min">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Max & Min
+                </h3>
+                <p>
+                    By default, Owl Slider has 100 as max value, and 0 as min. User could change those via
+                    <span class="owlng-doc-code-tag">[max]</span> and <span class="owlng-doc-code-tag">[min]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue" [max]="50" [min]="25"></owl-slider>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Range Selection"> -->
+                <h3 id="range" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#range">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Range Selection
+                </h3>
+                <p>
+                    Owl Slider could select a range value. User could set <span
+                        class="owlng-doc-code-tag">[range]</span> to true, and
+                    provide a array with two values in it(index 0 for low value, index 1 for high value) to ngModel;
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValues" [range]="true"></owl-slider>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    sliderValues =  [30, 70];
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Direction"> -->
+                <h3 id="direction" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#direction">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Slider Direction
+                </h3>
+                <p>
+                    Owl Slider is in horizontal mode by default. Change
+                    <span class="owlng-doc-code-tag">[vertical]</span> to true to set the slider as vertical mode.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue" [vertical]="true"></owl-slider>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Balloon"> -->
+                <h3 id="balloon" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#balloon">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Balloon Label
+                </h3>
+                <p>
+                    By default, user could not see the selected value via the slider is sliding. This behaviour could be
+                    changed via setting <span class="owlng-doc-code-tag">[showBalloonLabel]</span> to true to show a
+                    balloon label beside the slide handle.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue" [showBalloonLabel]="true"></owl-slider>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Tick Marks"> -->
+                <h3 id="tick-marks" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#tick-marks">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Tick Marks
+                </h3>
+                <p>
+                    By default, slider does not show tick marks on the slider track. This can enable by setting
+                    <span class="owlng-doc-code-tag">[tickInterval]</span>. The value of tickInterval should be a number
+                    representing the number of steps between tow tick marks. For example, a tickInterval of 4 with a
+                    step of 5 will draw tick marks by every 4 steps, which is the same as 20 values.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-slider [(ngModel)]="sliderValue" [tickInterval]="4" [step]="5"></owl-slider>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Keyboard Interaction"> -->
+                <h3 id="keyboard-interaction" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#keyboard-interaction">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Keyboard Interaction
+                </h3>
+                <ul>
+                    <li>RIGHT_ARROW / UP_ARROW: Increment the slider value by one step.</li>
+                    <li>LEFT_ARROW / DOWN_ARROW: Decrement the slider value by one step.</li>
+                    <li>PAGE_UP: Increment the slider value by 10 step.</li>
+                    <li>PAGE_DOWN: Decrement the slider value by 10 step.</li>
+                    <li>HOME: Set the value to the maximum possible.</li>
+                    <li>END: Set the value to the minimum possible.</li>
+                    <li>SPACE: Toggle active slider handle in range mode.</li>
+                </ul>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-slider"> -->
+                <h3 id="properties-owl-slider" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#properties-owl-slider">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owl-slider</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th [style.width]="'8em'">Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>aria-label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Attached to the aria-label attribute of the slider
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-labelledby</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Users can specify the 'aria-labelledby' attribute which will be forwarded to
+                                the slider
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>animate</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                When specified to false, the slider would NOT be animated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the slider would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>showBalloonLabel</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, slider would have a balloon label beside the slider handle.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>max</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>100</code></td>
+                            <td align="left">
+                                Defines the maximum value of the slider
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>min</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines the minimum value of the slider
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>range</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the slider would be in range mode.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>step</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>1</code></td>
+                            <td align="left">
+                                Defines the factor to increment/decrement the value
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tabIndex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">Index of the element in tabbing order</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tickInterval</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines how often to show ticks mark in slider track.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>vertical</code></td>
+                            <td align="left">'horizontal' | 'vertical'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'horizontal'</code></td>
+                            <td align="left">
+                                Defines the direction of the slider.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-slider"> -->
+                <h3 id="events-owl-slider" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#events-owl-slider">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events for <b class="owlng-doc-code-tag">owl-slider</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>change</code></td>
+                            <td align="left">
+                                source: the slider component<br/>
+                                value: ngModel value<br/>
+                            </td>
+                            <td align="left">
+                                Event emits when slider selected value changes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>changeOnSliding</code></td>
+                            <td align="left">
+                                source: the slider component<br/>
+                                value: the current slider value<br/>
+                            </td>
+                            <td align="left">
+                                Event emits when slider value changes while sliding
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/slider#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-slider
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$wrapper-size: .5em;
+$handle-circle-size: 1.1em;
+$balloon-size: 2em;
+$balloon-focused-gutter: .5em;
+$slider-color: #3f51b5;
+$slider-dark-color: #303f9f;
+
+.owl-slider,
+.owl-slider * {
+  box-sizing: border-box;
+}
+
+.owl-slider {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: default;
+  padding: .5em;
+  outline: none;
+
+  touch-action: none;
+  user-select: none;
+
+  &.owl-slider-horizontal {
+    width: 300px;
+    min-width: 128px;
+    height: 3em;
+  }
+
+  &.owl-slider-vertical {
+    width: 3em;
+    height: 300px;
+    min-height: 128px;
+  }
+}
+
+.owl-slider-wrapper {
+  position: relative;
+  border: none;
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+  border-radius: 10px;
+}
+
+.owl-slider-bar {
+  position: absolute;
+  background-color: $slider-color;
+  border-radius: inherit;
+  box-shadow: inherit;
+  transition: left 300ms, bottom 300ms, width 300ms, height 300ms;
+
+}
+
+.owl-slider-ticks-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+
+  .owl-slider-ticks {
+    background-repeat: repeat;
+    background-clip: content-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 400ms cubic-bezier(.25, .8, .25, 1);
+  }
+}
+
+.owl-slider-handle {
+  position: absolute;
+  transition: left 300ms, bottom 300ms;
+  cursor: grab;
+  z-index: 1;
+  outline: none;
+
+  &[aria-disabled] {
+    cursor: default;
+  }
+
+  .owl-slider-handle-circle {
+    width: $handle-circle-size;
+    height: $handle-circle-size;
+    border-radius: 100%;
+    cursor: inherit;
+    background-color: #ffffff;
+    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0px 0px 5px #ccc;
+  }
+
+  .owl-slider-handle-balloon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: $balloon-size;
+    height: $balloon-size;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px $slider-dark-color;
+    background-color: $slider-color;
+    transition: transform .4s cubic-bezier(.25, .8, .25, 1),
+    border-radius .4s cubic-bezier(.25, .8, .25, 1),
+    background-color .4s cubic-bezier(.25, .8, .25, 1);
+  }
+
+  .owl-slider-handle-balloon-text {
+    color: #ffffff;
+    font-size: .8em;
+    opacity: 0;
+    transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
+  }
+
+  &[aria-orientation='horizontal'] {
+    .owl-slider-handle-balloon[data-pos = "up"] {
+      left: -($balloon-size - $handle-circle-size)/2;
+      top: -(($balloon-size * 1.7)/2 + $wrapper-size);
+      transform: translateY($balloon-size - $wrapper-size/2) scale(.01) rotate(45deg);
+
+      .owl-slider-handle-balloon-text {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .owl-slider-handle-balloon[data-pos = "down"] {
+      left: -($balloon-size - $handle-circle-size)/2;
+      bottom: -(($balloon-size * 1.7)/2 + $wrapper-size);
+      transform: translateY(-($balloon-size - $wrapper-size/2)) scale(.01) rotate(-135deg);
+
+      .owl-slider-handle-balloon-text {
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  &[aria-orientation='vertical'] {
+    .owl-slider-handle-balloon[data-pos = "up"] {
+      top: -($balloon-size - $handle-circle-size)/2;
+      left: -(($balloon-size * 1.7)/2 + $wrapper-size);
+      transform: translateX($balloon-size - $wrapper-size/2) scale(.01) rotate(-45deg);
+
+      .owl-slider-handle-balloon-text {
+        transform: rotate(45deg);
+      }
+    }
+
+    .owl-slider-handle-balloon[data-pos = "down"] {
+      bottom: -($balloon-size - $handle-circle-size)/2;
+      right: -(($balloon-size * 1.7)/2 + $wrapper-size);
+      transform: translateX(-($balloon-size - $wrapper-size/2)) scale(.01) rotate(135deg);
+
+      .owl-slider-handle-balloon-text {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}
+
+.owl-slider-horizontal {
+  .owl-slider-wrapper {
+    width: 100%;
+    height: $wrapper-size;
+
+    .owl-slider-handle {
+      top: -($handle-circle-size - $wrapper-size)/2;
+      margin-left: - $handle-circle-size / 2;
+    }
+
+    .owl-slider-bar {
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .owl-slider-ticks {
+    background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) 2px, transparent 0, transparent);
+  }
+}
+
+.owl-slider-vertical {
+
+  .owl-slider-wrapper {
+    height: 100%;
+    width: $wrapper-size;
+
+    .owl-slider-handle {
+      left: -($handle-circle-size - $wrapper-size)/2;
+      margin-bottom: - $handle-circle-size / 2;
+    }
+
+    .owl-slider-bar {
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .owl-slider-ticks {
+    background-image: repeating-linear-gradient(180deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) 2px, transparent 0, transparent);
+  }
+}
+
+.owl-slider-focused:not(.owl-slider-disabled) {
+  .owl-slider-handle {
+    &:focus .owl-slider-handle-circle {
+      transform: scale(1.2);
+      box-shadow: 0px 0px 3px $slider-dark-color;
+    }
+
+    &.owl-slider-handle-has-balloon {
+      .owl-slider-handle-circle {
+        transform: scale(.5);
+      }
+    }
+
+    .owl-slider-handle-balloon {
+      border-radius: 50% 50% 0;
+    }
+
+    &[aria-orientation='horizontal'] {
+      .owl-slider-handle-balloon[data-pos="up"] {
+        transform: rotate(45deg);
+      }
+
+      .owl-slider-handle-balloon[data-pos="down"] {
+        transform: rotate(-135deg);
+      }
+    }
+
+    &[aria-orientation='vertical'] {
+      .owl-slider-handle-balloon[data-pos="up"] {
+        transform: rotate(-45deg);
+      }
+
+      .owl-slider-handle-balloon[data-pos="down"] {
+        transform: rotate(135deg);
+      }
+    }
+
+    &:focus[aria-orientation='horizontal'] {
+      .owl-slider-handle-balloon[data-pos="up"] {
+        transform: translateY(-$balloon-focused-gutter) rotate(45deg) scale(1.1);
+      }
+
+      .owl-slider-handle-balloon[data-pos="down"] {
+        transform: translateY($balloon-focused-gutter) rotate(-135deg) scale(1.1);
+      }
+    }
+
+    &:focus[aria-orientation='vertical'] {
+      .owl-slider-handle-balloon[data-pos="up"] {
+        transform: translateX(-$balloon-focused-gutter) rotate(-45deg) scale(1.1);
+      }
+
+      .owl-slider-handle-balloon[data-pos="down"] {
+        transform: translateX($balloon-focused-gutter) rotate(135deg) scale(1.1);
+      }
+    }
+
+    .owl-slider-handle-balloon-text {
+      opacity: 1;
+    }
+  }
+
+  .owl-slider-ticks {
+    opacity: 1;
+  }
+}
+
+.owl-slider:hover:not(.owl-slider-disabled) .owl-slider-ticks {
+  opacity: 1;
+}
+
+.owl-slider-isDragging {
+  .owl-slider-handle,
+  .owl-slider-bar {
+    transition: none;
+  }
+
+  .owl-slider-handle {
+    cursor: grabbing;
+  }
+}
+
+.owl-slider-disabled {
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+  cursor: default !important;
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Basic</h5>
+        <div class="yk-g yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput placeholder="Value" type="number" [(ngModel)]="basicSliderValue"/>
+            </owl-form-field>
+        </div>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Min" type="number" [(ngModel)]="basicMin"/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Max" type="number" [(ngModel)]="basicMax"/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Step" type="number" [(ngModel)]="basicStep"/>
+                </owl-form-field>
+            </div>
+        </div>
+
+        <div class="yk-g" [ngStyle]="{'align-items': 'center'}">
+            <owl-check-box class="yk-g-12 yk-md-3" [(ngModel)]="basicShowTicks">Show ticks</owl-check-box>
+            <owl-form-field class="yk-g-12 yk-md-3" *ngIf="basicShowTicks">
+                <input owlInput placeholder="Tick Interval" type="number" [(ngModel)]="basicTickInterval"/>
+            </owl-form-field>
+        </div>
+
+        <owl-check-box class="yk-g-12" [(ngModel)]="basicDisabled">Disable Slider</owl-check-box>
+        <owl-check-box class="yk-g-12" [(ngModel)]="basicShowBalloonLabel">Show Balloon Label</owl-check-box>
+        <owl-check-box class="yk-g-12" [(ngModel)]="basicVertical">Vertical Mode</owl-check-box>
+
+        <div class="yk-g" [ngStyle]="{'justify-content': 'center'}">
+            <owl-slider [(ngModel)]="basicSliderValue"
+                        [tickInterval]="basicTickInterval"
+                        [min]="basicMin" [max]="basicMax" [step]="basicStep"
+                        [disabled]="basicDisabled" [vertical]="basicVertical"
+                        [showBalloonLabel]="basicShowBalloonLabel"></owl-slider>
+        </div>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Range</h5>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Low Value" type="number" [(ngModel)]="rangeSliderValue[0]"
+                           readonly/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="High Value" type="number" [(ngModel)]="rangeSliderValue[1]"
+                           readonly/>
+                </owl-form-field>
+            </div>
+        </div>
+        <div class="yk-g">
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Min" type="number" [(ngModel)]="rangeMin"/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Max" type="number" [(ngModel)]="rangeMax"/>
+                </owl-form-field>
+            </div>
+            <div class="yk-g-12 yk-md-3">
+                <owl-form-field>
+                    <input owlInput placeholder="Step" type="number" [(ngModel)]="rangeStep"/>
+                </owl-form-field>
+            </div>
+        </div>
+
+        <div class="yk-g" [ngStyle]="{'align-items': 'center'}">
+            <owl-check-box class="yk-g-12 yk-md-3" [(ngModel)]="rangeShowTicks">Show ticks</owl-check-box>
+            <owl-form-field class="yk-g-12 yk-md-3" *ngIf="rangeShowTicks">
+                <input owlInput placeholder="Tick Interval" type="number" [(ngModel)]="rangeTickInterval"/>
+            </owl-form-field>
+        </div>
+
+        <owl-check-box class="yk-g-12" [(ngModel)]="rangeDisabled">Disable Slider</owl-check-box>
+        <owl-check-box class="yk-g-12" [(ngModel)]="rangeShowBalloonLabel">Show Balloon Label</owl-check-box>
+        <owl-check-box class="yk-g-12" [(ngModel)]="rangeVertical">Vertical Mode</owl-check-box>
+        <div class="yk-g" [ngStyle]="{'justify-content': 'center'}">
+            <owl-slider [(ngModel)]="rangeSliderValue" [range]="true"
+                        [tickInterval]="rangeTickInterval"
+                        [min]="rangeMin" [max]="rangeMax" [step]="rangeStep"
+                        [disabled]="rangeDisabled" [vertical]="rangeVertical"
+                        [showBalloonLabel]="rangeShowBalloonLabel"></owl-slider>
+        </div>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public basicMax = 100;
+    public basicMin = 0;
+    public basicStep = 1;
+    public basicDisabled = false;
+    public basicShowBalloonLabel = true;
+    public basicShowTicks = false;
+    public basicVertical = false;
+    public basicSliderValue = 10;
+    private _basicTickInterval = 10;
+    get basicTickInterval(): number {
+        return this.basicShowTicks ? this._basicTickInterval : 0;
+    }
+
+    set basicTickInterval( v: number ) {
+        this._basicTickInterval = Number(v);
+    }
+
+    public rangeMax = 100;
+    public rangeMin = 0;
+    public rangeStep = 1;
+    public rangeDisabled = false;
+    public rangeShowBalloonLabel = true;
+    public rangeShowTicks = false;
+    public rangeVertical = false;
+    public rangeSliderValue = [30, 70];
+    private _rangeTickInterval = 10;
+    get rangeTickInterval(): number {
+        return this.rangeShowTicks ? this._rangeTickInterval : 0;
+    }
+
+    set rangeTickInterval( v: number ) {
+        this._rangeTickInterval = Number(v);
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>
