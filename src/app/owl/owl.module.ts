@@ -16,6 +16,8 @@ import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
+import { OwlNGDialogComponent } from './dialog/dialog.component';
+import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
@@ -33,6 +35,7 @@ import {
     OwlBackTopBtnModule,
     OwlCheckBoxModule,
     OwlChipsModule,
+    OwlDialogModule,
     OwlFormFieldModule,
     OwlInputModule,
     OwlInputMaskModule,
@@ -57,6 +60,7 @@ import {
         OwlBackTopBtnModule,
         OwlCheckBoxModule,
         OwlChipsModule,
+        OwlDialogModule,
         OwlFormFieldModule,
         OwlInputModule,
         OwlInputMaskModule,
@@ -80,6 +84,8 @@ import {
         OwlNGBackTopComponent,
         OwlNGCheckBoxComponent,
         OwlNGChipsComponent,
+        OwlNGDialogComponent,
+        OwlNGDummyDialogComponent,
         OwlNGFormFieldComponent,
         OwlNGInputComponent,
         OwlNGInputMaskComponent,
@@ -95,6 +101,7 @@ import {
     providers: [
         OwlIntroductionService
     ],
+    entryComponents: [OwlNGDummyDialogComponent]
 })
 export class OwlNGModule {
 }

@@ -1,0 +1,728 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Basic</h5>
+        <button class="owlng-btn" (click)="openDialog_1()" owlRipple>Show Dialog</button>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Dialog Fly in from click position</h5>
+    </div>
+    <div class="yk-g" [ngStyle]="{'justify-content': 'space-between'}">
+        <button class="owlng-btn" (click)="openDialog_2($event)" owlRipple>Show Dialog</button>
+        <button class="owlng-btn" (click)="openDialog_2($event)" owlRipple>Show Dialog</button>
+    </div>
+    <div class="yk-g">
+        <h4>Return Data From Dialog: {{team}}</h4>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Dialog provides an Angular service (<span class="owlng-doc-code-tag">OwlDialogService</span>) to
+                    open a overlay window with styles and animations. Users could also fully customise the content of
+                    the dialog.
+                </p>
+                <div class="owlng-doc-alert">
+                    <em>
+                        Note: this is a fully customised dialog and it requires users to create their own dialog
+                        component. If you want to use a simpler and more straight-away dialog, try to use
+                        <a class="owlng-doc-link" routerLink="/owlng/sweet-alert">SweetAlert</a>.
+                    </em>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlDialogModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    A dialog is open via using <span class="owlng-doc-code-tag">OwlDialogService#open()</span> function.
+                    The method requires a component as parameter, and that component would be loaded inside the dialog
+                    container. User could also provide optional config (paneClass, data, etc) to customise the
+                    dialog container.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {Component, Inject} from '@angular/core';
+import {OwlDialogService, OwlDialogRef} from 'owl-ng';
+
+@Component({
+  selector: 'dialog-overview-example',
+  templateUrl: 'dialog-overview-example.html'
+})
+export class MyComponent {
+
+    constructor( private dialogService: OwlDialogService ) {
+    }
+
+    public openDialog() {
+        const dialogRef = this.dialogService.open(UserCustomisedComponent, {
+            paneClass: 'custom-dialog-container',
+            width: width: '300px'
+        });
+    }
+}
+]]></code>
+</pre>
+                <p>
+                    The <span class="owlng-doc-code-tag">open</span> method will return an instance of OwnDialogRef. The
+                    DialogRef provides a handle on the opened dialog. It can be used to close the dialog and to receive
+                    notification when the dialog has been opened and closed.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+const dialogRef = this.dialogService.open(UserCustomisedComponent, {
+    paneClass: 'custom-dialog-container',
+    width: width: '300px'
+});
+
+dialogRef.close('dialog result');
+
+dialogRef.afterOpen().subscribe(() => {
+    // do what you want
+});
+
+dialogRef.beforeClose().subscribe((data: any) => {
+    console.log(data) // 'dialog result'
+});
+
+dialogRef.afterClosed().subscribe((data: any) => {
+    console.log(data) // 'dialog result'
+});
+]]></code>
+</pre>
+                <p>
+                    Components created via <span class="owlng-doc-code-tag">OwlDialogService</span> can inject
+                    <span class="owlng-doc-code-tag">OwlDialogRef</span> and use it to close the dialog in which they
+                    are contained. When closing, an optional result value can be provided. This result value is
+                    forwarded as the result of the afterClosed observable.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {Component, Inject} from '@angular/core';
+import {OwlDialogRef} from 'owl-ng';
+
+@Component({
+  selector: 'custom-dialog',
+  templateUrl: 'custom-dialog.html'
+})
+export class CustomDialogComponent {
+
+    constructor(public dialogRef: OwlDialogRef<CustomDialogComponent>) {
+    }
+
+    public closeDialog() {
+        this.dialogRef.close('dialog result');
+    }
+}
+]]></code>
+</pre>
+                <p>
+                    If you want to share data with your custom dialog component, use
+                    <span class="owlng-doc-code-tag">data</span> option to pass information to the custom dialog
+                    component.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+    const dialogRef = this.dialogService.open(CustomDialogComponent, {
+        data: {inform: 'Your data to your custom dialog'}
+    });
+]]></code>
+</pre>
+                <p>
+                    To access the data in your custom dialog component, you have to use the OWL_DIALOG_DATA injection
+                    token:
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {Component, Inject} from '@angular/core';
+import {OWL_DIALOG_DATA} from 'owl-ng';
+
+@Component({
+  selector: 'custom-dialog',
+  templateUrl: 'custom-dialog.html'
+})
+export class CustomDialogComponent {
+
+    constructor(@Inject(OWL_DIALOG_DATA) public data: any) {
+        console.log(data.inform); // 'Your data to your custom dialog'
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Configure Dialog Content"> -->
+                <h3 id="configure-dialog-content" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#configure-dialog-content">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Configure Dialog Content
+                </h3>
+                <p>
+                    Because of the custom dialog component loaded dynamically at the run time, and its usage of
+                    ViewContainerRef#createComponent() to create the component on the fly, the Angular compiler will not
+                    know to
+                    create the proper ComponentFactory for your dialog component by default.
+                </p>
+                <p>
+                    You must include your custom dialog component class in the list of <span class="owlng-doc-code-tag">entryComponents</span>
+                    in their NgModule definition. In this case, the Angular compiler knows to create the
+                    ComponentFactory for it. You could learn more about this from
+                    <a class="owlng-doc-link" href="https://angular.io/guide/dynamic-component-loader" target="_blank">Creating
+                        Dynamic Component</a>.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+@NgModule({
+    imports: [
+    // ...
+        OwlDialogModule
+    ],
+    declarations: [
+        AppComponent,
+        CustomDialogComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    entryComponents: [
+        CustomDialogComponent
+    ]
+})
+export class AppModule() {}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Fly-In Animation"> -->
+                <h3 id="fly-in-animation" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#fly-in-animation">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Fly-In Animation
+                </h3>
+                <p>
+                    By default, the dialog would appear in the center of the window. You could also make the dialog
+                    flying from the click position by passing the click position to the open function.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+@Component({
+    selector: 'app-component',
+    template: '<button (click)="openDialog($event)">openDialog</button>',
+})
+export class AppComponent {
+
+    constructor( private dialogService: OwlDialogService ) {
+    }
+
+    public openDialog(event: MouseEvent) {
+        const dialogRef = this.dialogService.open(CustomDialogComponent, {
+            transitionX: event.clientX,
+            transitionY: event.clientY,
+        });
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Global Dialog Config"> -->
+                <h3 id="global-config" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#global-config">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Global Dialog Config
+                </h3>
+                <p>
+                    Default dialog config options can be specified by providing an instance for
+                    <span class="owlng-doc-code-tag">OWL_DIALOG_CONFIG</span> in your application’s root module.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+@NgModule({
+    imports: [
+        OwlDialogModule
+    ],
+    providers: [
+        {
+            provide: OWL_DIALOG_CONFIG, useValue: {
+                width: '300px',
+                height: '200px',
+            }
+        }
+    ]
+})
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Methods in OwlDialogService"> -->
+                <h3 id="owl-dialog-service" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#owl-dialog-service">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Methods of <span class="owlng-doc-code-tag">OwlDialogService</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameter</th>
+                            <th>Return</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">open</code> -- open a dialog containing the given
+                                component.
+                            </td>
+                            <td align="left">
+                                <ul>
+                                    <li>
+                                        component:
+                                        <code class="owlng-doc-code-tag"><![CDATA[
+                                            ComponentType
+                                            <T>]]>
+                                        </code>
+                                        -- A component to instantiated as dialog content
+                                    </li>
+                                    <li>
+                                        config?: <code class="owlng-doc-code-tag">OwlDialogConfig</code> -- Additional
+                                        config options for the dialog
+                                    </li>
+                                </ul>
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[
+                                    OwlDialogRef
+                                    <T>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">closeAll</code> -- close all opened dialogs
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Options in OwlDialogConfig"> -->
+                <h3 id="options-owl-dialog-config" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#options-owl-dialog-config">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Options In <span class="owlng-doc-code-tag">OwlDialogConfig</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>ariaDescribedBy</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                ID of the element that describes the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>autoFocus</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether to focus the dialog when the dialog is opened
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>hasBackdrop</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the dialog has a backdrop.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>backdropClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'cdk-overlay-dark-backdrop'</code></td>
+                            <td align="left">
+                                Defines the custom class for the backdrop
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>data</code></td>
+                            <td align="left">any</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Data being injected into the custom dialog component.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>dialogClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class for the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disableClose</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, user can NOT use escape or clicking outside to close a dialog.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                ID for the dialog. If omitted, a unique one will be generated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>paneClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class of the dialog container
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>role</code></td>
+                            <td align="left">'dialog' | 'alertdialog'</td>
+                            <td align="left"><code>'dialog'</code></td>
+                            <td align="left">
+                                Defines the ARIA role of the dialog element
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>transitionX</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the point X where the dialog enters from
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>transitionY</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the point Y where the dialog enters from
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closeOnNavigation</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the dialog should close when the user goes backwards/forwards in
+                                history.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>width</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>height</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>minWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the min-width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>minHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the min-height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'85vw'</code></td>
+                            <td align="left">
+                                Defines the max-width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the max-height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>position</code></td>
+                            <td align="left"><code class="owlng-doc-code-tag"><![CDATA[
+                                {top: string, bottom: string, left: string, right: string}]]>
+                            </code></td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Overrides the dialog position settings.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Methods in OwlNotifierRef"> -->
+                <h3 id="owl-dialog-ref" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/dialog#owl-dialog-ref">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Methods of <span class="owlng-doc-code-tag">OwlDialogRef</span>
+                </h3>
+                <p>
+                    Reference to a dialog dispatched from the dialog service.
+                </p>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>return</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">afterOpen</code> -- Gets an observable that is
+                                notified when the dialog is opened.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[Observable
+                                    <null>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">beforeClose</code> -- Gets an observable that is notified
+                                when the dialog is going to close.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[Observable
+                                    <any>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">afterClosed</code> -- Gets an observable that is
+                                notified when the dialog is closed.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[
+                                    Observable
+                                    <any>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">close</code> -- Close the dialog.
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Basic</h5>
+    <button class="owlng-btn" (click)="openDialog_1()" owlRipple>Show Dialog</button>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Dialog Fly in from click position</h5>
+</div>
+<div class="yk-g" [ngStyle]="{'justify-content': 'space-between'}">
+    <button class="owlng-btn" (click)="openDialog_2($event)" owlRipple>Show Dialog</button>
+    <button class="owlng-btn" (click)="openDialog_2($event)" owlRipple>Show Dialog</button>
+</div>
+<div class="yk-g">
+    <h4>Return Data From Dialog: {{team}}</h4>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public team: string;
+
+    constructor( private dialogService: OwlDialogService ) {
+    }
+
+    public openDialog_1(): void {
+        const dialogRef = this.dialogService.open(DummyDialogComponent, {
+            width: '300px',
+            dialogClass: 'dummy-dialog',
+            data: {team: ''},
+        });
+
+        dialogRef.afterClosed().subscribe(( data: any ) => {
+            if (data && data.type === 'confirm') {
+                this.team = data.team;
+            }
+        });
+    }
+
+    public openDialog_2( event: any ): void {
+        const dialogRef = this.dialogService.open(DummyDialogComponent, {
+            width: '300px',
+            dialogClass: 'dummy-dialog',
+            data: {team: 'Golden State Warriors'},
+            transitionX: event.clientX,
+            transitionY: event.clientY,
+        });
+
+        dialogRef.afterClosed().subscribe(( data: any ) => {
+            if (data && data.type === 'confirm') {
+                this.team = data.team;
+
+            }
+        });
+    }
+}
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+@Component({
+    selector: 'dummy-dialog',
+    template: `
+        <h1>Dummy Dialog</h1>
+        <owl-form-field>
+            <input owlInput placeholder="Favourite NBA Team" [(ngModel)]="value" #inputElm>
+        </owl-form-field>
+        <div class="yk-g">
+            <button class="owlng-btn dummy-btn" (click)="onOkClick()">OK</button>
+            <button class="owlng-btn dummy-btn" (click)="onCancelClick()">Cancel</button>
+        </div>
+    `,
+})
+export class DummyDialogComponent {
+    @ViewChild('inputElm') inputElm: ElementRef;
+
+    public value: string;
+
+    constructor( public dialogRef: OwlDialogRef<DummyDialogComponent>,
+                 @Inject(OWL_DIALOG_DATA) public data: any ) {
+    }
+
+    public ngOnInit() {
+        this.value = this.data.team;
+
+        this.dialogRef.afterOpen().subscribe(() => {
+            this.inputElm.nativeElement.focus();
+        });
+    }
+
+    public onOkClick() {
+        this.dialogRef.close({
+            type: 'confirm',
+            team: this.value
+        });
+    }
+
+    public onCancelClick() {
+        this.dialogRef.close({
+            type: 'cancel'
+        });
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
