@@ -1,0 +1,671 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="message" placeholder="Message">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="action" placeholder="Action">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="life" placeholder="Life(ms)" type="number">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <owl-select [(ngModel)]="type" placeholder="type">
+                    <owl-option>none</owl-option>
+                    <owl-option value="question">question</owl-option>
+                    <owl-option value="warning">warning</owl-option>
+                    <owl-option value="info">info</owl-option>
+                    <owl-option value="success">success</owl-option>
+                    <owl-option value="error">error</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <owl-select [(ngModel)]="vertical" placeholder="Vertical">
+                    <owl-option value="top">top</owl-option>
+                    <owl-option value="bottom">bottom</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <owl-select [(ngModel)]="horizontal" placeholder="Horizontal">
+                    <owl-option value="left">left</owl-option>
+                    <owl-option value="center">center</owl-option>
+                    <owl-option value="right">right</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" (click)="notify()" owlRipple>Notify Here</button>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Notifier is an Angular service for providing notifications. It is a well designed, fully
+                    animated, highly customizable, and a easy-to-use notification service for your Angular application.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlNotifierModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlNotifierService } from 'owl-ng';
+
+export class MyComponent {
+    constructor( private notifier: OwlNotifierService ) {
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Open A Notifier"> -->
+                <h3 id="open-notifier" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#open-notifier">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Open a Notifier
+                </h3>
+                <p>
+                    Owl Notifier can contain either a string message or a custom component as notifier's content.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+// simple notifier message
+let notifierRef = this.notifier.open('Notifier Message!');
+
+// simple notifier message with an action
+let notifierRef = this.notifier.open('Notifier Message!', 'Action');
+
+// Load the given component into the notifier.
+let notifierRef = this.notifier.openViaComponent(CustomNotifierComponent);
+]]></code>
+</pre>
+                <p>
+                    In either case, a <span class="owlng-doc-code-tag">OwlNotifierRef</span> is returned. This can be used
+                    to dismiss the notifier or to receive notification of when the notifier is dismissed. For simple
+                    messages with an action, the <span class="owlng-doc-code-tag">OwlNotifierRef</span> exposes an
+                    observable for when the action is triggered. If you want to close a custom notifier that was opened
+                    via <span class="owlng-doc-code-tag">openViaComponent</span>, from within the component itself, you
+                    can inject the <span class="owlng-doc-code-tag">OwlNotifierRef</span>.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+notifierRef.afterDismissed().subscribe(() => {
+  console.log('The notifier was dismissed');
+});
+
+
+notifierRef.onAction().subscribe(() => {
+  console.log('The notifier action was triggered!');
+});
+
+notifierRef.dismiss();
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Dismiss A Notifier"> -->
+                <h3 id="dismiss-notifier" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#dismiss-notifier">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Dismiss a Notifier
+                </h3>
+                <p>
+                    A notifier can be dismissed manually by calling the
+                    <span class="owlng-doc-code-tag">dismiss()</span> method on the <span class="owlng-doc-code-tag">OwlNotifierRef</span>
+                    returned from the call to <span class="owlng-doc-code-tag">open()</span> or
+                    <span class="owlng-doc-code-tag">openViaComponent()</span>.
+                </p>
+
+                <p>
+                    By default, only one notifier can be shown at a time. If a new notifier is opened while the previous
+                    one is still showing, the previous one would be automatically dismissed. If you want to have more
+                    than one notifiers that could be showing at the same time, you could set
+                    <span class="owlng-doc-code-tag">maxStack</span> in
+                    <a class="owlng-doc-link" href="/owlng/notifier#global-config">Global Notifier Config</a>.
+                </p>
+
+                <p>
+                    In addition, each notifier could also be given a life via the optional configuration object.
+                    Notifiers with a life would be automatically dismiss after the certain milliseconds.
+                    The default life of notifier is 0, and it would not dismiss automatically.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+// simple notifier message with life, and notifier would dismiss after 2 seconds.
+let notifierRef = this.notifier.open('Notifier Message!', 'Action', {
+    life: 2000
+});
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Position"> -->
+                <h3 id="position" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#position">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Position
+                </h3>
+                <p>
+                    By default, notifier would be shown in the bottom-center of the window. This can be configured via
+                    <a class="owlng-doc-link" href="/owlng/notifier#global-config">Global Notifier Config</a> or the
+                    optional configuration object. Valid<span class="owlng-doc-code-tag">verticalPosition</span> setting
+                    is 'top' and 'bottom', and valid <span class="owlng-doc-code-tag">horizontalPosition</span> setting
+                    is 'left', 'right', 'center'.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+// simple notifier message with position setting,
+// and this notifier would be shown on the top-right corner of the window
+let notifierRef = this.notifier.open('Notifier Message!', 'Action', {
+    verticalPosition: 'top',
+    horizontalPosition: 'bottom'
+});
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Global Notifier Config"> -->
+                <h3 id="global-config" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#global-config">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Global Notifier Config
+                </h3>
+                <p>
+                    Default notifier config options can be specified by providing an instance for
+                    <span class="owlng-doc-code-tag">OWL_NOTIFIER_CONFIG</span> in your application’s root module.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+@NgModule({
+    imports: [
+        OwlNotifierModule
+    ],
+    providers: [
+        {
+            provide: OWL_NOTIFIER_CONFIG, useValue: {
+                maxStack: 1,
+                life: 0,
+                verticalPosition: 'bottom',
+                horizontalPosition: 'center',
+            }
+        }
+    ]
+})
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Share Data"> -->
+                <h3 id="share-data" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#share-data">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Share Data in custom notifier
+                </h3>
+                <p>
+                    You can share data with the custom notifier, that you opened via the
+                    <span class="owlng-doc-code-tag">openViaComponent</span> method, by passing it through the data
+                    property.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+// open notifier via a custom component, and share data to the component
+let notifierRef = this.notifier.openViaComponent(CustomNotifierComponent, {
+    data: 'some inform',
+});
+]]></code>
+</pre>
+                <p>
+                    To access the data in your custom component, you have to use the <span class="owlng-doc-code-tag">OWL_NOTIFIER_DATA</span>
+                    injection token:
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {Component, Inject} from '@angular/core';
+import {OWL_NOTIFIER_DATA} from 'owl-ng';
+
+@Component({
+  selector: 'your-notifier',
+  template: 'passed in {{ data }}',
+})
+export class CustomComponent {
+  constructor(@Inject(OWL_NOTIFIER_DATA) public data: any) { }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Methods in OwlNotifierService"> -->
+                <h3 id="owl-notifier-service" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#owl-notifier-service">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Methods of <span class="owlng-doc-code-tag">OwlNotifierService</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameter</th>
+                            <th>Return</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">open</code> -- open a notifier with
+                                message and action
+                            </td>
+                            <td align="left">
+                                <ul>
+                                    <li>
+                                        message: <code class="owlng-doc-code-tag">string</code> -- A text message to
+                                        show on the notifier.
+                                    </li>
+                                    <li>
+                                        action: <code class="owlng-doc-code-tag">string</code> -- A label text for the
+                                        notifier action.
+                                    </li>
+                                    <li>
+                                        config?: <code class="owlng-doc-code-tag">OwlNotifierConfig</code> -- Additional
+                                        config options for the notifier
+                                    </li>
+                                </ul>
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[
+                                    OwlNotifierRef
+                                    <OwlNotifierComponent>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">openViaComponent</code> -- open a notifier
+                                with a custom component as content
+                            </td>
+                            <td align="left">
+                                <ul>
+                                    <li>
+                                        component:
+                                        <code class="owlng-doc-code-tag"><![CDATA[
+                                            ComponentType
+                                            <T>]]>
+                                        </code>
+                                        -- A component to instantiated
+                                    </li>
+                                    <li>
+                                        config?: <code class="owlng-doc-code-tag">OwlNotifierConfig</code> -- Additional
+                                        config options for the notifier
+                                    </li>
+                                </ul>
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[
+                                    OwlNotifierRef
+                                    <T>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">closeAll</code> -- close all notifiers
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Options in OwlNotifierConfig"> -->
+                <h3 id="options-owl-notifier-config" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#options-owl-notifier-config">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Options In OwlNotifierConfig
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>announcementMessage</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Message to be announced by the AriaLiveAnnouncer
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>data</code></td>
+                            <td align="left">any</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Data to be injected into the custom notifier component.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>clickToClose</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specify to true, the notifier would be dismissed when is clicked.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                ID for the notifier. If omitted, a unique one will be generated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>life</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                The length of time in milliseconds to wait before automatically dismissing the notifier.
+                                Default is 0, and the notifier would not be automatically dismissed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxStack</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>1</code></td>
+                            <td align="left">
+                                Defines maximum number of notifiers can be shown on the page at the same time
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>notifierClass</code></td>
+                            <td align="left">string | string[]</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                The extra class or classes for the notifier
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">'question' | 'warning' | 'info' | 'success' | 'error'</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the type of the notifier. Each type would have a corresponding icon and theme
+                                color.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>verticalPosition</code></td>
+                            <td align="left">'top' | 'bottom'</td>
+                            <td align="left"><code>'bottom'</code></td>
+                            <td align="left">
+                                Defines the vertical position of the notifier
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>horizontalPosition</code></td>
+                            <td align="left">'left' | 'center' | 'right'</td>
+                            <td align="left"><code>'center'</code></td>
+                            <td align="left">
+                                Defines the horizontal position of the notifier
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>viewContainerRef</code></td>
+                            <td align="left">ViewContainerRef</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the view container to place the overlay for the notifier into.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Methods in OwlNotifierRef"> -->
+                <h3 id="owl-notifier-ref" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/input#owl-notifier-ref">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Methods of <span class="owlng-doc-code-tag">OwlNotifierRef</span>
+                </h3>
+                <p>
+                    Reference to a notifier dispatched from the notifier service.
+                </p>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>return</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">afterDismissed</code> -- Gets an observable that is
+                                notified when the notifier is finished closing.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[
+                                    Observable
+                                    <null>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">afterOpen</code> -- Gets an observable that is
+                                notified when the notifier is opened.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[Observable
+                                    <null>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">onAction</code> -- Gets an observable that is notified
+                                when the notifier action is called.
+                            </td>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag"><![CDATA[Observable
+                                    <null>]]>
+                                </code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">dismiss</code> -- Dismiss the notifier
+                            </td>
+                            <td align="left">
+                                null
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="message" placeholder="Message">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="action" placeholder="Action">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="life" placeholder="Life(ms)" type="number">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <owl-select [(ngModel)]="type" placeholder="type">
+                <owl-option>none</owl-option>
+                <owl-option value="question">question</owl-option>
+                <owl-option value="warning">warning</owl-option>
+                <owl-option value="info">info</owl-option>
+                <owl-option value="success">success</owl-option>
+                <owl-option value="error">error</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <owl-select [(ngModel)]="vertical" placeholder="Vertical">
+                <owl-option value="top">top</owl-option>
+                <owl-option value="bottom">bottom</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <owl-select [(ngModel)]="horizontal" placeholder="Horizontal">
+                <owl-option value="left">left</owl-option>
+                <owl-option value="center">center</owl-option>
+                <owl-option value="right">right</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn" (click)="notify()" owlRipple>Notify Here</button>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public message = 'Here is your notifier message.';
+
+    public action = 'Action';
+
+    public vertical: any = 'bottom';
+
+    public horizontal: any = 'center';
+
+    public life = 0;
+
+    public type: any;
+
+    constructor( private notifier: OwlNotifierService ) {
+    }
+
+    public notify(): void {
+        this.notifier.open(this.message, this.action, {
+            verticalPosition: this.vertical,
+            horizontalPosition: this.horizontal,
+            life: this.life,
+            type: this.type
+        });
+    }
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

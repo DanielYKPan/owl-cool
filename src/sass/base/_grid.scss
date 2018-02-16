@@ -53,6 +53,12 @@
   }
 }
 
+.yk-md-1 {
+  @media #{$medium-up} {
+    width: calc(100% / 12);
+  }
+}
+
 .yk-md-2 {
   @media #{$medium-up} {
     width: calc(100% / 6);

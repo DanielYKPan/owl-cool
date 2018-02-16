@@ -19,6 +19,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
+import { OwlNGNotifierComponent } from './notifier/notifier.component';
 import { OwlNGRadioComponent } from './radio/radio.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
@@ -35,6 +36,7 @@ import {
     OwlFormFieldModule,
     OwlInputModule,
     OwlInputMaskModule,
+    OwlNotifierModule,
     OwlRadioModule,
     OwlRippleModule,
     OwlSelectModule,
@@ -58,6 +60,7 @@ import {
         OwlFormFieldModule,
         OwlInputModule,
         OwlInputMaskModule,
+        OwlNotifierModule,
         OwlRadioModule,
         OwlRippleModule,
         OwlSelectModule,
@@ -80,6 +83,7 @@ import {
         OwlNGFormFieldComponent,
         OwlNGInputComponent,
         OwlNGInputMaskComponent,
+        OwlNGNotifierComponent,
         OwlNGRadioComponent,
         OwlNGRippleComponent,
         OwlNGSelectComponent,

@@ -110,6 +110,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Notifier',
+                        slug: '/owlng/notifier',
+                        level: 2
+                    },
+                    {
                         name: 'Radio Button',
                         slug: '/owlng/radio',
                         level: 2
