@@ -300,7 +300,7 @@ export class CustomComponent {
             <div class="owlng-doc-tab-content">
                 <!-- <editor-fold desc="Methods in OwlNotifierService"> -->
                 <h3 id="owl-notifier-service" class="owlng-doc-header">
-                    <a class="owlng-doc-header-link" href="owlng/input#owl-notifier-service">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#owl-notifier-service">
                         <i class="icon fas fa-link" aria-hidden="true"></i>
                     </a>
                     Methods of <span class="owlng-doc-code-tag">OwlNotifierService</span>
@@ -389,7 +389,7 @@ export class CustomComponent {
 
                 <!-- <editor-fold desc="Options in OwlNotifierConfig"> -->
                 <h3 id="options-owl-notifier-config" class="owlng-doc-header">
-                    <a class="owlng-doc-header-link" href="owlng/input#options-owl-notifier-config">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#options-owl-notifier-config">
                         <i class="icon fas fa-link" aria-hidden="true"></i>
                     </a>
                     Options In OwlNotifierConfig
@@ -502,7 +502,7 @@ export class CustomComponent {
 
                 <!-- <editor-fold desc="Methods in OwlNotifierRef"> -->
                 <h3 id="owl-notifier-ref" class="owlng-doc-header">
-                    <a class="owlng-doc-header-link" href="owlng/input#owl-notifier-ref">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#owl-notifier-ref">
                         <i class="icon fas fa-link" aria-hidden="true"></i>
                     </a>
                     Methods of <span class="owlng-doc-code-tag">OwlNotifierRef</span>
@@ -564,6 +564,166 @@ export class CustomComponent {
                         </tbody>
                     </table>
                 </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/notifier#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$notifier-bg: radial-gradient(ellipse farthest-side, #463F62, #3c3847);
+$notifier-color: #fff;
+$notifier-font-size: .9em;
+$notifier-action-color: #ff3969;
+$blue: rgb(48, 133, 214);
+$light-blue: #3fc3ee;
+$grey-blue: #87adbd;
+$green: #a5dc86;
+$yellow: #f8bb86;
+$red: #d55;
+
+.owl-notifier-overlay {
+  display: flex;
+
+  .owl-new-notifier-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+  }
+
+  &.owl-notifier-center {
+    justify-content: center;
+
+    .owl-new-notifier-wrapper {
+      margin: 0;
+    }
+  }
+
+  &.owl-notifier-left {
+    justify-content: flex-start;
+
+    .owl-notifier-container {
+      transform: translate(calc(-100% - 1em), 0);
+    }
+  }
+
+  &.owl-notifier-right {
+    justify-content: flex-end;
+
+    .owl-notifier-container {
+      transform: translate(calc(100% + 1em), 0);
+    }
+  }
+
+  &.owl-notifier-top {
+    align-items: flex-start;
+
+    &.owl-notifier-center {
+      .owl-notifier-container {
+        transform: translate(0, calc((-100%) + (-.5em)));
+      }
+    }
+
+    .owl-new-notifier-wrapper {
+      flex-direction: column-reverse;
+    }
+
+    .owl-notifier-container:not(:first-child) {
+      margin-bottom: .5em;
+    }
+  }
+
+  &.owl-notifier-bottom {
+    align-items: flex-end;
+
+    &.owl-notifier-center {
+      .owl-notifier-container {
+        transform: translate(0, calc(100% + .5em));
+      }
+    }
+
+    .owl-notifier-container:not(:first-child) {
+      margin-top: .5em;
+    }
+  }
+}
+
+.owl-notifier-container {
+  display: block;
+  max-width: 520px;
+  min-width: 300px;
+  pointer-events: auto;
+  box-sizing: content-box;
+  background: $notifier-bg;
+  color: $notifier-color;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .6);
+  padding: .9em 1.5em;
+
+  &.owl-notifier-question .owl-notifier-icon {
+    fill: $grey-blue;
+  }
+
+  &.owl-notifier-error .owl-notifier-icon {
+    fill: $red;
+  }
+
+  &.owl-notifier-warning .owl-notifier-icon {
+    fill: $yellow;
+  }
+
+  &.owl-notifier-success .owl-notifier-icon {
+    fill: $green;
+  }
+
+  &.owl-notifier-info .owl-notifier-icon {
+    fill: $light-blue;
+  }
+}
+
+.owl-notifier-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-size: $notifier-font-size;
+  line-height: $notifier-font-size * 1.5;
+}
+
+.owl-notifier-action-button {
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  background: 0 0;
+  flex-shrink: 0;
+  margin-left: 3em;
+  line-height: 1;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: $notifier-action-color;
+
+  &:hover {
+    color: darken($notifier-action-color, 10%);
+  }
+}
+
+.owl-notifier-icon-wrapper {
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 1em;
+  flex-shrink: 0;
+}
+]]></code>
+</pre>
                 <!-- </editor-fold> -->
             </div>
         </owl-tab>
