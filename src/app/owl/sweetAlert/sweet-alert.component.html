@@ -1,0 +1,821 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="dialogTitle" placeholder="dialogTitle">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="dialogContent" placeholder="dialogContent">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <owl-select [(ngModel)]="dialogType" placeholder="type">
+                    <owl-option>none</owl-option>
+                    <owl-option value="question">question</owl-option>
+                    <owl-option value="warning">warning</owl-option>
+                    <owl-option value="info">info</owl-option>
+                    <owl-option value="success">success</owl-option>
+                    <owl-option value="error">error</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="dialogTimer" type="number" placeholder="timer">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="dialogConfirmBtnContent" placeholder="Confirm Button">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <input owlInput [(ngModel)]="dialogCancelBtnContent" placeholder="Cancel Button">
+            </owl-form-field>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <owl-form-field>
+                <owl-select [ngModel]="dialogInputType" (ngModelChange)="inputTypeChange($event)" placeholder="input">
+                    <owl-option>none</owl-option>
+                    <owl-option value="text">text</owl-option>
+                    <owl-option value="textarea">textarea</owl-option>
+                    <owl-option value="select">select</owl-option>
+                    <owl-option value="radio">radio button</owl-option>
+                    <owl-option value="checkBox">check box</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" (click)="alert()" owlRipple>Alert Here</button>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h4>Sweet Alert Return Action:</h4>
+            <h5>{{dialogReturnResult.action}}</h5>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h4>Sweet Alert Return Value:</h4>
+            <h5>{{dialogReturnResult.value | json}}</h5>
+        </div>
+    </div>
+</section>
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/sweet-alert#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Sweet Alert provides an Angular service
+                    <span class="owlng-doc-code-tag">OwlSweetAlertService</span> to open a overlay window with styles
+                    and animations. It's built as Angular version of the original
+                    <a class="owlng-doc-link" href="https://sweetalert2.github.io/" target="_blank">SweetAlert</a>.
+                </p>
+                <div class="owlng-doc-alert">
+                    <em>
+                        Note: this is a dialog with limited configure options. If you want to have a more flexible and
+                        customisable dialog (such as configuring the dialog appearance or its functions), you may
+                        consider to use <a class="owlng-doc-link" routerLink="/owlng/dialog">OwlDialog</a>.
+                    </em>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/sweet-alert#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlSweetAlertModule }; from 'owl-ng'
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/sweet-alert#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    constructor( private sweetAlertService: OwlSweetAlertService ) {
+    }
+
+    public openSweetAlert() {
+        const dialogRef = this.sweetAlertService.swal({
+            dialogTitle: 'Your Dialog Title',
+            dialogContent: 'your dialog text here!!!'
+        });
+    }
+}
+]]></code>
+</pre>
+                <p>
+                    SweetAlert dialog is open via using
+                    <span class="owlng-doc-code-tag">OwlSweetAlertService#swal()</span> function. Users need to provide
+                    a config options to pass data to SweetAlert.
+                </p>
+                <p>
+                    The <span class="owlng-doc-code-tag">OwlSweetAlertService#swal()</span> function will return an
+                    instance of <span class="owlng-doc-code-tag">OwlDialogRef</span>. The
+                    <span class="owlng-doc-code-tag">OwlDialogRef</span> provides a handle on the opened dialog. It can
+                    be used to close the dialog and to receive notification when the dialog has been open and closed.
+                </p>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    constructor( private sweetAlertService: OwlSweetAlertService ) {
+    }
+
+    public openSweetAlert() {
+        const dialogRef = this.sweetAlertService.swal({
+            dialogTitle: 'Your Dialog Title',
+            dialogContent: 'your dialog text here!!!'
+        });
+
+        dialogRef.afterOpen().subscribe(() => {
+            // do what you want
+        });
+
+        dialogRef.beforeClose().subscribe((result: any) => {
+            // do what you want
+        });
+
+        dialogRef.afterClosed().subscribe((result: any) => {
+            // do what you want
+        });
+    }
+}
+]]></code>
+</pre>
+                <p>
+                    When you subscribe <span class="owlng-doc-code-tag">dialogRef.afterClosed()</span>, it receives a
+                    data object that has three parameters(action, originalEvent and value).
+                </p>
+                <ul>
+                    <li><b>action: string</b> -- It represents the type of action that closes the dialog. There are four
+                        types: 'confirm', 'cancel' any 'dismiss'. 'confirm' means the dialog is close when user clicked
+                        the confirm button. 'cancel' means the dialog is close when user clicked cancel button. 'close'
+                        means the dialog is close when user clicked close button. 'dismiss' means the dialog is close
+                        because this dialog has a timer and the timer is expired.
+                    </li>
+                    <li>
+                        <b>originalEvent: any</b> -- It represents the original dom event that close the dialog.
+                    </li>
+                    <li>
+                        <b>value: any</b> -- It represents the current value of the dialog. When dialog has input (text,
+                        textarea, radio, ect), the value is from the value of that input.
+                    </li>
+                </ul>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    constructor( private sweetAlertService: SweetAlertService ) {
+    }
+
+    public openSweetAlert() {
+        const dialogRef = this.owlSweetAlertService.swal({
+            dialogTitle: 'Your Dialog Title',
+            dialogContent: 'your dialog text here!!!',
+            input: 'text',
+            inputValue: 'Your input value',
+        });
+
+        dialogRef.afterClosed().subscribe((data: any) => {
+            if (data && data.action) {
+                console.log('The action that close the dialog is ' + data.action);
+            }
+
+            if (data && data.originalEvent) {
+                console.log('The dom event that close the dialog is ' + data.originalEvent);
+            }
+
+            if (data && data.value) {
+                console.log('The value from the dialog is ' + data.value);
+            }
+        });
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Configure Options in OwlSweetAlert"> -->
+                <h3 id="options-owl-sweet-alert" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/sweet-alert#options-owl-sweet-alert">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Options In <span class="owlng-doc-code-tag">OwlSweetAlert</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>ariaDescribedBy</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                ID of the element that describes the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>autoFocus</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether to focus the dialog when the dialog is opened
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>hasBackdrop</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the dialog has a backdrop.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>backdropClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'cdk-overlay-dark-backdrop'</code></td>
+                            <td align="left">
+                                Defines the custom class for the backdrop
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>dialogClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class for the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disableClose</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, user can NOT use escape or clicking outside to close a dialog.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                ID for the dialog. If omitted, a unique one will be generated.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>paneClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class of the dialog container
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>role</code></td>
+                            <td align="left">'dialog' | 'alertdialog'</td>
+                            <td align="left"><code>'dialog'</code></td>
+                            <td align="left">
+                                Defines the ARIA role of the dialog element
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>transitionX</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the point X where the dialog enters from
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>transitionY</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the point Y where the dialog enters from
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closeOnNavigation</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the dialog should close when the user goes backwards/forwards in
+                                history.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>width</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>height</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>minWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the min-width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>minHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the min-height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'85vw'</code></td>
+                            <td align="left">
+                                Defines the max-width of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the max-height of the dialog
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>position</code></td>
+                            <td align="left"><code class="owlng-doc-code-tag"><![CDATA[
+                                {top: string, bottom: string, left: string, right: string}]]>
+                            </code></td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Overrides the dialog position settings.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">'question' | 'warning' | 'info' | 'success' | 'error' |</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the type of the sweet alert
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>timer</code></td>
+                            <td align="left">number</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                The length of time in milliseconds to wait before automatically dismissing the sweet
+                                alert.
+                                Default is 0, and the sweet alert would not be automatically dismissed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>cancelButton</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Whether to show a cancel button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>cancelButtonAriaLabel</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines arial-label value for the cancel button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>cancelButtonClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class value for the cancel button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>cancelButtonContent</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'Cancel'</code></td>
+                            <td align="left">
+                                Defines the content for the cancel button. It can be a text string or html string.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closeButton</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Whether to show a close button on the top right corner
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closeButtonAriaLabel</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines arial-label value for the close button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closeButtonClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class value for the close button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>confirmButton</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Whether to show a confirm button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>confirmButtonAriaLabel</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines arial-label value for the confirm button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>confirmButtonClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class value for the confirm button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>confirmButtonContent</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>'OK'</code></td>
+                            <td align="left">
+                                Defines the content for the confirm button. It can be a text string or html string.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>dialogContent</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the content for the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>dialogTitle</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the title for the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>imageUrl</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the url for the image in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>imageAlt</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines attribute alt for the image in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>imageClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class for the image in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>input</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the type for the input in the sweet alert. Valid values are
+                                'text', 'textarea', 'number', 'password', 'email', 'select', 'radio' and 'checkBox'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputClass</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the class for the input in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputLabel</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the label for the input in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputPlaceholder</code></td>
+                            <td align="left">string</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the placeholder for the input in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputValue</code></td>
+                            <td align="left">any</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the value for the input in the sweet alert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputOptions</code></td>
+                            <td align="left">Object</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                If input is set to "select" or "radio", you can provide options.
+                                Object keys will represent options text values or the label beside the radio button,
+                                object values will represent options values or the radio button's value.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>inputCompareFn</code></td>
+                            <td align="left">Function</td>
+                            <td align="left">
+                                <pre><code><![CDATA[
+                                    ( o1: any, o2: any ) => o1 === o2;
+                                    ]]></code></pre>
+                            </td>
+                            <td align="left">
+                                A function to compare the option values with the input value.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="dialogTitle" placeholder="dialogTitle">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="dialogContent" placeholder="dialogContent">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <owl-select [(ngModel)]="dialogType" placeholder="type">
+                <owl-option>none</owl-option>
+                <owl-option value="question">question</owl-option>
+                <owl-option value="warning">warning</owl-option>
+                <owl-option value="info">info</owl-option>
+                <owl-option value="success">success</owl-option>
+                <owl-option value="error">error</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="dialogTimer" type="number" placeholder="timer">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="dialogConfirmBtnContent" placeholder="Confirm Button">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <input owlInput [(ngModel)]="dialogCancelBtnContent" placeholder="Cancel Button">
+        </owl-form-field>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <owl-form-field>
+            <owl-select [ngModel]="dialogInputType" (ngModelChange)="inputTypeChange($event)" placeholder="input">
+                <owl-option>none</owl-option>
+                <owl-option value="text">text</owl-option>
+                <owl-option value="textarea">textarea</owl-option>
+                <owl-option value="select">select</owl-option>
+                <owl-option value="radio">radio button</owl-option>
+                <owl-option value="checkBox">check box</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn" (click)="alert()" owlRipple>Alert Here</button>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h4>Sweet Alert Return Action:</h4>
+        <h5>{{dialogReturnResult.action}}</h5>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h4>Sweet Alert Return Value:</h4>
+        <h5>{{dialogReturnResult.value | json}}</h5>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    public dialogTitle = 'Sweet Alert';
+
+    public dialogContent = 'This angular package is awesome!';
+
+    public dialogType: any = null;
+
+    public dialogTimer: number = null;
+
+    public dialogConfirmBtnContent = 'OK';
+
+    public dialogCancelBtnContent = 'Cancel';
+
+    public dialogInputType: any = null;
+
+    public dialogInputValue: any = null;
+
+    public dialogInputPlaceholder: string = null;
+
+    public dialogInputLabel: string = null;
+
+    public dialogInputOptions: any = null;
+
+    public dialogInputCompareFn: any = null;
+
+    public dialogReturnResult: any = {};
+
+    constructor( private sweetAlert: OwlSweetAlertService ) {
+    }
+
+    public alert(): void {
+        const dialogRef = this.swal.swal({
+            dialogTitle: this.dialogTitle,
+            dialogContent: this.dialogContent,
+            type: this.dialogType,
+            timer: this.dialogTimer,
+            cancelButtonContent: this.dialogCancelBtnContent,
+            confirmButtonContent: this.dialogConfirmBtnContent,
+            input: this.dialogInputType,
+            inputValue: this.dialogInputValue,
+            inputPlaceholder: this.dialogInputPlaceholder,
+            inputLabel: this.dialogInputLabel,
+            inputOptions: this.dialogInputOptions,
+            inputCompareFn: this.dialogInputCompareFn,
+        });
+
+        dialogRef.afterClosed().subscribe(( result: any ) => {
+            this.dialogReturnResult = result;
+            this.cdRef.markForCheck();
+        });
+    }
+
+    public inputTypeChange( type: string ): void {
+        switch (type) {
+            case 'text':
+            case 'textarea':
+                this.dialogInputType = type;
+                break;
+
+            case 'select':
+                this.dialogInputType = type;
+                this.dialogInputPlaceholder = 'Select your favourite team';
+                this.dialogInputValue = {id: 2, name: 'Los Angeles Lakers'};
+                this.dialogInputOptions = {
+                    'Golden State Warrior': {id: 1, name: 'Golden State Warrior'},
+                    'Los Angeles Lakers': {id: 2, name: 'Los Angeles Lakers'},
+                    'Cleveland Cavaliers': {id: 3, name: 'Cleveland Cavaliers'}
+                };
+                this.dialogInputCompareFn = ( ob1: any, ob2: any ): boolean => ob1.id === ob2.id;
+
+                break;
+
+            case 'radio':
+                this.dialogInputType = type;
+                this.dialogInputValue = 'Blue';
+                this.dialogInputOptions = {
+                    Red: 'Red',
+                    Blue: 'Blue',
+                    Green: 'Green'
+                };
+
+                break;
+
+            case 'checkBox':
+                this.dialogInputType = type;
+                this.dialogInputValue = true;
+                this.dialogInputLabel = 'I agree with the terms and conditions';
+
+                break;
+
+            default:
+                this.dialogInputType = null;
+                this.dialogInputValue = null;
+        }
+    }
+
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
