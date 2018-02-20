@@ -1,0 +1,582 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Basic</h5>
+            <p>Click To Open the menu</p>
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    [owlMenuTriggerFor]="basicMenu"
+                    owlRipple>
+                Menu
+            </button>
+            <owl-menu #basicMenu="owlMenu">
+                <button owl-menu-item>Item 1</button>
+                <button owl-menu-item>Item 2</button>
+            </owl-menu>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Hover</h5>
+            <p>Hover To Open the menu</p>
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    owlRipple
+                    [owlMenuTriggerFor]="hoverMenu"
+                    (mouseenter)="trigger.openMenu()"
+                    #trigger="owlMenuTrigger">
+                Menu
+            </button>
+            <owl-menu #hoverMenu="owlMenu">
+                <button owl-menu-item>Item 1</button>
+                <button owl-menu-item>Item 2</button>
+            </owl-menu>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Not Overlap</h5>
+            <p>Panel would not be overlap the button</p>
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    owlRipple
+                    [owlMenuTriggerFor]="notOverlapMenu">
+                Menu
+            </button>
+            <owl-menu #notOverlapMenu="owlMenu" [overlapTrigger]="false">
+                <button owl-menu-item>Item 1</button>
+                <button owl-menu-item>Item 2</button>
+            </owl-menu>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Nested Menu</h5>
+            <p>Menu Item to open a sub-menu</p>
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    owlRipple
+                    [owlMenuTriggerFor]="nestMenu">
+                Menu
+            </button>
+            <owl-menu #nestMenu="owlMenu">
+                <button owl-menu-item [owlMenuTriggerFor]="nestMenu1">Item 1</button>
+                <button owl-menu-item [owlMenuTriggerFor]="nestMenu2">Item 2</button>
+            </owl-menu>
+
+            <owl-menu #nestMenu1="owlMenu">
+                <button owl-menu-item>SubMenu Item 1</button>
+                <button owl-menu-item>SubMenu Item 2</button>
+            </owl-menu>
+
+            <owl-menu #nestMenu2="owlMenu">
+                <button owl-menu-item>SubMenu Item 3</button>
+                <button owl-menu-item>SubMenu Item 4</button>
+            </owl-menu>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Menu is an Angular component normally for your apps navigation. It would create a overlay panel
+                    with a list of options. It is well styled and animated.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlMenuModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">owl-menu</span> requires a list of options(
+                    <span class="owlng-doc-code-tag">owl-menu-item</span>) inside it. By itself,
+                    <span class="owlng-doc-code-tag">owl-menu</span> does not open an overlay panel. It needs to be
+                    attached to a menu-open trigger via <span class="owlng-doc-code-tag">[owlMenuTriggerFor]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button [owlMenuTriggerFor]="basicMenu">
+        Menu
+</button>
+<owl-menu #basicMenu="owlMenu">
+    <button owl-menu-item>Item 1</button>
+    <button owl-menu-item>Item 2</button>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Open and Close menu Programmatically"> -->
+                <h3 id="programmatically" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#programmatically">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Open and Close menu Programmatically
+                </h3>
+                <p>
+                    User could open or close the menu panel programmatically via
+                    <span class="owlng-doc-code-tag">open()</span> / <span class="owlng-doc-code-tag">close()</span>
+                    from <span class="owlng-doc-code-tag">owlMenuTriggerFor</span> directive.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button [owlMenuTriggerFor]="hoverMenu"
+        (mouseenter)="trigger.openMenu()"
+        #trigger="owlMenuTrigger">
+    Menu
+</button>
+<owl-menu #hoverMenu="owlMenu">
+    <button owl-menu-item>Item 1</button>
+    <button owl-menu-item>Item 2</button>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Custom Menu Position"> -->
+                <h3 id="customised-position" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#customised-position">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Menu Position
+                </h3>
+                <p>
+                    By default, the menu panel will be rendered below(y-position), after(x-position), and overlapping
+                    its trigger. The position can be changed using the property <span class="owlng-doc-code-tag">xPosition</span>(‘before’
+                    | ‘after') and the property <span class="owlng-doc-code-tag">yPosition</span>(‘above’ | ‘below’).
+                    The menu can also be set to not overlap the trigger using property <span class="owlng-doc-code-tag">[overlapTrigger]=‘false’</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button [owlMenuTriggerFor]="hoverMenu"
+        (mouseenter)="trigger.openMenu()"
+        #trigger="owlMenuTrigger">
+    Menu
+</button>
+<owl-menu #hoverMenu="owlMenu"
+          [yPosition]="'above'"
+          [xPosition]="'before'"
+          [overlapTrigger]="false">
+    <button owl-menu-item>Item 1</button>
+    <button owl-menu-item>Item 2</button>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Nested Menu"> -->
+                <h3 id="nested" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#nested">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Nested Menu
+                </h3>
+                <p>
+                    Owl Menu supports the ability of opening a sub-menu via <span class="owlng-doc-code-tag">owl-menu-item</span>.
+                    In the case, users have to create their root menu and sub-menus, and use
+                    <span class="owlng-doc-code-tag">[owlMenuTriggerFor]</span> on <span class="owlng-doc-code-tag">owl-menu-item</span>
+                    that should trigger the sub-menu.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button owlRipple
+        [owlMenuTriggerFor]="nestMenu">
+    Menu
+</button>
+<owl-menu #nestMenu="owlMenu">
+    <button owl-menu-item [owlMenuTriggerFor]="nestMenu1">Item 1</button>
+    <button owl-menu-item [owlMenuTriggerFor]="nestMenu2">Item 2</button>
+</owl-menu>
+
+<owl-menu #nestMenu1="owlMenu">
+    <button owl-menu-item>SubMenu Item 1</button>
+    <button owl-menu-item>SubMenu Item 2</button>
+</owl-menu>
+
+<owl-menu #nestMenu2="owlMenu">
+    <button owl-menu-item>SubMenu Item 3</button>
+    <button owl-menu-item>SubMenu Item 4</button>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Keyboard Interaction"> -->
+                <h3 id="keyboard-interaction" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#keyboard-interaction">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Keyboard Interaction
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">DOWN_ARROW</td>
+                            <td align="left">Move focus to next menu item.</td>
+                        </tr>
+                        <tr>
+                            <td align="left">UP_ARROW</td>
+                            <td align="left">Move focus to previous menu item.</td>
+                        </tr>
+                        <tr>
+                            <td align="left">RIGHT_ARROW</td>
+                            <td align="left">Open a sub-menu if it is the trigger</td>
+                        </tr>
+                        <tr>
+                            <td align="left">LEFT_ARROW</td>
+                            <td align="left">Close a sub-menu</td>
+                        </tr>
+                        <tr>
+                            <td align="left">ENTER</td>
+                            <td align="left">Open the menu panel</td>
+                        </tr>
+                        <tr>
+                            <td align="left">ESC</td>
+                            <td align="left">Close all menu panels</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-menu"> -->
+                <h3 id="properties-owl-menu" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#properties-owl-menu">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-menu</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>overlapTrigger</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the menu panel should overlap the trigger
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>xPosition</code></td>
+                            <td align="left">'after' | 'before'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'after'</code></td>
+                            <td align="left">
+                                Defines the position of the menu panel in the X axis relative to its trigger.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>yPosition</code></td>
+                            <td align="left">'above' | 'below'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'below'</code></td>
+                            <td align="left">
+                                Defines the position of the menu panel in the Y axis relative to its trigger.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-menu"> -->
+                <h3 id="events-owl-menu" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#events-owl-menu">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <span class="owlng-doc-code-tag">owl-menu</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>close</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emits when menu panel is about to close.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>closed</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emits when menu panel is closed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-menu-item"> -->
+                <h3 id="properties-owl-menu-item" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#properties-owl-menu-item">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-menu-item</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether the menu item should be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>rippleEffectDisable</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether the ripple effect should be disabled.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-menu-trigger-for"> -->
+                <h3 id="properties-owl-menu-trigger-for" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#properties-owl-menu-trigger-for">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-menu-trigger-for</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>owlMenuTriggerFor</code></td>
+                            <td align="left">OwlMenuComponent</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                References the menu instance that the trigger is associated with
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether the menu trigger should be disabled.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-menu-trigger-for"> -->
+                <h3 id="events-owl-menu-trigger-for" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#events-owl-menu-trigger-for">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <span class="owlng-doc-code-tag">owl-menu-trigger-for</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>menuOpened</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emitted when the associated menu is opened.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>menuClosed</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Event emitted when the associated menu is closed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Basic</h5>
+        <p>Click To Open the menu</p>
+        <button class="owlng-btn owlng-demo-menu-btn"
+                [owlMenuTriggerFor]="basicMenu"
+                owlRipple>
+            Menu
+        </button>
+        <owl-menu #basicMenu="owlMenu">
+            <button owl-menu-item>Item 1</button>
+            <button owl-menu-item>Item 2</button>
+        </owl-menu>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Hover</h5>
+        <p>Hover To Open the menu</p>
+        <button class="owlng-btn owlng-demo-menu-btn"
+                owlRipple
+                [owlMenuTriggerFor]="hoverMenu"
+                (mouseenter)="trigger.openMenu()"
+                #trigger="owlMenuTrigger">
+            Menu
+        </button>
+        <owl-menu #hoverMenu="owlMenu">
+            <button owl-menu-item>Item 1</button>
+            <button owl-menu-item>Item 2</button>
+        </owl-menu>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Not Overlap</h5>
+        <p>Panel would not be overlap the button</p>
+        <button class="owlng-btn owlng-demo-menu-btn"
+                owlRipple
+                [owlMenuTriggerFor]="notOverlapMenu">
+            Menu
+        </button>
+        <owl-menu #notOverlapMenu="owlMenu" [overlapTrigger]="false">
+            <button owl-menu-item>Item 1</button>
+            <button owl-menu-item>Item 2</button>
+        </owl-menu>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Nested Menu</h5>
+        <p>Menu Item to open a sub-menu</p>
+        <button class="owlng-btn owlng-demo-menu-btn"
+                owlRipple
+                [owlMenuTriggerFor]="nestMenu">
+            Menu
+        </button>
+        <owl-menu #nestMenu="owlMenu">
+            <button owl-menu-item [owlMenuTriggerFor]="nestMenu1">Item 1</button>
+            <button owl-menu-item [owlMenuTriggerFor]="nestMenu2">Item 2</button>
+        </owl-menu>
+
+        <owl-menu #nestMenu1="owlMenu">
+            <button owl-menu-item>SubMenu Item 1</button>
+            <button owl-menu-item>SubMenu Item 2</button>
+        </owl-menu>
+
+        <owl-menu #nestMenu2="owlMenu">
+            <button owl-menu-item>SubMenu Item 3</button>
+            <button owl-menu-item>SubMenu Item 4</button>
+        </owl-menu>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

@@ -115,6 +115,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Menu',
+                        slug: '/owlng/menu',
+                        level: 2
+                    },
+                    {
                         name: 'Notifier',
                         slug: '/owlng/notifier',
                         level: 2

@@ -15,6 +15,7 @@ import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
+import { OwlNGMenuComponent } from './menu/menu.component';
 import { OwlNGNotifierComponent } from './notifier/notifier.component';
 import { OwlNGRadioComponent } from './radio/radio.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
@@ -115,6 +116,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'mask',
+                    },
+                },
+                {
+                    path: 'menu',
+                    component: OwlNGMenuComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'menu',
                     },
                 },
                 {

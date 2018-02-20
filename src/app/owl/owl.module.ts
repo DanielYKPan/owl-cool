@@ -21,6 +21,7 @@ import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
+import { OwlNGMenuComponent } from './menu/menu.component';
 import { OwlNGNotifierComponent } from './notifier/notifier.component';
 import { OwlNGRadioComponent } from './radio/radio.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
@@ -40,6 +41,7 @@ import {
     OwlFormFieldModule,
     OwlInputModule,
     OwlInputMaskModule,
+    OwlMenuModule,
     OwlNotifierModule,
     OwlRadioModule,
     OwlRippleModule,
@@ -66,6 +68,7 @@ import {
         OwlFormFieldModule,
         OwlInputModule,
         OwlInputMaskModule,
+        OwlMenuModule,
         OwlNotifierModule,
         OwlRadioModule,
         OwlRippleModule,
@@ -92,6 +95,7 @@ import {
         OwlNGFormFieldComponent,
         OwlNGInputComponent,
         OwlNGInputMaskComponent,
+        OwlNGMenuComponent,
         OwlNGNotifierComponent,
         OwlNGRadioComponent,
         OwlNGRippleComponent,
