@@ -1,0 +1,29 @@
+.owlng-galleria-navi {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 1.5em;
+
+  &.owlng-galleria-navi-left {
+    left: 15px;
+  }
+
+  &.owlng-galleria-navi-right {
+    right: 15px;
+  }
+}
+
+.owlng-galleria-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  color: #FFFFFF;
+  padding: 0 1em;
+}
+
+.owlng-galleria-chkbox {
+  margin: 1em 0;
+}

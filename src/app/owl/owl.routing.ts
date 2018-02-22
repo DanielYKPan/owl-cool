@@ -13,6 +13,7 @@ import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
+import { OwlNGGalleriaComponent } from './galleria/galleria.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
 import { OwlNGMenuComponent } from './menu/menu.component';
@@ -98,6 +99,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'form-field',
+                    },
+                },
+                {
+                    path: 'galleria',
+                    component: OwlNGGalleriaComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'galleria',
                     },
                 },
                 {

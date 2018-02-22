@@ -105,6 +105,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Galleria',
+                        slug: '/owlng/galleria',
+                        level: 2
+                    },
+                    {
                         name: 'Input',
                         slug: '/owlng/input',
                         level: 2

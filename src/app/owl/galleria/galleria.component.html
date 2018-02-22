@@ -1,0 +1,632 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <owl-galleria [(activeImage)]="activeImage" [images]="images" [panelWidth]="'100%'" [panelHeight]="'400px'"
+                      [animationMode]="'slide'"
+                      [showFilmStrip]="showFilmStrip" #galleria>
+            <div class="owlng-galleria-navi owlng-galleria-navi-left" [owlGalleriaNav]="galleria" [prev]="true">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="owlng-galleria-navi owlng-galleria-navi-right" [owlGalleriaNav]="galleria">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="owlng-galleria-caption">
+                <h4>{{images[activeImage].title}}</h4>
+                <p>{{images[activeImage].desc}}</p>
+            </div>
+        </owl-galleria>
+
+        <owl-check-box class="owlng-galleria-chkbox" [(ngModel)]="showFilmStrip">Show Film Strip</owl-check-box>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Galleria is a component that allows user to display images and their content. It would animate
+                    the circular process of the images.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlGalleriaModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Galleria requires a set of images(<span class="owlng-doc-code-tag">OwlGalleriaImage</span>OwlGalleriaImage)
+                    to display. Each image must include a <span class="owlng-doc-code-tag">src</span> (the path of the
+                    image) and <span class="owlng-doc-code-tag">alt</span> (the alt attribute of the image). It could
+                    also optionally includes <span class="owlng-doc-code-tag">frameSrc</span> (the path of the image for
+                    filmStrip), <span class="owlng-doc-code-tag">desc</span>(the summary of the image) and
+                    <span class="owlng-doc-code-tag">title</span>(the title of the image).
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-galleria [images]="images"
+              [panelWidth]="'600px'" [panelHeight]="'400px'">
+</owl-galleria>
+]]></code>
+</pre>
+
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public images: OwlGalleriaImage[] = [
+        {
+            src: 'https://picsum.photos/800/550/?image=1001',
+            alt: 'Description for Image 1',
+            desc: 'Description for Image 1',
+            title: 'Title 1'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=1000',
+            alt: 'Description for Image 2',
+            desc: 'Description for Image 2',
+            title: 'Title 2'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=999',
+            alt: 'Description for Image 3',
+            desc: 'Description for Image 3',
+            title: 'Title 3'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=998',
+            alt: 'Description for Image 4',
+            desc: 'Description for Image 4',
+            title: 'Title 4'
+        }
+    ]
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Galleria Film Strip"> -->
+                <h3 id="film-strip" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#film-strip">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Film Strip
+                </h3>
+                <p>
+                    By default, Owl Galleria shows a film strip panel, indicating which image is active in the galleria.
+                    To disable the film strip panel, set property
+                    <span class="owlng-doc-code-tag">[showFilmStrip]</span> to true.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Customise Galleria Panel Content"> -->
+                <h3 id="customise" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#customise">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Customise Galleria Panel Content
+                </h3>
+                <p>
+                    User could customise galleria panel's content by wrapping it inside
+                    <span class="owlng-doc-code-tag">owl-galleria</span>. User could also use
+                    <span class="owlng-doc-code-tag">owlGalleriaNav</span> directive to define a button as a galleria
+                    navigation to navigate the images in galleria.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-galleria [(activeImage)]="activeImage" [images]="images" [panelWidth]="'600px'" [panelHeight]="'400px'"
+              [animationMode]="'slide'"
+              [showFilmStrip]="showFilmStrip" #galleria>
+    <div class="owlng-galleria-navi owlng-galleria-navi-left" [owlGalleriaNav]="galleria" [prev]="true">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="owlng-galleria-navi owlng-galleria-navi-right" [owlGalleriaNav]="galleria">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="owlng-galleria-caption">
+        <h4>{{images[activeImage].title}}</h4>
+        <p>{{images[activeImage].desc}}</p>
+    </div>
+</owl-galleria>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-galleria"> -->
+                <h3 id="properties-owl-galleria" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#properties-owl-galleria">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-galleria</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>animationDuration</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>700</code></td>
+                            <td align="left">
+                                Defines the duration of galleria animation in milliseconds.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>animationMode</code></td>
+                            <td align="left">'slide' | 'fade'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'fade'</code></td>
+                            <td align="left">
+                                Defines the mode of galleria animation. optional values: 'fade' and 'slide'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>autoPlay</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether the image would change automatically in certain seconds
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>frameWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'60px'</code></td>
+                            <td align="left">
+                                Defines the width of the image in the galleria film strip.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>frameHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'40px'</code></td>
+                            <td align="left">
+                                Defines the height of the image in the galleria film strip.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>images</code></td>
+                            <td align="left">OwlGalleriaImage[]</td>
+                            <td align="left">required</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines an array of images to display in the galleria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>panelWidth</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'600px'</code></td>
+                            <td align="left">
+                                Defines the width of the galleria panel
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>panelHeight</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'400px'</code></td>
+                            <td align="left">
+                                Defines the height of the galleria panel
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>showFilmStrip</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether to display a film strip in galleria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>transitionInterval</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>4000</code></td>
+                            <td align="left">
+                                Defines the time in milliseconds between each slide in autoPlay mode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>id</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>owl-galleria-0</code></td>
+                            <td align="left">
+                                Set the unique id for the galleria.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>activeImage</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Define the current active image index.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-galleria"> -->
+                <h3 id="events-owl-galleria" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#events-owl-galleria">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-galleria</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>activeImageChange</code></td>
+                            <td align="left">
+                                number -- the index number of the image in the array of the images.
+                            </td>
+                            <td align="left">
+                                Event emits when the galleria's active image is changed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>imageClick</code></td>
+                            <td align="left">
+                                originalEvent: event<br/>
+                                value: number -- the index number of the image that is clicked.
+                            </td>
+                            <td align="left">
+                                Event emits when the galleria's active image is clicked.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owlGalleriaNav"> -->
+                <h3 id="properties-owlGalleriaNav" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#properties-owlGalleriaNav">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owlGalleriaNav</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>owlGalleriaNav</code></td>
+                            <td align="left">OwlGalleriaComponent</td>
+                            <td align="left">required</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines which galleria panel this owlGalleriaNav is relative to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>prev</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether this owlGalleriaNav is used to change active image to previous one.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the owlGalleriaNav would be disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-label</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Attached to the aria-label attribute of the owlGalleriaNav
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>aria-labelledby</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Users can specify the 'aria-labelledby' attribute which will be forwarded to
+                                the owlGalleriaNav
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties OwlGalleriaImage"> -->
+                <h3 id="properties-OwlGalleriaImage" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/galleria#properties-OwlGalleriaImage">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">OwlGalleriaImage</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>src</code></td>
+                            <td align="left">string</td>
+                            <td align="left">required</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the path of the image in galleria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>alt</code></td>
+                            <td align="left">string</td>
+                            <td align="left">required</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the alt attribute of the image in galleria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>frameSrc</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the path of the image in galleria's film strip, if it is null, the src of the
+                                image would be used in the film strip
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>desc</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the summary of the image in galleria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>title</code></td>
+                            <td align="left">string</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the title of the image in galleria
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-galleria [(activeImage)]="activeImage" [images]="images" [panelWidth]="'100%'" [panelHeight]="'400px'"
+             [animationMode]="'slide'"
+             [showFilmStrip]="showFilmStrip" #galleria>
+    <div class="owlng-galleria-navi owlng-galleria-navi-left" [owlGalleriaNav]="galleria" [prev]="true">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="owlng-galleria-navi owlng-galleria-navi-right" [owlGalleriaNav]="galleria">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="owlng-galleria-caption">
+        <h4>{{images[activeImage].title}}</h4>
+        <p>{{images[activeImage].desc}}</p>
+    </div>
+</owl-galleria>
+
+<owl-check-box class="owlng-galleria-chkbox" [(ngModel)]="showFilmStrip">Show Film Strip</owl-check-box>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public showFilmStrip = true;
+
+    public activeImage = 0;
+
+    public images: OwlGalleriaImage[] = [
+        {
+            src: 'https://picsum.photos/800/550/?image=1001',
+            alt: 'Description for Image 1',
+            desc: 'Description for Image 1',
+            title: 'Title 1'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=1000',
+            alt: 'Description for Image 2',
+            desc: 'Description for Image 2',
+            title: 'Title 2'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=999',
+            alt: 'Description for Image 3',
+            desc: 'Description for Image 3',
+            title: 'Title 3'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=998',
+            alt: 'Description for Image 4',
+            desc: 'Description for Image 4',
+            title: 'Title 4'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=997',
+            alt: 'Description for Image 5',
+            desc: 'Description for Image 5',
+            title: 'Title 5'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=996',
+            alt: 'Description for Image 6',
+            desc: 'Description for Image 6',
+            title: 'Title 6'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=995',
+            alt: 'Description for Image 7',
+            desc: 'Description for Image 7',
+            title: 'Title 7'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=994',
+            alt: 'Description for Image 8',
+            desc: 'Description for Image 8',
+            title: 'Title 8'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=993',
+            alt: 'Description for Image 9',
+            desc: 'Description for Image 9',
+            title: 'Title 9'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=992',
+            alt: 'Description for Image 10',
+            desc: 'Description for Image 10',
+            title: 'Title 10'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=991',
+            alt: 'Description for Image 11',
+            desc: 'Description for Image 11',
+            title: 'Title 11'
+        },
+        {
+            src: 'https://picsum.photos/800/550/?image=990',
+            alt: 'Description for Image 12',
+            desc: 'Description for Image 12',
+            title: 'Title 12'
+        }
+    ];
+}
+]]></code>
+</pre>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.owlng-galleria-navi {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 1.5em;
+
+  &.owlng-galleria-navi-left {
+    left: 15px;
+  }
+
+  &.owlng-galleria-navi-right {
+    right: 15px;
+  }
+}
+
+.owlng-galleria-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  color: #FFFFFF;
+  padding: 0 1em;
+}
+
+.owlng-galleria-chkbox {
+  margin: 1em 0;
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

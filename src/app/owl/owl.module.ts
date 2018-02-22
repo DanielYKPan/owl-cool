@@ -19,6 +19,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
+import { OwlNGGalleriaComponent } from './galleria/galleria.component';
 import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
 import { OwlNGMenuComponent } from './menu/menu.component';
@@ -39,6 +40,7 @@ import {
     OwlChipsModule,
     OwlDialogModule,
     OwlFormFieldModule,
+    OwlGalleriaModule,
     OwlInputModule,
     OwlInputMaskModule,
     OwlMenuModule,
@@ -66,6 +68,7 @@ import {
         OwlChipsModule,
         OwlDialogModule,
         OwlFormFieldModule,
+        OwlGalleriaModule,
         OwlInputModule,
         OwlInputMaskModule,
         OwlMenuModule,
@@ -93,6 +96,7 @@ import {
         OwlNGDialogComponent,
         OwlNGDummyDialogComponent,
         OwlNGFormFieldComponent,
+        OwlNGGalleriaComponent,
         OwlNGInputComponent,
         OwlNGInputMaskComponent,
         OwlNGMenuComponent,
