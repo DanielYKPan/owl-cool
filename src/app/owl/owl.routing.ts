@@ -26,6 +26,7 @@ import { OwlNGSliderComponent } from './slider/slider.component';
 import { OwlNGSweetAlertComponent } from './sweetAlert/sweet-alert.component';
 import { OwlNGSwitchComponent } from './switch/switch.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
+import { OwlNGTimerComponent } from './timer/timer.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
@@ -217,6 +218,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'tab-view',
+                    },
+                },
+                {
+                    path: 'timer',
+                    component: OwlNGTimerComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'timer',
                     },
                 },
                 {

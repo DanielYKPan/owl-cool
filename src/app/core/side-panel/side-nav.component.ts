@@ -170,6 +170,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Timer',
+                        slug: '/owlng/timer',
+                        level: 2
+                    },
+                    {
                         name: 'Tooltip',
                         slug: '/owlng/tooltip',
                         level: 2

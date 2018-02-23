@@ -32,6 +32,7 @@ import { OwlNGSliderComponent } from './slider/slider.component';
 import { OwlNGSweetAlertComponent } from './sweetAlert/sweet-alert.component';
 import { OwlNGSwitchComponent } from './switch/switch.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
+import { OwlNGTimerComponent } from './timer/timer.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
@@ -54,6 +55,7 @@ import {
     OwlSweetAlertModule,
     OwlSwitchModule,
     OwlTabsModule,
+    OwlTimerModule,
     OwlTooltipModule,
 } from '../../../npmdist/owl-ng';
 
@@ -83,6 +85,7 @@ import {
         OwlSweetAlertModule,
         OwlSwitchModule,
         OwlTabsModule,
+        OwlTimerModule,
         OwlTooltipModule,
     ],
     exports: [],
@@ -112,6 +115,7 @@ import {
         OwlNGSweetAlertComponent,
         OwlNGSwitchComponent,
         OwlNGTabsComponent,
+        OwlNGTimerComponent,
         OwlNGTooltipComponent,
     ],
     providers: [

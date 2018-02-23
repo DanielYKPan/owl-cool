@@ -1,0 +1,657 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Basic</h5>
+        <owl-timer [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [autoStart]="true"></owl-timer>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Count Down With Different Time Units</h5>
+        <owl-timer class="yk-g-12"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'hour'"
+                   [autoStart]="true"></owl-timer>
+
+        <owl-timer class="yk-g-12"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'minute'"
+                   [autoStart]="true"></owl-timer>
+
+        <owl-timer class="yk-g-12"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'second'"
+                   [autoStart]="true"></owl-timer>
+    </div>
+
+    <div class="owlng-demo-row">
+        <h5 class="demo-header">Control The Timer</h5>
+        <owl-timer class="yk-g-12"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds" #ot="owlTimer"></owl-timer>
+        <div class="owlng-demo-timer-control">
+            <button owlRipple class="owlng-btn" (click)="ot.startTimer()">Start</button>
+            <button owlRipple class="owlng-btn" (click)="ot.pauseTimer()">Pause</button>
+            <button owlRipple class="owlng-btn" (click)="ot.resetTimer()">Reset</button>
+            <button owlRipple class="owlng-btn" (click)="ot.cancelTimer()">Cancel</button>
+            <button owlRipple class="owlng-btn" (click)="ot.addCDSeconds(10)">Add 10 Sec</button>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Timer is an Angular component to count down time. It consists of server flip boxes to show time
+                    with
+                    styles and animations.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlTimerModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Timer requires time value to count down. Use <span class="owlng-doc-code-tag">[timerDays]</span>,
+                    <span class="owlng-doc-code-tag">[timerHours]</span>, <span class="owlng-doc-code-tag">[timerMinutes]</span>
+                    and <span class="owlng-doc-code-tag">[timerSeconds]</span> to configure the countdown value (how
+                    many days, hours, minutes and seconds to count down to). The countdown would start from the moment
+                    when you start the timer, but you could override the start moment by setting property
+                    <span class="owlng-doc-code-tag">[startTime]</span>. In addition, instead of setting the days,
+                    hours, minutes or seconds individually, you could set the end moment by setting property
+                    <span class="owlng-doc-code-tag">[endTime]</span>. Owl Timer would calculate how many days, hours,
+                    minutes or seconds between the startTime and the endTime and set the countdown value.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// set the days, hours, minutes and seconds
+<owl-timer [timerDays]="1" [timerHours]="2" [timerMinutes]="3" [timerSeconds]="4"></owl-timer>
+
+// set the days, hours, minutes and seconds with startTime
+<owl-timer [timerDays]="1" [timerHours]="2"
+           [timerMinutes]="3" [timerSeconds]="4"
+           [startTime]="new Date(2018, 1, 1, 20, 30)"></owl-timer>
+
+// set the days, hours, minutes and seconds with startTime
+<owl-timer [startTime]="new Date(2018, 1, 1, 20, 30)"
+           [endTime]="new Date(2018, 2, 1, 20, 30)"></owl-timer>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Control The Timer"> -->
+                <h3 id="control-timer" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#control-timer">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Control the Timer
+                </h3>
+                <p>
+                    By default, the timer would not start automatically. User could set the property
+                    <span class="owlng-doc-code-tag">[autoStart]</span> to true, and the timer would start automatically
+                    when the page is loaded.
+                </p>
+                <p>
+                    In addition, user could also control the timer via OwlTimerComponent.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-timer [timerDays]="timerDays"
+           [timerHours]="timerHours"
+           [timerMinutes]="timerMinutes"
+           [timerSeconds]="timerSeconds" #ot="owlTimer"></owl-timer>
+
+<button (click)="ot.startTimer()">Start</button>
+<button (click)="ot.pauseTimer()">Pause</button>
+<button (click)="ot.resetTimer()">Reset</button>
+<button (click)="ot.cancelTimer()">Cancel</button>
+<button (click)="ot.addCDSeconds(10)">Add 10 Sec</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Timer Max Unit"> -->
+                <h3 id="max-unit" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#max-unit">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Timer Max Unit
+                </h3>
+                <p>
+                    By default, Owl Timer's max time unit is 'day'. It means it would show how many days, hours, minutes
+                    and seconds to count down. Even if the days, hours or minutes is 0, their timer flip boxes are still
+                    on the timer. User could change the max time unit by setting property
+                    <span class="owlng-doc-code-tag">[maxTimeUnit]</span>.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// max time unit as 'hour'
+<owl-timer [timerDays]="1" [timerHours]="2"
+           [timerMinutes]="3" [timerSeconds]="4" [maxTimeUnit]=" 'hour' "></owl-timer>
+
+// max time unit as 'minute'
+<owl-timer [timerDays]="1" [timerHours]="2"
+           [timerMinutes]="3" [timerSeconds]="4" [maxTimeUnit]=" 'minute' "></owl-timer>
+
+// max time unit as 'second'
+<owl-timer [timerDays]="1" [timerHours]="2"
+           [timerMinutes]="3" [timerSeconds]="4" [maxTimeUnit]=" 'second' "></owl-timer>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Localisation"> -->
+                <h3 id="localisation" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#localisation">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Localisation
+                </h3>
+                <p>
+                    Localisation for different languages is defined by binding the locale settings object to the
+                    locale property. Following is the default values for English.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-timer [timerDays]="1" [timerHours]="2"
+           [timerMinutes]="3" [timerSeconds]="4" [locale]="en"></owl-timer>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    en: any;
+
+    ngOnInit() {
+        this.en = {
+            second: 'Seconds',
+            minute: 'Minutes',
+            hour: 'Hours',
+            day: 'Days',
+        };
+    }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Timer Size"> -->
+                <h3 id="size" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#size">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Timer Size
+                </h3>
+                <p>
+                    Owl Timer is designed responsively, user could modify the timer size via setting the font-size of
+                    <span class="owlng-doc-code-tag">owl-timer</span>. User could also change other css properties via
+                    their css-class or ngStyle.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-timer class="your-css-class" [ngStyle]="{'font-size': '0.6em'}"></owl-timer>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-timer"> -->
+                <h3 id="properties-owl-timer" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#properties-owl-timer">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties for <b class="owlng-doc-code-tag">owl-timer</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th [style.width]="'12em'">Type</th>
+                            <th>Optional</th>
+                            <th [style.width]="'13em'">Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>autoStart</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether the timer starts automatically.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>timerDays</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines how many days to count down to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>timerHours</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines how many hours to count down to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>timerMinutes</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines how many minutes to count down to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>timerSeconds</code></td>
+                            <td align="left">number</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines how many seconds to count down to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>startTime</code></td>
+                            <td align="left">Date</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the time the count down timer starts to count down from
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>endTime</code></td>
+                            <td align="left">Date</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Defines the time the count down timer counts down to
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>maxTimeUnit</code></td>
+                            <td align="left">'day' | 'hour' | 'minute' | 'second'</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'day'</code></td>
+                            <td align="left">
+                                Defines the max time unit.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>locale</code></td>
+                            <td align="left">
+<pre><code><![CDATA[
+{
+    second: string,
+    minute: string,
+    hour: string,
+    day: string,
+};
+]]></code></pre>
+                            </td>
+                            <td align="left">optional</td>
+                            <td align="left">
+<pre><code><![CDATA[
+{
+    second: 'Second',
+    minute: 'Minute',
+    hour: 'Hour',
+    day: 'Day',
+};
+]]></code></pre>
+                            </td>
+                            <td align="left">
+                                Defines the locale
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Methods OwlTimerComponent"> -->
+                <h3 id="methods-owl-timer" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#methods-owl-timer">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Methods from <b class="owlng-doc-code-tag">OwlTimerComponent</b>
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">owl-timer</span> is exposed as <span class="owlng-doc-code-tag">owlTimer</span>.
+                </p>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameter</th>
+                            <th>Return</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">startTimer</code> -- set the timer to start
+                            </td>
+                            <td align="left">null</td>
+                            <td align="left">null</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">pauseTimer</code> -- set the timer to pause
+                            </td>
+                            <td align="left">null</td>
+                            <td align="left">null</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">resetTimer</code> -- reset the timer
+                            </td>
+                            <td align="left">null</td>
+                            <td align="left">null</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">cancelTimer</code> -- set the timer countDown value to
+                                0
+                            </td>
+                            <td align="left">null</td>
+                            <td align="left">null</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <code class="owlng-doc-code-tag">addCDSeconds</code> -- add certain seconds to the timer
+                                countDown value
+                            </td>
+                            <td align="left">
+                                seconds: <code class="owlng-doc-code-tag">number</code> -- seconds to add to the timer.
+                                It could be positive or negative.
+                            </td>
+                            <td align="left">null</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+.owl-timer,
+.owl-timer * {
+  box-sizing: border-box;
+}
+
+.owl-timer {
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  margin: .8em;
+}
+
+.owl-timer-header {
+  color: #222222;
+  text-align: center;
+}
+
+.owl-timer-divider {
+  display: inline-block;
+  align-self: flex-end;
+  position: relative;
+  width: 1.2em;
+  height: 4.8em;
+  margin: .2em;
+
+  .owl-timer-dot {
+    display: block;
+    width: .6em;
+    height: .6em;
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: #323434;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+    &.dot-top {
+      top: 25%;
+    }
+
+    &.dot-bottom {
+      bottom: 25%;
+    }
+  }
+}
+
+.owl-flip-box {
+  display: inline-block;
+  position: relative;
+  height: 1.2em;
+  min-width: .8em;
+  line-height: 1.2em;
+  border-radius: .1em;
+  margin: .05em;
+  user-select: none;
+
+  font-size: 4em;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  color: #e7e7e7;
+
+  .owl-flip-boxText {
+    visibility: hidden;
+    padding: 0 .13em;
+  }
+}
+
+.owl-flip-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: .1em;
+  overflow: visible;
+
+  .owl-flip-cellInner {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    z-index: 1;
+
+    .owl-flip-cellContent {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      text-align: center;
+      border-radius: .1em;
+      z-index: 1;
+
+      text-shadow: 0 1px 2px #000;
+      background-color: #333;
+    }
+
+    .owl-flip-cellShadow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      opacity: 0;
+      border-radius: .1em;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    &.owl-flip-cellUp {
+      top: 0;
+      transform-origin: 50% 100%;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 92%;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 16%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .owl-flip-cellContent {
+        top: 0;
+      }
+    }
+
+    &.owl-flip-cellBottom {
+      bottom: 0;
+      transform-origin: 50% 0;
+
+      .owl-flip-cellContent {
+        bottom: 0;
+      }
+    }
+  }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Basic</h5>
+    <owl-timer [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [autoStart]="true"></owl-timer>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Count Down With Different Time Units</h5>
+    <owl-timer class="yk-g-12"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'hour'"
+               [autoStart]="true"></owl-timer>
+
+    <owl-timer class="yk-g-12"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'minute'"
+               [autoStart]="true"></owl-timer>
+
+    <owl-timer class="yk-g-12"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'second'"
+               [autoStart]="true"></owl-timer>
+</div>
+
+<div class="owlng-demo-row">
+    <h5 class="demo-header">Control The Timer</h5>
+    <owl-timer class="yk-g-12"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds" #ot="owlTimer"></owl-timer>
+    <div class="owlng-demo-timer-control">
+        <button owlRipple class="owlng-btn" (click)="ot.startTimer()">Start</button>
+        <button owlRipple class="owlng-btn" (click)="ot.pauseTimer()">Pause</button>
+        <button owlRipple class="owlng-btn" (click)="ot.resetTimer()">Reset</button>
+        <button owlRipple class="owlng-btn" (click)="ot.cancelTimer()">Cancel</button>
+        <button owlRipple class="owlng-btn" (click)="ot.addCDSeconds(10)">Add 10 Sec</button>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
