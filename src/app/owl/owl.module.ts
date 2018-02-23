@@ -16,6 +16,7 @@ import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
+import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
@@ -38,6 +39,7 @@ import {
     OwlBackTopBtnModule,
     OwlCheckBoxModule,
     OwlChipsModule,
+    OwlColorPickerModule,
     OwlDialogModule,
     OwlFormFieldModule,
     OwlGalleriaModule,
@@ -66,6 +68,7 @@ import {
         OwlBackTopBtnModule,
         OwlCheckBoxModule,
         OwlChipsModule,
+        OwlColorPickerModule,
         OwlDialogModule,
         OwlFormFieldModule,
         OwlGalleriaModule,
@@ -93,6 +96,7 @@ import {
         OwlNGBackTopComponent,
         OwlNGCheckBoxComponent,
         OwlNGChipsComponent,
+        OwlNGColorPickerComponent,
         OwlNGDialogComponent,
         OwlNGDummyDialogComponent,
         OwlNGFormFieldComponent,

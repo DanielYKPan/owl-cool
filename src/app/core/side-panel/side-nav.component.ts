@@ -95,6 +95,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Color Picker',
+                        slug: '/owlng/color-picker',
+                        level: 2
+                    },
+                    {
                         name: 'Dialog',
                         slug: '/owlng/dialog',
                         level: 2
