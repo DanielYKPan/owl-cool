@@ -191,29 +191,41 @@ import { OwlTimerModule } from 'owl-ng';
                     Localisation
                 </h3>
                 <p>
-                    Localisation for different languages is defined by binding the locale settings object to the
-                    locale property. Following is the default values for English.
+                    Localisation for different languages is defined through <span class="owlng-doc-code-tag">OwlTimerIntl</span>.
+                    Following is the default values for English.
                 </p>
-                <pre class="owlng-documentation-code">
-<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
-<owl-timer [timerDays]="1" [timerHours]="2"
-           [timerMinutes]="3" [timerSeconds]="4" [locale]="en"></owl-timer>
-]]></code>
-</pre>
                 <pre>
 <code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
-export class MyComponent {
+import { OwlTimerIntl, OwlTimerModule } from './timer';
 
-    en: any;
+export const MyIntl = {
+    /** A label for the time second flip box  */
+    second: 'Seconds',
 
-    ngOnInit() {
-        this.en = {
-            second: 'Seconds',
-            minute: 'Minutes',
-            hour: 'Hours',
-            day: 'Days',
-        };
-    }
+    /** A label for the time minute flip box  */
+    minute: 'Minutes',
+
+    /** A label for the time hour flip box  */
+    hour: 'Hours',
+
+    /** A label for the time day flip box  */
+    day: 'Days',
+};
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        OwlTimerModule,
+    ],
+    declarations: [
+        AppComponent,
+    ],
+    providers: [
+    {provide: OwlTimerIntl, useValue: MyIntl}
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
 }
 ]]></code>
 </pre>
