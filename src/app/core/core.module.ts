@@ -11,14 +11,17 @@ import { SideNavItemComponent } from './side-panel/side-nav-item.component';
 import { AppRoutingModule } from '../app.routing';
 
 import { OwlRippleModule } from '../../../npmdist/components/ripple';
+import { RouteProcessModule } from './route-process/route-process.module';
 
 @NgModule({
     imports: [
         CommonModule,
         AppRoutingModule,
+        RouteProcessModule,
         OwlRippleModule
     ],
     exports: [
+        RouteProcessModule,
         TopBarComponent,
         SidePanelComponent,
     ],
