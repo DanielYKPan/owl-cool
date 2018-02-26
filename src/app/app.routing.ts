@@ -15,6 +15,14 @@ export const routes: Routes = [
             showSidePanel: true,
         }
     },
+    {
+        path: 'game-center',
+        loadChildren: 'app/game/game.module#GameModule',
+        data: {
+            name: 'page-game',
+            showSidePanel: false,
+        }
+    },
 ];
 
 @NgModule({
