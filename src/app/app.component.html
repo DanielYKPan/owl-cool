@@ -8,7 +8,8 @@
                [owlRippleColor]="'rgba(255, 255, 255, .1)'">Home</a>
             <a class="top-bar-nav-link" routerLink="owlng" routerLinkActive="active" owlRipple
                [owlRippleColor]="'rgba(255, 255, 255, .1)'">Owl NG</a>
-            <a class="top-bar-nav-link" owlRipple [owlRippleColor]="'rgba(255, 255, 255, .1)'">Game</a>
+            <a class="top-bar-nav-link" routerLink="game-center" routerLinkActive="active" owlRipple
+               [owlRippleColor]="'rgba(255, 255, 255, .1)'">Game</a>
         </nav>
     </app-top-bar>
 
@@ -19,3 +20,5 @@
     <div class="layout-side-panel-backdrop" (click)="changeSidePanelState()"></div>
     <app-side-panel [@showSidePanelAnimation]="isSidePanelExpanded"></app-side-panel>
 </div>
+
+<app-route-process-bar></app-route-process-bar>

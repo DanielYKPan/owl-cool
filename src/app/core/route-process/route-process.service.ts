@@ -3,46 +3,26 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { RouteProcessBarComponent } from './route-process-bar.component';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RouteProcessService {
-
-    private processBarPortal: ComponentPortal<RouteProcessBarComponent>;
-
-    private overlayRef: OverlayRef;
 
     private progress = 0;
 
     private intervalId: any;
 
     private processChange$ = new Subject<number>();
+    get processChange(): Observable<number> {
+        return this.processChange$.asObservable();
+    }
 
-    private processBarComponent: RouteProcessBarComponent;
-
-    constructor( private overlay: Overlay ) {
+    constructor() {
     }
 
     public start(): void {
         this.clearInterval();
-
-        if (!this.overlayRef) {
-            this.overlayRef = this.createOverlay();
-            if (!this.processBarPortal) {
-                this.processBarPortal = new ComponentPortal<RouteProcessBarComponent>(RouteProcessBarComponent);
-            }
-            const componentRef = this.overlayRef.attach(this.processBarPortal);
-            this.processBarComponent = componentRef.instance;
-            this.processBarComponent.processChange = this.processChange$.asObservable();
-
-            this.processBarComponent.processComplete.subscribe(() => {
-                this.done();
-            });
-        }
-
         this.startBarProcess();
     }
 
@@ -50,24 +30,6 @@ export class RouteProcessService {
         this.clearInterval();
         this.progress = 1;
         this.processChange$.next(this.progress);
-    }
-
-    public done(): void {
-        if (this.processBarPortal && this.processBarPortal.isAttached) {
-            this.processBarPortal.detach();
-        }
-        this.overlayRef.dispose();
-        this.overlayRef = null;
-    }
-
-    private createOverlay(): OverlayRef {
-        const overlayConfig = new OverlayConfig({
-            positionStrategy: this.overlay.position().global(),
-            width: '100vw',
-            height: '3px',
-        });
-
-        return this.overlay.create(overlayConfig);
     }
 
     private startBarProcess(): void {
@@ -78,7 +40,7 @@ export class RouteProcessService {
             this.trickle();
             // If the progress is 100% - call complete
             if (this.progress === 1) {
-                this.done();
+                this.clearInterval();
             }
         }, 200);
     }

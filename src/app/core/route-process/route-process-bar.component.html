@@ -1,4 +1,2 @@
 <div class="route-process-bar"
-     [@fadeOut]="isLoaded? 'loaded': 'loading'"
-     (@fadeOut.done)="fadeOutAnimationDone($event)"
-     [style.width]="process + '%'" ></div>
+     [ngStyle]="{transform: 'scaleX( '+ progress +')'}"></div>

@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GameCenterComponent } from './game-center.component';
+import { AuthGuard, ShitResolver } from './game.guard';
 
 
 @NgModule({
@@ -13,6 +14,10 @@ import { GameCenterComponent } from './game-center.component';
             {
                 path: '',
                 component: GameCenterComponent,
+                canActivate: [AuthGuard],
+                resolve: {
+                    shit: ShitResolver
+                },
                 data: {
                     name: 'page-game-center',
                     showSidePanel: false,
@@ -21,6 +26,7 @@ import { GameCenterComponent } from './game-center.component';
         ])
     ],
     exports: [RouterModule],
+    providers: [AuthGuard, ShitResolver]
 })
 export class GameRoutingModule {
 }

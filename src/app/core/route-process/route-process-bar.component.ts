@@ -3,14 +3,16 @@
  */
 
 import {
-    ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit,
+    AfterContentInit,
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, OnInit,
     ViewEncapsulation
 } from '@angular/core';
-import { animate, AnimationEvent, style, transition, trigger } from '@angular/animations';
+import { animate, AnimationEvent, query, state, style, transition, trigger } from '@angular/animations';
 import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
 import { map } from 'rxjs/operators/map';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { RouteProcessService } from './route-process.service';
 
 @Component({
     selector: 'app-route-process-bar',
@@ -20,33 +22,30 @@ import { Subject } from 'rxjs/Subject';
     preserveWhitespaces: false,
     encapsulation: ViewEncapsulation.None,
     animations: [
-        trigger('fadeOut', [
-            transition('loading => loaded', [
-                style({opacity: 1}),
-                animate('300ms 200ms ease', style({opacity: 0})),
+        trigger('fadeInOut', [
+            state('progressing', style({display: 'block'})),
+            state('done', style({display: 'none'})),
+            transition('* => progressing', [
+                query('.route-process-bar', [
+                    style({transform: 'scaleX(0)'}),
+                    animate('200ms ease', style({transform: 'scaleX(.1)'})),
+                ]),
+            ]),
+            transition('progressing => done', [
+                style({display: 'block', opacity: 1}),
+                animate('300ms 200ms ease', style({display: 'block', opacity: 0})),
             ])
         ])
     ],
 })
 
-export class RouteProcessBarComponent implements OnInit {
+export class RouteProcessBarComponent implements OnInit, AfterContentInit {
 
-    public processChange: Observable<any>;
+    private _isDone = false;
 
-    public _isLoaded: boolean;
-    get isLoaded(): boolean {
-        return this._isLoaded;
-    }
-
-    private _process: number;
-    get process(): number {
-        return this._process;
-    }
-
-    private processComplete$ = new Subject<any>();
-
-    get processComplete(): Observable<any> {
-        return this.processComplete$.asObservable();
+    private _progress = 0;
+    get progress(): number {
+        return this._progress;
     }
 
     @HostBinding('class.route-process-bar-container')
@@ -54,30 +53,31 @@ export class RouteProcessBarComponent implements OnInit {
         return true;
     }
 
-    constructor( private cdRef: ChangeDetectorRef ) {
+    @HostBinding('@fadeInOut')
+    get routeProcessBarAnimation(): string {
+        return this._isDone ? 'done' : 'progressing';
+    }
+
+    constructor( private routeProcess: RouteProcessService,
+                 private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnInit() {
-
-        this._isLoaded = false;
-
-        this.processChange
-            .pipe(
-                distinctUntilChanged(),
-                map(val => val * 100)
-            )
-            .subscribe(( val: number ) => {
-                this._process = val;
-                if (this._process === 100) {
-                    this._isLoaded = true;
-                }
-                this.cdRef.markForCheck();
-            });
+        this.routeProcess.processChange.subscribe(( val: number ) => {
+            this._progress = val;
+            this._isDone = this._progress >= 1;
+            this.cdRef.markForCheck();
+        });
     }
 
-    public fadeOutAnimationDone( event: AnimationEvent ): void {
-        if (event.toState === 'loaded') {
-            this.processComplete$.next(null);
+    public ngAfterContentInit(): void {
+    }
+
+    @HostListener('@fadeInOut.done', ['$event'])
+    private fadeOutAnimationDone( event: AnimationEvent ): void {
+        if (event.toState === 'done') {
+            this._progress = 0;
+            this.cdRef.markForCheck();
         }
     }
 }
