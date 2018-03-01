@@ -140,6 +140,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Rating',
+                        slug: '/owlng/rating',
+                        level: 2
+                    },
+                    {
                         name: 'Ripple Effect',
                         slug: '/owlng/ripple-effect',
                         level: 2

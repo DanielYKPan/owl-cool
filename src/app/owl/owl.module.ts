@@ -26,6 +26,7 @@ import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
 import { OwlNGMenuComponent } from './menu/menu.component';
 import { OwlNGNotifierComponent } from './notifier/notifier.component';
 import { OwlNGRadioComponent } from './radio/radio.component';
+import { OwlNGRatingComponent } from './rating/rating.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGSliderComponent } from './slider/slider.component';
@@ -49,6 +50,7 @@ import {
     OwlMenuModule,
     OwlNotifierModule,
     OwlRadioModule,
+    OwlRatingModule,
     OwlRippleModule,
     OwlSelectModule,
     OwlSliderModule,
@@ -79,6 +81,7 @@ import {
         OwlMenuModule,
         OwlNotifierModule,
         OwlRadioModule,
+        OwlRatingModule,
         OwlRippleModule,
         OwlSelectModule,
         OwlSliderModule,
@@ -109,6 +112,7 @@ import {
         OwlNGMenuComponent,
         OwlNGNotifierComponent,
         OwlNGRadioComponent,
+        OwlNGRatingComponent,
         OwlNGRippleComponent,
         OwlNGSelectComponent,
         OwlNGSliderComponent,
