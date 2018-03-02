@@ -1,0 +1,567 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Configuration:</h5>
+            <div class="yk-g-12">
+                <owl-check-box [(ngModel)]="showValue">Show Value Label</owl-check-box>
+            </div>
+            <div class="yk-g-12" [ngStyle]="{'align-items': 'center'}">
+                <label class="owlng-processbar-label yk-md-2">Buffer: </label>
+                <owl-slider [(ngModel)]="bufferValue"></owl-slider>
+            </div>
+            <div class="yk-g-12" [ngStyle]="{'align-items': 'center'}">
+                <label class="owlng-processbar-label yk-md-2">Process: </label>
+                <owl-slider [(ngModel)]="value"></owl-slider>
+            </div>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Process Bar:</h5>
+            <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                             [type]="'basic'"></owl-progressbar>
+            <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                             [type]="'tradition'"></owl-progressbar>
+            <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                             [type]="'3d'"></owl-progressbar>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Progress Bar is an Angular component for indicating progress and activity.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlProgressBarModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Progress Bar requires a value <span class="owlng-doc-code-tag">[value]</span> between 0 and 100
+                    to display the progress. User could also provide a buffer value via property
+                    <span class="owlng-doc-code-tag">[bufferValue]</span> to indicate how much the buffer has been done.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-progressbar [value]="processValue" [bufferValue]="bufferValue"></owl-progressbar>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    processValue: number =  30;
+    bufferValue: number =  50;
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Appearance"> -->
+                <h3 id="appearance" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#appearance">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Appearance
+                </h3>
+                <p>
+                    Owl Progress Bar has 3 different types of appearance: 'basic', 'tradition' and '3d'. User could set
+                    the appearance via property <span class="owlng-doc-code-tag">[type]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-progressbar [value]="processValue" [bufferValue]="bufferValue" [type]="'basic'"></owl-progressbar>
+<owl-progressbar [value]="processValue" [bufferValue]="bufferValue" [type]="'tradition'"></owl-progressbar>
+<owl-progressbar [value]="processValue" [bufferValue]="bufferValue" [type]="'3d'"></owl-progressbar>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties owl-progressbar"> -->
+                <h3 id="properties-owl-progressbar" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#properties-owl-progressbar">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-progressbar</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>bufferValue</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines the buffer value of the progress bar. Max: 100, Min: 0.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>value</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>0</code></td>
+                            <td align="left">
+                                Defines the value of the progress bar. Max: 100, Min: 0.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>hideValue</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specify it true, it would hide the value label.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">'basic' | 'tradition' | '3d'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'basic'</code></td>
+                            <td align="left">
+                                Defines the appearance of the progress bar. Valid options: 'basic', 'tradition' and
+                                '3d'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>string</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'%'</code></td>
+                            <td align="left">
+                                Defines the unit of the progress bar value
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/progressbar#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$sides-transition-duration: 250ms;
+$faces-color: rgba(white, .3);
+$white: #fefefe;
+$navy: #0a4069;
+$light-purple: #b39ddb;
+$purple: #673ab7;
+$dark: #444444;
+$trad-bar-bg: rgba(0, 0, 0, .09);
+$trad-buffer-bg: rgba(0, 0, 0, .08);
+
+.owl-progress {
+  display: inline-block;
+  font-size: 1em;
+  width: 100%;
+}
+
+// 3d Progress Bar
+
+@mixin build-skin($color) {
+  & {
+    .barFace,
+    &[aria-valuenow='0'] .barFace-right {
+      background-color: $faces-color;
+    }
+
+    .barFace-left,
+    &[aria-valuenow='100'] .barFace-right {
+      background-color: rgba($color, .2);
+    }
+
+    &[aria-valuenow='100'] .barFace-right {
+      transition-delay: $sides-transition-duration;
+    }
+
+    .barFace-floor.barFace-lights {
+      box-shadow: 0 -0.2em 1em rgba(0, 0, 0, 0.15),
+      0 0.2em 0.1em -5px rgba(0, 0, 0, 0.3),
+      0 -0.75em 1.75em rgba(254, 254, 254, 0.6);
+    }
+
+    .owl-progress-value {
+      background-color: rgba($color, .5);
+    }
+
+    .barFace-lights.shine .owl-progress-value {
+      box-shadow: 0 1.6em 3em rgba($color, .25);
+    }
+  }
+}
+
+.owl-progress {
+
+  .owl-progress-3d-wrapper {
+    font-size: 5em;
+    padding: 1em .2em .5em;
+
+    .owl-progress-value,
+    .owl-progress-buffer {
+      font-size: .25em;
+      line-height: 4em;
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 100%;
+      margin: 0;
+      display: block;
+      box-sizing: border-box;
+      color: rgba($dark, .8);
+      transition: width $sides-transition-duration ease;
+    }
+
+    .owl-progress-value {
+      position: absolute;
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, .15) .8em, transparent 1px);
+      background-size: 2em;
+    }
+
+    .owl-progress-buffer {
+      background-color: rgba(221, 221, 221, .25);
+    }
+  }
+
+  .owl-progress-3d {
+    font-size: .5em;
+    text-align: center;
+    width: 100%;
+    height: 1em;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+
+  .owl-progress-3d-bar {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 1em;
+    transform: rotateX(60deg);
+    transition: all 500ms ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .owl-progress-3d-barFace {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($navy, 0.3);
+    backface-visibility: visible;
+    transform-origin: 50% 100%;
+  }
+
+  .barFace-roof {
+    transform: translateZ(1em);
+    transition-delay: 2s;
+  }
+
+  .barFace-back {
+    transform: rotateX(-90deg) rotateY(0deg) translateZ(-1em);
+  }
+
+  .barFace-left {
+    width: 1em;
+    transform: rotateX(-90deg) rotateY(-90deg) translateX(-0.5em) translateZ(0.5em);
+  }
+
+  .barFace-right {
+    left: auto;
+    right: -.5em;
+    width: 1em;
+    transform: rotateX(-90deg) rotateY(90deg) translateX(0.5em);
+    transition-delay: $sides-transition-duration;
+    transition: background-color $sides-transition-duration ease-out;
+  }
+
+  .barFace-front {
+    transform: rotateX(-90deg);
+    transition-delay: 0s;
+  }
+
+  @include build-skin($purple);
+
+  .owl-progress-3d-tooltip {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1.5em 0 0 -.5em;
+    display: inline-block;
+    position: absolute;
+    line-height: 1em;
+    height: 1em;
+    width: 1em;
+    left: 0;
+    background-color: $white;
+    color: $dark;
+    border-bottom: 1px solid darken($white, 10);
+    box-shadow: 0 .08em .1em .0em rgba(0, 0, 0, .2),
+    0 .1em 1.6em rgba(0, 0, 0, .2);
+    transition: all $sides-transition-duration ease-out;
+    &:after,
+    &:before {
+      display: inline-block;
+      font-size: .35em;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    &:after {
+      content: '';
+      height: 0;
+      width: 0;
+      margin: -.75em 0 0 .5em;
+      border: 1em solid transparent;
+      border-bottom-color: $white;
+      border-top-width: 0;
+      transition: all $sides-transition-duration ease-out;
+    }
+    &:before {
+      content: attr(data-value);
+      height: 100%;
+      text-align: center;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+// Tradition Progress Bar
+.owl-progress {
+  .owl-progress-tradition-wrapper {
+    position: relative;
+    width: 100%;
+    height: 1.5em;
+    border-radius: .2em;
+    background-color: $trad-bar-bg;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    margin: 1em 0;
+
+    .owl-progress-value,
+    .owl-progress-buffer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      transition: width $sides-transition-duration ease-in-out;
+    }
+
+    .owl-progress-buffer {
+      background-color: $trad-buffer-bg;
+    }
+
+    .owl-progress-value {
+      background-color: $purple;
+      background-image: linear-gradient(
+                      135deg, transparent 33%,
+                      rgba(0, 0, 0, 0.1) 33%,
+                      rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+      linear-gradient(to right, $light-purple, $purple);
+
+      background-image: -ms-linear-gradient(135deg, transparent 33%,
+              rgba(0, 0, 0, 0.1) 33%,
+              rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+      -ms-linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+      -ms-linear-gradient(to right, $light-purple, $purple);
+
+      background-size: 3em 1.5em, 100% 100%, 100% 100%;
+    }
+
+    .owl-progress-label {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      font-weight: 700;
+      color: #000000;
+      transform: translate(-50%, -50%);
+
+      &[hidden] {
+        display: none;
+      }
+    }
+  }
+}
+
+// Basic Progress Bar
+.owl-progress {
+  .owl-progress-basic-wrapper {
+    $balloon-size: 2em;
+    $bar-size: 5px;
+
+    display: block;
+    height: 5px;
+    position: relative;
+    width: 100%;
+    background-color: $trad-bar-bg;
+    margin: 3em 0 1em;
+
+    .owl-progress-value,
+    .owl-progress-buffer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform $sides-transition-duration ease;
+      transform-origin: top left;
+    }
+
+    .owl-progress-value {
+      background-color: $purple;
+    }
+
+    .owl-progress-buffer {
+      background-color: $trad-buffer-bg;
+    }
+
+    .owl-progress-basic-tooltip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: $balloon-size;
+      height: $balloon-size;
+      border-radius: 50% 50% 0;
+      box-shadow: 0px 0px 3px $purple;
+      background-color: $purple;
+      margin-left: -$balloon-size / 2;
+      left: 0;
+      top: -($balloon-size * 1.4);
+      transform: rotate(45deg);
+      transition: left $sides-transition-duration ease;
+
+      &:before {
+        content: attr(data-value);
+        display: inline-block;
+        color: #ffffff;
+        font-size: .7em;
+        transform: rotate(-45deg);
+      }
+
+      &[hidden] {
+        display: none;
+      }
+    }
+  }
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Configuration:</h5>
+        <div class="yk-g-12">
+            <owl-check-box [(ngModel)]="showValue">Show Value Label</owl-check-box>
+        </div>
+        <div class="yk-g-12" [ngStyle]="{'align-items': 'center'}">
+            <label class="owlng-processbar-label yk-md-2">Buffer: </label>
+            <owl-slider [(ngModel)]="bufferValue"></owl-slider>
+        </div>
+        <div class="yk-g-12" [ngStyle]="{'align-items': 'center'}">
+            <label class="owlng-processbar-label yk-md-2">Process: </label>
+            <owl-slider [(ngModel)]="value"></owl-slider>
+        </div>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Process Bar:</h5>
+        <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                         [type]="'basic'"></owl-progressbar>
+        <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                         [type]="'tradition'"></owl-progressbar>
+        <owl-progressbar [value]="value" [hideValue]="!showValue" [bufferValue]="bufferValue"
+                         [type]="'3d'"></owl-progressbar>
+    </div>
+</div>
+]]></code>
+</pre>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public showValue = true;
+
+    public bufferValue = 70;
+
+    public value = 50;
+}
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>

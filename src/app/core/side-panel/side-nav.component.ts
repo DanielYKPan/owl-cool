@@ -135,6 +135,11 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
+                        name: 'Progress Bar',
+                        slug: '/owlng/progressbar',
+                        level: 2
+                    },
+                    {
                         name: 'Radio Button',
                         slug: '/owlng/radio',
                         level: 2

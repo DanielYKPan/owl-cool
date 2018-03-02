@@ -19,6 +19,7 @@ import { OwlNGInputComponent } from './input/input.component';
 import { OwlNGInputMaskComponent } from './inputMask/input-mask.component';
 import { OwlNGMenuComponent } from './menu/menu.component';
 import { OwlNGNotifierComponent } from './notifier/notifier.component';
+import { OwlNGProgressBarComponent } from './progressbar/progressbar.component';
 import { OwlNGRadioComponent } from './radio/radio.component';
 import { OwlNGRatingComponent } from './rating/rating.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
@@ -156,6 +157,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'notifier',
+                    },
+                },
+                {
+                    path: 'progressbar',
+                    component: OwlNGProgressBarComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'progressbar',
                     },
                 },
                 {
