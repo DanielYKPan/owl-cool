@@ -285,9 +285,9 @@ $bar-height: 1em;
 $bar-width: 2.7em;
 $bar-vertical-height: $bar-width;
 $bar-vertical-width: $bar-height;
-$ripple-size: $handle-size * 1.7;
+$ripple-size: $handle-size * 1.5;
 $handle-bg-color: #fafafa;
-$theme-color: #3f51b5;
+$theme-color: #673ab7;
 
 .owl-switch,
 .owl-switch * {
@@ -346,7 +346,7 @@ $theme-color: #3f51b5;
   top: ($handle-size - $bar-height)/2 * -1;
   left: 0;
   transform: translate3d(0, 0, 0);
-  transition: all 200ms linear;
+  transition: all 100ms linear;
   transition-property: transform;
   cursor: grab;
 
@@ -396,7 +396,7 @@ $theme-color: #3f51b5;
   }
 
   .owl-switch-ripple-ring {
-    background-color: rgba($theme-color, .15);
+    background-color: rgba($theme-color, .2);
   }
 }
 
@@ -422,7 +422,7 @@ $theme-color: #3f51b5;
 
 .owl-switch-bar,
 .owl-switch-handle {
-  transition: background-color 200ms linear 50ms;
+  transition: background-color 100ms linear 50ms;
 }
 
 .owl-switch-vertical {

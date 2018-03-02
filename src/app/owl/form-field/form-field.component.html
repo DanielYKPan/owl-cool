@@ -399,6 +399,24 @@ import { OwlFormFieldModule } from 'owl-ng';
                 </h3>
                 <pre>
 <code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$line-height: 1.125;
+$line-spacing: ($line-height - 1) / 2;
+$inform-font-scale: 0.75;
+$inform-font-size: $inform-font-scale * 100%;
+
+$infix-padding: 0.5em - $line-spacing;
+$infix-margin-top: 1em * $line-height * $inform-font-scale;
+$wrapper-padding-bottom: 1.25em;
+
+$theme-color: #673ab7;
+$error-color: #e91439;
+$mark-color: #ff347f;
+
+.owl-form-field,
+.owl-form-field * {
+  box-sizing: border-box;
+}
+
 .owl-form-field {
   display: inline-block;
   position: relative;
@@ -409,7 +427,7 @@ import { OwlFormFieldModule } from 'owl-ng';
 .owl-form-field-wrapper {
   position: relative;
   box-sizing: border-box;
-  padding-bottom: 1.25em;
+  padding-bottom: $wrapper-padding-bottom;
   width: 100%;
 }
 
@@ -454,8 +472,8 @@ import { OwlFormFieldModule } from 'owl-ng';
   position: relative;
   flex: auto;
   min-width: 0;
-  padding: .4375em 0;
-  border-top: .84375em solid transparent;
+  padding: $infix-padding 0;
+  border-top: $infix-margin-top solid transparent;
 }
 
 .owl-form-field-placeholder-wrapper {
@@ -467,8 +485,8 @@ import { OwlFormFieldModule } from 'owl-ng';
   overflow: hidden;
   pointer-events: none;
 
-  top: -.84375em;
-  padding-top: .84375em;
+  top: -$infix-margin-top;
+  padding-top: $infix-margin-top;
 }
 
 .owl-form-field-placeholder {
@@ -488,7 +506,7 @@ import { OwlFormFieldModule } from 'owl-ng';
   width .4s cubic-bezier(.25, .8, .25, 1);
 
   color: rgba(0, 0, 0, .54);
-  top: 1.28125em;
+  top: $infix-margin-top + $infix-padding;
 
   &:not(.owl-form-field-empty) {
     transition: none;
@@ -496,11 +514,12 @@ import { OwlFormFieldModule } from 'owl-ng';
 }
 
 .owl-form-field-inform-wrapper {
-  position: relative;
+  position: absolute;
+  top: calc(100% - #{$wrapper-padding-bottom / $inform-font-scale});
   width: 100%;
+  margin-top: .2em;
   overflow: hidden;
-  font-size: 75%;
-  padding: .2em 0;
+  font-size: $inform-font-size;
 }
 
 .owl-form-field-hint-wrapper {
@@ -523,7 +542,7 @@ import { OwlFormFieldModule } from 'owl-ng';
 
 .owl-form-field-can-float.owl-form-field-should-float {
   .owl-form-field-placeholder {
-    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+    transform: translateY(-$infix-margin-top - $infix-padding) scale($inform-font-scale) perspective(100px) translateZ(.001px);
     width: 133.33333333%;
   }
 }
@@ -531,15 +550,15 @@ import { OwlFormFieldModule } from 'owl-ng';
 .owl-form-field-focused {
 
   .owl-form-field-required-marker {
-    color: #ff347f;
+    color: $mark-color;
   }
 
   .owl-form-field-placeholder {
-    color: #3f51b5;
+    color: $theme-color;
   }
 
   .owl-form-field-underline-graphic {
-    stroke: #3f51b5;
+    stroke: $theme-color;
     stroke-width: 3px;
     transform: translate3d(-66.6%, 0, 0);
   }
@@ -547,18 +566,18 @@ import { OwlFormFieldModule } from 'owl-ng';
 
 .owl-form-field-invalid {
   .owl-form-field-placeholder {
-    color: #e91439;
+    color: $error-color;
   }
 
   .owl-form-field-underline-graphic {
-    stroke: #e91439;
+    stroke: $error-color;
     stroke-width: 3px;
   }
 }
 
 .owl-form-field-error {
   display: block;
-  color: #e91439;
+  color: $error-color;
 }
 ]]></code>
 </pre>

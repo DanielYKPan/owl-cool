@@ -374,6 +374,118 @@ import { OwlRadioModule } from 'owl-ng';
                 </div>
                 <!-- </editor-fold> -->
 
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/radio#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$theme-color: #673ab7;
+$radio-circle-size: 1.125em;
+$ripple-size: $radio-circle-size * 1.7;
+
+.owl-radio-button,
+.owl-radio-button *,
+.owl-radio-button *:before {
+  box-sizing: border-box;
+}
+
+.owl-radio-button {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.owl-radio-label {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.owl-radio-circle {
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  width: $radio-circle-size;
+  height: $radio-circle-size;
+  border-radius: 50%;
+
+  &:before {
+    content: '';
+    background: #f4f4f4;
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, .54);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    transition: all 280ms ease;
+  }
+}
+
+.owl-radio-focused {
+  .owl-radio-circle {
+    box-shadow: 0 0 5px #673ab7;
+  }
+}
+
+.owl-radio-checked {
+  .owl-radio-circle:before {
+    background-color: $theme-color;
+    box-shadow: inset 0 0 0 .15em #f4f4f4;
+    border-color: #4527a0;
+  }
+}
+
+.owl-radio-label-content {
+  display: inline-block;
+  order: 0;
+  padding: 0 0 0 .5em;
+}
+
+.owl-radio-label-before {
+  .owl-radio-label-content {
+    order: -1;
+    padding: 0 .5em 0 0;
+  }
+}
+
+.owl-radio-disabled {
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+
+  .owl-radio-label {
+    cursor: default;
+  }
+}
+
+.owl-radio-ripple {
+  top: $radio-circle-size/2 - $ripple-size/2;
+  left: $radio-circle-size/2 - $ripple-size/2;
+  width: $ripple-size;
+  height: $ripple-size;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.owl-radio-ripple-ring {
+  background-color: rgba($theme-color, .2);
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
             </div>
         </owl-tab>
         <!-- </editor-fold> -->
