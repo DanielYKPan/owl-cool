@@ -2,8 +2,17 @@
  * side-nav-item.component
  */
 
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Location } from '@angular/common';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges
+} from '@angular/core';
 import { SideNavItem } from './side-nav-item.interface';
 
 @Component({
@@ -19,25 +28,35 @@ export class SideNavItemComponent implements OnInit, OnChanges {
     @Input() item: SideNavItem;
     @Input() currentUrl: string;
 
+    @Output() expandParent = new EventEmitter<any>();
+
     public expandStatus: boolean;
     public selected: boolean;
 
-    constructor(private location: Location) {
+    constructor( private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnChanges( changes: SimpleChanges ): void {
-        if (changes['currentUrl'] &&
-            !changes['currentUrl'].isFirstChange()) {
+        if (changes['currentUrl'] && this.currentUrl) {
             this.selected = this.currentUrl.includes(this.item.slug);
+            if (this.currentUrl.includes(this.item.slug)) {
+                this.expandParent.next(null);
+            }
+            this.cdRef.markForCheck();
         }
     }
 
     public ngOnInit() {
-        this.expandStatus = this.location.path().includes(this.item.slug);
     }
 
     public clickHeadingButton( event: any ): void {
         this.expandStatus = !this.expandStatus;
         event.preventDefault();
+    }
+
+    public setExpandStatus(): void {
+        this.expandStatus = true;
+        this.expandParent.next(null);
+        this.cdRef.markForCheck();
     }
 }

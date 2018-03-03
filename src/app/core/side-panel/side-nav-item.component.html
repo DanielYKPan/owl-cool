@@ -1,10 +1,6 @@
 <ng-container *ngIf="item.children && item.children.length > 0;else elseBlock" >
-    <button class="vertical-menu-item level-{{item.level}} heading"
-            [ngClass]="{
-            'selected': selected,
-            'expanded': expandStatus,
-            'collapsed': !expandStatus
-            }"
+    <button class="vertical-menu-item level-{{item.level}} heading {{expandStatus? 'expanded' : 'collapsed'}}"
+            [class.selected]="selected"
             type="button" aria-pressed="false"
             (click)="clickHeadingButton($event)">
         {{item.name}}
@@ -23,14 +19,14 @@
         </span>
     </button>
     <div class="heading-children level-{{item.level}} {{expandStatus? 'expanded' : 'collapsed'}}">
-        <app-side-nav-item *ngFor="let child of item.children" [item]="child" ></app-side-nav-item>
+        <app-side-nav-item *ngFor="let child of item.children" [item]="child" [currentUrl]="currentUrl" (expandParent)="setExpandStatus()"></app-side-nav-item>
     </div>
 </ng-container>
 <ng-template #elseBlock>
     <div>
         <a class="vertical-menu-item level-{{item.level}}"
            [routerLink]="item.slug"
-           [routerLinkActive]="'selected'"
+           routerLinkActive="selected"
            [routerLinkActiveOptions]="{ exact: true }">{{item.name}}</a>
     </div>
 </ng-template>

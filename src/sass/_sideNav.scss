@@ -56,9 +56,15 @@
   text-transform: none;
 }
 
-.level-1, .level-2 {
+.level-3 {
+  color: #6e6e6e;
+  margin-left: 10px;
+  text-transform: none;
+}
+
+.level-1, .level-2, .level-3 {
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-  font-size: 1em;
+  font-size: .9em;
   font-weight: 400;
 }
 

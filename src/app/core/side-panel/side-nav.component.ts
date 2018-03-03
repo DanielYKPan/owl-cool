@@ -61,6 +61,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
             )
             .subscribe(( event: NavigationEnd ) => {
                 this._currentUrl = event.url;
+                this.cdRef.markForCheck();
             });
 
         this._owlItems = [
@@ -75,120 +76,148 @@ export class SideNavComponent implements OnInit, OnDestroy {
                         level: 2
                     },
                     {
-                        name: 'Accordion Panel',
-                        slug: '/owlng/accordion',
-                        level: 2
+                        name: 'Form Controls',
+                        level: 2,
+                        slug: 'form-controls',
+                        children: [
+                            {
+                                name: 'Checkbox',
+                                slug: '/owlng/checkbox',
+                                level: 3
+                            },
+                            {
+                                name: 'Color Picker',
+                                slug: '/owlng/color-picker',
+                                level: 3
+                            },
+                            {
+                                name: 'Form Field',
+                                slug: '/owlng/form-field',
+                                level: 3
+                            },
+                            {
+                                name: 'Input',
+                                slug: '/owlng/input',
+                                level: 3
+                            },
+                            {
+                                name: 'Mask',
+                                slug: '/owlng/mask',
+                                level: 3
+                            },
+                            {
+                                name: 'Radio Button',
+                                slug: '/owlng/radio',
+                                level: 3,
+                            },
+                            {
+                                name: 'Select',
+                                slug: '/owlng/select',
+                                level: 3
+                            },
+                            {
+                                name: 'Slider',
+                                slug: '/owlng/slider',
+                                level: 3
+                            },
+                            {
+                                name: 'Switch',
+                                slug: '/owlng/switch',
+                                level: 3
+                            }
+                        ]
                     },
                     {
-                        name: 'Back To Top',
-                        slug: '/owlng/back-top',
-                        level: 2
+                        name: 'Layout',
+                        level: 2,
+                        slug: 'layout',
+                        children: [
+                            {
+                                name: 'Accordion Panel',
+                                slug: '/owlng/accordion',
+                                level: 3
+                            },
+                            {
+                                name: 'Galleria',
+                                slug: '/owlng/galleria',
+                                level: 3
+                            },
+                            {
+                                name: 'Menu',
+                                slug: '/owlng/menu',
+                                level: 3
+                            },
+                            {
+                                name: 'Tab View',
+                                slug: '/owlng/tab-view',
+                                level: 3
+                            },
+                        ]
                     },
                     {
-                        name: 'Checkbox',
-                        slug: '/owlng/checkbox',
-                        level: 2
+                        name: 'Popups and Modals',
+                        level: 2,
+                        slug: 'popups-modals',
+                        children: [
+                            {
+                                name: 'Dialog',
+                                slug: '/owlng/dialog',
+                                level: 3
+                            },
+                            {
+                                name: 'Notifier',
+                                slug: '/owlng/notifier',
+                                level: 2
+                            },
+                            {
+                                name: 'Sweet Alert',
+                                slug: '/owlng/sweet-alert',
+                                level: 3
+                            },
+                            {
+                                name: 'Tooltip',
+                                slug: '/owlng/tooltip',
+                                level: 3
+                            },
+                        ]
                     },
                     {
-                        name: 'Chips',
-                        slug: '/owlng/chips',
-                        level: 2
-                    },
-                    {
-                        name: 'Color Picker',
-                        slug: '/owlng/color-picker',
-                        level: 2
-                    },
-                    {
-                        name: 'Dialog',
-                        slug: '/owlng/dialog',
-                        level: 2
-                    },
-                    {
-                        name: 'Form Field',
-                        slug: '/owlng/form-field',
-                        level: 2
-                    },
-                    {
-                        name: 'Galleria',
-                        slug: '/owlng/galleria',
-                        level: 2
-                    },
-                    {
-                        name: 'Input',
-                        slug: '/owlng/input',
-                        level: 2
-                    },
-                    {
-                        name: 'Mask',
-                        slug: '/owlng/mask',
-                        level: 2
-                    },
-                    {
-                        name: 'Menu',
-                        slug: '/owlng/menu',
-                        level: 2
-                    },
-                    {
-                        name: 'Notifier',
-                        slug: '/owlng/notifier',
-                        level: 2
-                    },
-                    {
-                        name: 'Progress Bar',
-                        slug: '/owlng/progressbar',
-                        level: 2
-                    },
-                    {
-                        name: 'Radio Button',
-                        slug: '/owlng/radio',
-                        level: 2
-                    },
-                    {
-                        name: 'Rating',
-                        slug: '/owlng/rating',
-                        level: 2
-                    },
-                    {
-                        name: 'Ripple Effect',
-                        slug: '/owlng/ripple-effect',
-                        level: 2
-                    },
-                    {
-                        name: 'Select',
-                        slug: '/owlng/select',
-                        level: 2
-                    },
-                    {
-                        name: 'Slider',
-                        slug: '/owlng/slider',
-                        level: 2
-                    },
-                    {
-                        name: 'Sweet Alert',
-                        slug: '/owlng/sweet-alert',
-                        level: 2
-                    },
-                    {
-                        name: 'Switch',
-                        slug: '/owlng/switch',
-                        level: 2
-                    },
-                    {
-                        name: 'Tab View',
-                        slug: '/owlng/tab-view',
-                        level: 2
-                    },
-                    {
-                        name: 'Timer',
-                        slug: '/owlng/timer',
-                        level: 2
-                    },
-                    {
-                        name: 'Tooltip',
-                        slug: '/owlng/tooltip',
-                        level: 2
-                    },
+                        name: 'Buttons and Indicators',
+                        slug: 'buttons-indicators',
+                        level: 2,
+                        children: [
+                            {
+                                name: 'Back To Top',
+                                slug: '/owlng/back-top',
+                                level: 3
+                            },
+                            {
+                                name: 'Chips',
+                                slug: '/owlng/chips',
+                                level: 3
+                            },
+                            {
+                                name: 'Progress Bar',
+                                slug: '/owlng/progressbar',
+                                level: 3
+                            },
+                            {
+                                name: 'Rating',
+                                slug: '/owlng/rating',
+                                level: 3
+                            },
+                            {
+                                name: 'Ripple Effect',
+                                slug: '/owlng/ripple-effect',
+                                level: 3
+                            },
+                            {
+                                name: 'Timer',
+                                slug: '/owlng/timer',
+                                level: 3
+                            }
+                        ]
+                    }
                 ]
             }
         ];
