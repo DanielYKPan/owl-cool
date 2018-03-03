@@ -108,6 +108,7 @@ a.vertical-menu-item {
 
 .heading-children {
   margin-top: 5px;
+  overflow: hidden;
 
   &.expanded {
     visibility: visible;
