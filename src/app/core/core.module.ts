@@ -12,6 +12,8 @@ import { AppRoutingModule } from '../app.routing';
 
 import { OwlRippleModule } from '../../../npmdist/components/ripple';
 import { RouteProcessModule } from './route-process/route-process.module';
+import { NavMenuItemComponent } from './side-panel/nav-menu-item.component';
+import { NavMenuComponent } from './side-panel/nav-menu.component';
 
 @NgModule({
     imports: [
@@ -30,6 +32,9 @@ import { RouteProcessModule } from './route-process/route-process.module';
         SidePanelComponent,
         SideNavComponent,
         SideNavItemComponent,
+
+        NavMenuComponent,
+        NavMenuItemComponent,
     ],
     providers: [],
 })

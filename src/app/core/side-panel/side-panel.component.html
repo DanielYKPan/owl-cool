@@ -1,1 +1,47 @@
 <app-side-nav></app-side-nav>
+
+<app-nav-menu [currentUrl]="currentUrl">
+    <app-nav-menu-item [triggerFor]="menu" name="Owl NG"></app-nav-menu-item>
+    <app-nav-menu #menu>
+        <app-nav-menu-item name="Getting Start" slug="/owlng/getting-start"></app-nav-menu-item>
+
+        <app-nav-menu-item [triggerFor]="formControlMenu" name="Form Controls"></app-nav-menu-item>
+        <app-nav-menu #formControlMenu>
+            <app-nav-menu-item name="Checkbox" slug="/owlng/checkbox"></app-nav-menu-item>
+            <app-nav-menu-item name="Color Picker" slug="/owlng/color-picker"></app-nav-menu-item>
+            <app-nav-menu-item name="Form Field" slug="/owlng/form-field"></app-nav-menu-item>
+            <app-nav-menu-item name="Input" slug="/owlng/input"></app-nav-menu-item>
+            <app-nav-menu-item name="Mask" slug="/owlng/mask"></app-nav-menu-item>
+            <app-nav-menu-item name="Radio Button" slug="/owlng/radio"></app-nav-menu-item>
+            <app-nav-menu-item name="Select" slug="/owlng/select"></app-nav-menu-item>
+            <app-nav-menu-item name="Slider" slug="/owlng/slider"></app-nav-menu-item>
+            <app-nav-menu-item name="Switch" slug="/owlng/switch"></app-nav-menu-item>
+        </app-nav-menu>
+
+        <app-nav-menu-item [triggerFor]="layoutMenu" name="Layout"></app-nav-menu-item>
+        <app-nav-menu #layoutMenu>
+            <app-nav-menu-item name="Accordion Panel" slug="/owlng/accordion"></app-nav-menu-item>
+            <app-nav-menu-item name="Galleria" slug="/owlng/galleria"></app-nav-menu-item>
+            <app-nav-menu-item name="Menu" slug="/owlng/menu"></app-nav-menu-item>
+            <app-nav-menu-item name="Tab View" slug="/owlng/tab-view"></app-nav-menu-item>
+        </app-nav-menu>
+
+        <app-nav-menu-item [triggerFor]="popupModalMenu" name="Popups and Modals"></app-nav-menu-item>
+        <app-nav-menu #popupModalMenu>
+            <app-nav-menu-item name="Dialog" slug="/owlng/dialog"></app-nav-menu-item>
+            <app-nav-menu-item name="Notifier" slug="/owlng/notifier"></app-nav-menu-item>
+            <app-nav-menu-item name="Sweet Alert" slug="/owlng/sweet-alert"></app-nav-menu-item>
+            <app-nav-menu-item name="Tooltip" slug="/owlng/tooltip"></app-nav-menu-item>
+        </app-nav-menu>
+
+        <app-nav-menu-item [triggerFor]="buttonIndicatorMenu" name="Buttons and Indicators"></app-nav-menu-item>
+        <app-nav-menu #buttonIndicatorMenu>
+            <app-nav-menu-item name="Back To Top" slug="/owlng/back-top"></app-nav-menu-item>
+            <app-nav-menu-item name="Chips" slug="/owlng/chips"></app-nav-menu-item>
+            <app-nav-menu-item name="Progress Bar" slug="/owlng/progressbar"></app-nav-menu-item>
+            <app-nav-menu-item name="Rating" slug="/owlng/rating"></app-nav-menu-item>
+            <app-nav-menu-item name="Ripple Effect" slug="/owlng/ripple-effect"></app-nav-menu-item>
+            <app-nav-menu-item name="Timer" slug="/owlng/timer"></app-nav-menu-item>
+        </app-nav-menu>
+    </app-nav-menu>
+</app-nav-menu>

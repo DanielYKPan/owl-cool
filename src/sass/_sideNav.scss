@@ -126,3 +126,113 @@ a.vertical-menu-item {
     transition-timing-function: ease-out;
   }
 }
+
+.owl-nav-menu {
+  display: block;
+  margin: 0 auto;
+
+  &:first-child {
+    margin-top: 1em;
+  }
+}
+
+.nav-menu-item {
+  box-sizing: border-box;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  max-width: 260px;
+  overflow-wrap: break-word;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-decoration: none;
+  text-align: left;
+  width: 93%;
+  word-wrap: break-word;
+
+  &.nav-menu-item-trigger {
+    border: none;
+    background-color: transparent;
+    margin-right: 0;
+    padding-left: 6px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+  }
+
+  &.expanded {
+    .nav-menu-item-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.nav-menu-item-link {
+    display: block;
+    padding-left: 6px;
+    padding-top: 6px;
+    padding-bottom: 8px;
+  }
+
+  &.selected {
+    color: #1976d2;
+  }
+}
+
+.nav-menu-item-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: .8em;
+  width: .8em;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin: 1px;
+  transition: transform .15s, -webkit-transform .15s;
+  transition-timing-function: ease-in-out;
+}
+
+.heading-children {
+  margin-top: 5px;
+  overflow: hidden;
+
+  &.expanded {
+    visibility: visible;
+    opacity: 1;
+    max-height: 4000px;
+    transition: visibility .5s, opacity .5s, max-height .5s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &.collapsed {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 1px;
+    transition: visibility 275ms, opacity 275ms, max-height 280ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+.level-1 {
+  margin-left: 14px;
+  transition: background-color .2s;
+  text-transform: uppercase;
+}
+
+.level-2 {
+  color: #6e6e6e;
+  margin-left: 12px;
+  text-transform: none;
+}
+
+.level-3 {
+  color: #6e6e6e;
+  margin-left: 10px;
+  text-transform: none;
+}
+
+.level-1, .level-2, .level-3 {
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
