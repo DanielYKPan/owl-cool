@@ -3,9 +3,8 @@
  */
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators/filter';
-import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { AppService } from '../../app.service';
 
 @Component({
     selector: 'app-side-panel',
@@ -17,11 +16,11 @@ import { Subscription } from 'rxjs/Subscription';
 
 export class SidePanelComponent implements OnInit, OnDestroy {
 
-    private routerSub = Subscription.EMPTY;
+    private viewPortSizeChangeSub = Subscription.EMPTY;
 
-    private _currentUrl: string;
-    get currentUrl(): string {
-        return this._currentUrl;
+    private _showTabletNav: boolean;
+    get showTabletNav(): boolean {
+        return this._showTabletNav;
     }
 
     @HostBinding('class.layout-side-panel')
@@ -29,22 +28,23 @@ export class SidePanelComponent implements OnInit, OnDestroy {
         return true;
     }
 
-    constructor( private router: Router,
+    constructor( private appService: AppService,
                  private cdRef: ChangeDetectorRef ) {
-    }
-
-    public ngOnInit() {
-        this.routerSub = this.router.events
-            .pipe(
-                filter(e => e instanceof NavigationEnd)
-            )
-            .subscribe(( event: NavigationEnd ) => {
-                this._currentUrl = event.url;
-                this.cdRef.markForCheck();
+        this.viewPortSizeChangeSub = this.appService.viewPortSizeChange
+            .subscribe(( event: any ) => {
+                this.checkShowTabletNavState(event.isDesktopSize);
             });
     }
 
+    public ngOnInit() {
+    }
+
     public ngOnDestroy(): void {
-        this.routerSub.unsubscribe();
+        this.viewPortSizeChangeSub.unsubscribe();
+    }
+
+    private checkShowTabletNavState( isDesktopSize: boolean ): void {
+        this._showTabletNav = !isDesktopSize;
+        this.cdRef.markForCheck();
     }
 }

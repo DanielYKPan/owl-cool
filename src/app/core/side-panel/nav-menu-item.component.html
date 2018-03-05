@@ -1,5 +1,5 @@
 <ng-container *ngIf="isTrigger; else elseBlock">
-    <button class="nav-menu-item nav-menu-item-trigger level-{{level}} heading {{expanded? 'expanded' : 'collapsed'}}"
+    <button class="nav-menu-item nav-menu-item-trigger level-{{level}} heading {{expanded? 'expanded' : 'collapsed'}} {{triggerMenuItemSelected? 'selected' : null}}"
             type="button" aria-pressed="false"
             (click)="clickTriggerButton($event)">
         {{name}}

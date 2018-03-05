@@ -3,10 +3,18 @@
  */
 
 import {
-    ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit,
-    Output
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Inject,
+    Input,
+    OnDestroy,
+    OnInit
 } from '@angular/core';
-import { NavMenuComponent } from './nav-menu.component';
+import { NAV_MENU, NavMenu } from './nav-menu.interface';
+import { filter } from 'rxjs/operators/filter';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     moduleId: module.id,
@@ -17,25 +25,19 @@ import { NavMenuComponent } from './nav-menu.component';
     preserveWhitespaces: false,
 })
 
-export class NavMenuItemComponent implements OnInit {
+export class NavMenuItemComponent implements OnInit, OnDestroy {
 
-    private _expanded = false;
-    get expanded(): boolean {
-        return this._expanded;
-    }
+    private routerSub = Subscription.EMPTY;
+    private subMenuExpandSub = Subscription.EMPTY;
+    private parentMenuExpandSub = Subscription.EMPTY;
 
-    private _level: number;
-    get level(): number {
-        return this._level;
-    }
-
-    private _menu: NavMenuComponent;
+    private _menu: NavMenu;
     @Input('triggerFor')
-    get menu(): NavMenuComponent {
+    get menu(): NavMenu {
         return this._menu;
     }
 
-    set menu( val: NavMenuComponent ) {
+    set menu( val: NavMenu ) {
         this._menu = val;
         this._menu.registerTrigger(this);
     }
@@ -44,58 +46,97 @@ export class NavMenuItemComponent implements OnInit {
 
     @Input() slug: string;
 
-    @Output() expand = new EventEmitter<boolean>();
+    get expanded(): boolean {
+        return this._menu && this._menu.expanded;
+    }
 
-    @Output() select = new EventEmitter<boolean>();
+    get level(): number {
+        return this.parent ? this.parent.level + 1 : 0;
+    }
 
     get isTrigger(): boolean {
         return !!this._menu;
     }
 
-    get parent(): NavMenuComponent {
-        return this.parentMenu;
+    private _selected = false;
+    get selected(): boolean {
+        return this._selected;
     }
 
-    constructor( private parentMenu: NavMenuComponent,
-                 private cdRef: ChangeDetectorRef ) {
+    get triggerMenuItemSelected(): boolean {
+        return this._menu && this._menu.selected;
+    }
+
+    constructor( @Inject(NAV_MENU) private parent: NavMenu,
+                 private cdRef: ChangeDetectorRef,
+                 private router: Router ) {
     }
 
     public ngOnInit() {
-        this._level = this.parentMenu.level + 1;
+        if (!this.isTrigger) {
+            this.routerSub = this.router.events
+                .pipe(
+                    filter(e => e instanceof NavigationEnd)
+                )
+                .subscribe(( event: NavigationEnd ) => {
+                    this._selected = !!this.slug && event.url.includes(this.slug);
 
-        this.parentMenu.expanded().subscribe(( val: boolean ) => {
-            if (val === false) {
-                this.closeSubMenu();
-            }
-        });
+                    // if the item is selected,
+                    // we make sure its parent menu is expanded when the route changed.
+                    if (this._selected) {
+                        this.parent.toggle(true);
+                    }
 
-        this.parentMenu.urlChange.subscribe(( val: string ) => {
-            if (this.slug && val.includes(this.slug)) {
-                this.parentMenu.expand();
+                    this.parent.markMenuItemChecked();
+                    this.markForCheck();
+                });
+        } else {
+            this.subMenuExpandSub = this._menu.expand.subscribe(( val: boolean ) => {
+                // if the trigger's menu is expanded,
+                // we make sure their parent menu is expanded too.
+                if (val) {
+                    this.parent.toggle(true);
+                }
+
+                this.parent.markMenuItemChecked();
+                this.markForCheck();
+            });
+        }
+
+        this.parentMenuExpandSub = this.parent.expand.subscribe(( val: boolean ) => {
+            if (!val) {
+                // if the parent menu is collapsed,
+                // we make sure its sub menu is collapsed too.
+                if (this._menu) {
+                    this._menu.toggle(false);
+                }
+            } else {
+                // if the parent menu is expanded and its sub menu has selected item,
+                // we make sure that sub menu is expanded.
+                if (this.triggerMenuItemSelected) {
+                    this._menu.toggle(true);
+                }
             }
+
+            this.parent.markMenuItemChecked();
+            this.markForCheck();
         });
+    }
+
+    public ngOnDestroy(): void {
+        this.routerSub.unsubscribe();
+        this.subMenuExpandSub.unsubscribe();
+        this.parentMenuExpandSub.unsubscribe();
     }
 
     public clickTriggerButton( event: any ): void {
-        this._expanded = !this._expanded;
-        this.expand.next(this._expanded);
+        if (this._menu) {
+            this._menu.toggle(!this.expanded);
+        }
         event.preventDefault();
     }
 
-    public closeSubMenu(): void {
-        if (this._expanded) {
-            this._expanded = false;
-            this.expand.next(this._expanded);
-            this.cdRef.markForCheck();
-        }
-    }
-
-    public openSubMenu(): void {
-        if (!this._expanded) {
-            this._expanded = true;
-            this.parentMenu.expand();
-            this.expand.next(this._expanded);
-            this.cdRef.markForCheck();
-        }
+    public markForCheck(): void {
+        this.cdRef.markForCheck();
     }
 }

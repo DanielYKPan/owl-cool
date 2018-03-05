@@ -3,107 +3,107 @@
  */
 
 import {
-    AfterViewInit, ChangeDetectionStrategy, Component, HostBinding, Input, OnInit
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ContentChildren,
+    forwardRef,
+    HostBinding,
+    OnInit,
+    QueryList
 } from '@angular/core';
+import { NAV_MENU, NavMenu } from './nav-menu.interface';
 import { NavMenuItemComponent } from './nav-menu-item.component';
-import { Observable } from 'rxjs/Observable';
-import { never } from 'rxjs/observable/never';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     moduleId: module.id,
     selector: 'app-nav-menu',
     templateUrl: './nav-menu.component.html',
     styleUrls: ['./nav-menu.component.scss'],
+    providers: [
+        {provide: NAV_MENU, useExisting: NavMenuComponent}
+    ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     preserveWhitespaces: false,
 })
 
-export class NavMenuComponent implements OnInit, AfterViewInit {
+export class NavMenuComponent implements OnInit, NavMenu {
+
+    @ContentChildren(forwardRef(() => NavMenuItemComponent)) items: QueryList<NavMenuItemComponent>;
 
     private trigger: NavMenuItemComponent;
 
-    public level = 0;
+    private _expanded = false;
+    get expanded(): boolean {
+        return this._expanded;
+    }
 
-    private _currentUrl: string;
-    @Input()
-    get currentUrl(): string {
-        if (this._currentUrl) {
-            return this._currentUrl;
-        } else if (this.trigger) {
-            return this.trigger.parent.currentUrl;
+    get level(): number {
+        return this.trigger ? this.trigger.level : 0;
+    }
+
+    get selected(): boolean {
+        if (this.items && this.items.length) {
+            return this.items.some(( item ) => {
+                return item.isTrigger ?
+                    item.triggerMenuItemSelected === true : item.selected === true;
+            });
         } else {
-            return null;
+            return false;
         }
     }
 
-    set currentUrl( val: string ) {
-        this._currentUrl = val;
-        this.urlChange$.next(this._currentUrl);
+    private expand$ = new Subject<boolean>();
+
+    get expand(): Observable<boolean> {
+        return this.expand$.asObservable();
     }
 
     @HostBinding('class')
     get navMenu(): string {
-        return 'level-' + this.level;
-    }
+        let cls = 'owl-nav-menu';
 
-    @HostBinding('class.owl-nav-menu')
-    get owlNavMenu(): boolean {
-        return true;
-    }
+        cls += ' level-' + this.level;
 
-    @HostBinding('class.heading-children')
-    get navMenuHeadingChildrenClass(): boolean {
-        return !!this.trigger;
-    }
+        if (!!this.trigger) {
+            cls += ' heading-children';
 
-    @HostBinding('class.expanded')
-    get navMenuHeadingChildrenExpandedClass(): boolean {
-        return !!this.trigger && this.trigger.expanded;
-    }
-
-    @HostBinding('class.collapsed')
-    get navMenuHeadingChildrenCollapsedClass(): boolean {
-        return !!this.trigger && !this.trigger.expanded;
-    }
-
-    private urlChange$ = new Subject<string>();
-
-    get urlChange(): Observable<string> {
-        if (this.trigger) {
-            return this.trigger.parent.urlChange;
-        } else {
-            return this.urlChange$.asObservable();
+            cls += this._expanded ?
+                ' expanded' : ' collapsed';
         }
+
+        return cls;
     }
 
-    constructor() {
+    constructor( private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnInit() {
-        if (this.trigger) {
-            this.level = this.trigger.level;
-        }
-    }
-
-    public ngAfterViewInit(): void {
     }
 
     public registerTrigger( trigger: NavMenuItemComponent ): void {
         this.trigger = trigger;
     }
 
-    public expanded(): Observable<boolean> {
-        if (this.trigger) {
-            return this.trigger.expand;
-        } else {
-            return never();
+    public toggle( expanded: boolean ): void {
+        if (this._expanded !== expanded) {
+            this._expanded = expanded;
+            this.expand$.next(this._expanded);
+            this.cdRef.markForCheck();
         }
     }
 
-    public expand(): void {
+    public markMenuItemChecked(): void {
         if (this.trigger) {
-            this.trigger.openSubMenu();
+            this.trigger.markForCheck();
+        }
+
+        if (this.items) {
+            this.items.forEach(( item ) => {
+                item.markForCheck();
+            });
         }
     }
 }

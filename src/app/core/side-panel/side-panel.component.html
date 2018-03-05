@@ -1,6 +1,5 @@
-<app-side-nav></app-side-nav>
-
-<app-nav-menu [currentUrl]="currentUrl">
+<app-nav-menu>
+    <app-nav-menu-item *ngIf="showTabletNav" name="Home" slug="/home"></app-nav-menu-item>
     <app-nav-menu-item [triggerFor]="menu" name="Owl NG"></app-nav-menu-item>
     <app-nav-menu #menu>
         <app-nav-menu-item name="Getting Start" slug="/owlng/getting-start"></app-nav-menu-item>
