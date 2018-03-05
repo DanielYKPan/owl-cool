@@ -36,16 +36,22 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
     private routerSub: Subscription;
     private viewResizeSub = Subscription.EMPTY;
 
+    private routeData: any = {};
+
     private _isSidePanelExpanded = false;
     get isSidePanelExpanded(): boolean {
         return this._isSidePanelExpanded;
     }
 
-    private _pageName: string;
+    // whether to show the hamburger button in top bar
+    private _hideTopBarHamburger = false;
+    get hideTopBarHamburger(): boolean {
+        return this._hideTopBarHamburger;
+    }
 
     @HostBinding('class')
     get pageNameClass(): string {
-        return this._pageName;
+        return this.routeData.name;
     }
 
     constructor( private viewportRuler: ViewportRuler,
@@ -68,6 +74,9 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
             )
             .subscribe(() => {
                 this.appService.checkIsDesktopSize();
+                this._hideTopBarHamburger =
+                    this.appService.isDesktopSize && !this.routeData.showSidePanel;
+                this.cdRef.markForCheck();
             });
 
         this.routerSub = this.router.events
@@ -84,9 +93,11 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
                 mergeMap(( route ) => route.data)
             )
             .subscribe(( data: any ) => {
-                this._pageName = data.name;
+                this.routeData = data;
                 this._isSidePanelExpanded =
                     this.appService.isDesktopSize && data.showSidePanel;
+                this._hideTopBarHamburger =
+                    this.appService.isDesktopSize && !data.showSidePanel;
                 this.cdRef.markForCheck();
             });
     }
