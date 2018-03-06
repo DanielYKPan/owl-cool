@@ -5,12 +5,11 @@ import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { OwlRippleModule } from '../../npmdist/components/ripple';
 import { AppRoutingModule } from './app.routing';
 import { HomeModule } from './home/home.module';
 import { AppService } from './app.service';
 
-import { GestureConfig } from '../../npmdist/owl-ng';
+import { OwlRippleModule, GestureConfig } from '../../npmdist/owl-ng';
 
 @NgModule({
     declarations: [
