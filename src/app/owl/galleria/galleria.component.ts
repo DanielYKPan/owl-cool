@@ -4,7 +4,7 @@
 
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OwlIntroductionService } from '../owl-introduction.service';
-import { OwlGalleriaImage } from '../../../../npmdist/owl-ng';
+import { OwlGalleriaImage } from 'owl-ng';
 
 @Component({
     selector: 'app-owl-galleria',

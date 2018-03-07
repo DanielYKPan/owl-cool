@@ -11,7 +11,7 @@ import { NavMenuItemComponent } from './side-panel/nav-menu-item.component';
 import { NavMenuComponent } from './side-panel/nav-menu.component';
 import { AppRoutingModule } from '../app.routing';
 
-import { OwlRippleModule } from '../../../npmdist/owl-ng';
+import { OwlRippleModule } from 'owl-ng';
 
 @NgModule({
     imports: [
