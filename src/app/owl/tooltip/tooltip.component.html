@@ -85,6 +85,13 @@
                     Owl Tooltip is an Angular directive that provides a text label for a host element. The tooltip would
                     be displayed with styles and animations when user hovers over or longpresses an element.
                 </p>
+                <div class="owlng-doc-alert">
+                    <em>
+                        Note: the longpress behavior for this component requires that HammerJS is loaded on the page.
+                        You could learn more about this from
+                        <a class="owlng-doc-link" routerLink="/owlng/getting-start" fragment="step-5">here</a>.
+                    </em>
+                </div>
                 <!-- </editor-fold> -->
 
                 <!-- <editor-fold desc="Import"> -->
@@ -249,7 +256,8 @@ import { OwlTooltipModule } from 'owl-ng';
                 </h3>
                 <p>
                     Tooltip default config could be set by providing options via the <span class="owlng-doc-code-tag">OWL_TOOLTIP_DEFAULT_CONFIG</span>
-                    injection token. In this case, every tooltip in your app would have that default config. Beware, user
+                    injection token. In this case, every tooltip in your app would have that default config. Beware,
+                    user
                     could still override individual tooltip's config via tooltip directive API.
                 </p>
                 <pre>

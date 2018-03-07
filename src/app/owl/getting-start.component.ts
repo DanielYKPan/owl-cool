@@ -2,9 +2,11 @@
  * getting-start.component
  */
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { OwlIntroductionService } from './owl-introduction.service';
 import { RouteProcessService } from '../core/route-process/route-process.service';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-owl-start',
@@ -14,10 +16,13 @@ import { RouteProcessService } from '../core/route-process/route-process.service
     preserveWhitespaces: false,
 })
 
-export class OwlNGStartComponent implements OnInit {
+export class OwlNGStartComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    private routeFragmentSub = Subscription.EMPTY;
 
     constructor( private routeProcess: RouteProcessService,
-                 private introductionService: OwlIntroductionService ) {
+                 private introductionService: OwlIntroductionService,
+                 private route: ActivatedRoute ) {
     }
 
     public ngOnInit() {
@@ -27,11 +32,19 @@ export class OwlNGStartComponent implements OnInit {
         });
     }
 
-    public startProcess(): void {
-        this.routeProcess.start();
+    public ngAfterViewInit(): void {
+        this.routeFragmentSub = this.route.fragment
+            .subscribe(fragment => {
+                if (fragment) {
+                    const element = document.getElementById(fragment);
+                    if (element) {
+                        element.scrollIntoView();
+                    }
+                }
+            });
     }
 
-    public doneProcess(): void {
-        this.routeProcess.complete();
+    public ngOnDestroy(): void {
+        this.routeFragmentSub.unsubscribe();
     }
 }

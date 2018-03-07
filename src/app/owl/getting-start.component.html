@@ -1,2 +1,250 @@
-<button (click)="startProcess()">Start</button>
-<button (click)="doneProcess()">Done</button>
+<section class="owlng-content owlng-doc">
+    <p>
+        To use OwlNG, User has to have a Angular 5+ app.
+    </p>
+    <p>
+        For help to start with an Angular 5+ app, check out the
+        <a class="owlng-doc-link" href="https://cli.angular.io/" target="_blank">Angular CLI</a>.
+    </p>
+    <p>
+        For existing Angular 5+ apps, follow these steps to begin using OwlNG.
+    </p>
+
+    <!-- <editor-fold desc="Step 1"> -->
+    <h3 id="step-1" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#step-1">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Step 1: Install OwlNG
+    </h3>
+    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+npm install --save owl-ng
+]]></code>
+</pre>
+    <!-- </editor-fold> -->
+
+    <!-- <editor-fold desc="Step 2"> -->
+    <h3 id="step-2" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#step-2">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Step 2: Animations
+    </h3>
+    <p>
+        Some OwlNG components use Angular Animations to improve the user experience and deal with complex transitions.
+        Therefore, user needs to install <span class="owlng-doc-code-tag">@angular/animations</span> and import
+        <span class="owlng-doc-code-tag">BrowserAnimationsModule</span> to their application module.
+    </p>
+    <div class="owlng-doc-alert">
+        <em>
+            Note: <span class="owlng-doc-code-tag">@angular/animations</span> are built on top of the standard
+            <a class="owlng-doc-link" href="https://drafts.csswg.org/web-animations/" target="_blank">WebAnimation
+                API</a> and run natively on
+            <a class="owlng-doc-link" href="https://caniuse.com/#feat=web-animation" target="_blank">browsers that
+                support it</a>. For other browsers, a
+            <a class="owlng-doc-link" href="https://github.com/web-animations/web-animations-js" target="_blank">polyfill</a>
+            is required. You could learn more about this from
+            <a class="owlng-doc-link" href="https://angular.io/guide/animations" target="_blank">here</a>.
+        </em>
+    </div>
+    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+npm install --save @angular/animations
+]]></code>
+</pre>
+    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        //...
+    ],
+    //...
+})
+export class YourAppModule { }
+]]></code>
+</pre>
+    <p>
+        If you prefer to disable animation effect, use <span class="owlng-doc-code-tag">NoopAnimationsModule</span>
+        instead.
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {BrowserModule} from '@angular/platform-browser';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        //...
+    ],
+    //...
+})
+export class YourAppModule { }
+]]></code>
+</pre>
+    <!-- </editor-fold> -->
+
+    <!-- <editor-fold desc="Step 3"> -->
+    <h3 id="step-3" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#step-3">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Step 3: Import OwlNG component modules
+    </h3>
+    <p>
+        Import the module that you want to use. For example: use the <span
+            class="owlng-doc-code-tag">OwlRadioModule</span>
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {OwlRadioModule} from 'owl-ng'
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        OwlRadioModule
+        //...
+    ],
+    //...
+})
+export class YourAppModule { }
+]]></code>
+</pre>
+    <!-- </editor-fold> -->
+
+    <!-- <editor-fold desc="Step 4"> -->
+    <h3 id="step-4" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#step-4">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Step 4: Include the styles
+    </h3>
+    <p>
+        Including the OwlNG styles is required. If you are using Angular CLI, you can add this to your styles.css:
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+@import "~owl-ng/assets/style/theme.min.css";
+]]></code>
+</pre>
+    <p>
+        If you are not using the Angular CLI, you can include the <span class="owlng-doc-code-tag">theme.min.css</span>
+        via a <span class="owlng-doc-code-tag">link</span> element in your
+        <span class="owlng-doc-code-tag">index.html</span>.
+    </p>
+    <!-- </editor-fold> -->
+
+    <!-- <editor-fold desc="Step 5"> -->
+    <h3 id="step-5" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#step-5">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Step 5: Gesture Config
+    </h3>
+    <p>
+        Some of the OwlNG components (<span class="owlng-doc-code-tag">OwlSliderModule</span>,
+        <span class="owlng-doc-code-tag">OwlTooltipModule</span>,
+        <span class="owlng-doc-code-tag">OwlSwitchModule</span>) rely on
+        <a class="owlng-doc-link" href="https://hammerjs.github.io/" target="_blank">HammerJS</a> for gestures.
+        In order to get the full feature and user experience of the OwlNG components, HammerJS must be loaded into the
+        application.
+    </p>
+    <p>
+        You can add HammerJS to your application via
+        <a class="owlng-doc-link" href="https://www.npmjs.com/package/hammerjs" target="_blank">NPM</a>,
+        a CDN (such as the <a class="owlng-doc-link" href="https://developers.google.com/speed/libraries/#hammerjs"
+                              target="_blank">Google CDN</a>), or served directly from your app.
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+npm install --save hammerjs
+]]></code>
+</pre>
+    <p>
+        After installing, import it on your app's entry point (e.g. <span class="owlng-doc-code-tag">src/main.ts</span>).
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+import 'hammerjs';
+]]></code>
+</pre>
+    <p>
+        If you use OwlNG Components on a lazy-loaded module, you also have to add custom gesture config in your
+        AppModule.
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import {BrowserModule, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {GestureConfig} from 'owl-ng'
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        //...
+    ],
+    providers: [{provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig}],
+    //...
+})
+export class YourAppModule { }
+]]></code>
+</pre>
+    <!-- </editor-fold> -->
+
+    <!-- <editor-fold desc="SystemJs"> -->
+    <h3 id="ststemjs-config" class="owlng-doc-header">
+        <a class="owlng-doc-header-link" href="owlng/getting-start#ststemjs-config">
+            <i class="icon fas fa-link" aria-hidden="true"></i>
+        </a>
+        Appendix: Configuring SystemJS
+    </h3>
+    <p>
+        If your project is using SystemJS for module loading, you will need to add <span class="owlng-doc-code-tag">owl-ng</span>
+        and <span class="owlng-doc-code-tag">@angular/cdk</span> to the SystemJS configuration.
+    </p>
+    <p>
+        Here is an example:
+    </p>
+    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+System.config({
+  map: {
+    // angular bundles
+    '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+    '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
+    '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
+    '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+    '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
+    '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+    '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+    '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+
+    // angular cdk bundles
+    '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+    '@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk-coercion.umd.js',
+    '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
+    '@angular/cdk/keycodes': 'npm:@angular/cdk/bundles/cdk-keycodes.umd.js',
+    '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
+    '@angular/cdk/portal': 'npm:@angular/cdk/bundles/cdk-portal.umd.js',
+    '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+
+    // owl-ng bundles
+    'owl-ng': 'npm:owl-ng/bundles/owl-ng.umd.js',
+  }
+});
+]]></code>
+</pre>
+    <!-- </editor-fold> -->
+</section>
