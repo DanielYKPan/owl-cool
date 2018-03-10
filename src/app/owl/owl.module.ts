@@ -32,6 +32,7 @@ import { OwlNGRatingComponent } from './rating/rating.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGSliderComponent } from './slider/slider.component';
+import { OwlNGStopWatchComponent } from './stop-watch/stop-watch.component';
 import { OwlNGSweetAlertComponent } from './sweetAlert/sweet-alert.component';
 import { OwlNGSwitchComponent } from './switch/switch.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -58,6 +59,7 @@ import {
     OwlRippleModule,
     OwlSelectModule,
     OwlSliderModule,
+    OwlStopWatchModule,
     OwlSweetAlertModule,
     OwlSwitchModule,
     OwlTabsModule,
@@ -91,6 +93,7 @@ import {
         OwlRippleModule,
         OwlSelectModule,
         OwlSliderModule,
+        OwlStopWatchModule,
         OwlSweetAlertModule,
         OwlSwitchModule,
         OwlTabsModule,
@@ -124,6 +127,7 @@ import {
         OwlNGRippleComponent,
         OwlNGSelectComponent,
         OwlNGSliderComponent,
+        OwlNGStopWatchComponent,
         OwlNGSweetAlertComponent,
         OwlNGSwitchComponent,
         OwlNGTabsComponent,

@@ -26,6 +26,7 @@ import { OwlNGRatingComponent } from './rating/rating.component';
 import { OwlNGRippleComponent } from './ripple/ripple.component';
 import { OwlNGSelectComponent } from './select/select.component';
 import { OwlNGSliderComponent } from './slider/slider.component';
+import { OwlNGStopWatchComponent } from './stop-watch/stop-watch.component';
 import { OwlNGSweetAlertComponent } from './sweetAlert/sweet-alert.component';
 import { OwlNGSwitchComponent } from './switch/switch.component';
 import { OwlNGTabsComponent } from './tabs/tabs.component';
@@ -221,6 +222,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'slider',
+                    },
+                },
+                {
+                    path: 'stop-watch',
+                    component: OwlNGStopWatchComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'stop-watch',
                     },
                 },
                 {

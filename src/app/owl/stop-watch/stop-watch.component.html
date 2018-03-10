@@ -1,0 +1,890 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Basic</h5>
+            <owl-stop-watch (watchLap)="lap($event)"></owl-stop-watch>
+        </div>
+        <div class="yk-g-12 yk-md-8 owlng-doc-table-wrapper">
+            <table class="owlng-doc-table">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Time(ms)</th>
+                    <th>Time Formatted</th>
+                    <th>Time Diff(ms)</th>
+                    <th>Time Diff Formatted</th>
+                    <th>Time Total Diff(ms)</th>
+                    <th>Time Total Diff Formatted</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let lap of lapResult; index as i; trackBy: trackByFn">
+                    <td align="left">{{lap.order}}</td>
+                    <td align="left">{{lap.time}}</td>
+                    <td align="left">{{lap.timeFormatted}}</td>
+                    <td align="left">{{lap.timeDiff}}</td>
+                    <td align="left">{{lap.timeDiffFormatted}}</td>
+                    <td align="left">{{lap.timeTotalDiff}}</td>
+                    <td align="left">{{lap.timeTotalDiffFormatted}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Digital Box</h5>
+            <owl-stop-watch [type]="'digital'" (watchLap)="lap($event)"></owl-stop-watch>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Stop Watch is an Angular component to measure the amount of time elapsed from a particular time
+                    when it is activated to the time when the piece is deactivated. It also like the traditional stop
+                    watch allows user to record split times or lap times.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlStopWatchModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Use <span class="owlng-doc-code-tag">owl-stop-watch</span> into your component. It has three button
+                    controls to toggle the timer, record lap time and reset the timer.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-stop-watch></owl-stop-watch>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Appearance"> -->
+                <h3 id="appearance" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#appearance">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Appearance
+                </h3>
+                <p>
+                    By default, Owl Stop Watch has a traditional stop watch 'clock' appearance. There are two: 'analog'
+                    and
+                    'digital'. User could set it via property <span class="owlng-doc-code-tag">[type]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// 'analog' appearance -- default
+<owl-stop-watch [type]=" 'analog' "></owl-stop-watch>
+
+// 'digital' appearance
+<owl-stop-watch [type]=" 'digital' "></owl-stop-watch>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Lap Item"> -->
+                <h3 id="lap-item" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#lap-item">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Lap Item
+                </h3>
+                <p>
+                    When user clicks on the lap button, a list of lap item returns from event
+                    <span class="owlng-doc-code-tag">(watchLap)</span>. Here are the properties of a
+                    <span class="owlng-doc-code-tag">OwlStopWatchLapItem</span>:
+                </p>
+                <ul>
+                    <li>
+                        order: number -- the order of the lap item in the lap list
+                    </li>
+                    <li>
+                        time: number -- the span of time in milliseconds from the start of the watch to the lap.
+                    </li>
+                    <li>
+                        timeFormatted: string -- the span of time in format from the start of the watch to the lap.
+                    </li>
+                    <li>
+                        timeDiff: number -- the span of time in milliseconds from the last lap to this lap.
+                    </li>
+                    <li>
+                        timeDiffFormatted: string -- the span of time in format from the last lap to this lap.
+                    </li>
+                    <li>
+                        timeTotalDiff: number -- the span of time in milliseconds from the first lap to this lap.
+                    </li>
+                    <li>
+                        timeTotalDiffFormatted: string -- the span of time in format from the first lap to this lap.
+                    </li>
+                </ul>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Keyboard Interaction"> -->
+                <h3 id="keyboard-interaction" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#keyboard-interaction">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Keyboard Interaction
+                </h3>
+                <ul>
+                    <li>ENTER -- Toggle the Stop Watch</li>
+                    <li>SPACE -- Record the lap times</li>
+                    <li>ESC -- Reset the Stop Watch</li>
+                </ul>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties owl-stop-watch"> -->
+                <h3 id="properties-owl-stop-watch" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#properties-owl-stop-watch">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-stop-watch</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">'analog' | 'digital'</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'analog'</code></td>
+                            <td align="left">
+                                Defines the type of stop watch appearance.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>showControlPanel</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Defines whether to show the control panel of the stop watch
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Defines whether the stop watch is disable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>tabIndex</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Index of the element in tabbing order
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-stop-watch"> -->
+                <h3 id="events-owl-stop-watch" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#events-owl-stop-watch">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <span class="owlng-doc-code-tag">owl-stop-watch</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>watchStart</code></td>
+                            <td align="left">null</td>
+                            <td align="left">
+                                Event emits when the stop-watch gets started.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>watchPause</code></td>
+                            <td align="left">null</td>
+                            <td align="left">
+                                Event emits when the stop-watch gets paused.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>watchReset</code></td>
+                            <td align="left">null</td>
+                            <td align="left">
+                                Event emits when the stop-watch gets reset.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>watchLap</code></td>
+                            <td align="left">
+                                originalEvent: event<br/>
+                                lapList: OwlStopWatchLapItem[]<br/>
+                            </td>
+                            <td align="left">
+                                Event emits when the stop-watch gets lapped.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Function of OwlStopWatchComponent"> -->
+                <h3 id="functions-owl-stop-watch" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#functions-owl-stop-watch">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Functions of <span class="owlng-doc-code-tag">OwlStopWatchComponent</span>
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">OwlStopWatchComponent</span> is exported as
+                    <span class="owlng-doc-code-tag">owlStopWatch</span>. Here are the public functions from it:
+                </p>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Return</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>toggle</code></td>
+                            <td align="left">event: any</td>
+                            <td align="left"><code>void</code></td>
+                            <td align="left">
+                                A toggle action to start or pause the stop-watch
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>start</code></td>
+                            <td align="left">event: any</td>
+                            <td align="left"><code>void</code></td>
+                            <td align="left">
+                                start the stop-watch
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>pause</code></td>
+                            <td align="left">event: any</td>
+                            <td align="left"><code>void</code></td>
+                            <td align="left">
+                                pause the stop-watch
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>reset</code></td>
+                            <td align="left">event: any</td>
+                            <td align="left"><code>void</code></td>
+                            <td align="left">
+                                stop the stop-watch and reset the stop-watch value to 0.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>lap</code></td>
+                            <td align="left">event: any</td>
+                            <td align="left"><code>void</code></td>
+                            <td align="left">
+                                take a lap on the running stop-watch
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/stop-watch#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$clock-bg-color: #fff;
+$clock-minor-color: #999;
+$clock-major-color: #333;
+$clock-indicator: #f44336;
+$clock-control-color: #311b92;
+
+.owl-stop-watch,
+.owl-stop-watch * {
+  box-sizing: border-box;
+}
+
+.owl-stop-watch {
+  display: inline-block;
+  font-size: 1em;
+  outline: none;
+
+  &:not(.owl-stop-watch-disabled):focus,
+  &:not(.owl-stop-watch-disabled).owl-stop-watch-focused {
+    .owl-stop-watch-analog {
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, .3));
+    }
+
+    .owl-stop-watch-control-btn {
+      border-color: $clock-control-color;
+    }
+  }
+
+  &.owl-stop-watch-disabled {
+    opacity: 0.35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+    cursor: default !important;
+  }
+}
+
+.owl-stop-watch-analog {
+  position: relative;
+  width: 22em;
+  height: 0;
+  padding-bottom: 100%;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, .2));
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+}
+
+.owl-stop-watch-face {
+  fill: $clock-bg-color;
+}
+
+.owl-stop-watch-minor {
+  stroke: $clock-minor-color;
+  stroke-width: 1;
+}
+
+.owl-stop-watch-major {
+  stroke: $clock-major-color;
+  stroke-width: 2.5;
+}
+
+.owl-stop-watch-indicator {
+  fill: $clock-indicator;
+
+}
+
+.owl-stop-watch-control {
+  display: flex;
+  justify-content: space-around;
+  margin-top: .2em;
+
+  .owl-stop-watch-control-btn {
+    display: block;
+    height: 2em;
+    width: 33%;
+    padding: 0;
+    outline: 0;
+    font-size: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 2em;
+    cursor: pointer;
+    border: 1px solid #bdc3c7;
+    background-color: #ffffff;
+    color: $clock-control-color;
+
+    &:disabled {
+      cursor: default !important;
+    }
+
+    &:first-child {
+      border-radius: 0 0 0 8px;
+    }
+
+    &:last-child {
+      border-radius: 0 0 8px 0;
+    }
+  }
+
+  .owl-stop-watch-control-icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+.owl-stop-watch-display {
+  letter-spacing: 0.1em;
+  color: $clock-major-color;
+  .owl-stop-watch-display-small {
+    font-size: .4em;
+  }
+
+  .owl-stop-watch-display-big {
+    font-size: .7em;
+  }
+}
+
+.owl-stop-watch-second-circle {
+  fill: none;
+  stroke-width: .6;
+  stroke: $clock-major-color
+}
+
+.owl-stop-watch-second-line {
+  stroke: $clock-major-color;
+  stroke-width: .5;
+}
+
+.owl-stop-watch-transition {
+  transition: transform 500ms linear;
+}
+
+.owl-stop-watch-digital-dot {
+  display: inline-block;
+  font-size: .6em;
+  position: relative;
+  height: 4.4em;
+  width: .6em;
+  margin: 0 .6em;
+
+  &:before {
+    width: .6em;
+    height: .6em;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: .5em;
+    background-color: #272e38;
+  }
+}
+
+.owl-digit-box,
+.owl-digit-box * {
+  box-sizing: border-box;
+}
+
+.owl-digit-box {
+  position: relative;
+  display: inline-block;
+  font-size: .6em;
+  width: 2.6em;
+  height: 4.4em;
+  margin: 0 .6em;
+}
+
+.owl-digit-box-bar {
+  position: absolute;
+  background-color: #272e38;
+  border-color: #272e38;
+  opacity: .06;
+  transition: opacity 300ms ease;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: .5em solid transparent;
+  }
+}
+
+.owl-digit-box-b1 {
+  left: .5em;
+  top: 0;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    right: -.5em;
+  }
+}
+
+.owl-digit-box-b2 {
+  left: .5em;
+  top: 1.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .3em .4em .2em;
+    border-right-color: inherit;
+    left: - .8em;
+  }
+
+  &:after {
+    border-width: .3em .4em .2em;
+    border-left-color: inherit;
+    right: - .8em;
+  }
+}
+
+.owl-digit-box-b3 {
+  left: .5em;
+  top: 3.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .5em .5em 0 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-left-color: inherit;
+    right: - .5em;
+  }
+}
+
+.owl-digit-box-b4 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b5 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b6 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b7 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-0 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-1 {
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-2 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-3 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-4 {
+  .owl-digit-box-b2,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-5 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-6 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-7 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-8 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-9 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-divider {
+  display: inline-block;
+  font-size: .6em;
+  position: relative;
+  height: 4.4em;
+  width: .6em;
+  margin: 0 .6em;
+
+  &:before, &:after {
+    width: .6em;
+    height: .6em;
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: #272e38;
+  }
+
+  &:before {
+    top: 1em;
+  }
+
+  &:after {
+    bottom: 1em;
+  }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+            </div>
+            <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Basic</h5>
+        <owl-stop-watch (watchLap)="lap($event)"></owl-stop-watch>
+    </div>
+    <div class="yk-g-12 yk-md-8 owlng-doc-table-wrapper">
+        <table class="owlng-doc-table">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Time(ms)</th>
+                <th>Time Formatted</th>
+                <th>Time Diff(ms)</th>
+                <th>Time Diff Formatted</th>
+                <th>Time Total Diff(ms)</th>
+                <th>Time Total Diff Formatted</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let lap of lapResult; index as i; trackBy: trackByFn">
+                <td align="left">{{lap.order}}</td>
+                <td align="left">{{lap.time}}</td>
+                <td align="left">{{lap.timeFormatted}}</td>
+                <td align="left">{{lap.timeDiff}}</td>
+                <td align="left">{{lap.timeDiffFormatted}}</td>
+                <td align="left">{{lap.timeTotalDiff}}</td>
+                <td align="left">{{lap.timeTotalDiffFormatted}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Digital Box</h5>
+        <owl-stop-watch [type]="'digital'" (watchLap)="lap($event)"></owl-stop-watch>
+    </div>
+</div>
+]]></code>
+</pre>
+            <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { Component} from '@angular/core';
+import { OwlStopWatchLapItem } from 'owl-ng';
+@Component({
+    selector: 'app-my-component',
+    templateUrl: './my.component.html',
+})
+export class MyComponent {
+
+    public lapResult: OwlStopWatchLapItem[];
+
+    public lap( event: any ): void {
+        this.lapResult = event.lapList;
+    }
+
+    public trackByFn( index: number, item: any ): void {
+        return item.order;
+    }
+}
+]]></code>
+</pre>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
