@@ -9,8 +9,18 @@
     </div>
 
     <div class="owlng-demo-row">
+        <h5 class="demo-header">Digital Appearance</h5>
+        <owl-timer [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [type]="'digital'"
+                   [autoStart]="true"></owl-timer>
+    </div>
+
+    <div class="owlng-demo-row">
         <h5 class="demo-header">Count Down With Different Time Units</h5>
-        <owl-timer class="yk-g-12"
+        <owl-timer class="yk-g-12 yk-md-6"
                    [timerDays]="timerDays"
                    [timerHours]="timerHours"
                    [timerMinutes]="timerMinutes"
@@ -18,7 +28,16 @@
                    [maxTimeUnit]="'hour'"
                    [autoStart]="true"></owl-timer>
 
-        <owl-timer class="yk-g-12"
+        <owl-timer class="yk-g-12 yk-md-4"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'hour'"
+                   [type]="'digital'"
+                   [autoStart]="true"></owl-timer>
+
+        <owl-timer class="yk-g-12 yk-md-6"
                    [timerDays]="timerDays"
                    [timerHours]="timerHours"
                    [timerMinutes]="timerMinutes"
@@ -26,12 +45,30 @@
                    [maxTimeUnit]="'minute'"
                    [autoStart]="true"></owl-timer>
 
-        <owl-timer class="yk-g-12"
+        <owl-timer class="yk-g-12 yk-md-4"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'minute'"
+                   [type]="'digital'"
+                   [autoStart]="true"></owl-timer>
+
+        <owl-timer class="yk-g-12 yk-md-6"
                    [timerDays]="timerDays"
                    [timerHours]="timerHours"
                    [timerMinutes]="timerMinutes"
                    [timerSeconds]="timerSeconds"
                    [maxTimeUnit]="'second'"
+                   [autoStart]="true"></owl-timer>
+
+        <owl-timer class="yk-g-12 yk-md-4"
+                   [timerDays]="timerDays"
+                   [timerHours]="timerHours"
+                   [timerMinutes]="timerMinutes"
+                   [timerSeconds]="timerSeconds"
+                   [maxTimeUnit]="'second'"
+                   [type]="'digital'"
                    [autoStart]="true"></owl-timer>
     </div>
 
@@ -183,6 +220,20 @@ import { OwlTimerModule } from 'owl-ng';
 </pre>
                 <!-- </editor-fold> -->
 
+                <!-- <editor-fold desc="Appearance"> -->
+                <h3 id="appearance" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/timer#appearance">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Timer Appearance
+                </h3>
+                <p>
+                    There are two types of timer's appearance: <span class="owlng-doc-code-tag">'flipbox'</span>(by
+                    default) and <span class="owlng-doc-code-tag">'digital'</span>. User could change it via property
+                    <span class="owlng-doc-code-tag">[type]</span>.
+                </p>
+                <!-- </editor-fold> -->
+
                 <!-- <editor-fold desc="Localisation"> -->
                 <h3 id="localisation" class="owlng-doc-header">
                     <a class="owlng-doc-header-link" href="owlng/timer#localisation">
@@ -191,41 +242,40 @@ import { OwlTimerModule } from 'owl-ng';
                     Localisation
                 </h3>
                 <p>
-                    Localisation for different languages is defined through <span class="owlng-doc-code-tag">OwlTimerIntl</span>.
+                    Localisation for different languages is defined through property <span class="owlng-doc-code-tag">[locale]</span>.
                     Following is the default values for English.
                 </p>
                 <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-timer [timerDays]="timerDays"
+           [timerHours]="timerHours"
+           [timerMinutes]="timerMinutes"
+           [timerSeconds]="timerSeconds"
+           [locale]="en"
+           [autoStart]="true"></owl-timer>
+]]></code>
+</pre>
+                <pre>
 <code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
-import { OwlTimerIntl, OwlTimerModule } from './timer';
-
-export const MyIntl = {
-    /** A label for the time second flip box  */
-    second: 'Seconds',
-
-    /** A label for the time minute flip box  */
-    minute: 'Minutes',
-
-    /** A label for the time hour flip box  */
-    hour: 'Hours',
-
-    /** A label for the time day flip box  */
-    day: 'Days',
-};
-
-@NgModule({
-    imports: [
-        BrowserModule,
-        OwlTimerModule,
-    ],
-    declarations: [
-        AppComponent,
-    ],
-    providers: [
-    {provide: OwlTimerIntl, useValue: MyIntl}
-    ],
-    bootstrap: [AppComponent]
+import { OwlTimerLocaleSettings } from 'owl-ng';
+@Component({
+    selector: 'app-my-component',
+    templateUrl: './my.component.html',
 })
-export class AppModule {
+export class MyComponent {
+    public en: OwlTimerLocaleSettings = {
+        /** A label for the time second flip box  */
+        second: 'Seconds',
+
+        /** A label for the time minute flip box  */
+        minute: 'Minutes',
+
+        /** A label for the time hour flip box  */
+        hour: 'Hours',
+
+        /** A label for the time day flip box  */
+        day: 'Days',
+    };
 }
 ]]></code>
 </pre>
@@ -271,7 +321,7 @@ export class AppModule {
                             <th>Name</th>
                             <th [style.width]="'12em'">Type</th>
                             <th>Optional</th>
-                            <th [style.width]="'13em'">Default</th>
+                            <th [style.width]="'14em'">Default</th>
                             <th>Description</th>
                         </tr>
                         </thead>
@@ -364,15 +414,24 @@ export class AppModule {
                             <td align="left">
 <pre><code><![CDATA[
 {
-    second: 'Second',
-    minute: 'Minute',
-    hour: 'Hour',
-    day: 'Day',
+    second: 'Seconds',
+    minute: 'Minutes',
+    hour: 'Hours',
+    day: 'Days',
 };
 ]]></code></pre>
                             </td>
                             <td align="left">
                                 Defines the locale
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>type</code></td>
+                            <td align="left">'flipbox' | 'digital'</td>
+                            <td align="left">optional</td>
+                            <td align="left"><code>'flipbox'</code></td>
+                            <td align="left">
+                                Defines the appearance of the timer
                             </td>
                         </tr>
                         </tbody>
@@ -461,7 +520,6 @@ export class AppModule {
 
 .owl-timer {
   display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   margin: .8em;
 }
@@ -472,32 +530,22 @@ export class AppModule {
 }
 
 .owl-timer-divider {
-  display: inline-block;
   align-self: flex-end;
-  position: relative;
-  width: 1.2em;
-  height: 4.8em;
-  margin: .2em;
+}
 
-  .owl-timer-dot {
-    display: block;
-    width: .6em;
-    height: .6em;
-    position: absolute;
-    left: 50%;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    background: #323434;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+.owl-flipbox-timer {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    &.dot-top {
-      top: 25%;
-    }
-
-    &.dot-bottom {
-      bottom: 25%;
-    }
+.owl-digital-timer {
+  .owl-timer-header {
+    margin-bottom: .5em;
   }
+}
+
+.owl-flip-box,
+.owl-flip-box * {
+  box-sizing: border-box;
 }
 
 .owl-flip-box {
@@ -509,6 +557,8 @@ export class AppModule {
   border-radius: .1em;
   margin: .05em;
   user-select: none;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: top;
 
   font-size: 4em;
   font-weight: 700;
@@ -594,6 +644,325 @@ export class AppModule {
     }
   }
 }
+
+.owl-flip-box-divider {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+  height: 4.8em;
+  margin: .2em;
+
+  &:before,
+  &:after {
+    content: '';
+    width: .6em;
+    height: .6em;
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: #323434;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  &:before {
+    top: 25%;
+  }
+
+  &:after {
+    bottom: 25%;
+  }
+}
+
+.owl-digit-box,
+.owl-digit-box * {
+  box-sizing: border-box;
+}
+
+.owl-digit-box {
+  position: relative;
+  display: inline-block;
+  font-size: .6em;
+  width: 2.6em;
+  height: 4.4em;
+  margin: 0 .6em;
+}
+
+.owl-digit-box-bar {
+  position: absolute;
+  background-color: #272e38;
+  border-color: #272e38;
+  opacity: .06;
+  transition: opacity 300ms ease;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: .5em solid transparent;
+  }
+}
+
+.owl-digit-box-b1 {
+  left: .5em;
+  top: 0;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    right: -.5em;
+  }
+}
+
+.owl-digit-box-b2 {
+  left: .5em;
+  top: 1.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .3em .4em .2em;
+    border-right-color: inherit;
+    left: - .8em;
+  }
+
+  &:after {
+    border-width: .3em .4em .2em;
+    border-left-color: inherit;
+    right: - .8em;
+  }
+}
+
+.owl-digit-box-b3 {
+  left: .5em;
+  top: 3.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .5em .5em 0 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-left-color: inherit;
+    right: - .5em;
+  }
+}
+
+.owl-digit-box-b4 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b5 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b6 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b7 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-0 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-1 {
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-2 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-3 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-4 {
+  .owl-digit-box-b2,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-5 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-6 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-7 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-8 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-9 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-divider {
+  display: inline-block;
+  font-size: .6em;
+  position: relative;
+  height: 4.4em;
+  width: .6em;
+  margin: 0 .6em;
+
+  &:before, &:after {
+    width: .6em;
+    height: .6em;
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: #272e38;
+  }
+
+  &:before {
+    top: 1em;
+  }
+
+  &:after {
+    bottom: 1em;
+  }
+}
+
 ]]></code>
 </pre>
                 <!-- </editor-fold> -->
@@ -619,8 +988,18 @@ export class AppModule {
 </div>
 
 <div class="owlng-demo-row">
+    <h5 class="demo-header">Digital Appearance</h5>
+    <owl-timer [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [type]="'digital'"
+               [autoStart]="true"></owl-timer>
+</div>
+
+<div class="owlng-demo-row">
     <h5 class="demo-header">Count Down With Different Time Units</h5>
-    <owl-timer class="yk-g-12"
+    <owl-timer class="yk-g-12 yk-md-6"
                [timerDays]="timerDays"
                [timerHours]="timerHours"
                [timerMinutes]="timerMinutes"
@@ -628,7 +1007,16 @@ export class AppModule {
                [maxTimeUnit]="'hour'"
                [autoStart]="true"></owl-timer>
 
-    <owl-timer class="yk-g-12"
+    <owl-timer class="yk-g-12 yk-md-4"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'hour'"
+               [type]="'digital'"
+               [autoStart]="true"></owl-timer>
+
+    <owl-timer class="yk-g-12 yk-md-6"
                [timerDays]="timerDays"
                [timerHours]="timerHours"
                [timerMinutes]="timerMinutes"
@@ -636,12 +1024,30 @@ export class AppModule {
                [maxTimeUnit]="'minute'"
                [autoStart]="true"></owl-timer>
 
-    <owl-timer class="yk-g-12"
+    <owl-timer class="yk-g-12 yk-md-4"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'minute'"
+               [type]="'digital'"
+               [autoStart]="true"></owl-timer>
+
+    <owl-timer class="yk-g-12 yk-md-6"
                [timerDays]="timerDays"
                [timerHours]="timerHours"
                [timerMinutes]="timerMinutes"
                [timerSeconds]="timerSeconds"
                [maxTimeUnit]="'second'"
+               [autoStart]="true"></owl-timer>
+
+    <owl-timer class="yk-g-12 yk-md-4"
+               [timerDays]="timerDays"
+               [timerHours]="timerHours"
+               [timerMinutes]="timerMinutes"
+               [timerSeconds]="timerSeconds"
+               [maxTimeUnit]="'second'"
+               [type]="'digital'"
                [autoStart]="true"></owl-timer>
 </div>
 

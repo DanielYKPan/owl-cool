@@ -17,6 +17,11 @@
             <app-nav-menu-item name="Switch" slug="/owlng/switch"></app-nav-menu-item>
         </app-nav-menu>
 
+        <app-nav-menu-item [triggerFor]="timerControlMenu" name="Calendar, Timer & Watch"></app-nav-menu-item>
+        <app-nav-menu #timerControlMenu>
+            <app-nav-menu-item name="Timer" slug="/owlng/timer"></app-nav-menu-item>
+        </app-nav-menu>
+
         <app-nav-menu-item [triggerFor]="layoutMenu" name="Layout"></app-nav-menu-item>
         <app-nav-menu #layoutMenu>
             <app-nav-menu-item name="Accordion Panel" slug="/owlng/accordion"></app-nav-menu-item>
@@ -40,7 +45,6 @@
             <app-nav-menu-item name="Progress Bar" slug="/owlng/progressbar"></app-nav-menu-item>
             <app-nav-menu-item name="Rating" slug="/owlng/rating"></app-nav-menu-item>
             <app-nav-menu-item name="Ripple Effect" slug="/owlng/ripple-effect"></app-nav-menu-item>
-            <app-nav-menu-item name="Timer" slug="/owlng/timer"></app-nav-menu-item>
         </app-nav-menu>
     </app-nav-menu>
 </app-nav-menu>

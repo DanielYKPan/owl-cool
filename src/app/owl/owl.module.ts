@@ -61,7 +61,7 @@ import {
     OwlTabsModule,
     OwlTimerModule,
     OwlTooltipModule,
-} from 'owl-ng';
+} from '../../../npmdist/owl-ng';
 
 @NgModule({
     imports: [
