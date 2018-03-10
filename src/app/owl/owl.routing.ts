@@ -11,6 +11,7 @@ import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
 import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
+import { OwlNGClockComponent } from './clock/clock.component';
 import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
@@ -85,6 +86,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                         name: 'page-owlng',
                         showSidePanel: true,
                         animation: 'chips',
+                    },
+                },
+                {
+                    path: 'clock',
+                    component: OwlNGClockComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'clock',
                     },
                 },
                 {

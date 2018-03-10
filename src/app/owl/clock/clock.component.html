@@ -1,0 +1,836 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Basic</h5>
+            <owl-clock [showCharacters]="true" [showMeridian]="true"></owl-clock>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Flip Box</h5>
+            <owl-clock [type]="'flipbox'"></owl-clock>
+        </div>
+
+        <div class="yk-g-12 yk-md-4">
+            <h5 class="demo-header">Digital Box</h5>
+            <owl-clock [type]="'digital'"></owl-clock>
+        </div>
+    </div>
+    <div class="owlng-demo-row yk-g">
+        <h5 class="demo-header yk-g-12">Different Time Zones</h5>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="10"></owl-clock>
+            <span class="owlng-demo-clock-label">Sydney</span>
+        </div>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="8"></owl-clock>
+            <span class="owlng-demo-clock-label">Beijing</span>
+        </div>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="-5"></owl-clock>
+            <span class="owlng-demo-clock-label">New York</span>
+        </div>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="1"></owl-clock>
+            <span class="owlng-demo-clock-label">Berlin</span>
+        </div>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Clock is an Angular component to show a clock-like timer.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlClockModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Use <span class="owlng-doc-code-tag"><code ngNonBindable><![CDATA[ <owl-clock></owl-clock> ]]></code></span>
+                    into your component. As Owl Clock is design responsively, you could modify the clock size via
+                    setting the font-size of <span class="owlng-doc-code-tag"><code ngNonBindable><![CDATA[ <owl-clock></owl-clock> ]]></code></span>.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-clock class="your-css-class" [ngStyle]="{'font-size': '1em'}"></owl-clock>
+]]></code>
+</pre>
+                <p>
+                    Owl Clock also provides three different types of appearance('analog' -- default, 'flipbox' and
+                    'digital'). You could change it
+                    via property <span class="owlng-doc-code-tag">[type]</span>.
+                </p>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-clock [type]=" 'analog' "></owl-clock>
+<owl-clock [type]=" 'flipbox' "></owl-clock>
+<owl-clock [type]=" 'digital' "></owl-clock>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Time Zones"> -->
+                <h3 id="timezone" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#timezone">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Clock in Different Timezone
+                </h3>
+                <p>
+                    Owl Clock could also be used in different timezone. Set property <span class="owlng-doc-code-tag">[gmtOffset]</span>
+                    to a <a class="owlng-doc-link"
+                            href="https://en.wikipedia.org/wiki/List_of_UTC_time_offsets"
+                            target="_blank">GMT Offset</a> to show clock in your desire locations. For example: Sydney
+                    -> 10, Beijing -> 8 , New York -> -5, Berlin -> 1
+                </p>
+                <div class="owlng-doc-alert">
+                    <em>
+                        Note: once you set an offset, it's fixed and won't change on its own (i.e there are no DST rules).
+                        If you want an actual time zone, you might have to use [startTime] to set an initial time of your
+                        desire timezone to start the clock.
+                    </em>
+                </div>
+                <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-clock [gmtOffset]="10"></owl-clock>
+<owl-clock [gmtOffset]="8"></owl-clock>
+<owl-clock [gmtOffset]="-5"></owl-clock>
+<owl-clock [gmtOffset]="1"></owl-clock>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-clock"> -->
+                <h3 id="properties-owl-clock" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#properties-owl-clock">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties <span class="owlng-doc-code-tag">owl-clock</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th >Type</th>
+                            <th>Optional</th>
+                            <th [style.width]="'9em'">Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left">type</td>
+                            <td align="left">'analog' | 'flipbox' | 'digital'</td>
+                            <td align="left">Optional</td>
+                            <td align="left">'analog'</td>
+                            <td align="left">
+                                Defines the type of clock appearance
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">gmtOffset</td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left">null</td>
+                            <td align="left">Set the GMT Offset to show a clock in different timezone. Default is to show
+                                local time.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">locale</td>
+                            <td align="left">
+<pre><code><![CDATA[
+{
+    am: string,
+    pm: string
+};
+]]></code></pre>
+                            </td>
+                            <td align="left">Optional</td>
+                            <td align="left">
+<pre><code><![CDATA[
+{
+    am: 'AM',
+    pm: 'PM'
+};
+]]></code></pre>
+                            </td>
+                            <td align="left">
+                                Defines the locale value of the clock
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">showCharacters</td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left">false</td>
+                            <td align="left">
+                                Defines whether to show clock number on the clock analog.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">showMeridian</td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left">false</td>
+                            <td align="left">
+                                Defines whether to show time meridian in clock analog.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">startTime</td>
+                            <td align="left">Date</td>
+                            <td align="left">Optional</td>
+                            <td align="left">null</td>
+                            <td align="left">
+                                Defines the time that the clock starts at.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-clock"> -->
+                <h3 id="events-owl-clock" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#events-owl-clock">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of <b class="owlng-doc-code-tag">owl-clock</b>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>clockTick</code></td>
+                            <td align="left">
+                                date: Date -- the now moment.
+                            </td>
+                            <td align="left">
+                                Event emitted when the clock tick.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+                
+                <!-- <editor-fold desc="Styles"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/clock#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format)
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$clock-edge-color: #333;
+$clock-bg-color: #fff;
+$clock-second-handle-color: #1076ed;
+$clock-minute-handle-color: #666;
+$clock-hour-handle-color: #333;
+$clock-minor-color: #999;
+$clock-major-color: #333;
+
+.owl-clock {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.owl-clock-analog {
+  position: relative;
+  width: 15em;
+  height: 0;
+  padding-bottom: 100%;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, .2));
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+}
+
+.owl-clock-face {
+  fill: $clock-bg-color;
+}
+
+.owl-clock-minor {
+  stroke: $clock-minor-color;
+  stroke-width: .8;
+}
+
+.owl-clock-major {
+  stroke: $clock-major-color;
+  stroke-width: 2.5;
+}
+
+.owl-clock-center-dot {
+  fill: $clock-edge-color;
+}
+
+.owl-clock-hour {
+  stroke: $clock-hour-handle-color;
+  stroke-width: 2;
+  animation: rotate 43200s infinite linear;
+}
+
+.owl-clock-minute {
+  stroke: $clock-minute-handle-color;
+  stroke-width: 1.5;
+}
+
+.owl-clock-second {
+  transition: transform 0.2s cubic-bezier(.4, 2.08, .55, .44);
+}
+
+.owl-clock-second-line {
+  stroke: $clock-second-handle-color;
+}
+
+.owl-clock-second-counter-weight {
+  stroke: $clock-second-handle-color;
+  stroke-width: 3;
+}
+
+.owl-clock-meridian {
+  font-size: .3em;
+}
+
+.owl-clock-number {
+  font-size: .6em;
+}
+
+.owl-clock-digital {
+  font-size: 1em;
+}
+
+.owl-clock-flip {
+  font-size: .7em;
+}
+
+.owl-flip-box,
+.owl-flip-box * {
+  box-sizing: border-box;
+}
+
+.owl-flip-box {
+  display: inline-block;
+  position: relative;
+  height: 1.2em;
+  min-width: .8em;
+  line-height: 1.2em;
+  border-radius: .1em;
+  margin: .05em;
+  user-select: none;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: top;
+
+  font-size: 4em;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  color: #e7e7e7;
+
+  .owl-flip-boxText {
+    visibility: hidden;
+    padding: 0 .13em;
+  }
+}
+
+.owl-flip-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: .1em;
+  overflow: visible;
+
+  .owl-flip-cellInner {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    z-index: 1;
+
+    .owl-flip-cellContent {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      text-align: center;
+      border-radius: .1em;
+      z-index: 1;
+
+      text-shadow: 0 1px 2px #000;
+      background-color: #333;
+    }
+
+    .owl-flip-cellShadow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      opacity: 0;
+      border-radius: .1em;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    &.owl-flip-cellUp {
+      top: 0;
+      transform-origin: 50% 100%;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 92%;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 16%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .owl-flip-cellContent {
+        top: 0;
+      }
+    }
+
+    &.owl-flip-cellBottom {
+      bottom: 0;
+      transform-origin: 50% 0;
+
+      .owl-flip-cellContent {
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.owl-flip-box-divider {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+  height: 4.8em;
+  margin: .2em;
+
+  &:before,
+  &:after {
+    content: '';
+    width: .6em;
+    height: .6em;
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: #323434;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  &:before {
+    top: 25%;
+  }
+
+  &:after {
+    bottom: 25%;
+  }
+}
+
+.owl-digit-box,
+.owl-digit-box * {
+  box-sizing: border-box;
+}
+
+.owl-digit-box {
+  position: relative;
+  display: inline-block;
+  font-size: .6em;
+  width: 2.6em;
+  height: 4.4em;
+  margin: 0 .6em;
+}
+
+.owl-digit-box-bar {
+  position: absolute;
+  background-color: #272e38;
+  border-color: #272e38;
+  opacity: .06;
+  transition: opacity 300ms ease;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: .5em solid transparent;
+  }
+}
+
+.owl-digit-box-b1 {
+  left: .5em;
+  top: 0;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    right: -.5em;
+  }
+}
+
+.owl-digit-box-b2 {
+  left: .5em;
+  top: 1.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .3em .4em .2em;
+    border-right-color: inherit;
+    left: - .8em;
+  }
+
+  &:after {
+    border-width: .3em .4em .2em;
+    border-left-color: inherit;
+    right: - .8em;
+  }
+}
+
+.owl-digit-box-b3 {
+  left: .5em;
+  top: 3.9em;
+  width: 1.6em;
+  height: .5em;
+
+  &:before {
+    border-width: .5em .5em 0 0;
+    border-right-color: inherit;
+    left: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-left-color: inherit;
+    right: - .5em;
+  }
+}
+
+.owl-digit-box-b4 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b5 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: .7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b6 {
+  width: .5em;
+  height: 1em;
+  left: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 .5em .5em 0;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: 0 0 .5em .5em;
+    border-left-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-b7 {
+  width: .5em;
+  height: 1em;
+  right: 0;
+  top: 2.7em;
+
+  &:before {
+    border-width: 0 0 .5em .5em;
+    border-bottom-color: inherit;
+    top: -.5em;
+  }
+
+  &:after {
+    border-width: .5em 0 0 .5em;
+    border-top-color: inherit;
+    bottom: -.5em;
+  }
+}
+
+.owl-digit-box-0 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-1 {
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-2 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-3 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-4 {
+  .owl-digit-box-b2,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-5 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-6 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-7 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-8 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b6,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-9 {
+  .owl-digit-box-b1,
+  .owl-digit-box-b2,
+  .owl-digit-box-b3,
+  .owl-digit-box-b4,
+  .owl-digit-box-b5,
+  .owl-digit-box-b7 {
+    opacity: 1;
+  }
+}
+
+.owl-digit-box-divider {
+  display: inline-block;
+  font-size: .6em;
+  position: relative;
+  height: 4.4em;
+  width: .6em;
+  margin: 0 .6em;
+
+  &:before, &:after {
+    width: .6em;
+    height: .6em;
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: #272e38;
+  }
+
+  &:before {
+    top: 1em;
+  }
+
+  &:after {
+    bottom: 1em;
+  }
+}
+
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Basic</h5>
+        <owl-clock [showCharacters]="true" [showMeridian]="true"></owl-clock>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Flip Box</h5>
+        <owl-clock [type]="'flipbox'"></owl-clock>
+    </div>
+
+    <div class="yk-g-12 yk-md-4">
+        <h5 class="demo-header">Digital Box</h5>
+        <owl-clock [type]="'digital'"></owl-clock>
+    </div>
+</div>
+<div class="owlng-demo-row yk-g">
+    <h5 class="demo-header yk-g-12">Different Time Zones</h5>
+    <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+        <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="10"></owl-clock>
+        <span class="owlng-demo-clock-label">Sydney</span>
+    </div>
+    <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+        <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="8"></owl-clock>
+        <span class="owlng-demo-clock-label">Beijing</span>
+    </div>
+    <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+        <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="-5"></owl-clock>
+        <span class="owlng-demo-clock-label">New York</span>
+    </div>
+    <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
+        <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="1"></owl-clock>
+        <span class="owlng-demo-clock-label">Berlin</span>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+    </owl-tab-view>
+</section>
