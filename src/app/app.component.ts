@@ -49,6 +49,12 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
         return this._hideTopBarHamburger;
     }
 
+    // whether to show the top bar
+    private _hideTopBar = false;
+    get hideTopBar(): boolean {
+        return this._hideTopBar;
+    }
+
     @HostBinding('class')
     get pageNameClass(): string {
         return this.routeData.name;
@@ -94,10 +100,15 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
             )
             .subscribe(( data: any ) => {
                 this.routeData = data;
+
                 this._isSidePanelExpanded =
                     this.appService.isDesktopSize && data.showSidePanel;
+
                 this._hideTopBarHamburger =
                     this.appService.isDesktopSize && !data.showSidePanel;
+
+                this._hideTopBar = data.hideTopBar;
+
                 this.cdRef.markForCheck();
             });
     }

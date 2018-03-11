@@ -2,7 +2,7 @@
      [ngClass]="{
         'side-panel-expanded': isSidePanelExpanded
      }">
-    <app-top-bar [hideHamburger]="hideTopBarHamburger" (hamburgerClick)="changeSidePanelState()">
+    <app-top-bar [hidden]="hideTopBar" [hideHamburger]="hideTopBarHamburger" (hamburgerClick)="changeSidePanelState()">
         <nav class="top-bar-nav">
             <a class="top-bar-nav-link" routerLink="home" routerLinkActive="active" owlRipple
                [owlRippleColor]="'rgba(255, 255, 255, .1)'">Home</a>

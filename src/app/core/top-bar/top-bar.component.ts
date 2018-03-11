@@ -20,6 +20,9 @@ import { AppService } from '../../app.service';
 export class TopBarComponent implements OnInit, OnDestroy {
 
     @Input() hideHamburger: boolean;
+
+    @Input() hidden: boolean;
+
     @Output() hamburgerClick = new EventEmitter<boolean>();
 
     private _showTopBarNav: boolean;
@@ -32,6 +35,11 @@ export class TopBarComponent implements OnInit, OnDestroy {
     @HostBinding('class.layout-top-bar')
     get layoutTopBarClass(): boolean {
         return true;
+    }
+
+    @HostBinding('class.layout-top-bar-hidden')
+    get layoutTopBarHiddenClass(): boolean {
+        return this.hidden;
     }
 
     constructor( private appService: AppService,
