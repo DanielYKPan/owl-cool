@@ -16,7 +16,7 @@ export const routes: Routes = [
         }
     },
     {
-        path: 'game-center',
+        path: 'games',
         loadChildren: 'app/game/game.module#GameModule',
         data: {
             name: 'page-game',

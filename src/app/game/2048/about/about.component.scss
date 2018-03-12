@@ -1,0 +1,66 @@
+@import "../../../../sass/base/variables";
+@import "../../../../sass/base/breakPoints";
+
+:host {
+  display: flex;
+  align-content: space-around;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 95%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #222;
+}
+
+.game-2048-about-logo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+
+  .logo-title {
+    font-size: 3.16rem;
+    line-height: 3.75rem;
+    font-family: 'Bungee Outline', cursive;
+    margin: 0;
+  }
+
+  .logo-img {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+
+    img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.game-2048-about-body {
+
+  width: 95%;
+  max-width: 440px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+
+  @media #{$medium-up} {
+    font-size: 1.333rem;
+    line-height: 2.5rem;
+  }
+
+  p {
+    font-family: cursive;
+    margin: 0;
+  }
+}
+
+.game-2048-about-social {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin: 1.25rem 1rem;
+  width: 100%;
+}

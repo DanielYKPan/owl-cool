@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee|Bungee+Outline");
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff url('../../../assets/images/games/2048/background-1.png') repeat;
+  font-family: "Bungee", cursive, sans-serif;
+}
+
+.game-2048-body {
+  display: flex;
+  flex: 1;
+}

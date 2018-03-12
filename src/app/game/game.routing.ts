@@ -22,12 +22,7 @@ import { GameCenterComponent } from './game-center.component';
                     },
                     {
                         path: '2048',
-                        loadChildren: 'app/game/2048/game.module#GameModule',
-                        data: {
-                            name: 'page-game-2048',
-                            showSidePanel: false,
-                            hideTopBar: true,
-                        }
+                        loadChildren: 'app/game/2048/game.module#GameModule'
                     },
                 ]
             }
