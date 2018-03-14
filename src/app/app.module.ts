@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { AppService } from './app.service';
 
 import { OwlRippleModule, GestureConfig } from 'owl-ng';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,8 @@ import { OwlRippleModule, GestureConfig } from 'owl-ng';
         CoreModule,
         HomeModule,
         OwlRippleModule,
+
+        StoreModule.forRoot({}),
     ],
     providers: [
         VIEWPORT_RULER_PROVIDER,

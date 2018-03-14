@@ -1,2 +1,4 @@
-<div>Game Board</div>
+<div class="game-2048-panel-wrapper" #wrapper>
+    <app-game-2048-cell-panel [cells]="cells$| async" [size]="cellSize"></app-game-2048-cell-panel>
+</div>
 <app-game-2048-score-bar></app-game-2048-score-bar>

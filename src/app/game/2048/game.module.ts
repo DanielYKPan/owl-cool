@@ -11,12 +11,18 @@ import { GameBoardComponent } from './board/board.component';
 import { GameAboutComponent } from './about/about.component';
 import { ScoreBarComponent } from './board/score-bar.component';
 import { GameShareModule } from '../share/share.module';
+import { GameService } from './service/game.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { CellPanelComponent } from './board/cell-panel/cell-panel.component';
 
 @NgModule({
     imports: [
         CommonModule,
         GameRoutingModule,
         GameShareModule,
+
+        StoreModule.forFeature('2048', reducers),
     ],
     exports: [],
     declarations: [
@@ -25,8 +31,11 @@ import { GameShareModule } from '../share/share.module';
         GameBoardComponent,
         GameAboutComponent,
         ScoreBarComponent,
+        CellPanelComponent,
     ],
-    providers: [],
+    providers: [
+        GameService,
+    ],
 })
 export class GameModule {
 }
