@@ -6,7 +6,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, OnInit, 
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    moduleId: module.id,
     selector: 'app-game-2048-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],

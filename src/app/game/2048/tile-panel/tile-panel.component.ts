@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Tile } from '../tile.model';
+import { Tile } from '../store/tile.model';
 import { SIZE } from '../service/game.service';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 

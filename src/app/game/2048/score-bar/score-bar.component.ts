@@ -6,7 +6,6 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
-    moduleId: module.id,
     selector: 'app-game-2048-score-bar',
     templateUrl: './score-bar.component.html',
     styleUrls: ['./score-bar.component.scss'],

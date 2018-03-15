@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { SIZE } from '../../service/game.service';
+import { SIZE } from '../service/game.service';
 
 @Component({
     selector: 'app-game-2048-cell-panel',
