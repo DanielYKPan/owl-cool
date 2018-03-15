@@ -1,9 +1,10 @@
 /**
- * tile
+ * game-action
  */
 
 import { Action } from '@ngrx/store';
-import { Tile } from '../tile.model';
+import { Tile } from './tile.model';
+import { GameStats } from './game-stats.model';
 
 export enum GameActionTypes {
     ResetGame = '[2048] Reset Game',
@@ -20,7 +21,7 @@ export class ResetGame implements Action {
 export class SetGameStats implements Action {
     readonly type = GameActionTypes.SetGameStats;
 
-    constructor( public payload: { gameOver: boolean, gameWon: boolean, scores: number, highestScores: number } ) {
+    constructor( public payload: GameStats ) {
     }
 }
 
@@ -48,3 +49,4 @@ export type GameActions =
     AddTile |
     UpdateTiles |
     ResetTileStatus;
+

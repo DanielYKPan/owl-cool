@@ -1,22 +1,23 @@
 /**
- * tile
+ * game-reducer
  */
-import { Tile } from '../tile.model';
-import { GameActions, GameActionTypes } from '../actions/tile';
+
+import { Tile } from './tile.model';
+import { GameActions, GameActionTypes } from './game-action';
+import { GameStats } from './game-stats.model';
 
 export interface State {
-    gameOver: boolean;
-    gameWon: boolean;
-    scores: number;
-    highestScores: number;
+    stats: GameStats;
     tiles: Tile[];
 }
 
 const initialState: State = {
-    gameOver: false,
-    gameWon: false,
-    scores: 0,
-    highestScores: +localStorage.getItem('2048-best') || 0,
+    stats: {
+        gameOver: false,
+        gameWon: false,
+        scores: 0,
+        highestScores: +localStorage.getItem('2048-best') || 0
+    },
     tiles: [],
 };
 
@@ -25,19 +26,19 @@ export function reducer( state = initialState, action: GameActions ): State {
         case GameActionTypes.ResetGame:
             return {
                 ...state,
-                gameWon: false,
-                gameOver: false,
-                scores: 0,
+                stats: {
+                    gameOver: false,
+                    gameWon: false,
+                    scores: 0,
+                    highestScores: +localStorage.getItem('2048-best') || 0
+                },
                 tiles: []
             };
 
         case GameActionTypes.SetGameStats:
             return {
                 ...state,
-                gameOver: action.payload.gameOver,
-                gameWon: action.payload.gameWon,
-                scores: action.payload.scores,
-                highestScores: action.payload.highestScores,
+                stats: action.payload
             };
 
         case GameActionTypes.AddTile:
@@ -82,18 +83,4 @@ export function reducer( state = initialState, action: GameActions ): State {
 
 export const getTiles = ( state: State ) => state.tiles;
 
-export const getScores = ( state: State ) => state.scores;
-
-export const getHighest = ( state: State ) => state.highestScores;
-
-export const getOver = ( state: State ) => state.gameOver;
-
-export const getGameStats = ( state: State ) => {
-    return {
-        gameOver: state.gameOver,
-        gameWon: state.gameWon,
-        scores: state.scores,
-        highestScores: state.highestScores,
-    };
-};
-
+export const getGameStats = ( state: State ) => state.stats;

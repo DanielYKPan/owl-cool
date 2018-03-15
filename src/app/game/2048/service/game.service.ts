@@ -3,10 +3,10 @@
  */
 
 import { Injectable } from '@angular/core';
-import * as from2048 from '../reducers';
-import * as GameActions from '../actions/tile';
+import * as from2048 from '../store';
+import * as GameActions from '../store/game-action';
 import { select, Store } from '@ngrx/store';
-import { Tile } from '../tile.model';
+import { Tile } from '../store/tile.model';
 
 export const SIZE = 4;
 export const STARTING_TILES = 2;

@@ -13,7 +13,7 @@ import { ScoreBarComponent } from './board/score-bar.component';
 import { GameShareModule } from '../share/share.module';
 import { GameService } from './service/game.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './reducers';
+import { reducers } from './store';
 import { CellPanelComponent } from './board/cell-panel/cell-panel.component';
 import { TilePanelComponent } from './tile-panel/tile-panel.component';
 import { OverPanelComponent } from './over-panel/over-panel.component';

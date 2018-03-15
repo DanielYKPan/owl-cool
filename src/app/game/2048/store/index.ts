@@ -2,30 +2,30 @@
  * index
  */
 
-import * as fromTile from './tile';
+import * as fromGame from './game-reducer';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State {
-    tile: fromTile.State;
+    game: fromGame.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-    tile: fromTile.reducer,
+    game: fromGame.reducer,
 };
 
 export const get2048State = createFeatureSelector<State>('2048');
 
-export const getTileState = createSelector(
+export const getGameState = createSelector(
     get2048State,
-    ( state: State ) => state.tile
+    ( state: State ) => state.game
 );
 
 export const getTiles = createSelector(
-    getTileState,
-    fromTile.getTiles
+    getGameState,
+    fromGame.getTiles
 );
 
 export const getGameStats = createSelector(
-    getTileState,
-    fromTile.getGameStats
+    getGameState,
+    fromGame.getGameStats
 );
