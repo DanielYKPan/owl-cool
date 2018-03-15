@@ -3,7 +3,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import * as from2048 from '../reducers';
 import * as GridActions from '../actions/grid';
 
@@ -11,7 +11,15 @@ export const SIZE = 4;
 
 @Injectable()
 export class GameService {
+
+    private cells: string[];
+
     constructor( private store: Store<from2048.State> ) {
+        this.store.pipe(select(from2048.getGridCells))
+            .subscribe(( cells: string[] ) => {
+                this.cells = cells;
+                console.log(this.cells);
+            });
     }
 
     public newGame(): void {
