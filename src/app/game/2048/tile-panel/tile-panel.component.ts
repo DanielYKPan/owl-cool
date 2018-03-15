@@ -38,8 +38,8 @@ export class TilePanelComponent implements OnInit {
     }
 
     public getTileTransformStyle( tile: Tile ): string {
-        const x = (tile.position % SIZE) * 100 + '%';
-        const y = Math.floor(tile.position / SIZE) * 100 + '%';
+        const x = (tile.position % SIZE) * this.tileSize + 'px';
+        const y = Math.floor(tile.position / SIZE) * this.tileSize + 'px';
         return `translate(${x}, ${y})`;
     }
 

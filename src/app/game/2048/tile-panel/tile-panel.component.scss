@@ -43,6 +43,12 @@ $colors: #EEE4DA, // 2
   left: 0;
   padding: 4px;
   box-sizing: border-box;
+  z-index: 1;
+  transition: transform 100ms ease-in-out;
+
+  &.is-merged {
+    z-index: 2;
+  }
 
   @for $x from 1 through length($colors) {
     &.game-2048-tile-#{power(2, $x)} .game-2048-tile-inner {

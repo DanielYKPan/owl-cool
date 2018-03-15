@@ -60,22 +60,10 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
         switch (keycode) {
 
             case LEFT_ARROW:
-                console.log('left');
-                event.preventDefault();
-                return;
-
             case UP_ARROW:
-                console.log('up');
-                event.preventDefault();
-                return;
-
             case RIGHT_ARROW:
-                console.log('right');
-                event.preventDefault();
-                return;
-
             case DOWN_ARROW:
-                console.log('down');
+                this.gameService.move(keycode);
                 event.preventDefault();
                 return;
 

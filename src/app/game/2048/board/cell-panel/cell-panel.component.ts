@@ -21,8 +21,8 @@ export class CellPanelComponent implements OnInit {
     }
 
     public getCellTransformStyle( index: number ): string {
-        const x = (index % SIZE) * 100 + '%';
-        const y = Math.floor(index / SIZE) * 100 + '%';
+        const x = (index % SIZE) * this.size + 'px';
+        const y = Math.floor(index / SIZE) * this.size + 'px';
         return `translate(${x}, ${y})`;
     }
 }
