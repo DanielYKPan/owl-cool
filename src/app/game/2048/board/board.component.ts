@@ -11,6 +11,7 @@ import { select, Store } from '@ngrx/store';
 import * as from2048 from '../reducers';
 import { Observable } from 'rxjs/Observable';
 import { Tile } from '../tile.model';
+import { DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, UP_ARROW } from '@angular/cdk/keycodes';
 
 @Component({
     selector: 'app-game-2048-board',
@@ -51,6 +52,36 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
+    }
+
+    public handleKeydownOnWrapper( event: KeyboardEvent ): void {
+        const keycode = event.keyCode;
+
+        switch (keycode) {
+
+            case LEFT_ARROW:
+                console.log('left');
+                event.preventDefault();
+                return;
+
+            case UP_ARROW:
+                console.log('up');
+                event.preventDefault();
+                return;
+
+            case RIGHT_ARROW:
+                console.log('right');
+                event.preventDefault();
+                return;
+
+            case DOWN_ARROW:
+                console.log('down');
+                event.preventDefault();
+                return;
+
+            default:
+                return;
+        }
     }
 
     private newGame(): void {

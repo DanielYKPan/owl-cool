@@ -1,4 +1,5 @@
-<div class="game-2048-panel-wrapper" #wrapper>
+<div class="game-2048-panel-wrapper"
+     (window:keydown)="handleKeydownOnWrapper($event)" #wrapper>
     <div class="game-2048-panel">
         <app-game-2048-cell-panel [cells]="cells" [size]="cellSize"></app-game-2048-cell-panel>
 
