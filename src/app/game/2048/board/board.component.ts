@@ -10,6 +10,7 @@ import { GameService, SIZE } from '../service/game.service';
 import { select, Store } from '@ngrx/store';
 import * as from2048 from '../reducers';
 import { Observable } from 'rxjs/Observable';
+import { Tile } from '../tile.model';
 
 @Component({
     selector: 'app-game-2048-board',
@@ -21,7 +22,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
 
-    public cells$: Observable<string[]>;
+    public tiles$: Observable<Tile[]>;
 
     public cellSize: number;
 
@@ -32,14 +33,17 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
         return true;
     }
 
+    get cells(): string[] {
+        return this.gameService.cells;
+    }
+
     constructor( private gameService: GameService,
                  private store: Store<from2048.State> ) {
     }
 
     public ngOnInit() {
+        this.tiles$ = this.store.pipe(select(from2048.getTiles));
         this.newGame();
-
-        this.cells$ = this.store.pipe(select(from2048.getGridCells));
     }
 
     public ngAfterContentInit(): void {

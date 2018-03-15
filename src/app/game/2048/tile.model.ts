@@ -9,7 +9,7 @@ export class Tile {
     public merged: boolean;
     public shouldDump: boolean;
 
-    constructor( value: number = null, position: number = null ) {
+    constructor( position: number = null, value: number = 2 ) {
 
         this.id = this.uuid();
         this.value = value;

@@ -1,4 +1,8 @@
 <div class="game-2048-panel-wrapper" #wrapper>
-    <app-game-2048-cell-panel [cells]="cells$| async" [size]="cellSize"></app-game-2048-cell-panel>
+    <div class="game-2048-panel">
+        <app-game-2048-cell-panel [cells]="cells" [size]="cellSize"></app-game-2048-cell-panel>
+
+        <app-game-2048-tile-panel [tiles]="tiles$ | async" [tileSize]="cellSize"></app-game-2048-tile-panel>
+    </div>
 </div>
 <app-game-2048-score-bar></app-game-2048-score-bar>

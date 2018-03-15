@@ -15,6 +15,7 @@ import { GameService } from './service/game.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { CellPanelComponent } from './board/cell-panel/cell-panel.component';
+import { TilePanelComponent } from './tile-panel/tile-panel.component';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { CellPanelComponent } from './board/cell-panel/cell-panel.component';
         GameAboutComponent,
         ScoreBarComponent,
         CellPanelComponent,
+        TilePanelComponent,
     ],
     providers: [
         GameService,

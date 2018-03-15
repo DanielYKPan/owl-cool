@@ -3,28 +3,29 @@
  */
 
 import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
 import * as from2048 from '../reducers';
-import * as GridActions from '../actions/grid';
+import * as TileActions from '../actions/tile';
+import { Store } from '@ngrx/store';
+import { Tile } from '../tile.model';
 
 export const SIZE = 4;
+export const STARTING_TILES = 2;
 
 @Injectable()
 export class GameService {
 
-    private cells: string[];
+    private _cells: string[];
+    get cells(): string[] {
+        return this._cells;
+    }
 
     constructor( private store: Store<from2048.State> ) {
-        this.store.pipe(select(from2048.getGridCells))
-            .subscribe(( cells: string[] ) => {
-                this.cells = cells;
-                console.log(this.cells);
-            });
     }
 
     public newGame(): void {
         this.resetGameStatus();
         this.buildGameGrid();
+        this.buildStartingPosition();
     }
 
     private resetGameStatus() {
@@ -32,6 +33,35 @@ export class GameService {
     }
 
     private buildGameGrid(): void {
-        this.store.dispatch(new GridActions.BuildGrid(SIZE));
+        this._cells = Array.apply(null, Array(SIZE * SIZE));
+    }
+
+    public buildStartingPosition(): void {
+        this.store.dispatch(new TileActions.RestTile());
+
+        for (let i = 0; i < STARTING_TILES; i++) {
+            this.insertTileRandomly();
+        }
+    }
+
+    private insertTileRandomly(): void {
+        const cells = this.getAllAvailableCells();
+
+        if (cells && cells.length > 0) {
+            const randomCell = cells[Math.floor(Math.random() * cells.length)];
+            const newTile = new Tile(randomCell);
+
+            this._cells[randomCell] = newTile.id;
+
+            this.store.dispatch(new TileActions.AddTile(newTile));
+        }
+    }
+
+    private getAllAvailableCells(): number[] {
+        return this._cells.map(( cell: string, index: number ) => {
+            if (cell === null || cell === undefined) {
+                return index;
+            }
+        });
     }
 }
