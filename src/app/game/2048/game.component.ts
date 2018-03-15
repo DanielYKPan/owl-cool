@@ -3,6 +3,7 @@
  */
 
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { GameService } from './service/game.service';
 
 @Component({
     moduleId: module.id,
@@ -25,13 +26,14 @@ export class GameComponent implements OnInit {
         return true;
     }
 
-    constructor() {
+    constructor(private gameService: GameService) {
     }
 
     public ngOnInit() {
+        this.newGame();
     }
 
-    public newGame() {
-        console.log('shitty');
+    public newGame(): void {
+        this.gameService.newGame();
     }
 }

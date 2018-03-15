@@ -2,30 +2,51 @@
  * tile
  */
 import { Tile } from '../tile.model';
-import { TileActions, TileActionTypes } from '../actions/tile';
+import { GameActions, GameActionTypes } from '../actions/tile';
 
 export interface State {
+    gameOver: boolean;
+    gameWon: boolean;
+    scores: number;
+    highestScores: number;
     tiles: Tile[];
 }
 
 const initialState: State = {
+    gameOver: false,
+    gameWon: false,
+    scores: 0,
+    highestScores: +localStorage.getItem('2048-best') || 0,
     tiles: [],
 };
 
-export function reducer( state = initialState, action: TileActions ): State {
+export function reducer( state = initialState, action: GameActions ): State {
     switch (action.type) {
-        case TileActionTypes.RestTile:
+        case GameActionTypes.ResetGame:
             return {
+                ...state,
+                gameWon: false,
+                gameOver: false,
+                scores: 0,
                 tiles: []
             };
 
-        case TileActionTypes.AddTile:
+        case GameActionTypes.SetGameStats:
+            return {
+                ...state,
+                gameOver: action.payload.gameOver,
+                gameWon: action.payload.gameWon,
+                scores: action.payload.scores,
+                highestScores: action.payload.highestScores,
+            };
+
+        case GameActionTypes.AddTile:
             return {
                 ...state,
                 tiles: [...state.tiles, action.payload]
             };
 
-        case TileActionTypes.UpdateTile:
+        case GameActionTypes.UpdateTiles:
             const tiles = state.tiles.map(( tile ) => {
                 if (action.payload.nextTile && tile.id === action.payload.nextTile.id) {
                     return Object.assign(new Tile(), tile, action.payload.nextTile);
@@ -44,7 +65,7 @@ export function reducer( state = initialState, action: TileActions ): State {
                 tiles
             };
 
-        case TileActionTypes.DumpTiles:
+        case GameActionTypes.ResetTilesStatus:
             return {
                 ...state,
                 tiles: state.tiles.filter(( tile ) => !tile.shouldDump)
@@ -60,3 +81,19 @@ export function reducer( state = initialState, action: TileActions ): State {
 }
 
 export const getTiles = ( state: State ) => state.tiles;
+
+export const getScores = ( state: State ) => state.scores;
+
+export const getHighest = ( state: State ) => state.highestScores;
+
+export const getOver = ( state: State ) => state.gameOver;
+
+export const getGameStats = ( state: State ) => {
+    return {
+        gameOver: state.gameOver,
+        gameWon: state.gameWon,
+        scores: state.scores,
+        highestScores: state.highestScores,
+    };
+};
+

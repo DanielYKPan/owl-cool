@@ -5,5 +5,7 @@
 
         <app-game-2048-tile-panel [tiles]="tiles$ | async" [tileSize]="cellSize"></app-game-2048-tile-panel>
     </div>
+        <app-game-2048-over-panel *ngIf="(stats$| async)?.gameOver" (restart)="newGame()" ></app-game-2048-over-panel>
 </div>
-<app-game-2048-score-bar></app-game-2048-score-bar>
+<app-game-2048-score-bar [scores]="(stats$| async)?.scores"
+                         [highest]="(stats$| async)?.highestScores"></app-game-2048-score-bar>

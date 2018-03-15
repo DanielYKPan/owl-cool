@@ -25,6 +25,8 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
 
     public tiles$: Observable<Tile[]>;
 
+    public stats$: Observable<any>;
+
     public cellSize: number;
 
     @ViewChild('wrapper') panelWrapperElmRef: ElementRef;
@@ -44,7 +46,7 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
 
     public ngOnInit() {
         this.tiles$ = this.store.pipe(select(from2048.getTiles));
-        this.newGame();
+        this.stats$ = this.store.pipe(select(from2048.getGameStats));
     }
 
     public ngAfterContentInit(): void {
@@ -72,7 +74,7 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
         }
     }
 
-    private newGame(): void {
+    public newGame(): void {
         this.gameService.newGame();
     }
 }

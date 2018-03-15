@@ -2,7 +2,7 @@
  * score-bar.component
  */
 
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -23,6 +23,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 
 export class ScoreBarComponent implements OnInit {
+
+    @Input() scores = 0;
+
+    @Input() highest = 0;
 
     @HostBinding('class.game-2048-score-bar')
     get game2048ScoreBarClass(): boolean {

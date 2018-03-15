@@ -5,33 +5,46 @@
 import { Action } from '@ngrx/store';
 import { Tile } from '../tile.model';
 
-export enum TileActionTypes {
-    RestTile = '[Tile] Rest Tile',
-    AddTile = '[Tile] Add Tile',
-    UpdateTile = '[Tile] Update Tile',
-    DumpTiles = '[Tile] Dump Tiles',
+export enum GameActionTypes {
+    ResetGame = '[2048] Reset Game',
+    SetGameStats = '[2048] Set Game Stat',
+    AddTile = '[2048] Add Tile',
+    UpdateTiles = '[2048] Update Tiles',
+    ResetTilesStatus = '[2048] Rest Tiles Status',
 }
 
-export class RestTile implements Action {
-    readonly type = TileActionTypes.RestTile;
+export class ResetGame implements Action {
+    readonly type = GameActionTypes.ResetGame;
+}
+
+export class SetGameStats implements Action {
+    readonly type = GameActionTypes.SetGameStats;
+
+    constructor( public payload: { gameOver: boolean, gameWon: boolean, scores: number, highestScores: number } ) {
+    }
 }
 
 export class AddTile implements Action {
-    readonly type = TileActionTypes.AddTile;
+    readonly type = GameActionTypes.AddTile;
 
     constructor( public payload: Tile ) {
     }
 }
 
-export class UpdateTile implements Action {
-    readonly type = TileActionTypes.UpdateTile;
+export class UpdateTiles implements Action {
+    readonly type = GameActionTypes.UpdateTiles;
 
     constructor( public payload: { newPosition: number, oldTile: Tile, nextTile: Tile } ) {
     }
 }
 
-export class DumpTiles implements Action {
-    readonly type = TileActionTypes.DumpTiles;
+export class ResetTileStatus implements Action {
+    readonly type = GameActionTypes.ResetTilesStatus;
 }
 
-export type TileActions = RestTile | AddTile | UpdateTile | DumpTiles;
+export type GameActions =
+    ResetGame |
+    SetGameStats |
+    AddTile |
+    UpdateTiles |
+    ResetTileStatus;

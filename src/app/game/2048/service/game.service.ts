@@ -4,7 +4,7 @@
 
 import { Injectable } from '@angular/core';
 import * as from2048 from '../reducers';
-import * as TileActions from '../actions/tile';
+import * as GameActions from '../actions/tile';
 import { select, Store } from '@ngrx/store';
 import { Tile } from '../tile.model';
 
@@ -28,9 +28,15 @@ export class GameService {
 
     private _tiles: Tile[];
 
+    private _gameStats: any;
+
     constructor( private store: Store<from2048.State> ) {
         this.store.pipe(select(from2048.getTiles)).subscribe(( tiles ) => {
             this._tiles = tiles;
+        });
+
+        this.store.pipe(select(from2048.getGameStats)).subscribe(( stats: any ) => {
+            this._gameStats = stats;
         });
     }
 
@@ -41,12 +47,18 @@ export class GameService {
     }
 
     public move( direction: number ): void {
+
+        if (this._gameStats.gameOver) {
+            return;
+        }
+
         let hasMoved = false;
         let scores = 0;
+        let highestScores = this._gameStats.highestScores; // a variable to hold the highest scores
         let gameWon = false;
         let gameOver = false;
 
-        this.dumpOldTiles();
+        this.ResetTilesStatus();
 
         const positions = this.getTraversalDirections(direction);
 
@@ -75,6 +87,11 @@ export class GameService {
                         scores += next.value; // Add the new value to scoring table
 
                         hasMoved = true;
+
+                        if (next.value >= 2048 && !gameWon) {
+                            gameWon = true;
+                        }
+
                     } else {
                         // It a tile's next tile not exists,
                         // that means the new coordination is empty
@@ -90,13 +107,30 @@ export class GameService {
             });
         });
 
+        // Update the game score after grid checking
+        if (scores > 0) {
+            scores = this._gameStats.scores + scores;
+            if (scores > highestScores) {
+                highestScores = scores;
+                localStorage.setItem('2048-best', highestScores.toString());
+            }
+        } else {
+            scores = this._gameStats.scores;
+        }
+
         if (hasMoved) {
             this.insertTileRandomly();
+
+            gameOver = !this.anyMoveAvailable();
         }
+
+        this.store.dispatch(new GameActions.SetGameStats({
+            gameOver, gameWon, scores, highestScores
+        }));
     }
 
     private resetGameStatus() {
-        // to be configured
+        this.store.dispatch(new GameActions.ResetGame());
     }
 
     private buildGameGrid(): void {
@@ -104,8 +138,6 @@ export class GameService {
     }
 
     private buildStartingPosition(): void {
-        this.store.dispatch(new TileActions.RestTile());
-
         for (let i = 0; i < STARTING_TILES; i++) {
             this.insertTileRandomly();
         }
@@ -120,7 +152,7 @@ export class GameService {
 
             this._cells[randomCell] = newTile.id;
 
-            this.store.dispatch(new TileActions.AddTile(newTile));
+            this.store.dispatch(new GameActions.AddTile(newTile));
         }
     }
 
@@ -214,11 +246,39 @@ export class GameService {
 
         this._cells[oldPosition] = null;
 
-        this.store.dispatch(new TileActions.UpdateTile({newPosition, oldTile, nextTile}));
+        this.store.dispatch(new GameActions.UpdateTiles({newPosition, oldTile, nextTile}));
     }
 
-    private dumpOldTiles(): void {
-        this.store.dispatch(new TileActions.DumpTiles());
+    private ResetTilesStatus(): void {
+        this.store.dispatch(new GameActions.ResetTileStatus());
+    }
+
+    private anyMoveAvailable(): boolean {
+        return this.getAllAvailableCells().length > 0 || this.tileMatchesAvailable();
+    }
+
+    /* Check if any two joint tiles could be merged */
+    public tileMatchesAvailable(): boolean {
+        for (let i = 0; i < SIZE * SIZE; i++) {
+            const coordination = {x: i % SIZE, y: Math.floor(i / SIZE)};
+            const tile = this.getTileAt(coordination);
+
+            if (tile) {
+                for (const vectorName in Vectors) {
+                    if (vectorName) {
+                        const vector = Vectors[vectorName];
+                        const otherCoordi = {x: coordination.x + vector.x, y: coordination.y + vector.y};
+                        const other = this.getTileAt(otherCoordi);
+
+                        if (other && other.value === tile.value) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     private withinGrid( coordination: { x: number, y: number } ): boolean {

@@ -24,3 +24,8 @@ export const getTiles = createSelector(
     getTileState,
     fromTile.getTiles
 );
+
+export const getGameStats = createSelector(
+    getTileState,
+    fromTile.getGameStats
+);

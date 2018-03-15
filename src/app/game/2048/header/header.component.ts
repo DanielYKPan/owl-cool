@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class GameHeaderComponent implements OnInit {
 
-    @Output() public onNewGameBtnClick = new EventEmitter<any>();
+    @Output() public startNewGame = new EventEmitter<any>();
 
     @HostBinding('class.game-2048-header')
     get game2048HeaderClass(): boolean {
@@ -32,7 +32,7 @@ export class GameHeaderComponent implements OnInit {
 
     public newGame(): void {
         if (this.router.url === '/games/2048') {
-            this.onNewGameBtnClick.emit(true);
+            this.startNewGame.emit(true);
         } else {
             this.router.navigate(['./'], {relativeTo: this.route});
         }
