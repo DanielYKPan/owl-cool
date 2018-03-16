@@ -30,7 +30,6 @@ export class GameComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.newGame();
     }
 
     public newGame(): void {

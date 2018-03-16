@@ -48,6 +48,8 @@ export class GameBoardComponent implements OnInit, AfterContentInit, OnDestroy {
     public ngOnInit() {
         this.tiles$ = this.store.pipe(select(from2048.getTiles));
         this.stats$ = this.store.pipe(select(from2048.getGameStats));
+
+        this.newGame();
     }
 
     public ngAfterContentInit(): void {
