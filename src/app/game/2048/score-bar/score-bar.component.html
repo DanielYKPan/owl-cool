@@ -1,6 +1,10 @@
 <div class="game-2048-score-bar-bums">
     <div class="game-2048-score-bar-bum-wrapper">
         <div class="game-2048-score-bar-bum">
+            <span class="game-2048-score-increase"
+                  *ngFor="let s of increasedScores"
+                  [@increaseScores]="s.state"
+                  (@increaseScores.done)="animationDone($event)">+ {{s.value}}</span>
             {{scores}}
         </div>
     </div>

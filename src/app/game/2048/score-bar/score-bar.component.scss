@@ -45,7 +45,7 @@ $color-brown: #603309;
   }
 
   .game-2048-score-bar-bum {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #FE424D;
     background-color: #ffced0;
@@ -67,6 +67,14 @@ $color-brown: #603309;
       color: #fbbd08;
       background-color: #ffffa2;
       box-shadow: 0 -5px 40px #fbbd08;
+    }
+
+    .game-2048-score-increase {
+      font-size: 1rem;
+      color: #ad3a44;
+      position: absolute;
+      z-index: 2;
+      opacity: 0;
     }
   }
 }
