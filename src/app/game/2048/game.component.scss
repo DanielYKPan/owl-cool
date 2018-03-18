@@ -11,3 +11,10 @@
   display: flex;
   flex: 1;
 }
+
+.game-home-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 10%;
+  z-index: 100;
+}
