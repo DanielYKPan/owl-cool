@@ -1,0 +1,19 @@
+<div class="game-minesweeper-tile-content" *ngIf="!tile.Revealed && tile.Covered">
+    <img src="/assets/images/games/minesweeper/flag.png">
+</div>
+
+<div class="game-minesweeper-tile-content"
+     *ngIf="tile.Revealed" [ngSwitch]="tile.Content"
+     [ngClass]="{'game-minesweeper-tile-content-1': tile.Content==1,
+                 'game-minesweeper-tile-content-2': tile.Content==2,
+                 'game-minesweeper-tile-content-3': tile.Content==3,
+                 'game-minesweeper-tile-content-4': tile.Content==4,
+                 'game-minesweeper-tile-content-5': tile.Content==5,
+                 'game-minesweeper-tile-content-6': tile.Content==6,
+                 'game-minesweeper-tile-content-7': tile.Content==7,
+                 'game-minesweeper-tile-content-8': tile.Content==8}">
+    <img *ngSwitchCase="'mine'" src="/assets/images/games/minesweeper/bomb_mine.png">
+    <img *ngSwitchCase="'mine-hit'" src="/assets/images/games/minesweeper/bomb_mine.png">
+    <img *ngSwitchCase="'flag-wrong'" src="/assets/images/games/minesweeper/flag.png">
+    <div *ngSwitchDefault>{{tile.Content}}</div>
+</div>

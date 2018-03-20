@@ -24,6 +24,10 @@ import { GameCenterComponent } from './game-center.component';
                         path: '2048',
                         loadChildren: 'app/game/2048/game.module#GameModule'
                     },
+                    {
+                        path: 'minesweeper',
+                        loadChildren: 'app/game/minesweeper/minesweeper.module#MinesweeperModule'
+                    },
                 ]
             }
         ])

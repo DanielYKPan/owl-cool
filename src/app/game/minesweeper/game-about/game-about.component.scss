@@ -1,0 +1,70 @@
+@import "../../../../sass/base/variables";
+@import "../../../../sass/base/breakPoints";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 95%;
+  height: 100%;
+  color: #222;
+}
+
+.game-minesweeper-about-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .game-minesweeper-about-title {
+    font-size: 1.778rem;
+    line-height: 2.5rem;
+    font-family: 'Bungee Outline', cursive;
+    margin: 0;
+
+    @media #{$medium-up} {
+      font-size: 3.16rem;
+      line-height: 3.75rem;
+    }
+  }
+
+  .game-minesweeper-about-logo-img {
+    display: block;
+    margin-left: 1rem;
+    width: 100px;
+    height: auto;
+
+    @media #{$small-only} {
+      display: none;
+    }
+  }
+}
+
+.game-minesweeper-about-body {
+
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.25rem;
+
+  @media #{$medium-up} {
+    font-size: 1.333rem;
+    line-height: 2.5rem;
+  }
+
+  p {
+    font-family: cursive;
+    margin: 0;
+  }
+}
+
+.game-minesweeper-about-social {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin: 1.25rem 1rem;
+  width: 100%;
+}

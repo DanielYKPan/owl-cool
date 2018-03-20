@@ -1,0 +1,60 @@
+@import "../../../../sass/base/variables";
+@import "../../../../sass/base/breakPoints";
+
+$button-bg-color: #f7f4b7;
+$button-color: #603309;
+
+:host {
+  display: flex;
+  justify-content: space-around;
+  user-select: none;
+}
+
+.game-minesweeper-header-item {
+  position: relative;
+  width: 48%;
+  max-width: 200px;
+}
+
+.game-minesweeper-header-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3.75rem;
+  width: 100%;
+  line-height: 3.75rem;
+  color: $button-color;
+  background-color: $button-bg-color;
+  outline: 0;
+  border-radius: 0 0 1.5rem 1.5rem;
+  box-shadow: 0 5px 50px $button-color;
+  border: none;
+  transition: all 100ms linear;
+  user-select: none;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  font-family: inherit;
+  cursor: pointer;
+
+  @media #{$small-only} {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-color: darken($button-bg-color, 10%);
+  }
+
+  &:active {
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px darken($button-bg-color, 15%);
+  }
+
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 10px;
+  }
+}

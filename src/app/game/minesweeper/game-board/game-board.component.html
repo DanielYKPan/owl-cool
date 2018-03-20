@@ -1,0 +1,41 @@
+<div class="game-minesweeper-inform game-minesweeper-control">
+    <div class="bum control-bum" *ngFor="let level of levels"
+         [class.active]="(selectedLevel$ | async).name === level.name"
+         (click)="changeGameLevel(level)">
+        <img src="/assets/images/games/minesweeper/bomb_{{level.name}}.png">
+        <h4>
+            {{level.name}}
+        </h4>
+    </div>
+</div>
+<div class="game-minesweeper-panel">
+    <div class="game-minesweeper-panel-inner game-minesweeper-{{(selectedLevel$ | async).name}}">
+        <app-game-minesweeper-tile
+                *ngFor="let tile of tiles$ | async; trackBy:tile?.Id" [tile]="tile"
+                (clickTile)="clickTile($event)" (rightClickTile)="clickTile($event, true)"></app-game-minesweeper-tile>
+    </div>
+</div>
+<div class="game-minesweeper-inform">
+    <div class="bum inform-bum">
+        <img src="/assets/images/games/minesweeper/bomb_fear.png">
+        <h3>{{(selectedLevel$ | async).mines}}</h3>
+    </div>
+
+    <div class="bum inform-bum">
+        <img src="/assets/images/games/minesweeper/flag.png">
+        <h3>{{flags$ | async}}</h3>
+    </div>
+
+    <div class="bum inform-bum inform-bum-column">
+        <img src="/assets/images/games/minesweeper/clock.png">
+        <h3>{{timer$ | async}}</h3>
+    </div>
+
+    <div class="bum inform-bum inform-bum-column">
+        <img src="/assets/images/games/minesweeper/best.png">
+        <div class="inform-bum-column-text">
+            <h5>best</h5>
+            <h5>{{bestRecord}}</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+@import "../../../../sass/base/breakPoints";
+
+$tile-width: 2rem;
+
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.game-minesweeper-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.game-minesweeper-panel-inner {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.game-minesweeper-junior {
+    width: $tile-width * 8;
+  }
+
+  &.game-minesweeper-senior {
+    max-width: $tile-width * 16;
+  }
+
+  &.game-minesweeper-master {
+    max-width: $tile-width * 30;
+  }
+}
+
+.game-minesweeper-inform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  max-width: 200px;
+  height: 100%;
+  user-select: none;
+  color: #222;
+
+  .bum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.7rem;
+
+    img {
+      width: 40%;
+      height: auto;
+    }
+
+    h2 {
+      font-size: 1.778rem;
+      @media #{$medium-up} {
+        font-size: 2.37rem;
+      }
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1.333rem;
+      @media #{$medium-up} {
+        font-size: 1.778rem;
+      }
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 1rem;
+      @media #{$medium-up} {
+        font-size: 1.333rem;
+      }
+      margin: 0;
+    }
+
+    h5 {
+      font-size: .8rem;
+      @media #{$medium-up} {
+        font-size: 1rem;
+      }
+      margin: 0;
+    }
+  }
+
+  .control-bum {
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 200ms ease;
+
+    &:hover {
+      color: #d60a12;
+      transform: scale(1.1);
+    }
+
+    &.active {
+      color: #ab0a11;
+      transform: scale(1.2);
+    }
+
+    img {
+      width: 25%;
+      height: auto;
+      margin-right: 5px;
+    }
+  }
+
+  .inform-bum {
+    background-color: #ffa711;
+    padding: 1.5rem 0;
+    border: 2px solid #603309;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0 10px 2px rgba(96, 51, 9, 1);
+  }
+
+  .inform-bum-column {
+    flex-direction: column;
+
+    img {
+      width: 30%;
+      margin-bottom: 5px;
+    }
+
+    .inform-bum-column-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.game-minesweeper-control {
+  display: none;
+
+  @media #{$large-up} {
+    display: flex;
+  }
+}
