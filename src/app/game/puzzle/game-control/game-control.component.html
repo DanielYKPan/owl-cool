@@ -1,0 +1,19 @@
+<owl-check-box [ngModel]="showNumber" (ngModelChange)="handleShowNumberModelChange($event)" [binary]="true">
+  Show Number
+</owl-check-box>
+<owl-radio-group name="level" [ngModel]="level" (ngModelChange)="handleLevelModelChange($event)">
+  <owl-radio-button class="game-puzzle-control-radio"  [value]="3">Junior</owl-radio-button>
+  <owl-radio-button class="game-puzzle-control-radio"  [value]="4">Senior</owl-radio-button>
+  <owl-radio-button class="game-puzzle-control-radio"  [value]="5">Master</owl-radio-button>
+</owl-radio-group>
+<button type="button" class="game-puzzle-shuffle-btn" (click)="handleClickOnShuffleBtn()">
+  <span>S</span>
+  <span>H</span>
+  <span>U</span>
+  <span>F</span>
+  <span>F</span>
+  <span>L</span>
+  <span>E</span>
+</button>
+
+<app-game-home-btn [color]="'#390b48'" class="game-puzzle-home-btn"></app-game-home-btn>

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush');
+
+:host {
+  width: 100vw;
+  height: 100vh;
+  color: #f2f3f2;
+  font-family: 'Caveat Brush', cursive, sans-serif;
+  display: grid;
+  grid-template-rows: 3.75rem 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "top-bar" "content";
+}
+
+.game-puzzle-top-bar {
+  grid-area: top-bar;
+}
+
+.game-puzzle-content {
+  background-color: #ce3ff7;
+  grid-area: content;
+  overflow: scroll;
+}

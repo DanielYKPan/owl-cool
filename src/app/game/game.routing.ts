@@ -28,6 +28,10 @@ import { GameCenterComponent } from './game-center.component';
                         path: 'minesweeper',
                         loadChildren: 'app/game/minesweeper/minesweeper.module#MinesweeperModule'
                     },
+                    {
+                        path: 'puzzle',
+                        loadChildren: 'app/game/puzzle/puzzle.module#PuzzleModule'
+                    },
                 ]
             }
         ])

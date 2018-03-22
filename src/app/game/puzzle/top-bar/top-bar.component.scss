@@ -1,0 +1,54 @@
+@import "../../../../sass/base/breakPoints";
+
+$top-bar-bg-color: #390b48;
+$icon-color: #B3C4D4;
+
+:host {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 2.37rem;
+  padding-left: 1rem;
+  position: relative;
+  background-color: $top-bar-bg-color;
+
+  @media #{$medium-up} {
+    padding-left: 0;
+    justify-content: center;
+  }
+}
+
+.game-puzzle-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  user-select: none;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $top-bar-bg-color;
+    height: 100%;
+    width: 3.75rem;
+    transition: all 500ms ease;
+
+    svg {
+      width: 70%;
+      height: 70%;
+      fill: $icon-color;
+      transition: all 500ms ease;
+    }
+
+    &:hover {
+      background-color: $icon-color;
+
+      svg {
+        fill: $top-bar-bg-color;
+      }
+    }
+  }
+}

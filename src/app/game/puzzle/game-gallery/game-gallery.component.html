@@ -1,0 +1,7 @@
+<ul class="game-puzzle-photo-list">
+  <li *ngFor="let photo of photos; index as i"
+      class="game-puzzle-photo"
+      [class.game-puzzle-photo-selected]="photo === selectedPhoto" (click)="handleClickOnPhoto(photo, i)">
+    <img src="/assets/images/games/puzzle/{{photo}}">
+  </li>
+</ul>

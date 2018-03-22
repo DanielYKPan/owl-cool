@@ -1,0 +1,28 @@
+<app-game-puzzle-gallery
+        class="game-puzzle-gallery"
+        [photos]="gamePhotos"
+        [selectedPhoto]="selectedPhoto$ | async"
+        (clickPhoto)="clickPhoto($event)"></app-game-puzzle-gallery>
+<div class="game-puzzle-board">
+    <div class="game-puzzle-panel" #puzzlePanel>
+        <div class="game-puzzle-frame"
+             [class.game-puzzle-won]="(gameStats$ | async).gameWon"
+             [class.game-puzzle-over]="(gameStats$ | async).gameOver"
+             [style.width.px]="frameSize"
+             [style.height.px]="frameSize">
+
+            <app-game-puzzle-tile *ngFor="let tile of tiles$ | async; trackBy: trackByFn"
+                                  [tile]="tile" [photo]="selectedPhoto$ | async"
+                                  [showNumber]="showNumber" [gameSize]="gameSize$ | async"
+                                  [frameSize]="frameSize" (click)="clickTile(tile)"></app-game-puzzle-tile>
+
+            <div class="game-puzzle-frame-photo"
+                 [style.backgroundImage]="'url(/assets/images/games/puzzle/' + (selectedPhoto$ | async) + ')'"></div>
+        </div>
+    </div>
+    <app-game-puzzle-control class="game-puzzle-control"
+                             [(showNumber)]="showNumber"
+                             [level]="gameSize$ | async"
+                             (levelChange)="changeLevel($event)"
+                             (clickShuffle)="clickShuffle()"></app-game-puzzle-control>
+</div>

@@ -1,0 +1,69 @@
+@import "../../../../sass/base/breakPoints";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 6.25rem;
+  grid-template-columns: 10rem 1fr;
+  grid-template-areas: "board board" "gallery gallery";
+
+  @media #{$large-up} {
+    grid-template-areas: "gallery board" "gallery board";
+  }
+}
+
+.game-puzzle-gallery {
+  display: flex;
+  background-color: #050D1A;
+  grid-area: gallery;
+  overflow: scroll;
+}
+
+.game-puzzle-board {
+  grid-area: board;
+  display: grid;
+  grid-template-rows: 1fr 8rem;
+  grid-template-areas: "panel" "control";
+}
+
+.game-puzzle-panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-puzzle-frame {
+  position: relative;
+  background-color: black;
+  box-shadow: 0 0 42px 13px rgba(0, 0, 0, .75);
+  overflow: hidden;
+  transition: all 200ms ease;
+}
+
+.game-puzzle-frame-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-out, background 1s ease-out;
+  opacity: .2;
+  background-size: 100% 100%;
+  z-index: 1;
+}
+
+.game-puzzle-won {
+  box-shadow: 0 0 42px 13px rgba(216, 204, 170, 0.75);
+}
+
+.game-puzzle-over {
+  .game-puzzle-frame-photo {
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+.game-puzzle-control {
+  grid-area: control;
+}

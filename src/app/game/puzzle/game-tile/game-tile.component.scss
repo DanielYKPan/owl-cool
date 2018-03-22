@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  z-index: 2;
+  box-sizing: border-box;
+  transition: transform 300ms;
+  font-size: 4rem;
+
+  &.game-puzzle-tile-blank {
+    display: none;
+  }
+}
+
+.game-puzzle-tile-hide-number {
+  visibility: hidden;
+}
+
