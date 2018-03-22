@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app.routing';
 import { HomeModule } from './home/home.module';
 import { AppService } from './app.service';
 
-import { OwlRippleModule, GestureConfig } from 'owl-ng';
+import { OwlRippleModule, GestureConfig } from '../../npmdist/owl-ng';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
