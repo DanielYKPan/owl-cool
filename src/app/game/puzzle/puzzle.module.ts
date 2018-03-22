@@ -11,10 +11,10 @@ import { GameAboutComponent } from './game-about/game-about.component';
 import { GameShareModule } from '../share/share.module';
 import { GameGalleryComponent } from './game-gallery/game-gallery.component';
 import { reducers } from './store';
-import { GameService } from './store/game.service';
 import { GameTileComponent } from './game-tile/game-tile.component';
-import { OwlCheckBoxModule, OwlRadioModule } from '../../../../npmdist';
 import { GameControlComponent } from './game-control/game-control.component';
+
+import { OwlCheckBoxModule, OwlRadioModule } from '../../../../npmdist';
 
 @NgModule({
     imports: [
@@ -35,7 +35,6 @@ import { GameControlComponent } from './game-control/game-control.component';
         GameTileComponent,
         GameControlComponent
     ],
-    providers: [GameService]
 })
 export class PuzzleModule {
 }

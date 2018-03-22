@@ -8,7 +8,6 @@ import * as fromPuzzle from '../store';
 import * as GameActions from '../store/game.actions';
 import { Observable } from 'rxjs/Observable';
 import { Tile } from '../store/tile.model';
-import { GameService } from '../store/game.service';
 
 @Component({
     selector: 'app-game-board',
@@ -39,8 +38,7 @@ export class GameBoardComponent implements OnInit, AfterContentInit {
         return GamePhotos;
     }
 
-    constructor( private store: Store<fromPuzzle.PuzzleState>,
-                 private gameService: GameService ) {
+    constructor( private store: Store<fromPuzzle.PuzzleState> ) {
     }
 
     public ngOnInit() {
@@ -64,11 +62,14 @@ export class GameBoardComponent implements OnInit, AfterContentInit {
     }
 
     public clickShuffle(): void {
-        this.gameService.newGame();
+        this.store.dispatch(new GameActions.BuildTiles());
     }
 
     public clickTile( tile: Tile ): void {
-        this.gameService.moveTile(tile);
+        if (tile.isBlank) {
+            return;
+        }
+        this.store.dispatch(new GameActions.MoveTile(tile));
     }
 
     public changeLevel( val: number ): void {
