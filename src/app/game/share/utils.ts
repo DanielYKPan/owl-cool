@@ -20,7 +20,8 @@ export function uuid() {
 
 // Random Shuffling An Array the Fisher-Yates (aka Knuth) Way
 export function shuffle<T>( list: T[] ): T[] {
-    let currentIndex = list.length;
+    const shuffleList = [...list];
+    let currentIndex = shuffleList.length;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -30,9 +31,9 @@ export function shuffle<T>( list: T[] ): T[] {
         currentIndex -= 1;
 
         // And swap it with the current element.
-        const temporaryValue = list[currentIndex];
-        list[currentIndex] = list[randomIndex];
-        list[randomIndex] = temporaryValue;
+        const temporaryValue = shuffleList[currentIndex];
+        shuffleList[currentIndex] = shuffleList[randomIndex];
+        shuffleList[randomIndex] = temporaryValue;
     }
-    return list;
+    return shuffleList;
 }

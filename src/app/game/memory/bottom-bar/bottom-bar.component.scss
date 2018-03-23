@@ -1,0 +1,66 @@
+$color-brown: #603309;
+
+:host {
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.game-memory-bottom-bar-content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background: #96BBBB url('../../../../assets/images/games/memory/wood.png') repeat;
+  box-shadow: 0 0 20px $color-brown;
+  font-family: 'Bungee Outline', cursive, sans-serif;
+  z-index: 1;
+
+  .game-memory-bottom-bar-label {
+    font-size: 1.7em;
+    font-weight: 600;
+    width: 120px;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.game-memory-bottom-bar-bums {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+
+  .game-memory-bottom-bar-bum-wrapper {
+    position: relative;
+    width: 120px;
+  }
+
+  .game-memory-bottom-bar-bum {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FE424D;
+    background-color: #ffced0;
+    font-family: "Bungee", cursive;
+    position: absolute;
+    bottom: 100%;
+    height: 35px;
+    width: auto;
+    border-radius: 60px 60px 0 0;
+    box-shadow: 0 -5px 40px #FE424D;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

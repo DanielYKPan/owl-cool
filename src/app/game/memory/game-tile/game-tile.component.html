@@ -1,0 +1,10 @@
+<div *ngIf="tile" class="game-memory-tile"
+     [class.game-memory-tile-flipped]="tile.revealed" (click)="handleClickOnTile()">
+    <div class="game-memory-tile-inner front">
+        <i class="fas fa-info"></i>
+    </div>
+
+    <div class="game-memory-tile-inner back">
+        <i class="fas fa-{{tile.content}}"></i>
+    </div>
+</div>

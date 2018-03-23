@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GameCenterComponent } from './game-center.component';
+import { MemoryModule } from './memory/memory.module';
 
 @NgModule({
     imports: [
@@ -31,6 +32,10 @@ import { GameCenterComponent } from './game-center.component';
                     {
                         path: 'puzzle',
                         loadChildren: 'app/game/puzzle/puzzle.module#PuzzleModule'
+                    },
+                    {
+                        path: 'memory',
+                        loadChildren: 'app/game/memory/memory.module#MemoryModule'
                     },
                 ]
             }

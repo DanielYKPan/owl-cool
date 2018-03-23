@@ -1,0 +1,8 @@
+<app-game-memory-timer [time]="time"></app-game-memory-timer>
+<div class="game-memory-panel" #panel>
+    <app-game-memory-tile
+            *ngFor="let tile of tiles$ | async; trackBy: trackByFn"
+            [tile]='tile' [tileSize]="tileSize" (clickTile)="flipTile($event)">
+    </app-game-memory-tile>
+</div>
+<app-game-bottom-bar [moves]="moves$ | async"></app-game-bottom-bar>
