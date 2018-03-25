@@ -7,10 +7,6 @@
   grid-template-rows: 1fr 6.25rem;
   grid-template-columns: 10rem 1fr;
   grid-template-areas: "board board" "gallery gallery";
-
-  @media #{$large-up} {
-    grid-template-areas: "gallery board" "gallery board";
-  }
 }
 
 .game-puzzle-gallery {
@@ -66,4 +62,18 @@
 
 .game-puzzle-control {
   grid-area: control;
+}
+
+@media #{$large-up} {
+  :host {
+    grid-template-areas: "gallery board" "gallery board";
+  }
+
+  .game-puzzle-gallery {
+    grid-area: gallery;
+  }
+
+  .game-puzzle-board {
+    grid-area: board;
+  }
 }
