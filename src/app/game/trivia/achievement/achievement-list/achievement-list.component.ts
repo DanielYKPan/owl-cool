@@ -11,10 +11,15 @@ export class AchievementListComponent implements OnInit {
 
     @Input() achievements: Achievement[];
 
+    @Input() achieved: Achievement[];
+
     constructor() {
     }
 
-    ngOnInit() {
+    public ngOnInit() {
     }
 
+    public isNotAchieved( achievement: Achievement ): boolean {
+        return this.achieved && this.achieved.length && !this.achieved.find(( a ) => a.id === achievement.id);
+    }
 }

@@ -1,5 +1,7 @@
 <ul class="game-trivia-achievements-list">
-    <li *ngFor="let achievement of achievements" class="game-trivia-achievement">
+    <li *ngFor="let achievement of achievements"
+        class="game-trivia-achievement"
+        [class.game-trivia-achievement-not-achieved]="isNotAchieved(achievement)">
         <img class="game-trivia-achievement-image" src="assets/images/games/trivia/{{achievement.img}}">
         <div class="game-trivia-achievement-inform">
             <div class="game-trivia-achievement-inform-header">

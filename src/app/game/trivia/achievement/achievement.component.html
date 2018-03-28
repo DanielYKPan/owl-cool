@@ -1,6 +1,7 @@
 <div class="game-trivia-achievements-wrapper">
     <h3 class="game-trivia-achievements-header">ALL ACHIEVEMENTS</h3>
-    <app-game-trivia-achievement-list [achievements]="achievements"></app-game-trivia-achievement-list>
+    <app-game-trivia-achievement-list [achievements]="achievements"
+                                      [achieved]="achieved$ | async"></app-game-trivia-achievement-list>
     <a class="game-trivia-achievements-btn" [routerLink]="['../']">Back to Quizle</a>
 </div>
 <app-game-trivia-footer></app-game-trivia-footer>

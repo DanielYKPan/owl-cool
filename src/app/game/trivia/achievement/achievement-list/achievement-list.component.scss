@@ -10,6 +10,10 @@
     width: 100%;
     margin: 1rem 0;
 
+    &.game-trivia-achievement-not-achieved {
+      opacity: .6;
+    }
+
     .game-trivia-achievement-image {
       display: block;
       width: 20%;

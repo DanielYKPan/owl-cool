@@ -1,5 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ACHIEVEMENTS } from '../store/achievement';
+import { Achievement, ACHIEVEMENTS } from '../store/achievement';
+import * as fromTrivia from '../store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-game-trivia-achievements',
@@ -11,10 +14,13 @@ export class AchievementComponent implements OnInit {
 
     public achievements = ACHIEVEMENTS;
 
-    constructor() {
+    public achieved$: Observable<Achievement[]>;
+
+    constructor( private store: Store<fromTrivia.TriviaState> ) {
     }
 
     public ngOnInit() {
+        this.achieved$ = this.store.pipe(select(fromTrivia.getAchievements));
     }
 
 }
