@@ -1,0 +1,34 @@
+@import "../variables";
+
+.game-trivia-footer {
+  width: 100%;
+  height: 300px;
+  background: #FDDE83 repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(251, 189, 8, .5) 35px, rgba(251, 189, 8, .5) 70px);
+  font-family: 'Bungee', cursive, sans-serif;
+}
+
+.game-trivia-footer-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.game-trivia-social {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin: 1.25rem 1rem;
+  width: 100%;
+}
+
+.game-trivia-footer-text {
+  font-size: 2.37rem;
+  line-height: 2.5rem;
+  text-shadow: 0.03em 0.03em 0 #4d5eb3;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+}

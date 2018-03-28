@@ -26,6 +26,7 @@ import {
     OWL_NOTIFIER_CONFIG,
     OwlBackTopBtnModule
 } from '../../../../npmdist/owl-ng';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import {
         QuizBoosterComponent,
         AchievementComponent,
         AchievementListComponent,
-        HomeComponent
+        HomeComponent,
+        FooterComponent
     ],
     providers: [
         TriviaService,
