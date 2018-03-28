@@ -1,0 +1,14 @@
+<div class="game-trivia-masthead">
+    <h1 class="game-trivia-masthead-title">QUIZLE</h1>
+    <h5 class="game-trivia-masthead-subtitle">If you can raed tihs tehn you are qulaiefid to do this qiuz.</h5>
+    <a class="game-trivia-home-btn" [routerLink]="['./categories']">start quizin</a>
+</div>
+
+<div class="game-trivia-home-body">
+    <ng-container *ngIf="(achievements$ | async).length > 0">
+        <h3 class="game-trivia-home-body-header">Your Achievements</h3>
+        <app-game-trivia-achievement-list [achievements]="achievements$ | async"></app-game-trivia-achievement-list>
+    </ng-container>
+    <a class="game-trivia-home-btn" [routerLink]="['./achievements']">Check All Achievements</a>
+</div>
+<app-game-home-btn class="game-home-btn" [color]="'#7e57c2'"></app-game-home-btn>

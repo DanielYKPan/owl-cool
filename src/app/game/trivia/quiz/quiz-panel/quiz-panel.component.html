@@ -1,0 +1,16 @@
+<div class="game-trivia-quiz-number">
+    {{quizNumber}} / {{quizLength}}
+</div>
+<div class="game-trivia-quiz-question" [innerHtml]="quiz.question"></div>
+<ng-content></ng-content>
+<div class="game-trivia-quiz-options">
+    <button *ngFor="let option of quiz.options as options; index as i"
+            class="game-trivia-quiz-option-btn"
+            [class.game-trivia-quiz-option-incorrect]="(quizAnswered || showChosen || !option.enable) && option.name !== quiz.correct_answer"
+            [class.game-trivia-quiz-option-disabled]="quizAnswered || showChosen || !option.enable"
+            [disabled]="quizAnswered || showChosen || !option.enable"
+            [innerHtml]="choiceCharCode(i) + '. ' + option.name"
+            (click)="handleClickOnOption(option.name)">
+    </button>
+</div>
+<div *ngIf="showChosen" class="game-trivia-quiz-chosen">Your Chose: {{quiz.chosen}}</div>

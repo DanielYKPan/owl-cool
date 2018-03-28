@@ -37,6 +37,10 @@ import { MemoryModule } from './memory/memory.module';
                         path: 'memory',
                         loadChildren: 'app/game/memory/memory.module#MemoryModule'
                     },
+                    {
+                        path: 'trivia',
+                        loadChildren: 'app/game/trivia/trivia.module#TriviaModule'
+                    },
                 ]
             }
         ])

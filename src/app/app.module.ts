@@ -1,7 +1,9 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -10,7 +12,6 @@ import { HomeModule } from './home/home.module';
 import { AppService } from './app.service';
 
 import { OwlRippleModule, GestureConfig } from '../../npmdist/owl-ng';
-import { StoreModule } from '@ngrx/store';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         AppRoutingModule,
         CoreModule,
         HomeModule,

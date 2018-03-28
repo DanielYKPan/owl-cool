@@ -1,0 +1,67 @@
+@import '../variables';
+
+:host {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 2rem;
+  color: #2C3E50;
+}
+
+.game-trivia-category-header {
+  font-size: 2.37rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  font-family: 'Frijole', cursive, sans-serif;
+}
+
+.game-trivia-category-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem 1.25rem;
+}
+
+.game-trivia-category-card {
+  height: 6.25rem;
+  border-radius: .3rem;
+  background-color: white;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: box-shadow 100ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.625rem 1rem;
+
+  @each $theme, $color in $theme-colors {
+    &.#{$theme} {
+      box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 $color, 0 1px 3px 0 #d4d4d5;
+    }
+  }
+
+  &:hover, &:focus {
+    background-color: #f5f5f5;
+
+    .game-trivia-category-card-link {
+      color: #135ca4;;
+    }
+  }
+
+  .game-trivia-category-card-name {
+    font-size: 1.333rem;
+    line-height: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .game-trivia-category-card-link {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #1975d2;
+  }
+}

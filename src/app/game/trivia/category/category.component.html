@@ -1,0 +1,9 @@
+<h1 class="game-trivia-category-header">Choose a Theme</h1>
+<div class="game-trivia-category-wrapper">
+    <a *ngFor="let category of categories$ | async" tabindex="0"
+       class="game-trivia-category-card {{category.theme}}"
+       [routerLink]="['./', category.id]">
+        <h2 class="game-trivia-category-card-name">{{category.name}}</h2>
+        <span class="game-trivia-category-card-link">Go »</span>
+    </a>
+</div>

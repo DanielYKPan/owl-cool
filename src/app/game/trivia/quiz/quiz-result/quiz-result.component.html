@@ -1,0 +1,27 @@
+<div class="game-trivia-quiz-result-masthead">
+    <div class="game-trivia-quiz-result-masthead-container">
+        <h1 class="game-trivia-quiz-result-masthead-title">the end</h1>
+        <h5 class="game-trivia-quiz-result-masthead-subtitle">Your Scores: {{corrects}} / {{quizLength}}</h5>
+        <div class="game-trivia-quiz-result-masthead-links">
+            <a class="game-trivia-quiz-result-masthead-link pink"
+               [routerLink]="['/games/trivia/categories']">another!</a>
+            <a class="game-trivia-quiz-result-masthead-link teal"
+               [routerLink]="['/games/trivia']">back to quizle</a>
+        </div>
+        <div class="game-trivia-quiz-result-masthead-arrow" (click)="scrollToList()">
+            <span>Review Your Quiz</span>
+            <i class="fas fa-angle-double-down game-trivia-quiz-result-masthead-arrow-icon"></i>
+        </div>
+    </div>
+</div>
+<h1 class="game-trivia-quiz-result-header">Category: {{category.name}}</h1>
+<div class="game-trivia-quiz-result-list">
+    <div *ngFor="let quiz of quizList; index as i"
+         class="game-trivia-quiz-result-item"
+         [class.game-trivia-quiz-result-item-wrong]="quiz.chosen !== quiz.correct_answer">
+        <app-game-trivia-quiz-panel [quiz]="quiz"
+                                    [style.font-size]="'.7em'"
+                                    [category]="category" [showChosen]="true"
+                                    [quizNumber]="i + 1" [quizLength]="quizLength"></app-game-trivia-quiz-panel>
+    </div>
+</div>

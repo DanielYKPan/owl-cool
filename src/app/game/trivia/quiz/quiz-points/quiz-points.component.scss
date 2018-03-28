@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0 0;
+  box-sizing: border-box;
+}
+
+.game-trivia-quiz-points-image {
+  width: 2rem;
+  height: 2rem;
+  margin-right: .8rem;
+}
+
+.game-trivia-quiz-points-text {
+  font-size: 1.5rem;
+}

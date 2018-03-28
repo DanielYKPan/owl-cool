@@ -1,0 +1,36 @@
+@import '../variables';
+@import "../../../../sass/base/breakPoints";
+
+.game-trivia-quiz {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  overflow: scroll;
+}
+
+@each $theme, $color in $theme-colors {
+  .#{$theme} {
+    background-color: $color;
+  }
+}
+
+.game-trivia-quiz-wrapper {
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.game-trivia-quiz-timer-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.game-trivia-quiz-timer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  margin: .8em 0em;
+}

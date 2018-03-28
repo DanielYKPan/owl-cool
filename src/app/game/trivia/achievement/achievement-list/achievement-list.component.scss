@@ -1,0 +1,35 @@
+.game-trivia-achievements-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  .game-trivia-achievement {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+
+    .game-trivia-achievement-image {
+      display: block;
+      width: 20%;
+      height: auto;
+      margin: 5px;
+    }
+
+    .game-trivia-achievement-inform {
+      flex: 1;
+      margin: 5px;
+
+      .game-trivia-achievement-inform-header {
+        font-weight: 600;
+      }
+
+      .game-trivia-achievement-inform-subheader {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color: gray;
+      }
+    }
+  }
+}

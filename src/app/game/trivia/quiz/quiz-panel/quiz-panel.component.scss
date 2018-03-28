@@ -1,0 +1,74 @@
+@import '../../variables';
+@import "../../../../../sass/base/breakPoints";
+
+:host {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.game-trivia-quiz-number {
+  font-size: 2.37em;
+  line-height: 2.5rem;
+  width: 100%;
+  text-align: center;
+  margin: .75rem 0;
+}
+
+.game-trivia-quiz-question {
+  font-size: 1em;
+  line-height: 1.25em;
+  width: 100%;
+  margin-bottom: .75rem;
+
+  @media #{$medium-up} {
+    font-size: 1.333em;
+    line-height: 2.5em;
+  }
+}
+
+.game-trivia-quiz-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+
+  .game-trivia-quiz-option-btn {
+    display: inline-block;
+    border: none;
+    border-radius: .2em;
+    color: #ffffff;
+    margin: .625em 0;
+    padding: .625em 1em;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+
+    &:disabled,
+    &.game-trivia-quiz-option-disabled {
+      cursor: default;
+    }
+  }
+}
+
+.game-trivia-quiz-chosen {
+  margin: 1.5em 0 0;
+  font-size: 1.333em;
+}
+
+@each $theme, $color in $theme-colors {
+  :host.#{$theme} {
+    .game-trivia-quiz-option-btn {
+      background-color: map-get($theme-btn-colors, $theme);
+
+      &:hover:not(:disabled):not(.game-trivia-quiz-option-disabled) {
+        background-color: darken(map-get($theme-btn-colors, $theme), 10%);
+      }
+
+      &.game-trivia-quiz-option-incorrect {
+        background-color: darken(map-get($theme-btn-colors, $theme), 20%);
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div *ngFor="let booster of boosters" class="game-trivia-quiz-booster">
+    <button type="button" class="game-trivia-quiz-booster-btn"
+            (click)="handleClickOnBooster(booster)">{{booster.description}}
+    </button>
+    <div class="game-trivia-quiz-booster-inform">
+        <span class="game-trivia-quiz-booster-text">{{booster.cost}}</span>
+        <img class="game-trivia-quiz-booster-image"
+             src="assets/images/games/trivia/expensive.png">
+    </div>
+</div>

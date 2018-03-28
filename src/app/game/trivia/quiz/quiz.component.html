@@ -1,0 +1,27 @@
+<div *ngIf="!showQuizResult; else resultBlock" class="game-trivia-quiz {{(category$ | async)?.theme}}">
+    <div class="game-trivia-quiz-wrapper">
+        <app-game-trivia-quiz-points [points]="points"></app-game-trivia-quiz-points>
+        <app-game-trivia-quiz-panel [quiz]="quiz"
+                                    [category]="category$ | async"
+                                    [quizNumber]="quizNumber" [quizLength]="quizLength"
+                                    (choose)="choose($event)">
+            <owl-timer class="game-trivia-quiz-timer"
+                       [timerSeconds]="30"
+                       [maxTimeUnit]="'second'"
+                       [showHeader]="false"
+                       [type]="'digital'"
+                       [autoStart]="true" (countDownFinish)="handleTimesUp()" #timer="owlTimer"></owl-timer>
+        </app-game-trivia-quiz-panel>
+
+        <app-game-trivia-quiz-booster
+                [boosters]="boosters"
+                (clickBooster)="clickBooster($event)"></app-game-trivia-quiz-booster>
+    </div>
+</div>
+
+<ng-template #resultBlock>
+    <app-game-trivia-quiz-result [quizList]="quizList$ | async"
+                                 [corrects]="corrects$ | async"
+                                 [category]="category$ | async"
+                                 [quizLength]="quizLength"></app-game-trivia-quiz-result>
+</ng-template>

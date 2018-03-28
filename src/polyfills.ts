@@ -64,3 +64,7 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// smoothScroll polyfill
+import * as smoothScroll from 'smoothscroll-polyfill/dist/smoothscroll';
+smoothScroll.polyfill();

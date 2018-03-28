@@ -6,7 +6,7 @@ import {
     ChangeDetectionStrategy, Component, ElementRef, Inject, OnInit, ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import { OwlDialogRef, OWL_DIALOG_DATA } from 'owl-ng';
+import { OwlDialogRef, OWL_DIALOG_DATA } from '../../../../npmdist/owl-ng';
 
 @Component({
     selector: 'app-owl-dummy-dialog',
