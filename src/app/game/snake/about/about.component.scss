@@ -1,0 +1,21 @@
+@import "../../../../sass/base/breakPoints";
+
+.game-snake-about {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: 'Baloo', cursive;
+  color: #222;
+
+  @media #{$medium-up} {
+    font-size: 1.333rem;
+    line-height: 2.5rem;
+  }
+}
+
+.game-snake-about-social {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin: 1.25rem 1rem;
+  width: 100%;
+}

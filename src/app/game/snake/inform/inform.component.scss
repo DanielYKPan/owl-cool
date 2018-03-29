@@ -1,0 +1,32 @@
+.game-snake-inform-fruit-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #222222;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.game-snake-inform-score-list {
+  font-size: 1.778rem;
+  line-height: 2.5rem;
+}
+
+.game-snake-inform-fruit {
+  display: flex;
+  align-items: center;
+}
+
+.game-snake-inform-fruit-image {
+  width: 32px;
+  height: 32px;
+  background-size: 160px 128px;
+  background-image: url('../../../../assets/images/games/snake/snake-graphics.png');
+  vertical-align: middle;
+}
+
+.game-snake-inform-fruit-value {
+  margin-left: 8px;
+}

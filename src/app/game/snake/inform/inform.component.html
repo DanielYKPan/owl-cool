@@ -1,0 +1,11 @@
+<ul class="game-snake-inform-fruit-list">
+    <li *ngFor="let fruit of fruitTypes" class="game-snake-inform-fruit">
+        <span class="game-snake-inform-fruit-image"
+              [style.background-position]=" fruit.x * -32 + 'px ' + fruit.y * -32 + 'px'"></span>
+        <span class="game-snake-inform-fruit-value">: {{fruit.value}}</span>
+    </li>
+</ul>
+<ul class="game-snake-inform-fruit-list game-snake-inform-score-list">
+    <li>Scores: {{scores}}</li>
+    <li>Best: {{best}}</li>
+</ul>
