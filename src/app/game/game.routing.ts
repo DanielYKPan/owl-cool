@@ -4,8 +4,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { GameCenterComponent } from './game-center.component';
-import { MemoryModule } from './memory/memory.module';
+import { GameCenterComponent } from './center/game-center.component';
 
 @NgModule({
     imports: [
@@ -19,6 +18,7 @@ import { MemoryModule } from './memory/memory.module';
                         data: {
                             name: 'page-game-center',
                             showSidePanel: false,
+                            hideTopBar: true,
                         }
                     },
                     {

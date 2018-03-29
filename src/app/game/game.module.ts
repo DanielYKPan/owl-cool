@@ -4,7 +4,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { GameCenterComponent } from './game-center.component';
+import { GameCenterComponent } from './center/game-center.component';
 import { GameRoutingModule } from './game.routing';
 
 @NgModule({
