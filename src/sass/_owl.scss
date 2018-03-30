@@ -161,29 +161,49 @@ $dark-white: #f5f7f8;
     padding: 0 5px;
   }
 
-  .owlng-viewsource-btn {
-    background-color: #444;
-    padding: .5em;
-    border-radius: 3px;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 1em;
-    display: inline-block;
-    transition: background-color .3s;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-      background-color: darken(#444, 15%);
-    }
-  }
-
   .owlng-doc-link {
     display: inline-block;
     color: #3f51b5;
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+.owlng-viewsource-btn {
+  padding: .5em;
+  border-radius: 3px;
+  font-weight: 700;
+  margin: 1em;
+  display: inline-block;
+  transition: background-color .3s;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.github-btn {
+    background-color: #444;
+    color: #fff;
+
+    &:hover {
+      background-color: darken(#444, 15%);
+    }
+  }
+
+  &.stackblitz-btn {
+
+    img {
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    background-color: #2676c5;
+    color: #fff;
+
+    &:hover {
+      background-color: darken(#2676c5, 15%);
     }
   }
 }
