@@ -68,6 +68,57 @@
             </owl-menu>
         </div>
     </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Lazy Loading Menu</h5>
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    [owlMenuTriggerFor]="lazyMenu"
+                    owlRipple>
+                Menu
+            </button>
+            <owl-menu #lazyMenu="owlMenu">
+                <ng-template owlMenuContent>
+                    <button owl-menu-item>Item 1</button>
+                    <button owl-menu-item>Item 2</button>
+                </ng-template>
+            </owl-menu>
+        </div>
+
+        <div class="yk-g-12 yk-md-6">
+            <h5 class="demo-header">Passing Data Menu</h5>
+
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    [owlMenuTriggerFor]="dataMenu"
+                    [owlMenuTriggerData]="{user: 'Sally', dummy: 'hello'}">
+                Menu: Sally
+            </button>
+
+            <button class="owlng-btn owlng-demo-menu-btn"
+                    [owlMenuTriggerFor]="dataMenu" [owlMenuTriggerData]="{user: 'Bob', dummy: 'world'}">
+                Menu: Bob
+            </button>
+
+            <owl-menu #dataMenu="owlMenu">
+                <ng-template owlMenuContent let-user="user" let-dummy="dummy">
+                    <button owl-menu-item>Dummy: {{dummy}}</button>
+                    <button owl-menu-item>Log off: {{user}}</button>
+                </ng-template>
+            </owl-menu>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/menu"
+           target="_blank">
+            <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+        </a>
+
+        <a class="owlng-viewsource-btn stackblitz-btn"
+           href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/menu" target="_blank">
+            <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+        </a>
+    </div>
 </section>
 
 <section class="owlng-content owlng-doc">
@@ -220,6 +271,66 @@ import { OwlMenuModule } from 'owl-ng';
 <owl-menu #nestMenu2="owlMenu">
     <button owl-menu-item>SubMenu Item 3</button>
     <button owl-menu-item>SubMenu Item 4</button>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Lazy Rendering"> -->
+                <h3 id="lazy-rendering" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#lazy-rendering">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Lazy Rendering Menu Content
+                </h3>
+                <p>
+                    By default, the menu's content would be initialised when the page is loaded. To initialising the
+                    menu's content after the menu open, the menu content can be wrapped inside an
+                    <span class="owlng-doc-code-tag">ng-template</span> with directive <span class="owlng-doc-code-tag">owlMenuContent</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button [owlMenuTriggerFor]="lazyMenu" owlRipple>
+    Menu
+</button>
+<owl-menu #lazyMenu="owlMenu">
+    <ng-template owlMenuContent>
+        <button owl-menu-item>Item 1</button>
+        <button owl-menu-item>Item 2</button>
+    </ng-template>
+</owl-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Passing Data"> -->
+                <h3 id="passing-data" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/menu#passing-data">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Passing Data to Menu
+                </h3>
+                <p>
+                    <span class="owlng-doc-code-tag">OwlMenu</span> could also allow user to pass data to menu content
+                    via the <span class="owlng-doc-code-tag">owlMenuTriggerData</span> input.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button [owlMenuTriggerFor]="dataMenu"
+        [owlMenuTriggerData]="{user: 'Sally', dummy: 'hello'}">
+        Menu: Sally
+</button>
+
+<button [owlMenuTriggerFor]="dataMenu"
+        [owlMenuTriggerData]="{user: 'Bob', dummy: 'world'}">
+    Menu: Bob
+</button>
+
+<owl-menu #dataMenu="owlMenu">
+    <ng-template owlMenuContent let-user="user" let-dummy="dummy">
+        <button owl-menu-item>Dummy: {{dummy}}</button>
+        <button owl-menu-item>Log off: {{user}}</button>
+    </ng-template>
 </owl-menu>
 ]]></code>
 </pre>
@@ -498,8 +609,14 @@ import { OwlMenuModule } from 'owl-ng';
         <!-- <editor-fold desc="Source Panel"> -->
         <owl-tab label="Source">
             <div class="owlng-doc-tab-content">
-                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
-                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/menu"
+                   target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+                </a>
+
+                <a class="owlng-viewsource-btn stackblitz-btn"
+                   href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/menu" target="_blank">
+                    <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
                 </a>
                 <pre>
 <code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
@@ -569,6 +686,45 @@ import { OwlMenuModule } from 'owl-ng';
         <owl-menu #nestMenu2="owlMenu">
             <button owl-menu-item>SubMenu Item 3</button>
             <button owl-menu-item>SubMenu Item 4</button>
+        </owl-menu>
+    </div>
+</div>
+    
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Lazy Loading Menu</h5>
+        <button class="owlng-btn owlng-demo-menu-btn"
+                [owlMenuTriggerFor]="lazyMenu"
+                owlRipple>
+            Menu
+        </button>
+        <owl-menu #lazyMenu="owlMenu">
+            <ng-template owlMenuContent>
+                <button owl-menu-item>Item 1</button>
+                <button owl-menu-item>Item 2</button>
+            </ng-template>
+        </owl-menu>
+    </div>
+
+    <div class="yk-g-12 yk-md-6">
+        <h5 class="demo-header">Passing Data Menu</h5>
+
+        <button class="owlng-btn owlng-demo-menu-btn"
+                [owlMenuTriggerFor]="dataMenu"
+                [owlMenuTriggerData]="{user: 'Sally', dummy: 'hello'}">
+            Menu: Sally
+        </button>
+
+        <button class="owlng-btn owlng-demo-menu-btn"
+                [owlMenuTriggerFor]="dataMenu" [owlMenuTriggerData]="{user: 'Bob', dummy: 'world'}">
+            Menu: Bob
+        </button>
+
+        <owl-menu #dataMenu="owlMenu">
+            <ng-template owlMenuContent let-user="user" let-dummy="dummy">
+                <button owl-menu-item>Dummy: {{dummy}}</button>
+                <button owl-menu-item>Log off: {{user}}</button>
+            </ng-template>
         </owl-menu>
     </div>
 </div>
