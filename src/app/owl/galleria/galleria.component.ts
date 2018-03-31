@@ -105,4 +105,8 @@ export class OwlNGGalleriaComponent implements OnInit {
             desc: 'Owl Galleria is an Angular component that displays image contents and animates them'
         });
     }
+
+    public imageClick( event: any ): void {
+        console.log('clicked image index: ' + event.value);
+    }
 }
