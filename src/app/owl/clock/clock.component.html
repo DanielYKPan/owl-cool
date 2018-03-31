@@ -2,37 +2,52 @@
     <div class="owlng-demo-row yk-g">
         <div class="yk-g-12 yk-md-4">
             <h5 class="demo-header">Basic</h5>
-            <owl-clock [showCharacters]="true" [showMeridian]="true"></owl-clock>
+            <owl-clock></owl-clock>
         </div>
+    </div>
 
-        <div class="yk-g-12 yk-md-4">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-6">
             <h5 class="demo-header">Flip Box</h5>
             <owl-clock [type]="'flipbox'"></owl-clock>
         </div>
 
-        <div class="yk-g-12 yk-md-4">
+        <div class="yk-g-12 yk-md-6">
             <h5 class="demo-header">Digital Box</h5>
             <owl-clock [type]="'digital'"></owl-clock>
         </div>
     </div>
+
     <div class="owlng-demo-row yk-g">
         <h5 class="demo-header yk-g-12">Different Time Zones</h5>
-        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
-            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="10"></owl-clock>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-6">
+            <owl-clock [gmtOffset]="10"></owl-clock>
             <span class="owlng-demo-clock-label">Sydney</span>
         </div>
-        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
-            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="8"></owl-clock>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-6">
+            <owl-clock [gmtOffset]="8"></owl-clock>
             <span class="owlng-demo-clock-label">Beijing</span>
         </div>
-        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
-            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="-5"></owl-clock>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-6">
+            <owl-clock [gmtOffset]="-5"></owl-clock>
             <span class="owlng-demo-clock-label">New York</span>
         </div>
-        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-3">
-            <owl-clock [showCharacters]="true" [showMeridian]="true" [gmtOffset]="1"></owl-clock>
+        <div class="owlng-demo-clock-wrapper yk-g-12 yk-md-6">
+            <owl-clock [gmtOffset]="1"></owl-clock>
             <span class="owlng-demo-clock-label">Berlin</span>
         </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/clock"
+           target="_blank">
+            <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+        </a>
+
+        <a class="owlng-viewsource-btn stackblitz-btn"
+           href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/clock" target="_blank">
+            <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+        </a>
     </div>
 </section>
 
@@ -116,8 +131,10 @@ import { OwlClockModule } from 'owl-ng';
                 </p>
                 <div class="owlng-doc-alert">
                     <em>
-                        Note: once you set an offset, it's fixed and won't change on its own (i.e there are no DST rules).
-                        If you want an actual time zone, you might have to use [startTime] to set an initial time of your
+                        Note: once you set an offset, it's fixed and won't change on its own (i.e there are no DST
+                        rules).
+                        If you want an actual time zone, you might have to use [startTime] to set an initial time of
+                        your
                         desire timezone to start the clock.
                     </em>
                 </div>
@@ -150,7 +167,7 @@ import { OwlClockModule } from 'owl-ng';
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th >Type</th>
+                            <th>Type</th>
                             <th>Optional</th>
                             <th [style.width]="'9em'">Default</th>
                             <th>Description</th>
@@ -171,7 +188,8 @@ import { OwlClockModule } from 'owl-ng';
                             <td align="left">number</td>
                             <td align="left">Optional</td>
                             <td align="left">null</td>
-                            <td align="left">Set the GMT Offset to show a clock in different timezone. Default is to show
+                            <td align="left">Set the GMT Offset to show a clock in different timezone. Default is to
+                                show
                                 local time.
                             </td>
                         </tr>
@@ -260,7 +278,7 @@ import { OwlClockModule } from 'owl-ng';
                     </table>
                 </div>
                 <!-- </editor-fold> -->
-                
+
                 <!-- <editor-fold desc="Styles"> -->
                 <h3 id="styles" class="owlng-doc-header">
                     <a class="owlng-doc-header-link" href="owlng/clock#styles">
@@ -786,8 +804,14 @@ $clock-major-color: #333;
         <!-- <editor-fold desc="Source Panel"> -->
         <owl-tab label="Source">
             <div class="owlng-doc-tab-content">
-                <a class="owlng-viewsource-btn" href="https://github.com/DanielYKPan/owl-ng" target="_blank">
-                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/clock"
+                   target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+                </a>
+
+                <a class="owlng-viewsource-btn stackblitz-btn"
+                   href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/clock" target="_blank">
+                    <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
                 </a>
                 <pre>
 <code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
