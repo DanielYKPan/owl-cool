@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo');
 
 :host {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +62,18 @@
   font-weight: 800;
   cursor: pointer;
   transition: transform 200ms ease;
+}
+
+.game-yk-home {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  height: 4em;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 @keyframes Jump {
