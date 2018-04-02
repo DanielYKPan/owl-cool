@@ -20,6 +20,7 @@ import { OwlNGClockComponent } from './clock/clock.component';
 import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
+import { OwlNGFanMenuComponent } from './fan-menu/fan-menu.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGGalleriaComponent } from './galleria/galleria.component';
 import { OwlNGInputComponent } from './input/input.component';
@@ -47,6 +48,7 @@ import {
     OwlClockModule,
     OwlColorPickerModule,
     OwlDialogModule,
+    OwlFanMenuModule,
     OwlFormFieldModule,
     OwlGalleriaModule,
     OwlInputModule,
@@ -81,6 +83,7 @@ import {
         OwlClockModule,
         OwlColorPickerModule,
         OwlDialogModule,
+        OwlFanMenuModule,
         OwlFormFieldModule,
         OwlGalleriaModule,
         OwlInputModule,
@@ -115,6 +118,7 @@ import {
         OwlNGColorPickerComponent,
         OwlNGDialogComponent,
         OwlNGDummyDialogComponent,
+        OwlNGFanMenuComponent,
         OwlNGFormFieldComponent,
         OwlNGGalleriaComponent,
         OwlNGInputComponent,

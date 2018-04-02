@@ -1,0 +1,689 @@
+<section class="owlng-content owlng-demo">
+    <h5 class="demo-header">Basic</h5>
+    <p>The Demo OwlFanMenu Button appears on the top-right of the screen.</p>
+    <div class="owlng-demo-row yk-g">
+        <owl-check-box class="yk-g-12" [(ngModel)]="movable">Movable</owl-check-box>
+        <owl-check-box class="yk-g-12" [(ngModel)]="spinable">Spinable</owl-check-box>
+    </div>
+    <div class="owlng-demo-row">
+        <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/fan-menu"
+           target="_blank">
+            <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+        </a>
+
+        <a class="owlng-viewsource-btn stackblitz-btn"
+           href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/fan-menu" target="_blank">
+            <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+        </a>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl FanMenu is an Angular button to show a bunch of fan wings as menu items. The FanMenu button is
+                    movable and draggable around the screen and the FanMenu is spinnable.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlFanMenuModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl FanMenu consists of several FanMenuWing
+                    <span class="owlng-doc-code-tag">owl-fan-menu-wing</span>. Users need to provide their menu content
+                    inside <span class="owlng-doc-code-tag">owl-fan-menu-wing</span>, and use those wings inside
+                    <span class="owlng-doc-code-tag">owl-fan-menu</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-fan-menu>
+    <owl-fan-menu-wing>
+        Menu Item 1
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 2
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 3
+    </owl-fan-menu-wing>
+</owl-fan-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Wing Color & Wing Angles"> -->
+                <h3 id="color-Angles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#color-Angles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Wing Color & Wing Angles
+                </h3>
+                <p>
+                    Each <span class="owlng-doc-code-tag">owl-fan-menu-wing</span> has color 'red' as their background
+                    color. User could use property <span class="owlng-doc-code-tag">[wingColor]</span> to override the
+                    default wing background color. In addition, each wing takes a '30'deg of the whole fan menu circle.
+                    User could use <span class="owlng-doc-code-tag">[wingAngles]</span> to override the default value.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-fan-menu [wingAngles]="40">
+    <owl-fan-menu-wing [wingColor]="'#ea2a29'">
+        Menu Item 1
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing [wingColor]="'#f16729'">
+        Menu Item 2
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing [wingColor]="'#f89322'">
+        Menu Item 3
+    </owl-fan-menu-wing>
+</owl-fan-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Drag and Spin"> -->
+                <h3 id="drag-spin" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#drag-spin">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Drag and Spin
+                </h3>
+                <p>
+                    By default, the menu is draggable and movable. When the movement stops, the menu would recover to
+                    its nearest corner of the screen. Set property <span class="owlng-doc-code-tag">[movable]</span> to
+                    false and the menu would have a solid position. In addition, the fan menu is NOT spinale, set
+                    property <span class="owlng-doc-code-tag">[spinale]</span> to true to override this behaviour.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-fan-menu [spinable]="true" [movable]="true">
+    <owl-fan-menu-wing>
+        Menu Item 1
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 2
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 3
+    </owl-fan-menu-wing>
+</owl-fan-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Wing Icon"> -->
+                <h3 id="wing-icon" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#wing-icon">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Wing Icon
+                </h3>
+                <p>
+                    Sometimes, users prefer to use icon as their wing content. Wrap you icon inside
+                    <span class="owlng-doc-code-tag">owl-fan-menu-wing-icon</span>, and it would help to rotate the icon
+                    when the fan menu rotates.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<owl-fan-menu [spinable]="true" [movable]="true">
+    <owl-fan-menu-wing>
+        Menu Item 1
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-tablet-alt" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 2
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-laptop" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing>
+        Menu Item 3
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+</owl-fan-menu>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Properties owl-fan-menu"> -->
+                <h3 id="properties-owl-fan-menu" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#properties-owl-fan-menu">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of owl-fan-menu
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th [style.width]="'14em'">Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>closeOnSelected</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the fan menu would be close when one the fan men wing is
+                                selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>gutterLeft</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>30</code></td>
+                            <td align="left">
+                                The space between the menu and the left boundary of the page window. Value unit is 'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>gutterTop</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>30</code></td>
+                            <td align="left">
+                                The space between the menu and the top boundary of the page window. Value unit is 'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>gutterRight</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>30</code></td>
+                            <td align="left">
+                                The space between the menu and the right boundary of the page window. Value unit is
+                                'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>gutterBottom</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>30</code></td>
+                            <td align="left">
+                                The space between the menu and the bottom boundary of the page window. Value unit is
+                                'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>radius</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>200</code></td>
+                            <td align="left">
+                                Specify the size of the menu wings from the center of the button. Value unit is 'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>btnOffset</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>25</code></td>
+                            <td align="left">
+                                Specify the gap between the menu button and the menu item wings. Value unit is 'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>btnRadius</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>56</code></td>
+                            <td align="left">
+                                Specify the size of the menu button. Value unit is 'px'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>btnText</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'Menu'</code></td>
+                            <td align="left">
+                                The text inside the menu button.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>btnHtml</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>null</code></td>
+                            <td align="left">
+                                Specify the inner html content of the menu button. This value would override the value
+                                of btnText
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>wingAngles</code></td>
+                            <td align="left">number</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>30</code></td>
+                            <td align="left">
+                                Specify the angles of each wings. Value unit is 'deg'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>menuPosition</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'topLeft'</code></td>
+                            <td align="left">
+                                Specify the start position of menu button. Valid value includes: 'topLeft', 'topRight',
+                                'bottomLeft' and 'bottomRight'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>movable</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>true</code></td>
+                            <td align="left">
+                                Specify whether the menu is movable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>spinable</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                Specify whether the menu is spinable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>startAngles</code></td>
+                            <td align="left">object</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><pre>
+<code><![CDATA[
+{
+    topLeft: 0,
+    topRight: 90,
+    bottomRight: 180,
+    bottomLeft: 270
+}
+]]></code>
+</pre>
+                            </td>
+                            <td align="left">
+                                The angle when the menu open at four different positions and before it expands. The
+                                object has four properties topLeft, topRight, bottomRight and bottomLeft with values
+                                to be defined in Number. The default value 'topLeft: 0' means the menu would open on 3
+                                o'clock degree when the menu is in topLeft position. (topRight: 90 -> 6 o'clock,
+                                bottomRight: 180 -> 9 o'clock, bottomLeft: 270 -> 12 o'clock)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Properties owl-fan-menu-wing"> -->
+                <h3 id="properties-owl-fan-menu-wing" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#properties-owl-fan-menu-wing">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of owl-fan-menu-wing
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Optional</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>wingColor</code></td>
+                            <td align="left">string</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>'red'</code></td>
+                            <td align="left">
+                                Specify the background color of the wing
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>disabled</code></td>
+                            <td align="left">boolean</td>
+                            <td align="left">Optional</td>
+                            <td align="left"><code>false</code></td>
+                            <td align="left">
+                                When specified to true, the wing is not selectable.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-fan-menu"> -->
+                <h3 id="events-owl-fan-menu" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#events-owl-fan-menu">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of owl-fan-menu
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>menuExpanded</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Emits when menu is expanded.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><code>menuCollapsed</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Emits when menu is closed.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Events owl-fan-menu-wing"> -->
+                <h3 id="events-owl-fan-menu-wing" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#events-owl-fan-menu-wing">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Events of owl-fan-menu-wing
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"><code>wingSelected</code></td>
+                            <td align="left">
+                                null
+                            </td>
+                            <td align="left">
+                                Emits when menu wing is clicked.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn github-btn"
+                   href="https://github.com/DanielYKPan/owl-examples/tree/fan-menu"
+                   target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+                </a>
+
+                <a class="owlng-viewsource-btn stackblitz-btn"
+                   href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/fan-menu" target="_blank">
+                    <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+                </a>
+
+                <!-- <editor-fold desc="Style"> -->
+                <h3 id="style" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/fan-menu#style">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-fan-menu, owl-fan-menu-wing
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$btn-bg-color: #673ab7;
+$btn-boxShadow-color: #311b92;
+
+.owl-fan-menu,
+.owl-fan-menu * {
+  box-sizing: border-box;
+}
+
+.owl-fan-menu {
+  display: block;
+  position: fixed;
+  font-size: 1em;
+  outline: none;
+  z-index: 1000;
+
+  &.owl-fan-menu-expanded {
+    .owl-fan-menu-btn {
+      opacity: 1;
+    }
+  }
+
+  &.owl-fan-menu-disabled {
+    opacity: 0.35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+    cursor: default !important;
+    pointer-events: none;
+  }
+
+  &:not(.owl-fan-menu-disabled):focus > .owl-fan-menu-btn {
+    opacity: 1;
+  }
+}
+
+.owl-fan-menu-btn {
+  box-sizing: border-box;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  width: 3.5em;
+  height: 3.5em;
+  background-color: $btn-bg-color;
+  color: rgb(255, 255, 255);
+  box-shadow: -2px 6px 12px $btn-boxShadow-color;
+  font-size: .9em;
+  font-weight: 700;
+  opacity: .7;
+  transition: opacity 200ms ease-in-out;
+  z-index: 2;
+
+  &:not([aria-disabled=true]):hover {
+    opacity: 1;
+  }
+}
+
+.owl-fan-menu-btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: 50%;
+    height: 50%;
+    fill: currentColor;
+  }
+}
+
+.owl-fan-menu-wrapper {
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  z-index: 1;
+}
+
+.owl-fan-menu-wing {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  user-select: none;
+  pointer-events: none;
+  visibility: hidden;
+  outline: none;
+  color: rgb(255, 255, 255);
+
+  &.owl-fan-menu-wing-expanded {
+    visibility: visible;
+  }
+
+  &.owl-fan-menu-wing-disabled {
+    opacity: 0.35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+    cursor: default !important;
+    pointer-events: none;
+  }
+
+  .owl-fan-menu-wing-wrapper {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    transform-origin: inherit;
+  }
+
+  .owl-fan-menu-wing-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .owl-fan-menu-wing-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .owl-fan-menu-wing-icon {
+      display: block;
+      font-size: 2em;
+    }
+  }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>
+
+<owl-fan-menu [movable]="movable" [spinable]="spinable" [menuPosition]="'topRight'">
+    <owl-fan-menu-wing (wingSelected)="logMessage($event)" [wingColor]="'#ea2a29'">
+        iPad
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-tablet-alt" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing (wingSelected)="logMessage($event)" [wingColor]="'#f16729'">
+        iMac
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-laptop" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing [wingColor]="'#f89322'">
+        iPhone
+        <owl-fan-menu-wing-icon>
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+    <owl-fan-menu-wing [wingColor]="'#ffcf14'">
+        iWatch
+        <owl-fan-menu-wing-icon>
+            <i class="far fa-clock" aria-hidden="true"></i>
+        </owl-fan-menu-wing-icon>
+    </owl-fan-menu-wing>
+</owl-fan-menu>

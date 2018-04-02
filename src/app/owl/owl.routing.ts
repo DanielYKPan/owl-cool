@@ -14,6 +14,7 @@ import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGClockComponent } from './clock/clock.component';
 import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
+import { OwlNGFanMenuComponent } from './fan-menu/fan-menu.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
 import { OwlNGGalleriaComponent } from './galleria/galleria.component';
 import { OwlNGInputComponent } from './input/input.component';
@@ -110,6 +111,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                 {
                     path: 'dialog',
                     component: OwlNGDialogComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'dialog',
+                    },
+                },
+                {
+                    path: 'fan-menu',
+                    component: OwlNGFanMenuComponent,
                     data: {
                         name: 'page-owlng',
                         showSidePanel: true,
