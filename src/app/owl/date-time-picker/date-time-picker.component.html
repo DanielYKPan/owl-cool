@@ -1,0 +1,1745 @@
+<div class="layout-content">
+    <div class="layout-content-section owlng-introduction">
+        <div class="featured-text">
+            <h1>Owl Date Time Picker</h1>
+            <h2>Simple Angular date time picker consists of calendar and timer.</h2>
+        </div>
+    </div>
+    <section class="owlng-content owlng-demo">
+        <div class="owlng-demo-row">
+            <a class="owlng-viewsource-btn github-btn"
+               href="https://github.com/DanielYKPan/owl-examples/tree/date-time-picker" target="_blank">
+                <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+            </a>
+
+            <a class="owlng-viewsource-btn stackblitz-btn"
+               href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/date-time-picker" target="_blank">
+                <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+            </a>
+        </div>
+    </section>
+
+    <section class="owlng-content owlng-doc">
+        <owl-tab-view class="owlng-doc-tab-view">
+
+            <!-- <editor-fold desc="Documentation Panel"> -->
+            <owl-tab label="Documentation">
+                <div class="owlng-doc-tab-content">
+
+                    <!-- <editor-fold desc="Description"> -->
+                    <h3 id="description" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#description">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Description
+                    </h3>
+                    <p>
+                        Owl DateTimePicker is an Angular component that allows users to enter a date and/or time either
+                        through text input, or by choosing a date from the calendar and/or a time from the timer. It is
+                        made up of several components and directives that work together.
+                    </p>
+                    <div class="owlng-doc-alert">
+                        <em>
+                            Note: Currently, <span class="owlng-doc-code-tag">OwlDateTimePicker</span> is not part of
+                            OwlNG package. Users have to install this package via npm or yarn.
+                        </em>
+                    </div>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Getting Start"> -->
+                    <h3 id="getting-start" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#getting-start">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Getting Start
+                    </h3>
+                    <p>1. Install via <span class="owlng-doc-code-tag">npm</span> or <span class="owlng-doc-code-tag">yarn</span>
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+// npm
+npm install --save ng-pick-datetime
+
+// yarn
+yarn add ng-pick-datetime
+]]></code>
+</pre>
+                    <p>2. Add styles. If you are using Angular CLI, you can add this to your styles.css</p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+]]></code>
+</pre>
+                    <p>
+                        If you are not using the Angular CLI, you can include the picker.min.css via a-link HTML element
+                        in your index.html.
+                    </p>
+
+                    <p>3. Add <span class="owlng-doc-code-tag">OwlDateTimeModule</span> and
+                        <span class="owlng-doc-code-tag">OwlNativeDateTimeModule</span> to your @NgModule like example
+                        below
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MyTestApp } from './my-test-app';
+
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
+@NgModule({
+ imports: [
+     BrowserModule,
+     OwlDateTimeModule,
+     OwlNativeDateTimeModule,
+ ],
+ declarations: [ MyTestApp ],
+ bootstrap:    [ MyTestApp ]
+})
+export class MyTestAppModule {}
+]]></code>
+</pre>
+
+                    <p>4. Connecting a picker to an input and a trigger</p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
+<owl-date-time #dt1></owl-date-time>
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlDateTime]="dt2" placeholder="Date Time">
+<span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+<owl-date-time #dt2></owl-date-time>
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Stand-along Calendar and Timer"> -->
+                    <h3 id="calendar-timer" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#calendar-timer">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Stand-along Calendar and Timer
+                    </h3>
+                    <p>
+                        A default OwlDateTime picker has both a calendar and a timer. Users could has either of them via
+                        overriding property <span class="owlng-doc-code-tag">[pickerType]</span>.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// calendar only
+<input [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+<owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+
+// timer only
+<input [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+<owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+]]></code>
+</pre>
+                    <p>
+                        In addition, OwlDateTimePicker could also be used as an inline element by using
+                        <span class="owlng-doc-code-tag">owl-date-time-inline</span>
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// inline element
+<owl-date-time-inline [(ngModel)]="selectedMoment"></owl-date-time-inline>
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Select Mode"> -->
+                    <h3 id="select-mode" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#select-mode">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Select Mode
+                    </h3>
+                    <p>
+                        By default, OwlDateTimePicker allows users to select a single DateTime Object. User could select
+                        range date time by setting property <span class="owlng-doc-code-tag">[selectMode]</span> to
+                        'range', 'rangeFrom' or 'rangeTo'.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
+<owl-date-time #dt1></owl-date-time>
+]]></code>
+</pre>
+                    <ul>
+                        <li><b>'range'</b> -- the input would show both the 'from' and 'to' value, and the picker could
+                            select both 'from' and 'to' value and switch between them.
+                        </li>
+                        <li><b>'rangeFrom'</b> -- the input would show only the 'from' value, and the picker could only
+                            change the 'from' value.
+                        </li>
+                        <li><b>'rangeTo'</b> -- the input would show only the 'to' value, and the picker could only
+                            change the 'to' value.
+                        </li>
+                    </ul>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Starting View"> -->
+                    <h3 id="starting-view" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#starting-view">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Setting the calendar starting View
+                    </h3>
+                    <p>
+                        The <span class="owlng-doc-code-tag">[startView]</span> property of
+                        <span class="owlng-doc-code-tag">owl-date-time</span> can be used to set the view that will show
+                        up when the calendar first opens. It can be set to month, year, or multi-years; by default it
+                        will open to month view. In multi-years view the user will see a range of years, and in year
+                        view user will see all the months of the year. Picker would proceed to month view after choosing
+                        a month of a year.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// calendar open on 'multi-years' view
+<input [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+<owl-date-time [startView]="'multi-years'" #dt1></owl-date-time>
+
+// calendar open on 'year' view
+<input [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+<owl-date-time [startView]="'year'" #dt1></owl-date-time>
+]]></code>
+</pre>
+                    <p>
+                        The moment that the picker opens to is determined by first checking if any date or time is
+                        currently selected, if so it will open to the month or year containing that date and timer is
+                        set to that moment. Otherwise it will open to the month or year containing today's date and set
+                        to current time. This behavior can be overridden by using the <span class="owlng-doc-code-tag">[startAt]</span>
+                        property of <span class="owlng-doc-code-tag">owl-date-time</span>. In this case the calendar
+                        will open to the month or year containing the startAt date and timer is set to startAt time.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// calendar open on 'year' view
+<input [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+<owl-date-time [startAt]="startAt" #dt></owl-date-time>
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    // picker starts at 2018/4/10 10:30:30
+    public startAt = new Date(2018, 3, 10, 10, 30, 30);
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Date Time Validation"> -->
+                    <h3 id="date-time-validation" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#date-time-validation">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Date Time Validation
+                    </h3>
+                    <p>
+                        There are three properties that add date-time validation to the picker's input. The first two
+                        are the <span class="owlng-doc-code-tag">[min]</span> and
+                        <span class="owlng-doc-code-tag">[max]</span> properties. In addition to enforcing validation on
+                        the input, these properties will disable all dates on the calendar or time value on the timer
+                        before or after the min and max values and prevent the user from advancing the calendar past the
+                        month or year (depending on current view) containing the min or max date.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// picker with min and max restriction
+<input [min]="min" [max]="max" [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+<owl-date-time #dt></owl-date-time>
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    // Min moment: February 12 2018, 10:30
+    public min = new Date(2018, 1, 12, 10, 30);
+
+    // Max moment: April 21 2018, 20:30
+    public max = new Date(2018, 3, 21, 20, 30);
+}
+]]></code>
+</pre>
+                    <p>
+                        The second way to add date-time validation is using the <span class="owlng-doc-code-tag">owlDateTimeFilter</span>
+                        property of the picker's input. This property accepts a function of D => boolean (where D is the
+                        date type used by the picker). A result of true indicates that the date-time is valid and a
+                        result of false indicates that it is not. Again this will also disable the dates on the calendar
+                        that are invalid and prevent time being set on the timer.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// picker with min and max restriction
+<input [owlDateTimeFilter]="myFilter" [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+<owl-date-time #dt></owl-date-time>
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+    public myFilter = (d: Date): boolean => {
+        const day = d.getDay();
+        // Prevent Saturday and Sunday from being selected.
+        return day !== 0 && day !== 6;
+    }
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Validation Error"> -->
+                    <h3 id="validation-error" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#validation-error">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Validation Error
+                    </h3>
+                    <p>
+                        There are five validation errors that can be checked:
+                    </p>
+                    <ul>
+                        <li>A value that violates the min property will have a owlDateTimeMin error.</li>
+                        <li>A value that violates the max property will have a owlDateTimeMax error.</li>
+                        <li>
+                            A value that violates the owlDateTimeFilter property will have a owlDateTimeFilter error.
+                        </li>
+                        <li>An invalid date-time value that input has will have a owlDateTimeParse error.</li>
+                        <li>
+                            If the 'from' and 'to' values in range selection are invalid ('from' value after 'to', or
+                            'to' value before 'from'), it will have a owlDateTimeRange error.
+                        </li>
+                    </ul>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// picker with min and max
+<input [min]="min" [max]="max" [owlDateTimeTrigger]="dt" [owlDateTime]="dt" #dateTime="ngModel">
+<owl-date-time #dt></owl-date-time>
+<div *ngIf="dateTime.invalid && dateTime.errors.owlDateTimeMin">
+    Date Time value must after {{min | date: 'medium'}}
+</div>
+<div *ngIf="dateTime.invalid && dateTime.errors.owlDateTimeMax">
+    Date Time value must before {{max | date: 'medium'}}
+</div>
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+export class MyComponent {
+
+    // Min moment: February 12 2018, 10:30
+    public min = new Date(2018, 1, 12, 10, 30);
+
+    // Max moment: April 21 2018, 20:30
+    public max = new Date(2018, 3, 21, 20, 30);
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Localization"> -->
+                    <h3 id="localization" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#localization">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Setting the locale
+                    </h3>
+                    <p>
+                        By default, the <span class="owlng-doc-code-tag">OWL_DATE_TIME_LOCALE</span> injection token
+                        will use the existing <span class="owlng-doc-code-tag">LOCALE_ID</span> locale code from
+                        <span class="owlng-doc-code-tag">@angular/core</span>. If you want to override it, you can
+                        provide a new value for the <span class="owlng-doc-code-tag">OWL_DATE_TIME_LOCALE</span> token:
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+
+@NgModule({
+  providers: [
+    // use french locale
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
+  ],
+})
+export class AppExampleModule {
+}
+]]></code>
+</pre>
+                    <p>
+                        It's also possible to set the locale at runtime using the <span class="owlng-doc-code-tag">setLocale()</span>
+                        method of the <span class="owlng-doc-code-tag">DateTimeAdapter</span>.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { Component } from '@angular/core';
+import { DateTimeAdapter } from 'ng-pick-datetime';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'app-example.html',
+})
+export class AppExample {
+    constructor(dateTimeAdapter: DateTimeAdapter<any>) {
+        dateAdapter.setLocale('ja-JP'); // change locale to Japanese
+    }
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Implementation and Format"> -->
+                    <h3 id="implementation-format" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#implementation-format">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Choosing a date-time implementation and date-time format settings
+                    </h3>
+                    <p>
+                        OwlDateTime picker can work with a variety of different date-time implementations. Users must
+                        either import one of the pre-made modules(<span class="owlng-doc-code-tag">OwlNativeDateTimeModule</span>,
+                        <span class="owlng-doc-code-tag">OwlMomentDateTimeModule</span>) or built a customized date-time
+                        module. There are two pre-made modules:
+                    </p>
+                    <ul>
+                        <li><span class="owlng-doc-code-tag">OwlNativeDateTimeModule</span>-- support for native
+                            JavaScript Date object
+                        </li>
+                        <li><span class="owlng-doc-code-tag">OwlMomentDateTimeModule</span>-- support for MomentJS
+                            object. (need to npm install ng-pick-datetime-moment and moment packages)
+                        </li>
+                    </ul>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS} from 'ng-pick-datetime';
+
+// learn more about this from
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
+export const MY_NATIVE_FORMATS = {
+    fullPickerInput: {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'},
+    datePickerInput: {year: 'numeric', month: 'numeric', day: 'numeric'},
+    timePickerInput: {hour: 'numeric', minute: 'numeric'},
+    monthYearLabel: {year: 'numeric', month: 'short'},
+    dateA11yLabel: {year: 'numeric', month: 'long', day: 'numeric'},
+    monthYearA11yLabel: {year: 'numeric', month: 'long'},
+};
+
+@NgModule({
+    imports: [OwlDateTimeModule, OwlNativeDateTimeModule],
+    providers: [
+        {provide: OWL_DATE_TIME_FORMATS, useValue: MY_NATIVE_FORMATS},
+    ],
+})
+export class AppExampleModule {
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="MomentJS"> -->
+                    <h3 id="moment-js" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#moment-js">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Use picker with MomentJS
+                    </h3>
+                    <p>
+                        Here is an example to use <span class="owlng-doc-code-tag">OwlMomentDateTimeModule</span> with
+                        different date-time formats: (Beware that OwlMomentDateTimeModule requires MomentJS)
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markdown" ngNonBindable appCodeHighlight><![CDATA[
+// npm
+npm install ng-pick-datetime-moment moment --save;
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { OwlDateTimeModule, OWL_DATE_TIME_FORMATS} from 'ng-pick-datetime';
+import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
+
+// See the Moment.js docs for the meaning of these formats:
+// https://momentjs.com/docs/#/displaying/format/
+export const MY_MOMENT_FORMATS = {
+    parseInput: 'l LT',
+    fullPickerInput: 'l LT',
+    datePickerInput: 'l',
+    timePickerInput: 'LT',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+};
+
+@NgModule({
+    imports: [OwlDateTimeModule, OwlMomentDateTimeModule],
+    providers: [
+        {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},
+    ],
+})
+export class AppExampleModule {
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Custom DateTimeAdapter"> -->
+                    <h3 id="custom-date-time-adapter" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#custom-date-time-adapter">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Build you own custom DateTimeAdapter
+                    </h3>
+                    <p>
+                        If neither one the pre-made modules is suitable for your project, you could customize your own
+                        date-time implementation. Making the picker work with a different date-tim implementation is as
+                        easy as extending <span class="owlng-doc-code-tag">DateTimeAdapter</span>, and using your
+                        subclass as the provider. You will also want to make sure that the
+                        <span class="owlng-doc-code-tag">OWL_DATE_TIME_FORMATS</span> provided in your app are formats
+                        that can be understood by your date-time implementation.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+// custom-date-time-adapter.class.ts
+import { Injectable } from '@angular/core';
+import { DateTimeAdapter } from 'ng-pick-datetime';
+
+export const CUSTOM_DATE_TIME_FORMATS = {
+    parseInput: 'your custom value',
+    fullPickerInput: 'your custom value',
+    datePickerInput: 'your custom value',
+    timePickerInput: 'your custom value',
+    monthYearLabel: 'your custom value',
+    dateA11yLabel: 'your custom value',
+    monthYearA11yLabel: 'your custom value',
+};
+
+@Injectable()
+export class CustomDateTimeAdapter extends DateTimeAdapter<T> {
+}
+]]></code>
+</pre>
+                    <pre class="owlng-documentation-code">
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { CustomDateTimeAdapter, CUSTOM_DATE_TIME_FORMATS } from './custom-date-time-adapter.class';
+
+@NgModule({
+    imports: [OwlDateTimeModule],
+    providers: [
+        {provide: DateTimeAdapter, useClass: CustomDateTimeAdapter},
+        {provide: OWL_DATE_TIME_FORMATS, useValue: CUSTOM_DATE_TIME_FORMATS},
+    ],
+})
+export class AppExampleModule {
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Labels and Messages"> -->
+                    <h3 id="labels-messages" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#labels-messages">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Localizing labels and messages
+                    </h3>
+                    <p>
+                        The various text strings used by the picker are provided through OwlDateTimeIntl. Localization
+                        of these messages can be done by providing a subclass with translated values in your application
+                        root module.
+                    </p>
+                    <pre class="owlng-documentation-code">
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { NgModule } from '@angular/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl} from 'ng-pick-datetime';
+
+class DefaultDateTimeIntl {
+
+    /** A label for the up second button (used by screen readers).  */
+    upSecondLabel = 'Add a second';
+
+    /** A label for the down second button (used by screen readers).  */
+    downSecondLabel = 'Minus a second';
+
+    /** A label for the up minute button (used by screen readers).  */
+    upMinuteLabel = 'Add a minute';
+
+    /** A label for the down minute button (used by screen readers).  */
+    downMinuteLabel = 'Minus a minute';
+
+    /** A label for the up hour button (used by screen readers).  */
+    upHourLabel = 'Add a hour';
+
+    /** A label for the down hour button (used by screen readers).  */
+    downHourLabel = 'Minus a hour';
+
+    /** A label for the previous month button (used by screen readers). */
+    prevMonthLabel = 'Previous month';
+
+    /** A label for the next month button (used by screen readers). */
+    nextMonthLabel = 'Next month';
+
+    /** A label for the previous year button (used by screen readers). */
+    prevYearLabel = 'Previous year';
+
+    /** A label for the next year button (used by screen readers). */
+    nextYearLabel = 'Next year';
+
+    /** A label for the previous multi-year button (used by screen readers). */
+    prevMultiYearLabel: string = 'Previous 21 years';
+
+    /** A label for the next multi-year button (used by screen readers). */
+    nextMultiYearLabel: string = 'Next 21 years';
+
+    /** A label for the 'switch to month view' button (used by screen readers). */
+    switchToMonthViewLabel = 'Change to month view';
+
+    /** A label for the 'switch to year view' button (used by screen readers). */
+    switchToMultiYearViewLabel: string = 'Choose month and year';
+
+    /** A label for the cancel button */
+    cancelBtnLabel = 'Cancel';
+
+    /** A label for the set button */
+    setBtnLabel = 'Set';
+
+    /** A label for the range 'from' in picker info */
+    rangeFromLabel = 'From';
+
+    /** A label for the range 'to' in picker info */
+    rangeToLabel = 'To';
+
+    /** A label for the hour12 button (AM) */
+    hour12AMLabel = 'AM';
+
+    /** A label for the hour12 button (PM) */
+    hour12PMLabel = 'PM';
+}
+
+@NgModule({
+    imports: [OwlDateTimeModule, OwlNativeDateTimeModule],
+    providers: [
+        {provide: OwlDateTimeIntl, useClass: DefaultDateTimeIntl},
+    ],
+})
+export class AppExampleModule {
+}
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Accessibility"> -->
+                    <h3 id="accessibility" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#accessibility">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Accessibility
+                    </h3>
+                    <p>
+                        Here are the keyboards shortcuts to handle the picker:
+                    </p>
+                    <ul>
+                        <li>ALT + DOWN_ARROW -- Open the picker</li>
+                        <li>ESCAPE -- Close the picker</li>
+                    </ul>
+                    <p>In month view:</p>
+                    <ul>
+                        <li>LEFT_ARROW -- Go to previous day</li>
+                        <li>RIGHT_ARROW -- Go to next day</li>
+                        <li>UP_ARROW -- Go to same day in the previous week</li>
+                        <li>DOWN_ARROW -- Go to same day in the next week</li>
+                        <li>HOME -- Go to the first day of the month</li>
+                        <li>END -- Go to the last day of the month</li>
+                        <li>PAGE_UP -- Go to previous month</li>
+                        <li>ALT + PAGE_UP -- Go to previous year</li>
+                        <li>PAGE_DOWN -- Go to next month</li>
+                        <li>ALT + PAGE_DOWN -- Go to next year</li>
+                        <li>ENTER -- Select current date</li>
+                    </ul>
+                    <p>In year view:</p>
+                    <ul>
+                        <li>LEFT_ARROW -- Go to previous month</li>
+                        <li>RIGHT_ARROW -- Go to next month</li>
+                        <li>UP_ARROW -- Go to previous 3 months</li>
+                        <li>DOWN_ARROW -- Go to next 3 months</li>
+                        <li>HOME -- Go to the first month of the year</li>
+                        <li>END -- Go to the last month of the year</li>
+                        <li>PAGE_UP -- Go to previous year</li>
+                        <li>ALT + PAGE_UP -- Go to previous 10 years</li>
+                        <li>PAGE_DOWN -- Go to next year</li>
+                        <li>ALT + PAGE_DOWN -- Go to next 10 years</li>
+                        <li>ENTER -- Select current month</li>
+                    </ul>
+                    <p>In multi-years view:</p>
+                    <ul>
+                        <li>LEFT_ARROW -- Go to previous year</li>
+                        <li>RIGHT_ARROW -- Go to next year</li>
+                        <li>UP_ARROW -- Go up a row (back 3 years)</li>
+                        <li>DOWN_ARROW -- Go down a row (forward 3 years)</li>
+                        <li>HOME -- Go to the first year in the current range</li>
+                        <li>END -- Go to the last year in the current range</li>
+                        <li>ENTER -- Select current year</li>
+                    </ul>
+                    <!-- </editor-fold> -->
+                </div>
+            </owl-tab>
+            <!-- </editor-fold> -->
+
+            <!-- <editor-fold desc="API Panel"> -->
+            <owl-tab label="API">
+                <div class="owlng-doc-tab-content">
+
+                    <!-- <editor-fold desc="Properties owl-date-time"> -->
+                    <h3 id="properties-owl-date-time" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#properties-owl-date-time">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Properties for <b class="owlng-doc-code-tag">owl-date-time</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Optional</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>pickerType</code></td>
+                                <td align="left">'both' | 'calendar' | 'timer'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'both'</code></td>
+                                <td align="left">
+                                    Set the type of the dateTime picker. 'both': show both calendar and timer;
+                                    'calendar': only show calendar; 'timer': only show timer.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>pickerMode</code></td>
+                                <td align="left">'popup' | 'dialog'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'popup'</code></td>
+                                <td align="left">
+                                    Specify the style the picker would open as.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>startView</code></td>
+                                <td align="left">'month' | 'year' | 'multi-years'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'month'</code></td>
+                                <td align="left">
+                                    Specify the view that the calendar should start in.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>startAt</code></td>
+                                <td align="left">T/null</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    Specify the picker initial moment
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>firstDayOfWeek</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>0</code></td>
+                                <td align="left">
+                                    Set the first day of week. Valid value is from 0 to 6. 0: Sunday ~ 6: Saturday
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>showSecondsTimer</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify it to true, it would show a timer to configure the second's value.
+                                    Beware, this dose not guarantee the second's value shows in the input. User also
+                                    need to set appropriate format to show the second's value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>hour12Timer</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify it to true, the timer would be in hour12 format mode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepHour</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Hours to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepMinute</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Minutes to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepSecond</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Seconds to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>disabled</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify to true, it would disable the picker.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Events owl-date-time"> -->
+                    <h3 id="events-owl-date-time" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#events-owl-date-time">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Events for <b class="owlng-doc-code-tag">owl-date-time</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>afterPickerOpen</code></td>
+                                <td align="left">
+                                    null
+                                </td>
+                                <td align="left">
+                                    Event emitted when this picker is opened.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>afterPickerClosed</code></td>
+                                <td align="left">
+                                    null
+                                </td>
+                                <td align="left">
+                                    Event emitted when this picker is closed.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Properties input owlDateTime"> -->
+                    <h3 id="properties-input-owl-date-time" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#properties-input-owl-date-time">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Properties for <b class="owlng-doc-code-tag">input[owlDateTime]</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Optional</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>owlDateTime</code></td>
+                                <td align="left">OwlDateTimeComponent</td>
+                                <td align="left">required</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The date time picker that this input is associated with.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>owlDateTimeFilter</code></td>
+                                <td align="left">(date: T) => boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    A function to filter date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>disabled</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify to true, it would disable the picker's input.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>min</code></td>
+                                <td align="left">T</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The minimum valid date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>max</code></td>
+                                <td align="left">T</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The maximum valid date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>selectMode</code></td>
+                                <td align="left">'single' | 'range' | 'rangeFrom' | 'rangeTo'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'single'</code></td>
+                                <td align="left">
+                                    Specify the picker's select mode. 'single': a single value allowed; 'range': allow
+                                    users to select a range of date-time; 'rangeFrom': the input would only show the
+                                    'from' value and the picker could only selects 'from' value; 'rangeTo': the input
+                                    would only show the 'to' value and the picker could only selects 'to' value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>rangeSeparator</code></td>
+                                <td align="left">string</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'~'</code></td>
+                                <td align="left">
+                                    The character to separate the 'from' and 'to' in input value in range selectMode.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+                    
+                    <!-- <editor-fold desc="Events input owlDateTime"> -->
+                    <h3 id="events-input-owl-date-time" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#events-input-owl-date-time">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Events for <b class="owlng-doc-code-tag">input[owlDateTime]</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>dateTimeChange</code></td>
+                                <td align="left">
+                                    source: OwlDateTimeInput, <br />
+                                    value: input value, <br />
+                                    input: the input element
+                                </td>
+                                <td align="left">
+                                    Event emitted when change event is fired on this picker input.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>dateTimeInput</code></td>
+                                <td align="left">
+                                    source: OwlDateTimeInput, <br />
+                                    value: input value, <br />
+                                    input: the input element
+                                </td>
+                                <td align="left">
+                                    Event emitted when input event is fired on this picker input.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Properties owlDateTimeTrigger"> -->
+                    <h3 id="properties-owl-date-time-trigger" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#properties-owl-date-time-trigger">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Properties for <b class="owlng-doc-code-tag">[owlDateTimeTrigger]</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Optional</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>owlDateTimeTrigger</code></td>
+                                <td align="left">OwlDateTimeComponent</td>
+                                <td align="left">required</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The date time picker that this trigger is associated with.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>disabled</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">required</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify to true, it would disable the trigger.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+
+                    <!-- <editor-fold desc="Properties owl-date-time-inline"> -->
+                    <h3 id="properties-owl-date-time-inline" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#properties-owl-date-time-inline">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Properties for <b class="owlng-doc-code-tag">owl-date-time-inline</b>
+                    </h3>
+                    <div class="owlng-doc-table-wrapper">
+                        <table class="owlng-doc-table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Optional</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><code>pickerType</code></td>
+                                <td align="left">'both' | 'calendar' | 'timer'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'both'</code></td>
+                                <td align="left">
+                                    Set the type of the dateTime picker. 'both': show both calendar and timer;
+                                    'calendar': only show calendar; 'timer': only show timer.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>pickerMode</code></td>
+                                <td align="left">'popup' | 'dialog'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'popup'</code></td>
+                                <td align="left">
+                                    Specify the style the picker would open as.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>startView</code></td>
+                                <td align="left">'month' | 'year' | 'multi-years'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'month'</code></td>
+                                <td align="left">
+                                    Specify the view that the calendar should start in.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>startAt</code></td>
+                                <td align="left">T/null</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    Specify the picker initial moment
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>firstDayOfWeek</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>0</code></td>
+                                <td align="left">
+                                    Set the first day of week. Valid value is from 0 to 6. 0: Sunday ~ 6: Saturday
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>showSecondsTimer</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify it to true, it would show a timer to configure the second's value.
+                                    Beware, this dose not guarantee the second's value shows in the input. User also
+                                    need to set appropriate format to show the second's value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>hour12Timer</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify it to true, the timer would be in hour12 format mode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepHour</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Hours to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepMinute</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Minutes to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>stepSecond</code></td>
+                                <td align="left">number</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>1</code></td>
+                                <td align="left">
+                                    Seconds to change per step.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>disabled</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify to true, it would disable the picker.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>owlDateTimeFilter</code></td>
+                                <td align="left">(date: T) => boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    A function to filter date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>disabled</code></td>
+                                <td align="left">boolean</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>false</code></td>
+                                <td align="left">
+                                    When specify to true, it would disable the picker's input.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>min</code></td>
+                                <td align="left">T</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The minimum valid date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>max</code></td>
+                                <td align="left">T</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>null</code></td>
+                                <td align="left">
+                                    The maximum valid date time.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>selectMode</code></td>
+                                <td align="left">'single' | 'range' | 'rangeFrom' | 'rangeTo'</td>
+                                <td align="left">optional</td>
+                                <td align="left"><code>'single'</code></td>
+                                <td align="left">
+                                    Specify the picker's select mode. 'single': a single value allowed; 'range': allow
+                                    users to select a range of date-time; 'rangeFrom': the input would only show the
+                                    'from' value and the picker could only selects 'from' value; 'rangeTo': the input
+                                    would only show the 'to' value and the picker could only selects 'to' value.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </editor-fold> -->
+                </div>
+            </owl-tab>
+            <!-- </editor-fold> -->
+
+            <!-- <editor-fold desc="Source Panel"> -->
+            <owl-tab label="Source">
+                <div class="owlng-doc-tab-content">
+                    <a class="owlng-viewsource-btn github-btn"
+                       href="https://github.com/DanielYKPan/owl-examples/tree/date-time-picker" target="_blank">
+                        <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+                    </a>
+
+                    <a class="owlng-viewsource-btn stackblitz-btn"
+                       href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/date-time-picker"
+                       target="_blank">
+                        <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+                    </a>
+                    <!-- <editor-fold desc="styles"> -->
+                    <h3 id="styles" class="owlng-doc-header">
+                        <a class="owlng-doc-header-link" href="owlng/date-time-picker#styles">
+                            <i class="icon fas fa-link" aria-hidden="true"></i>
+                        </a>
+                        Styles (scss format)
+                    </h3>
+                    <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$theme-color: #3f51b5;
+
+.owl-dt-container,
+.owl-dt-container * {
+  box-sizing: border-box;
+}
+
+.owl-dt-container {
+  display: block;
+  font-size: 1rem;
+  background: #ffffff;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+.owl-dt-container-row {
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.owl-dt-calendar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.owl-dt-calendar-control {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  width: 100%;
+  padding: .5em;
+  color: #000000;
+
+  .owl-dt-calendar-control-content {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .owl-dt-calendar-control-button {
+      padding: 0 .8em;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .12);;
+      }
+    }
+  }
+}
+
+.owl-dt-calendar-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0 .5em .5em;
+  outline: 0;
+}
+
+.owl-dt-calendar-view {
+  display: block;
+  flex: 1 1 auto;
+}
+
+.owl-dt-calendar-multi-year-view {
+  display: flex;
+  align-items: center;
+
+  .owl-dt-calendar-table {
+    width: calc(100% - 3em);
+
+    .owl-dt-calendar-header th {
+      padding-bottom: .25em;
+    }
+  }
+}
+
+.owl-dt-calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .owl-dt-calendar-header {
+    color: rgba(0, 0, 0, .4);
+
+    .owl-dt-weekdays {
+      th {
+        font-size: .7em;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 1em;
+      }
+    }
+
+    .owl-dt-calendar-table-divider {
+      position: relative;
+      height: 1px;
+      padding-bottom: .5em;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -.5em;
+        right: -.5em;
+        height: 1px;
+        background: rgba(0, 0, 0, .12);
+      }
+    }
+  }
+
+  .owl-dt-calendar-cell {
+    position: relative;
+    height: 0;
+    line-height: 0;
+    text-align: center;
+    outline: 0;
+    cursor: pointer;
+    color: rgba(0, 0, 0, .85);
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .owl-dt-calendar-cell-content {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 90%;
+    height: 90%;
+    font-size: .8em;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: inherit;
+  }
+
+  .owl-dt-calendar-cell-out {
+    opacity: .2;
+  }
+
+  .owl-dt-calendar-cell-today:not(.owl-dt-calendar-cell-selected) {
+    border-color: rgba(0, 0, 0, .4);
+  }
+
+  .owl-dt-calendar-cell-selected {
+    color: hsla(0, 0%, 100%, .85);
+    background-color: $theme-color;
+
+    &.owl-dt-calendar-cell-today {
+      box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .85);
+    }
+  }
+
+  .owl-dt-calendar-cell-disabled {
+    cursor: default;
+
+    & > .owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected) {
+      color: rgba(0, 0, 0, .4);
+    }
+
+    & > .owl-dt-calendar-cell-content.owl-dt-calendar-cell-selected {
+      opacity: .4;
+    }
+
+    & > .owl-dt-calendar-cell-today:not(.owl-dt-calendar-cell-selected) {
+      border-color: rgba(0, 0, 0, .2);
+    }
+  }
+
+  .owl-dt-calendar-cell-active:focus > .owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected),
+  :not(.owl-dt-calendar-cell-disabled):hover > .owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected) {
+    background-color: rgba(0, 0, 0, .04);
+  }
+
+  .owl-dt-calendar-cell-in-range {
+    background: rgba($theme-color, .2);
+
+    &.owl-dt-calendar-cell-range-from {
+      border-top-left-radius: 999px;
+      border-bottom-left-radius: 999px;
+    }
+
+    &.owl-dt-calendar-cell-range-to {
+      border-top-right-radius: 999px;
+      border-bottom-right-radius: 999px;
+    }
+  }
+}
+
+.owl-dt-timer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 7em;
+  padding: .5em;
+  outline: none;
+}
+
+.owl-dt-timer-box {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+}
+
+.owl-dt-timer-content {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: .2em 0;
+
+  .owl-dt-timer-input {
+    display: block;
+    width: 2em;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    outline: medium none;
+    font-size: 1.2em;
+    padding: .2em;
+  }
+}
+
+.owl-dt-timer-divider {
+  display: inline-block;
+  align-self: flex-end;
+  position: absolute;
+  width: .6em;
+  height: 100%;
+  left: -.3em;
+
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    width: .35em;
+    height: .35em;
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background-color: currentColor;
+  }
+
+  &:before {
+    top: 35%;
+  }
+
+  &:after {
+    bottom: 35%;
+  }
+}
+
+.owl-dt-control-button {
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1em;
+  color: inherit;
+
+  .owl-dt-control-button-content {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+
+  &:focus > .owl-dt-control-button-content {
+    background-color: rgba(0, 0, 0, .12);
+  }
+
+  &:not(:-moz-focusring):focus > .owl-dt-control-button-content {
+    box-shadow: none;
+  }
+}
+
+.owl-dt-control-period-button {
+  .owl-dt-control-button-content {
+    height: 1.5em;
+    padding: 0 .5em;
+    border-radius: 3px;
+    transition: background-color 100ms linear;
+  }
+
+  &:hover > .owl-dt-control-button-content {
+    background-color: rgba(0, 0, 0, .12);
+  }
+
+  .owl-dt-control-button-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1em;
+    height: 1em;
+    margin: .1em;
+    transition: transform 200ms ease;
+  }
+}
+
+.owl-dt-control-arrow-button {
+  .owl-dt-control-button-content {
+    padding: 0;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  &[disabled] {
+    color: rgba(0, 0, 0, .4);
+    cursor: default;
+  }
+
+  svg {
+    width: 50%;
+    height: 50%;
+    fill: currentColor;
+  }
+}
+
+.owl-dt-inline-container,
+.owl-dt-popup-container {
+  position: relative;
+  width: 18.5em;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2),
+  0 8px 10px 1px rgba(0, 0, 0, .14),
+  0 3px 14px 2px rgba(0, 0, 0, .12);
+
+  .owl-dt-calendar,
+  .owl-dt-timer {
+    width: 100%;
+  }
+
+  .owl-dt-calendar {
+    height: 20.25em;
+  }
+}
+
+.owl-dt-inline-container {
+  display: inline-block;
+}
+
+.owl-dt-dialog-container {
+  max-height: 95vh;
+  margin: -1.5em;
+
+  .owl-dt-calendar {
+    min-width: 250px;
+    min-height: 330px;
+    max-width: 750px;
+    max-height: 750px;
+  }
+
+  .owl-dt-timer {
+    min-width: 250px;
+    max-width: 750px;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .owl-dt-dialog-container {
+    .owl-dt-calendar {
+      width: 58vh;
+      height: 62vh;
+    }
+
+    .owl-dt-timer {
+      width: 58vh;
+    }
+  }
+}
+
+@media all and (orientation: portrait) {
+  .owl-dt-dialog-container {
+    .owl-dt-calendar {
+      width: 80vw;
+      height: 80vw;
+    }
+
+    .owl-dt-timer {
+      width: 80vw;
+    }
+  }
+}
+
+.owl-dt-container-buttons {
+  display: flex;
+  width: 100%;
+  height: 2em;
+  color: $theme-color;
+}
+
+.owl-dt-container-control-button {
+  font-size: 1em;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+
+  .owl-dt-control-button-content {
+    height: 100%;
+    width: 100%;
+    transition: background-color 100ms linear;
+  }
+
+  &:hover {
+    .owl-dt-control-button-content {
+      background-color: rgba(0, 0, 0, .1);
+    }
+  }
+}
+
+.owl-dt-container-info {
+  padding: 0 .5em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  .owl-dt-container-range {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 0;
+    font-size: .8em;
+
+    &:last-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .owl-dt-container-info-active {
+    color: $theme-color;
+  }
+}
+
+.owl-dt-container-disabled,
+.owl-dt-trigger-disabled {
+  opacity: 0.35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+  cursor: default !important;
+}
+
+.owl-dt-timer-hour12 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $theme-color;
+
+  .owl-dt-timer-hour12-box {
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    transition: background 200ms ease;
+
+    .owl-dt-control-button-content {
+      width: 100%;
+      height: 100%;
+      padding: .5em;
+    }
+
+    &:focus, &:hover {
+      .owl-dt-control-button-content {
+        background: $theme-color;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.owl-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+]]></code>
+</pre>
+                    <!-- </editor-fold> -->
+                </div>
+            </owl-tab>
+            <!-- </editor-fold> -->
+        </owl-tab-view>
+    </section>
+</div>

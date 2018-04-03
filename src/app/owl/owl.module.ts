@@ -18,6 +18,7 @@ import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGClockComponent } from './clock/clock.component';
 import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
+import { OwlNGDateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGDummyDialogComponent } from './dialog/dummy-dialog.component';
 import { OwlNGFanMenuComponent } from './fan-menu/fan-menu.component';
@@ -116,6 +117,7 @@ import {
         OwlNGChipsComponent,
         OwlNGClockComponent,
         OwlNGColorPickerComponent,
+        OwlNGDateTimePickerComponent,
         OwlNGDialogComponent,
         OwlNGDummyDialogComponent,
         OwlNGFanMenuComponent,

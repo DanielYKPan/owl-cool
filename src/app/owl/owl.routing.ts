@@ -13,6 +13,7 @@ import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGClockComponent } from './clock/clock.component';
 import { OwlNGColorPickerComponent } from './color-picker/color-picker.component';
+import { OwlNGDateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { OwlNGDialogComponent } from './dialog/dialog.component';
 import { OwlNGFanMenuComponent } from './fan-menu/fan-menu.component';
 import { OwlNGFormFieldComponent } from './form-field/form-field.component';
@@ -289,6 +290,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                     },
                 },
             ]
+        },
+        {
+            path: 'date-time-picker',
+            component: OwlNGDateTimePickerComponent,
+            data: {
+                name: 'page-owlng',
+                showSidePanel: true,
+                animation: 'date-time-picker',
+            },
         }
     ])],
     exports: [RouterModule]
