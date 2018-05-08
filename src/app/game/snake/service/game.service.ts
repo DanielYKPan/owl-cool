@@ -6,8 +6,7 @@ import { Injectable } from '@angular/core';
 import { Tile, TileContent } from './tile';
 import { Direction, Snake } from './snake';
 import { Fruit, FRUIT_TYPES } from './fruit';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Subject ,  Observable } from 'rxjs';
 
 const GameStatic: any = {
     columns: 20,

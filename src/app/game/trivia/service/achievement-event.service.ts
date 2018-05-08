@@ -6,14 +6,14 @@ import { Injectable } from '@angular/core';
 import * as fromTrivia from '../store';
 import * as fromProfile from '../store/profile.action';
 import { select, Store } from '@ngrx/store';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Profile } from '../store/profile';
 import { Achievement } from '../store/achievement';
 import { ComboHandler } from '../handlers/combo-handler';
 import { CompletedHandler } from '../handlers/completed-handler';
 import { ScoreHandler } from '../handlers/score-handler';
 
-import { OwlNotifierService } from '../../../../../npmdist/owl-ng';
+import { OwlNotifierService } from 'owl-ng';
 
 const HANDLERS = [
     ComboHandler,

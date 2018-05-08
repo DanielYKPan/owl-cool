@@ -3,8 +3,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Subject ,  Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromMemory from './index';
 import * as GameActions from './game.actions';

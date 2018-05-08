@@ -7,10 +7,9 @@ import { ActivatedRouteSnapshot, CanActivateChild, RouterStateSnapshot } from '@
 import { map, switchMap, take } from 'rxjs/operators';
 import * as fromTrivia from '../store';
 import * as fromProfile from '../store/profile.action';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { Profile } from '../store/profile';
-import { of } from 'rxjs/observable/of';
 import { Achievement } from '../store/achievement';
 
 @Injectable()

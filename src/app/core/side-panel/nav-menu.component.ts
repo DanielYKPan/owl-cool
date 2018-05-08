@@ -14,8 +14,7 @@ import {
 } from '@angular/core';
 import { NAV_MENU, NavMenu } from './nav-menu.interface';
 import { NavMenuItemComponent } from './nav-menu-item.component';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Subject ,  Observable } from 'rxjs';
 
 @Component({
     moduleId: module.id,

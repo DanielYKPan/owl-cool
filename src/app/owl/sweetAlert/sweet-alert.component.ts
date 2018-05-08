@@ -4,7 +4,7 @@
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OwlIntroductionService } from '../owl-introduction.service';
-import { OwlSweetAlertService } from '../../../../npmdist/owl-ng';
+import { OwlSweetAlertService } from 'owl-ng';
 
 @Component({
     selector: 'app-owl-sweet-alert',

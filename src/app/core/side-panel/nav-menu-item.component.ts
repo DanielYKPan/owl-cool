@@ -12,9 +12,9 @@ import {
     OnInit
 } from '@angular/core';
 import { NAV_MENU, NavMenu } from './nav-menu.interface';
-import { filter } from 'rxjs/operators/filter';
+import { filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
     moduleId: module.id,

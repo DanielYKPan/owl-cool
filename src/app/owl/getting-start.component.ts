@@ -6,7 +6,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit } 
 import { OwlIntroductionService } from './owl-introduction.service';
 import { RouteProcessService } from '../core/route-process/route-process.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-owl-start',

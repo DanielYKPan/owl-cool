@@ -52,8 +52,8 @@ import {
     OwlFanMenuModule,
     OwlFormFieldModule,
     OwlGalleriaModule,
-    OwlInputModule,
     OwlInputMaskModule,
+    OwlInputModule,
     OwlMenuModule,
     OwlNotifierModule,
     OwlProgressBarModule,
@@ -68,7 +68,7 @@ import {
     OwlTabsModule,
     OwlTimerModule,
     OwlTooltipModule,
-} from '../../../npmdist/owl-ng';
+} from 'owl-ng';
 
 @NgModule({
     imports: [

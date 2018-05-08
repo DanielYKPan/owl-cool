@@ -8,13 +8,8 @@ import { select, Store } from '@ngrx/store';
 import * as fromMinesweeper from '../store';
 import * as TileActions from '../store/tile.actions';
 import { GameLevel, GameStats } from '../store/tile.reducer';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { interval as observableInterval, NEVER, Observable, of as observableOf, Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
-import { never as observableNever } from 'rxjs/observable/never';
-import { interval as observableInterval } from 'rxjs/observable/interval';
-import { of as observableOf } from 'rxjs/observable/of';
-import { Subscription } from 'rxjs/Subscription';
 
 enum GameTimerStatus {
     On,
@@ -40,12 +35,14 @@ export class GameService {
             startWith(GameTimerStatus.Reset),
             switchMap(( status: GameTimerStatus ) => {
                 if (status === GameTimerStatus.Off) {
-                    return observableNever();
+                    return NEVER;
                 } else if (status === GameTimerStatus.Reset) {
                     this.time = 0;
                     return observableOf(this.time);
                 } else {
-                    return observableInterval(1000).map(() => this.time += 1);
+                    return observableInterval(1000).pipe(
+                        map(() => this.time += 1)
+                    );
                 }
             }),
             map(( x: number ) => x),

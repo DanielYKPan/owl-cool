@@ -5,7 +5,7 @@ import {
 import { GameService } from '../service/game.service';
 import { Direction } from '../service/snake';
 import { FRUIT_TYPES } from '../service/fruit';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({

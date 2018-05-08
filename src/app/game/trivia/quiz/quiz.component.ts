@@ -3,14 +3,13 @@ import { select, Store } from '@ngrx/store';
 import * as fromTrivia from '../store';
 import * as fromQuiz from '../store/quiz.action';
 import * as fromProfile from '../store/profile.action';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  Subscription } from 'rxjs';
 import { Quiz } from '../store/quiz';
 import { Category } from '../store/category.reducer';
 import { AchievementEventService } from '../service/achievement-event.service';
 import { Booster, BOOSTERS } from '../store/booster';
-import { Subscription } from 'rxjs/Subscription';
 
-import { OwlNotifierService, OwlTimerComponent } from '../../../../../npmdist/owl-ng';
+import { OwlNotifierService, OwlTimerComponent } from 'owl-ng';
 
 @Component({
     selector: 'app-game-trivia-quiz',

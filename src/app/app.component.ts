@@ -4,12 +4,9 @@ import {
 } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operators/filter';
-import { map } from 'rxjs/operators/map';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { Subscription } from 'rxjs/Subscription';
+import { filter ,  map ,  mergeMap ,  startWith } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { ViewportRuler } from '@angular/cdk/scrolling';
-import { startWith } from 'rxjs/operators/startWith';
 import { AppService } from './app.service';
 
 @Component({

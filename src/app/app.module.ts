@@ -12,7 +12,7 @@ import { HomeModule } from './home/home.module';
 import { AppService } from './app.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { OwlRippleModule, GestureConfig } from '../../npmdist/owl-ng';
+import { GestureConfig, OwlRippleModule } from 'owl-ng';
 
 @NgModule({
     declarations: [

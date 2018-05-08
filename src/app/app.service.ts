@@ -4,8 +4,7 @@
 
 import { Injectable } from '@angular/core';
 import { ViewportRuler } from '@angular/cdk/scrolling';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Observable ,  Subject } from 'rxjs';
 
 export const DESKTOP_VIEW_SIZE = 1024;
 

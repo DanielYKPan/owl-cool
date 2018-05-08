@@ -4,14 +4,13 @@
 
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 import { ResponseCode, SearchResult, TriviaService } from '../service/trivia.service';
 import { catchError, switchMap, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromTrivia from '../store';
 import * as fromQuiz from '../store/quiz.action';
 import * as fromCategory from '../store/category.action';
-import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class QuizExitsGuard implements CanActivate {

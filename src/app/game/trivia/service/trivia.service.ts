@@ -4,11 +4,9 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of ,  throwError as _throw } from 'rxjs';
 import { Quiz } from '../store/quiz';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { _throw } from 'rxjs/observable/throw';
 
 export enum ResponseCode {
     Success,

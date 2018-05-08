@@ -14,7 +14,7 @@ import { reducers } from './store';
 import { GameTileComponent } from './game-tile/game-tile.component';
 import { GameControlComponent } from './game-control/game-control.component';
 
-import { OwlCheckBoxModule, OwlRadioModule } from '../../../../npmdist';
+import { OwlCheckBoxModule, OwlRadioModule } from 'owl-ng';
 
 @NgModule({
     imports: [

@@ -3,7 +3,7 @@
  */
 import { InjectionToken } from '@angular/core';
 import { NavMenuItemComponent } from './nav-menu-item.component';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export interface NavMenu {
 

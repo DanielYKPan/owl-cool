@@ -11,7 +11,7 @@ import { RouteProcessModule } from './route-process/route-process.module';
 import { NavMenuItemComponent } from './side-panel/nav-menu-item.component';
 import { NavMenuComponent } from './side-panel/nav-menu.component';
 
-import { OwlRippleModule } from '../../../npmdist/owl-ng';
+import { OwlRippleModule } from 'owl-ng';
 
 @NgModule({
     imports: [

@@ -5,7 +5,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OwlIntroductionService } from '../owl-introduction.service';
 import { OwlNGDummyDialogComponent } from './dummy-dialog.component';
-import { OwlDialogService } from '../../../../npmdist/owl-ng';
+import { OwlDialogService } from 'owl-ng';
 
 @Component({
     selector: 'app-owl-dialog',

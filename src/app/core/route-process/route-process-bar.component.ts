@@ -8,10 +8,8 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { animate, AnimationEvent, query, state, style, transition, trigger } from '@angular/animations';
-import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
-import { map } from 'rxjs/operators/map';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { distinctUntilChanged ,  map } from 'rxjs/operators';
+import { Observable ,  Subject } from 'rxjs';
 import { RouteProcessService } from './route-process.service';
 
 @Component({

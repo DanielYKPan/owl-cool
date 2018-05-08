@@ -9,7 +9,7 @@ import {
 import { GameService, SIZE } from '../service/game.service';
 import { select, Store } from '@ngrx/store';
 import * as from2048 from '../store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Tile } from '../store/tile.model';
 import { DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, UP_ARROW } from '@angular/cdk/keycodes';
 import { GameStats } from '../store/game-stats.model';

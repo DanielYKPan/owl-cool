@@ -4,10 +4,9 @@ import {
 } from '@angular/core';
 import * as fromMemory from '../store';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  Subscription } from 'rxjs';
 import { Tile } from '../store/tile.model';
 import { GameService } from '../store/game.service';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-game-memory-board',

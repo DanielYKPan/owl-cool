@@ -25,7 +25,7 @@ import {
     OwlTimerModule,
     OWL_NOTIFIER_CONFIG,
     OwlBackTopBtnModule
-} from '../../../../npmdist/owl-ng';
+} from 'owl-ng';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, HostBinding } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromTrivia from '../store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Category } from '../store/category.reducer';
 
 @Component({

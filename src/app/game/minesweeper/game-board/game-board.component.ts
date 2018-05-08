@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, HostBinding } fr
 import { select, Store } from '@ngrx/store';
 import * as fromMinesweeper from '../store';
 import { GameService } from '../service/game.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Tile } from '../store/tile.model';
 import { GameLevel, GameLevels } from '../store/tile.reducer';
 

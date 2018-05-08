@@ -6,7 +6,7 @@ import { select, Store } from '@ngrx/store';
 import { GamePhotos } from '../store/game.reducer';
 import * as fromPuzzle from '../store';
 import * as GameActions from '../store/game.actions';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Tile } from '../store/tile.model';
 
 @Component({
