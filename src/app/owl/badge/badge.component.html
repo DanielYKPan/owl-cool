@@ -1,0 +1,537 @@
+<section class="owlng-content owlng-demo">
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <span>
+                Text with a badge
+                <owl-badge [overlap]="false" [value]="50"></owl-badge>
+            </span>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn">
+                Button Badge
+                <owl-badge [value]="4"></owl-badge>
+            </button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <span>
+                Badge with customised content
+                <owl-badge [style.right]="'-40px'">
+                    <span class="badge-content">
+                        <i class="far fa-address-book icon"></i>5
+                    </span>
+                </owl-badge>
+            </span>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn">
+                I have a badge
+                <owl-badge [positionX]="position_x"
+                           [positionY]="position_y"
+                           [size]="size"
+                           [overlap]="overlap"
+                           [value]="50"></owl-badge>
+            </button>
+        </div>
+        <div class="yk-g-12 yk-md-2">
+            <owl-form-field>
+                <owl-select [(ngModel)]="position_x" placeholder="Position X">
+                    <owl-option value="right">right</owl-option>
+                    <owl-option value="left">left</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+        <div class="yk-g-12 yk-md-2">
+            <owl-form-field>
+                <owl-select [(ngModel)]="position_y" placeholder="Position Y">
+                    <owl-option value="above">above</owl-option>
+                    <owl-option value="below">below</owl-option>
+                </owl-select>
+            </owl-form-field>
+        </div>
+        <div class="yk-g-12 yk-md-3">
+            <h5 class="demo-header">Config Size</h5>
+            <owl-radio-group class="owlng-radio-group" name="size" [(ngModel)]="size">
+                <owl-radio-button class="owlng-radio" value="small">small</owl-radio-button>
+                <owl-radio-button class="owlng-radio" value="medium">medium</owl-radio-button>
+                <owl-radio-button class="owlng-radio" value="large">large</owl-radio-button>
+            </owl-radio-group>
+        </div>
+        <div class="yk-g-12 yk-md-2">
+            <h5 class="demo-header">Config Overlap</h5>
+            <owl-switch class="demo-switch" [(ngModel)]="overlap">Overlap</owl-switch>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn">
+                I have a badge
+                <owl-badge [hidden]="hidden" [value]="50"></owl-badge>
+            </button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" (click)="toggleHidden()" owlRipple>Toggle</button>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row yk-g">
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn">
+                I have a badge
+                <owl-badge [value]="value"></owl-badge>
+            </button>
+        </div>
+
+        <div class="yk-g-12 yk-md-3">
+            <button class="owlng-btn" (click)="increaseValue()" owlRipple>Change Value</button>
+        </div>
+    </div>
+
+    <div class="owlng-demo-row">
+        <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/badge"
+           target="_blank">
+            <i class="fab fa-github" aria-hidden="true"></i> View Example Code on Github
+        </a>
+
+        <a class="owlng-viewsource-btn stackblitz-btn"
+           href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/badge" target="_blank">
+            <img src="./assets/images/demo/stack_blitz_icon.png"> View Example Code on Live
+        </a>
+    </div>
+</section>
+
+<section class="owlng-content owlng-doc">
+    <owl-tab-view class="owlng-doc-tab-view">
+        <!-- <editor-fold desc="Documentation Panel"> -->
+        <owl-tab label="Documentation">
+            <div class="owlng-doc-tab-content">
+
+                <!-- <editor-fold desc="Description"> -->
+                <h3 id="description" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#description">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Description
+                </h3>
+                <p>
+                    Owl Badge <span class="owlng-doc-code-tag">owl-badge</span> is an Angular component, providing small
+                    status descriptors for UI elements. A badge consists of a small circle, typically containing a
+                    number or other short set of characters, that appears in proximity to another object. Owl Badge uses
+                    Angular animations. When its value changes, it would trigger a 'pulse' animation to notify users.
+                </p>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Import"> -->
+                <h3 id="import" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#import">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Import
+                </h3>
+                <pre>
+<code class="language-typescript" ngNonBindable appCodeHighlight><![CDATA[
+import { OwlBadgeModule } from 'owl-ng';
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Getting Start"> -->
+                <h3 id="getting-start" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#getting-start">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Getting Start
+                </h3>
+                <p>
+                    Owl Badge should be placed inside a HTML element that serves as its parent. Its content could be
+                    provided via property <span class="owlng-doc-code-tag">[value]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span>
+    Text with a badge
+    <owl-badge [value]="50"></owl-badge>
+</span>
+]]></code>
+</pre>
+                <p>Users could also provide more complex badge content and wrap it inside
+                    <span class="owlng-doc-code-tag">owl-badge</span>
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<span>
+    Text with a badge
+    <owl-badge [style.right]="'-40px'">
+        <span class="badge-content">
+            <i class="far fa-address-book icon"></i>50
+        </span>
+    </owl-badge>
+</span>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Position"> -->
+                <h3 id="position" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#position">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Badge Position
+                </h3>
+                <p>
+                    Be default, the badge will be placed on the right, top corner of its parent element. The position
+                    could be changed by defining the property <span class="owlng-doc-code-tag">[positionY]</span> as
+                    'above' or 'below', defining the property <span class="owlng-doc-code-tag">[positionX]</span> as
+                    'left' or 'right'. Users could also adjust the badge position via its inline css style.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button>
+    I have a badge
+    <owl-badge [positionX]="'right'" [positionY]="'below'"
+               [value]="50"></owl-badge>
+</button>
+
+<button>
+    I have a badge
+    <owl-badge [stype.right]="'-30px'" [stype.top]="'-30px'"
+               [value]="50"></owl-badge>
+</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Size"> -->
+                <h3 id="size" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#size">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Badge Size
+                </h3>
+                <p>
+                    The badge has 3 sizes: 'small', 'medium' and 'large'. By default, the badge is set to 'medium'.
+                    Users can change the size via property <span class="owlng-doc-code-tag">[size]</span>.
+                    Users could adjust the badge size via its inline css font-size style.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button>
+    I have a badge
+    <owl-badge [size]="'small'" [value]="50"></owl-badge>
+</button>
+
+<button>
+    I have a badge
+    <owl-badge [stype.fontSize]="'0.7em'"
+               [value]="50"></owl-badge>
+</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Visibility"> -->
+                <h3 id="visibility" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#visibility">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Toggle Badge Visibility
+                </h3>
+                <p>
+                    The badge visibility can be toggled programmatically by defining property <span
+                        class="owlng-doc-code-tag">[hidden]</span>.
+                </p>
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<button>
+    I have a badge
+    <owl-badge [hidden]="!visible"></owl-badge>
+</button>
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="API Panel"> -->
+        <owl-tab label="API">
+            <div class="owlng-doc-tab-content">
+                <!-- <editor-fold desc="Properties owl-badge"> -->
+                <h3 id="properties-owl-badge" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#properties-owl-badge">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Properties of <span class="owlng-doc-code-tag">owl-badge</span>
+                </h3>
+                <div class="owlng-doc-table-wrapper">
+                    <table class="owlng-doc-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Optional</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="left"><code>description</code></td>
+                        <td align="left">string</td>
+                        <td align="left">Optional</td>
+                        <td align="left"><code>null</code></td>
+                        <td align="left">
+                            Message used to describe the badge via aria-describedby
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>hidden</code></td>
+                        <td align="left">boolean</td>
+                        <td align="left">Optional</td>
+                        <td align="left"><code>false</code></td>
+                        <td align="left">
+                            Define whether the badge is hidden.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>value</code></td>
+                        <td align="left">string</td>
+                        <td align="left">require</td>
+                        <td align="left"><code>null</code></td>
+                        <td align="left">
+                            Define the content of the badge. If the value changes, it would trigger a 'pules' animation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>positionX</code></td>
+                        <td align="left">'left' | 'right'</td>
+                        <td align="left">optional</td>
+                        <td align="left"><code>'right'</code></td>
+                        <td align="left">
+                            Define position of the badge relative to its parent horizontally.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>positionY</code></td>
+                        <td align="left">'above' | 'below'</td>
+                        <td align="left">optional</td>
+                        <td align="left"><code>'above'</code></td>
+                        <td align="left">
+                            Define position of the badge relative to its parent vertically.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>size</code></td>
+                        <td align="left">'small' | 'medium' | 'large'</td>
+                        <td align="left">optional</td>
+                        <td align="left"><code>'medium'</code></td>
+                        <td align="left">
+                            Define size of the badge.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left"><code>overlap</code></td>
+                        <td align="left">boolean</td>
+                        <td align="left">optional</td>
+                        <td align="left"><code>true</code></td>
+                        <td align="left">
+                            Define whether the badge should be overlap its parent.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <!-- </editor-fold> -->
+
+                <!-- <editor-fold desc="Style"> -->
+                <h3 id="styles" class="owlng-doc-header">
+                    <a class="owlng-doc-header-link" href="owlng/badge#styles">
+                        <i class="icon fas fa-link" aria-hidden="true"></i>
+                    </a>
+                    Styles (scss format) of owl-badge
+                </h3>
+                <pre>
+<code class="language-css" ngNonBindable appCodeHighlight><![CDATA[
+$badge-size: 2em;
+$badge-bg-color: #673ab7;
+$badge-color: #fff;
+
+.owl-has-badge {
+  position: relative;
+}
+
+.owl-badge {
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  min-width: $badge-size;
+  height: $badge-size;
+  line-height: $badge-size;
+  color: $badge-color;
+  background: $badge-bg-color;
+  border: 2px solid $badge-color;
+  border-radius: $badge-size;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  box-sizing: border-box;
+  padding: 0 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+
+  &.owl-badge-small {
+    font-size: .6em;
+  }
+
+  &.owl-badge-medium {
+    font-size: .8em;
+  }
+
+  &.owl-badge-large {
+    font-size: 1.2em;
+  }
+
+  &.owl-badge-above {
+    top: -$badge-size/2;
+  }
+
+  &.owl-badge-below {
+    bottom: -$badge-size/2;
+  }
+
+  &.owl-badge-right {
+    right: -$badge-size/2;
+  }
+
+  &.owl-badge-left {
+    left: -$badge-size/2;
+  }
+}
+]]></code>
+</pre>
+                <!-- </editor-fold> -->
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+
+        <!-- <editor-fold desc="Source Panel"> -->
+        <owl-tab label="Source">
+            <div class="owlng-doc-tab-content">
+                <a class="owlng-viewsource-btn github-btn" href="https://github.com/DanielYKPan/owl-examples/tree/badge" target="_blank">
+                    <i class="fab fa-github" aria-hidden="true"></i> View on Github
+                </a>
+
+                <a class="owlng-viewsource-btn stackblitz-btn" href="https://stackblitz.com/github/DanielYKPan/owl-examples/tree/badge" target="_blank">
+                    <img src="./assets/images/demo/stack_blitz_icon.png"> View Live Example
+                </a>
+
+                <pre>
+<code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <span>
+            Text with a badge
+            <owl-badge [overlap]="false" [value]="50"></owl-badge>
+        </span>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn">
+            Button Badge
+            <owl-badge [value]="4"></owl-badge>
+        </button>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <span>
+            Badge with customised content
+            <owl-badge [style.right]="'-40px'">
+                <span class="badge-content">
+                    <i class="far fa-address-book icon"></i>5
+                </span>
+            </owl-badge>
+        </span>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn">
+            I have a badge
+            <owl-badge [positionX]="position_x"
+                       [positionY]="position_y"
+                       [size]="size"
+                       [overlap]="overlap"
+                       [value]="50"></owl-badge>
+        </button>
+    </div>
+    <div class="yk-g-12 yk-md-2">
+        <owl-form-field>
+            <owl-select [(ngModel)]="position_x" placeholder="Position X">
+                <owl-option value="right">right</owl-option>
+                <owl-option value="left">left</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+    <div class="yk-g-12 yk-md-2">
+        <owl-form-field>
+            <owl-select [(ngModel)]="position_y" placeholder="Position Y">
+                <owl-option value="above">above</owl-option>
+                <owl-option value="below">below</owl-option>
+            </owl-select>
+        </owl-form-field>
+    </div>
+    <div class="yk-g-12 yk-md-3">
+        <h5 class="demo-header">Config Size</h5>
+        <owl-radio-group class="owlng-radio-group" name="size" [(ngModel)]="size">
+            <owl-radio-button class="owlng-radio" value="small">small</owl-radio-button>
+            <owl-radio-button class="owlng-radio" value="medium">medium</owl-radio-button>
+            <owl-radio-button class="owlng-radio" value="large">large</owl-radio-button>
+        </owl-radio-group>
+    </div>
+    <div class="yk-g-12 yk-md-2">
+        <h5 class="demo-header">Config Overlap</h5>
+        <owl-switch class="demo-switch" [(ngModel)]="overlap">Overlap</owl-switch>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn">
+            I have a badge
+            <owl-badge [hidden]="hidden" [value]="50"></owl-badge>
+        </button>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn" (click)="toggleHidden()" owlRipple>Toggle</button>
+    </div>
+</div>
+
+<div class="owlng-demo-row yk-g">
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn">
+            I have a badge
+            <owl-badge [value]="value"></owl-badge>
+        </button>
+    </div>
+
+    <div class="yk-g-12 yk-md-3">
+        <button class="owlng-btn" (click)="increaseValue()" owlRipple>Change Value</button>
+    </div>
+</div>
+]]></code>
+</pre>
+            </div>
+        </owl-tab>
+        <!-- </editor-fold> -->
+    </owl-tab-view>
+</section>

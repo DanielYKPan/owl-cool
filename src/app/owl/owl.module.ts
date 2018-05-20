@@ -14,6 +14,7 @@ import { CodeHighlightDirective } from './code-highlight.directive';
 
 import { OwlNGAccordionComponent } from './accordion/accordion.component';
 import { OwlNGBackTopComponent } from './backTop/back-top.component';
+import { OwlNGBadgeComponent } from './badge/badge.component';
 import { OwlNGCheckBoxComponent } from './checkBox/check-box.component';
 import { OwlNGChipsComponent } from './chips/chips.component';
 import { OwlNGClockComponent } from './clock/clock.component';
@@ -43,7 +44,7 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
 import {
     OwlAccordionModule,
-    OwlBackTopBtnModule,
+    OwlBackTopBtnModule, OwlBadgeModule,
     OwlCheckBoxModule,
     OwlChipsModule,
     OwlClockModule,
@@ -79,6 +80,7 @@ import {
 
         OwlAccordionModule,
         OwlBackTopBtnModule,
+        OwlBadgeModule,
         OwlCheckBoxModule,
         OwlChipsModule,
         OwlClockModule,
@@ -113,6 +115,7 @@ import {
 
         OwlNGAccordionComponent,
         OwlNGBackTopComponent,
+        OwlNGBadgeComponent,
         OwlNGCheckBoxComponent,
         OwlNGChipsComponent,
         OwlNGClockComponent,
