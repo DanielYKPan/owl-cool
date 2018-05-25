@@ -10,6 +10,7 @@
   height: 100vh;
   background: url('../../../assets/images/games/center/game-center-background.png') no-repeat center center fixed;
   background-size: cover;
+  overflow-y: scroll;
 }
 
 .game-center-banner {
@@ -66,9 +67,15 @@
 
 .game-yk-home {
   position: fixed;
-  right: 50px;
-  bottom: 50px;
-  height: 4em;
+  right: 5px;
+  bottom: 15px;
+  height: 2em;
+
+  @media #{$medium-up} {
+    right: 50px;
+    bottom: 50px;
+    height: 4em;
+  }
 
   img {
     height: 100%;

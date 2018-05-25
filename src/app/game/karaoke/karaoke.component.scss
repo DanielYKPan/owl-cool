@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Sriracha');
+
+:host {
+  display: block;
+  position: relative;
+  height: 100vh;
+  background-image: radial-gradient(#374566, #010203);
+  overflow-y: scroll;
+}
+
+.canvas {
+  position: fixed;
+}
+
+.game-header {
+  display: block;
+  font-size: calc(2em + 3vmax);
+  text-align: center;
+  margin: .4em 0;
+  --interval: 1s;
+  text-shadow:
+          0 0 10px var(--color1),
+          0 0 20px var(--color2),
+          0 0 40px var(--color3),
+          0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(100) var(--interval) 1s infinite;
+  color: lightyellow;
+  --color1: yellow;
+  --color2: gold;
+  --color3: orange;
+  --color4: darkred;
+  font-family: 'Sriracha', cursive, sans-serif;
+}
+
+@keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}

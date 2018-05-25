@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GameCenterComponent } from './center/game-center.component';
+import { KaraokeModule } from './karaoke/karaoke.module';
 
 @NgModule({
     imports: [
@@ -44,6 +45,10 @@ import { GameCenterComponent } from './center/game-center.component';
                     {
                         path: 'snake',
                         loadChildren: 'app/game/snake/snake.module#SnakeModule'
+                    },
+                    {
+                        path: 'karaoke',
+                        loadChildren: 'app/game/karaoke/karaoke.module#KaraokeModule'
                     },
                 ]
             }
