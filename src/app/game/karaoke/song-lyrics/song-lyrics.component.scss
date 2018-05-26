@@ -1,0 +1,14 @@
+p {
+  color: rgba(255, 255, 255, .4);
+  font-size: .9rem;
+  margin: .5rem 0;
+  transition: all 500ms ease;
+  width: 100%;
+  text-align: center;
+}
+
+.active {
+  color: rgba(255, 255, 255, 1);
+  font-size: 1.6rem;
+  margin: 1.25rem 0;
+}

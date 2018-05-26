@@ -13,8 +13,14 @@
     </div>
 </div>
 <div class="game-karaoke-player-screen">
-
+    <app-game-karaoke-song-lyrics
+            [src]="song.lyrics"
+            [delay]="song.lyricDelay"
+            [currentTime]="currentTime"></app-game-karaoke-song-lyrics>
 </div>
 <div class="game-karaoke-player-control">
-
+    <app-game-karaoke-song-audio
+            [src]="song.audio"
+            (playPause)="playPauseAudio($event)"
+            (updateTime)="updateAudioTime($event)" ></app-game-karaoke-song-audio>
 </div>

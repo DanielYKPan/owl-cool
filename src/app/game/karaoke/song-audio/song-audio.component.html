@@ -1,0 +1,9 @@
+<div class="song-duration">
+    <span>{{ currentTime | timeFormat }}</span>
+    <span class="duration-divider">|</span>
+    <span>{{ duration | timeFormat }}</span>
+</div>
+
+<button class="player-btn" (click)="playPauseAudio()">
+    {{ (isPlaying) ? "Pause" : "Play" }}
+</button>

@@ -6,6 +6,9 @@ import { KaraokeRoutingModule } from './karaoke.routing';
 import { GameService } from './game.service';
 import { SongListComponent } from './song-list/song-list.component';
 import { SongPlayerComponent } from './song-player/song-player.component';
+import { SongLyricsComponent } from './song-lyrics/song-lyrics.component';
+import { SongAudioComponent } from './song-audio/song-audio.component';
+import { TimeFormatPipe } from './song-audio/time-format.pipe';
 
 @NgModule({
     imports: [
@@ -16,7 +19,10 @@ import { SongPlayerComponent } from './song-player/song-player.component';
     declarations: [
         KaraokeComponent,
         SongListComponent,
-        SongPlayerComponent
+        SongPlayerComponent,
+        SongLyricsComponent,
+        SongAudioComponent,
+        TimeFormatPipe,
     ],
     providers: [
         GameService

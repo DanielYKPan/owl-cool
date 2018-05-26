@@ -62,3 +62,19 @@ export interface SongInform {
     lyrics: string;
     lyricDelay: number;
 }
+
+export interface LyricLRC {
+    ti: string;
+    ar: string;
+    lines: LineLRC[];
+}
+
+export interface LineLRC {
+    text: string;
+    time: number;
+}
+
+export interface Line {
+    index: number;
+    text: string;
+}

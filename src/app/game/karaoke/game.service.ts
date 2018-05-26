@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Particle } from './models';
 import { HttpClient } from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class GameService {
 
     private ch: number;
 
-    constructor(private http: HttpClient) {
+    constructor( private http: HttpClient ) {
     }
 
     public buildBackgroundCanvas( canvas: HTMLCanvasElement, cw: number, ch: number ): void {
@@ -46,8 +46,12 @@ export class GameService {
 
     public getSongList(): Observable<any> {
         return this.http.get('assets/game-karaoke/song-list.json').pipe(
-            map((res: any) => res.list)
+            map(( res: any ) => res.list)
         );
+    }
+
+    public getSongLyrics( src: string ): Observable<any> {
+        return this.http.get(src, {responseType: 'text'});
     }
 
     private drawParticles(): void {

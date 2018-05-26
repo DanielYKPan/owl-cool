@@ -10,7 +10,7 @@
   justify-content: space-between;
   padding: 1.75rem;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, .8);
+  background: rgba(255, 255, 255, .9);
   width: 100%;
 }
 
@@ -52,7 +52,9 @@
   align-items: center;
   justify-content: center;
   min-height: 200px;
-  background: rgba(245, 245, 245, 0.34);
+  background: rgba(245, 245, 245, 0.15);
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .game-karaoke-player-control {
