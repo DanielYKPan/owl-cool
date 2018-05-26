@@ -1,0 +1,16 @@
+<ul class="game-karaoke-song-list">
+    <li *ngFor="let song of songs" class="game-karaoke-song">
+        <a class="game-karaoke-song-anchor" (click)="selectSong($event, song)">
+            <span class="game-karaoke-song-avatar"
+                  [style.backgroundImage]="'url(' + song.artist_avatar +')'"></span>
+            <span class="game-karaoke-song-details">
+                <span class="game-karaoke-song-title">
+                    {{song.title}}
+                </span>
+                <span class="game-karaoke-song-artist">
+                    {{song.artist}}
+                </span>
+            </span>
+        </a>
+    </li>
+</ul>

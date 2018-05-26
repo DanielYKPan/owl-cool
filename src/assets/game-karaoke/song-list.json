@@ -1,0 +1,20 @@
+{
+  "list": [
+    {
+      "artist": "Rick Astley",
+      "title": "Never Gonna Give You Up",
+      "artist_avatar": "assets/game-karaoke/songs/never-gonna-give-you-up/artist-avatar.jpg",
+      "audio": "assets/game-karaoke/songs/never-gonna-give-you-up/never-gonna-give-you-up.mp3",
+      "lyrics": "assets/game-karaoke/songs/never-gonna-give-you-up/never-gonna-give-you-up.lrc",
+      "lyricDelay": 1
+    },
+    {
+      "artist": "Journey",
+      "title": "Don't Stop Believing",
+      "artist_avatar": "assets/game-karaoke/songs/dont-stop-believing/artist-avatar.jpg",
+      "audio": "assets/game-karaoke/songs/dont-stop-believing/dont-stop-believing.mp3",
+      "lyrics": "assets/game-karaoke/songs/dont-stop-believing/dont-stop-believing.lrc",
+      "lyricDelay": 1
+    }
+  ]
+}

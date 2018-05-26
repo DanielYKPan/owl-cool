@@ -12,7 +12,14 @@
   position: fixed;
 }
 
-.game-header {
+.game-karaoke-body {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.game-karaoke-header {
   display: block;
   font-size: calc(2em + 3vmax);
   text-align: center;
@@ -32,6 +39,11 @@
   --color3: orange;
   --color4: darkred;
   font-family: 'Sriracha', cursive, sans-serif;
+}
+
+.game-karaoke-content {
+  display: flex;
+  background: rgba(245, 245, 245, 0.34);
 }
 
 @keyframes flicker {

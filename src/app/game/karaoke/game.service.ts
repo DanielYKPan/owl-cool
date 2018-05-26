@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Particle } from './particle.class';
+import { Particle } from './models';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +19,7 @@ export class GameService {
 
     private ch: number;
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     public buildBackgroundCanvas( canvas: HTMLCanvasElement, cw: number, ch: number ): void {
@@ -39,6 +42,12 @@ export class GameService {
             window.cancelAnimationFrame(this.canvasAnimationId);
             this.canvasAnimationId = null;
         }
+    }
+
+    public getSongList(): Observable<any> {
+        return this.http.get('assets/game-karaoke/song-list.json').pipe(
+            map((res: any) => res.list)
+        );
     }
 
     private drawParticles(): void {

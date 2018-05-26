@@ -1,5 +1,5 @@
 /**
- * particle.class
+ * models
  */
 
 export class Particle {
@@ -52,4 +52,13 @@ export class Particle {
 
         this.ctx.restore();
     }
+}
+
+export interface SongInform {
+    artist: string;
+    title: string;
+    artist_avatar: string;
+    audio: string;
+    lyrics: string;
+    lyricDelay: number;
 }

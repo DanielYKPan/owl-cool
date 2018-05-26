@@ -3,4 +3,12 @@
         [width]="canvasWidth"
         [height]="canvasHeight" #backgroundCanvas></canvas>
 
-<h1 class="game-header">Karaoke</h1>
+<div class="game-karaoke-body">
+    <h1 class="game-karaoke-header">Karaoke</h1>
+
+    <div class="game-karaoke-content">
+        <app-game-karaoke-song-list
+                [songs]="songs$ | async"
+                (select)="selectSong($event)"></app-game-karaoke-song-list>
+    </div>
+</div>
