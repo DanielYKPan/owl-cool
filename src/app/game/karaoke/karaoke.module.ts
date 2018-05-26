@@ -5,6 +5,7 @@ import { KaraokeComponent } from './karaoke.component';
 import { KaraokeRoutingModule } from './karaoke.routing';
 import { GameService } from './game.service';
 import { SongListComponent } from './song-list/song-list.component';
+import { SongPlayerComponent } from './song-player/song-player.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { SongListComponent } from './song-list/song-list.component';
     ],
     declarations: [
         KaraokeComponent,
-        SongListComponent
+        SongListComponent,
+        SongPlayerComponent
     ],
     providers: [
         GameService

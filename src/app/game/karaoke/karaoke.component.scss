@@ -43,7 +43,19 @@
 
 .game-karaoke-content {
   display: flex;
-  background: rgba(245, 245, 245, 0.34);
+}
+
+.game-karaoke-back-btn {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 100;
+  margin: 1rem 0;
+  padding: .5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
 }
 
 @keyframes flicker {

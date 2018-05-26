@@ -7,8 +7,18 @@
     <h1 class="game-karaoke-header">Karaoke</h1>
 
     <div class="game-karaoke-content">
-        <app-game-karaoke-song-list
-                [songs]="songs$ | async"
-                (select)="selectSong($event)"></app-game-karaoke-song-list>
+        <app-game-karaoke-song-player *ngIf="selectedSong;else songList"
+                                      [song]="selectedSong"></app-game-karaoke-song-player>
+
+        <ng-template #songList>
+            <app-game-karaoke-song-list
+                    [songs]="songs$ | async"
+                    (select)="selectSong($event)"></app-game-karaoke-song-list>
+        </ng-template>
     </div>
+
+    <button class="game-karaoke-back-btn"
+            *ngIf="selectedSong"
+            (click)="clearSelectedSong($event)">← Back to list of songs
+    </button>
 </div>

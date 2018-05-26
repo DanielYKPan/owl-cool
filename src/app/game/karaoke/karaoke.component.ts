@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { GameService } from './game.service';
 import { SongInform } from './models';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-game-karaoke',
@@ -25,6 +25,7 @@ export class KaraokeComponent implements OnInit, AfterContentInit, OnDestroy {
     public canvasWidth: number;
     public canvasHeight: number;
     public songs$: Observable<SongInform[]>;
+    public selectedSong: SongInform;
 
     private canvasAnimationId: any;
 
@@ -49,7 +50,12 @@ export class KaraokeComponent implements OnInit, AfterContentInit, OnDestroy {
     }
 
     public selectSong( song: SongInform ): void {
-        console.log(song);
+        this.selectedSong = song;
+    }
+
+    public clearSelectedSong(event: any): void {
+        this.selectedSong = null;
+        event.preventDefault();
     }
 
     private buildBackgroundCanvas(): void {

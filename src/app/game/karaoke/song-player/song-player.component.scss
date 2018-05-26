@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.game-karaoke-player-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, .8);
+  width: 100%;
+}
+
+.game-karaoke-player-title,
+.game-karaoke-player-artist {
+  display: block;
+}
+
+.game-karaoke-player-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.game-karaoke-player-artist {
+  color: #5AA8CD;
+  font-size: 1rem;
+}
+
+.game-karaoke-player-points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c46bed;
+  font-weight: 700;
+  padding-left: 1rem;
+
+  small {
+    font-size: .75rem;
+  }
+
+  strong {
+    font-size: 2rem;
+  }
+}
+
+.game-karaoke-player-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: rgba(245, 245, 245, 0.34);
+}
+
+.game-karaoke-player-control {
+  display: flex;
+  background-color: rgba(60, 102, 176, 0.43);
+  padding: 1.75rem;
+  box-sizing: border-box;
+}
