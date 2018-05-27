@@ -30,7 +30,7 @@
     "owl-ng": "^1.0.0-beta.13",
     "prismjs": "^1.11.0",
     "rxjs": "6.1.0",
-    "rxjs-compat": "^6.0.0-rc.0",
+    "rxjs-compat": "^6.2.0",
     "smoothscroll-polyfill": "^0.4.3",
     "web-animations-js": "^2.3.1",
     "zone.js": "0.8.26"
@@ -43,6 +43,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "@types/webspeechapi": "0.0.29",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",

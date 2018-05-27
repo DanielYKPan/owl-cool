@@ -12,6 +12,7 @@ export class SongPlayerComponent implements OnInit {
     @Input() song: SongInform;
 
     public currentTime: number;
+    public isPlaying = false;
 
     constructor() {
     }
@@ -19,11 +20,15 @@ export class SongPlayerComponent implements OnInit {
     public ngOnInit() {
     }
 
-    public playPauseAudio(status: boolean) {
-        console.log(status);
+    public playPauseAudio( status: boolean ) {
+        this.isPlaying = status;
     }
 
-    public updateAudioTime(time: number) {
+    public updateAudioTime( time: number ) {
         this.currentTime = time;
+    }
+
+    public handleSpeechFound( text: string ): void {
+        console.log(text);
     }
 }

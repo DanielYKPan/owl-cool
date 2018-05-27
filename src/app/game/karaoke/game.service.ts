@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class GameService {
 
+    private static recognition: SpeechRecognition;
+
     private canvasAnimationId: any;
 
     private particles: Particle[];
@@ -52,6 +54,21 @@ export class GameService {
 
     public getSongLyrics( src: string ): Observable<any> {
         return this.http.get(src, {responseType: 'text'});
+    }
+
+    public getRecognition(): SpeechRecognition {
+        if (GameService.recognition) {
+            return GameService.recognition;
+        }
+
+        const recognition = new (
+            window['SpeechRecognition'] || window['webkitSpeechRecognition'] ||
+            window['mozSpeechRecognition'] || window['msSpeechRecognition']
+        )() as SpeechRecognition;
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        return recognition;
     }
 
     private drawParticles(): void {

@@ -22,5 +22,9 @@
     <app-game-karaoke-song-audio
             [src]="song.audio"
             (playPause)="playPauseAudio($event)"
-            (updateTime)="updateAudioTime($event)" ></app-game-karaoke-song-audio>
+            (updateTime)="updateAudioTime($event)"></app-game-karaoke-song-audio>
+
+    <app-game-karaoke-song-speech
+            [isPlaying]="isPlaying"
+            (speechFound)="handleSpeechFound($event)"></app-game-karaoke-song-speech>
 </div>
