@@ -1,0 +1,25 @@
+@import "fireworks.scss";
+
+* {
+  box-sizing: content-box;
+}
+
+.game-karaoke-player-points {
+  position: relative;
+}
+
+.game-karaoke-player-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c46bed;
+  font-weight: 700;
+
+  small {
+    font-size: .75rem;
+  }
+
+  strong {
+    font-size: 2rem;
+  }
+}

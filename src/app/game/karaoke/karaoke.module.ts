@@ -10,6 +10,7 @@ import { SongLyricsComponent } from './song-lyrics/song-lyrics.component';
 import { SongAudioComponent } from './song-audio/song-audio.component';
 import { TimeFormatPipe } from './song-audio/time-format.pipe';
 import { SongSpeechDirective } from './song-speech/song-speech.directive';
+import { SongPointsComponent } from './song-points/song-points.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { SongSpeechDirective } from './song-speech/song-speech.directive';
         SongAudioComponent,
         TimeFormatPipe,
         SongSpeechDirective,
+        SongPointsComponent,
     ],
     providers: [
         GameService

@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.game-karaoke-player-inform {
+  padding-right: 1rem;
+}
+
 .game-karaoke-player-title,
 .game-karaoke-player-artist {
   display: block;
@@ -28,23 +32,6 @@
 .game-karaoke-player-artist {
   color: #5AA8CD;
   font-size: 1rem;
-}
-
-.game-karaoke-player-points {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #c46bed;
-  font-weight: 700;
-  padding-left: 1rem;
-
-  small {
-    font-size: .75rem;
-  }
-
-  strong {
-    font-size: 2rem;
-  }
 }
 
 .game-karaoke-player-screen {
