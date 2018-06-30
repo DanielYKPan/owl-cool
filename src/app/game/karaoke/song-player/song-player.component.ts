@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { SongInform } from '../models';
+import { GameService } from '../game.service';
 
 @Component({
     selector: 'app-game-karaoke-song-player',
@@ -12,9 +13,14 @@ export class SongPlayerComponent implements OnInit {
     @Input() song: SongInform;
 
     public currentTime: number;
-    public isPlaying = false;
+    public isPlaying: boolean = false;
+    public points: number = 0;
+    public lines: string[] = [];
 
-    constructor() {
+    private readonly POINTS_MULTIPLIER = 5;
+
+    constructor( private gameService: GameService,
+                 private cdRef: ChangeDetectorRef ) {
     }
 
     public ngOnInit() {
@@ -28,7 +34,14 @@ export class SongPlayerComponent implements OnInit {
         this.currentTime = time;
     }
 
+    public handleLyricsNewLine( line: string ): void {
+        this.lines = [line].concat(this.lines).slice(0, 5);
+    }
+
     public handleSpeechFound( text: string ): void {
-        console.log(text);
+        console.log('[speech match]: ', text);
+        const matches = this.gameService.countMatches(text, this.lines);
+        this.points += (matches * this.POINTS_MULTIPLIER);
+        this.cdRef.markForCheck();
     }
 }

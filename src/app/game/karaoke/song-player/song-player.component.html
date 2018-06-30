@@ -7,13 +7,14 @@
             {{song.artist}}
         </span>
     </div>
-    <app-game-karaoke-song-points></app-game-karaoke-song-points>
+    <app-game-karaoke-song-points [points]="points"></app-game-karaoke-song-points>
 </div>
 <div class="game-karaoke-player-screen">
     <app-game-karaoke-song-lyrics
             [src]="song.lyrics"
             [delay]="song.lyricDelay"
-            [currentTime]="currentTime"></app-game-karaoke-song-lyrics>
+            [currentTime]="currentTime"
+            (updateNewLine)="handleLyricsNewLine($event)"></app-game-karaoke-song-lyrics>
 </div>
 <div class="game-karaoke-player-control">
     <app-game-karaoke-song-audio
