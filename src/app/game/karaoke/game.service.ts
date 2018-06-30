@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import './natural';
+import { Subject } from 'rxjs/Subject';
 
 const { Metaphone, SoundEx } = window['natural'];
 
@@ -43,6 +44,11 @@ export class GameService {
      * @memberOf GameService
      */
     private readonly DOUBLESPACES_REGEX: RegExp = /\s\s+/g;
+
+    private lyricsLinesRefreshed$ = new Subject<any>();
+    get lyricsLinesRefreshed(): Observable<any> {
+        return this.lyricsLinesRefreshed$.asObservable();
+    }
 
     constructor( private http: HttpClient ) {
     }
@@ -142,6 +148,10 @@ export class GameService {
         });
 
         return matches;
+    }
+
+    public emitLyricsLinesRefreshed(): void {
+        this.lyricsLinesRefreshed$.next(true);
     }
 
     private drawParticles(): void {

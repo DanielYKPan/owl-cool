@@ -18,6 +18,7 @@ export class SongSpeechDirective implements OnInit, OnChanges, OnDestroy {
     private recognitionStartSub = Subscription.EMPTY;
     private recognitionEndSub = Subscription.EMPTY;
     private recognitionResultSub = Subscription.EMPTY;
+    private lyricsLinesRefreshedSub = Subscription.EMPTY;
 
     constructor( private gameService: GameService ) {
     }
@@ -28,6 +29,16 @@ export class SongSpeechDirective implements OnInit, OnChanges, OnDestroy {
         const start$ = fromEvent(this.recognition, 'start');
         const stop$ = fromEvent(this.recognition, 'stop');
         const end$ = fromEvent(this.recognition, 'end');
+
+        // force to stops the speech recognition service
+        // and return a SpeechRecognitionResult using the audio captured so far.
+        this.lyricsLinesRefreshedSub = this.gameService.lyricsLinesRefreshed
+            .subscribe(() => {
+                if (this.isRecording) {
+                    this.isAutoRestarting = true;
+                    this.recognition.stop();
+                }
+            });
 
         this.recognitionStartSub = start$
             .subscribe(() => {
@@ -68,6 +79,8 @@ export class SongSpeechDirective implements OnInit, OnChanges, OnDestroy {
     public ngOnDestroy(): void {
         this.recognitionStartSub.unsubscribe();
         this.recognitionEndSub.unsubscribe();
+        this.recognitionResultSub.unsubscribe();
+        this.lyricsLinesRefreshedSub.unsubscribe();
     }
 
     public ngOnChanges( changes: SimpleChanges ): void {

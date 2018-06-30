@@ -16,6 +16,7 @@ export class SongPlayerComponent implements OnInit {
     public isPlaying: boolean = false;
     public points: number = 0;
     public lines: string[] = [];
+    private lineCount: number = 0;
 
     private readonly POINTS_MULTIPLIER = 5;
 
@@ -36,6 +37,18 @@ export class SongPlayerComponent implements OnInit {
 
     public handleLyricsNewLine( line: string ): void {
         this.lines = [line].concat(this.lines).slice(0, 5);
+        this.lineCount += 1;
+
+        if (this.lineCount === 5) {
+            this.lineCount = 0;
+            this.gameService.emitLyricsLinesRefreshed();
+        }
+    }
+
+    public handleLyricsEnd(): void {
+        this.lineCount = 0;
+        this.gameService.emitLyricsLinesRefreshed();
+        console.log('the end');
     }
 
     public handleSpeechFound( text: string ): void {

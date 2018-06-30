@@ -14,7 +14,8 @@
             [src]="song.lyrics"
             [delay]="song.lyricDelay"
             [currentTime]="currentTime"
-            (updateNewLine)="handleLyricsNewLine($event)"></app-game-karaoke-song-lyrics>
+            (updateNewLine)="handleLyricsNewLine($event)"
+            (lyricsEnd)="handleLyricsEnd()"></app-game-karaoke-song-lyrics>
 </div>
 <div class="game-karaoke-player-control">
     <app-game-karaoke-song-audio

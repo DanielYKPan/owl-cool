@@ -26,11 +26,14 @@ export class SongLyricsComponent implements OnInit, OnChanges {
     @Input() delay = 0;
 
     @Output() updateNewLine = new EventEmitter<string>();
+    @Output() lyricsEnd = new EventEmitter<any>();
     @Output() loaded = new EventEmitter<any>();
 
     public currentLineIndex = -1;
     public lyrics: LyricLRC;
     public lines: Line[] = [];
+
+    private ended = false;
 
     constructor( private gameService: GameService,
                  private cdRef: ChangeDetectorRef ) {
@@ -78,10 +81,13 @@ export class SongLyricsComponent implements OnInit, OnChanges {
             ? lines[currentLineIndex]
             : null;
 
-
         if (currentLine && currentLine !== previousLine) {
             this.currentLineIndex = currentLineIndex;
             this.updateNewLine.emit(currentLine.text);
+
+            if (this.ended) {
+                this.ended = false;
+            }
 
             if (!this.lines.length) {
                 this.lines.push({index: currentLineIndex, text: currentLine.text});
@@ -96,6 +102,11 @@ export class SongLyricsComponent implements OnInit, OnChanges {
 
                 this.lines = ls;
             }
+        }
+
+        if (currentLineIndex === -2 && !this.ended) {
+            this.ended = true;
+            this.lyricsEnd.emit(true);
         }
 
         this.cdRef.markForCheck();
