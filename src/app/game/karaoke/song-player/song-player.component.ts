@@ -41,6 +41,7 @@ export class SongPlayerComponent implements OnInit {
 
         if (this.lineCount === 5) {
             this.lineCount = 0;
+            console.log('Refreshing...');
             this.gameService.emitLyricsLinesRefreshed();
         }
     }

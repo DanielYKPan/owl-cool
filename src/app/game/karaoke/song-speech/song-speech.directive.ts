@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GameService } from '../game.service';
 import { fromEvent, merge, Subscription } from 'rxjs';
-import { distinct, filter, map, timeout } from 'rxjs/internal/operators';
+import { distinct, filter, map, tap, timeout } from 'rxjs/internal/operators';
 
 @Directive({
     selector: 'app-game-karaoke-song-speech, [appGameKaraokeSongSpeech]'
@@ -67,7 +67,9 @@ export class SongSpeechDirective implements OnInit, OnChanges, OnDestroy {
         this.recognitionResultSub = result$
             .pipe(
                 map(( e: SpeechRecognitionEvent ) => e.results[e.results.length - 1]),
+                tap( ( result: SpeechRecognitionResult ) => console.log(result[0])),
                 filter(( result: SpeechRecognitionResult ) => result.isFinal),
+                tap(() =>  console.log('result...')),
                 map(( result: SpeechRecognitionResult ) => result[0].transcript),
                 distinct()
             )
