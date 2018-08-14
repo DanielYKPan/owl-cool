@@ -3,14 +3,14 @@
         <div class="yk-g-12 yk-md-3">
             <span>
                 Text with a badge
-                <owl-badge [overlap]="false" [value]="50"></owl-badge>
+                <owl-badge [overlap]="false" [content]="50"></owl-badge>
             </span>
         </div>
 
         <div class="yk-g-12 yk-md-3">
             <button class="owlng-btn">
                 Button Badge
-                <owl-badge [value]="4"></owl-badge>
+                <owl-badge [content]="4"></owl-badge>
             </button>
         </div>
 
@@ -34,7 +34,7 @@
                            [positionY]="position_y"
                            [size]="size"
                            [overlap]="overlap"
-                           [value]="50"></owl-badge>
+                           [content]="50"></owl-badge>
             </button>
         </div>
         <div class="yk-g-12 yk-md-2">
@@ -71,7 +71,7 @@
         <div class="yk-g-12 yk-md-3">
             <button class="owlng-btn">
                 I have a badge
-                <owl-badge [hidden]="hidden" [value]="50"></owl-badge>
+                <owl-badge [hidden]="hidden" [content]="50"></owl-badge>
             </button>
         </div>
 
@@ -84,7 +84,7 @@
         <div class="yk-g-12 yk-md-3">
             <button class="owlng-btn">
                 I have a badge
-                <owl-badge [value]="value"></owl-badge>
+                <owl-badge [content]="value"></owl-badge>
             </button>
         </div>
 
@@ -150,13 +150,13 @@ import { OwlBadgeModule } from 'owl-ng';
                 </h3>
                 <p>
                     Owl Badge should be placed inside a HTML element that serves as its parent. Its content could be
-                    provided via property <span class="owlng-doc-code-tag">[value]</span>.
+                    provided via property <span class="owlng-doc-code-tag">[content]</span>.
                 </p>
                 <pre>
 <code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
 <span>
     Text with a badge
-    <owl-badge [value]="50"></owl-badge>
+    <owl-badge [content]="50"></owl-badge>
 </span>
 ]]></code>
 </pre>
@@ -195,13 +195,13 @@ import { OwlBadgeModule } from 'owl-ng';
 <button>
     I have a badge
     <owl-badge [positionX]="'right'" [positionY]="'below'"
-               [value]="50"></owl-badge>
+               [content]="50"></owl-badge>
 </button>
 
 <button>
     I have a badge
     <owl-badge [stype.right]="'-30px'" [stype.top]="'-30px'"
-               [value]="50"></owl-badge>
+               [content]="50"></owl-badge>
 </button>
 ]]></code>
 </pre>
@@ -223,13 +223,13 @@ import { OwlBadgeModule } from 'owl-ng';
 <code class="language-markup" ngNonBindable appCodeHighlight><![CDATA[
 <button>
     I have a badge
-    <owl-badge [size]="'small'" [value]="50"></owl-badge>
+    <owl-badge [size]="'small'" [content]="50"></owl-badge>
 </button>
 
 <button>
     I have a badge
     <owl-badge [stype.fontSize]="'0.7em'"
-               [value]="50"></owl-badge>
+               [content]="50"></owl-badge>
 </button>
 ]]></code>
 </pre>
@@ -300,7 +300,7 @@ import { OwlBadgeModule } from 'owl-ng';
                         </td>
                     </tr>
                     <tr>
-                        <td align="left"><code>value</code></td>
+                        <td align="left"><code>content</code></td>
                         <td align="left">string</td>
                         <td align="left">require</td>
                         <td align="left"><code>null</code></td>
@@ -439,14 +439,14 @@ $badge-color: #fff;
     <div class="yk-g-12 yk-md-3">
         <span>
             Text with a badge
-            <owl-badge [overlap]="false" [value]="50"></owl-badge>
+            <owl-badge [overlap]="false" [content]="50"></owl-badge>
         </span>
     </div>
 
     <div class="yk-g-12 yk-md-3">
         <button class="owlng-btn">
             Button Badge
-            <owl-badge [value]="4"></owl-badge>
+            <owl-badge [content]="4"></owl-badge>
         </button>
     </div>
 
@@ -470,7 +470,7 @@ $badge-color: #fff;
                        [positionY]="position_y"
                        [size]="size"
                        [overlap]="overlap"
-                       [value]="50"></owl-badge>
+                       [content]="50"></owl-badge>
         </button>
     </div>
     <div class="yk-g-12 yk-md-2">
@@ -507,7 +507,7 @@ $badge-color: #fff;
     <div class="yk-g-12 yk-md-3">
         <button class="owlng-btn">
             I have a badge
-            <owl-badge [hidden]="hidden" [value]="50"></owl-badge>
+            <owl-badge [hidden]="hidden" [content]="50"></owl-badge>
         </button>
     </div>
 
@@ -520,7 +520,7 @@ $badge-color: #fff;
     <div class="yk-g-12 yk-md-3">
         <button class="owlng-btn">
             I have a badge
-            <owl-badge [value]="value"></owl-badge>
+            <owl-badge [content]="value"></owl-badge>
         </button>
     </div>
 
