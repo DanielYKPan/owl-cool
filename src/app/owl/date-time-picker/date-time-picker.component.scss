@@ -1,0 +1,17 @@
+.trigger-icon {
+  cursor: pointer;
+}
+
+.owlng-demo-inform {
+  font-size: 1.3rem;
+  margin: 0;
+
+  a {
+    color: #1e88e5;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

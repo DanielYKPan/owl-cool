@@ -120,6 +120,15 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                     },
                 },
                 {
+                    path: 'date-time-picker',
+                    component: OwlNGDateTimePickerComponent,
+                    data: {
+                        name: 'page-owlng',
+                        showSidePanel: true,
+                        animation: 'date-time-picker',
+                    },
+                },
+                {
                     path: 'dialog',
                     component: OwlNGDialogComponent,
                     data: {
@@ -301,15 +310,6 @@ import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
                 },
             ]
         },
-        {
-            path: 'date-time-picker',
-            component: OwlNGDateTimePickerComponent,
-            data: {
-                name: 'page-owlng',
-                showSidePanel: true,
-                animation: 'date-time-picker',
-            },
-        }
     ])],
     exports: [RouterModule]
 })

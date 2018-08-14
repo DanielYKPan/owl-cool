@@ -70,6 +70,7 @@ import {
     OwlTimerModule,
     OwlTooltipModule,
 } from 'owl-ng';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
     imports: [
@@ -105,6 +106,9 @@ import {
         OwlTabsModule,
         OwlTimerModule,
         OwlTooltipModule,
+
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
     ],
     exports: [],
     declarations: [
