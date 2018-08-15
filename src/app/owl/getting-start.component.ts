@@ -2,10 +2,9 @@
  * getting-start.component
  */
 
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { OwlIntroductionService } from './owl-introduction.service';
 import { RouteProcessService } from '../core/route-process/route-process.service';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,13 +15,12 @@ import { Subscription } from 'rxjs';
     preserveWhitespaces: false,
 })
 
-export class OwlNGStartComponent implements OnInit, AfterViewInit, OnDestroy {
+export class OwlNGStartComponent implements OnInit, OnDestroy {
 
     private routeFragmentSub = Subscription.EMPTY;
 
     constructor( private routeProcess: RouteProcessService,
-                 private introductionService: OwlIntroductionService,
-                 private route: ActivatedRoute ) {
+                 private introductionService: OwlIntroductionService ) {
     }
 
     public ngOnInit() {
@@ -30,18 +28,6 @@ export class OwlNGStartComponent implements OnInit, AfterViewInit, OnDestroy {
             title: 'Getting Start',
             desc: 'OwlNG is a rich set of open source native Angular UI components.'
         });
-    }
-
-    public ngAfterViewInit(): void {
-        this.routeFragmentSub = this.route.fragment
-            .subscribe(fragment => {
-                if (fragment) {
-                    const element = document.getElementById(fragment);
-                    if (element) {
-                        element.scrollIntoView();
-                    }
-                }
-            });
     }
 
     public ngOnDestroy(): void {

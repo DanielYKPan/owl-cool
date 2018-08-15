@@ -3,7 +3,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
@@ -35,7 +35,15 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(
+        routes,
+        {
+            onSameUrlNavigation: 'reload',
+            scrollPositionRestoration: 'enabled',
+            anchorScrolling: 'enabled',
+            scrollOffset: [0, 64]
+        }
+    )],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

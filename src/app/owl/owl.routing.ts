@@ -3,7 +3,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { OwlComponent } from './owl.component';
 import { OwlNGStartComponent } from './getting-start.component';
 
@@ -36,281 +36,283 @@ import { OwlNGTabsComponent } from './tabs/tabs.component';
 import { OwlNGTimerComponent } from './timer/timer.component';
 import { OwlNGTooltipComponent } from './tooltip/tooltip.component';
 
+const routes: Routes = [
+    {
+        path: '',
+        component: OwlComponent,
+        children: [
+            {
+                path: '',
+                redirectTo: 'getting-start',
+                pathMatch: 'full'
+            },
+            {
+                path: 'getting-start',
+                component: OwlNGStartComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'getting-start',
+                },
+            },
+            {
+                path: 'accordion',
+                component: OwlNGAccordionComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'accordion',
+                },
+            },
+            {
+                path: 'back-top',
+                component: OwlNGBackTopComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'back-top',
+                },
+            },
+            {
+                path: 'badge',
+                component: OwlNGBadgeComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'badge',
+                },
+            },
+            {
+                path: 'checkbox',
+                component: OwlNGCheckBoxComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'checkbox',
+                },
+            },
+            {
+                path: 'chips',
+                component: OwlNGChipsComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'chips',
+                },
+            },
+            {
+                path: 'clock',
+                component: OwlNGClockComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'clock',
+                },
+            },
+            {
+                path: 'color-picker',
+                component: OwlNGColorPickerComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'color-picker',
+                },
+            },
+            {
+                path: 'date-time-picker',
+                component: OwlNGDateTimePickerComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'date-time-picker',
+                },
+            },
+            {
+                path: 'dialog',
+                component: OwlNGDialogComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'dialog',
+                },
+            },
+            {
+                path: 'fan-menu',
+                component: OwlNGFanMenuComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'dialog',
+                },
+            },
+            {
+                path: 'form-field',
+                component: OwlNGFormFieldComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'form-field',
+                },
+            },
+            {
+                path: 'galleria',
+                component: OwlNGGalleriaComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'galleria',
+                },
+            },
+            {
+                path: 'input',
+                component: OwlNGInputComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'input',
+                },
+            },
+            {
+                path: 'mask',
+                component: OwlNGInputMaskComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'mask',
+                },
+            },
+            {
+                path: 'menu',
+                component: OwlNGMenuComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'menu',
+                },
+            },
+            {
+                path: 'notifier',
+                component: OwlNGNotifierComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'notifier',
+                },
+            },
+            {
+                path: 'progressbar',
+                component: OwlNGProgressBarComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'progressbar',
+                },
+            },
+            {
+                path: 'radio',
+                component: OwlNGRadioComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'radio',
+                },
+            },
+            {
+                path: 'rating',
+                component: OwlNGRatingComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'rating',
+                },
+            },
+            {
+                path: 'ripple-effect',
+                component: OwlNGRippleComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'ripple-effect',
+                },
+            },
+            {
+                path: 'select',
+                component: OwlNGSelectComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'select',
+                },
+            },
+            {
+                path: 'slider',
+                component: OwlNGSliderComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'slider',
+                },
+            },
+            {
+                path: 'stop-watch',
+                component: OwlNGStopWatchComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'stop-watch',
+                },
+            },
+            {
+                path: 'sweet-alert',
+                component: OwlNGSweetAlertComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'sweet-alert',
+                },
+            },
+            {
+                path: 'switch',
+                component: OwlNGSwitchComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'switch',
+                },
+            },
+            {
+                path: 'tab-view',
+                component: OwlNGTabsComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'tab-view',
+                },
+            },
+            {
+                path: 'timer',
+                component: OwlNGTimerComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'timer',
+                },
+            },
+            {
+                path: 'tooltip',
+                component: OwlNGTooltipComponent,
+                data: {
+                    name: 'page-owlng',
+                    showSidePanel: true,
+                    animation: 'tooltip',
+                },
+            },
+        ]
+    }
+];
+
 @NgModule({
-    imports: [RouterModule.forChild([
-        {
-            path: '',
-            component: OwlComponent,
-            children: [
-                {
-                    path: '',
-                    redirectTo: 'getting-start',
-                    pathMatch: 'full'
-                },
-                {
-                    path: 'getting-start',
-                    component: OwlNGStartComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'getting-start',
-                    },
-                },
-                {
-                    path: 'accordion',
-                    component: OwlNGAccordionComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'accordion',
-                    },
-                },
-                {
-                    path: 'back-top',
-                    component: OwlNGBackTopComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'back-top',
-                    },
-                },
-                {
-                    path: 'badge',
-                    component: OwlNGBadgeComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'badge',
-                    },
-                },
-                {
-                    path: 'checkbox',
-                    component: OwlNGCheckBoxComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'checkbox',
-                    },
-                },
-                {
-                    path: 'chips',
-                    component: OwlNGChipsComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'chips',
-                    },
-                },
-                {
-                    path: 'clock',
-                    component: OwlNGClockComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'clock',
-                    },
-                },
-                {
-                    path: 'color-picker',
-                    component: OwlNGColorPickerComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'color-picker',
-                    },
-                },
-                {
-                    path: 'date-time-picker',
-                    component: OwlNGDateTimePickerComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'date-time-picker',
-                    },
-                },
-                {
-                    path: 'dialog',
-                    component: OwlNGDialogComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'dialog',
-                    },
-                },
-                {
-                    path: 'fan-menu',
-                    component: OwlNGFanMenuComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'dialog',
-                    },
-                },
-                {
-                    path: 'form-field',
-                    component: OwlNGFormFieldComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'form-field',
-                    },
-                },
-                {
-                    path: 'galleria',
-                    component: OwlNGGalleriaComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'galleria',
-                    },
-                },
-                {
-                    path: 'input',
-                    component: OwlNGInputComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'input',
-                    },
-                },
-                {
-                    path: 'mask',
-                    component: OwlNGInputMaskComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'mask',
-                    },
-                },
-                {
-                    path: 'menu',
-                    component: OwlNGMenuComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'menu',
-                    },
-                },
-                {
-                    path: 'notifier',
-                    component: OwlNGNotifierComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'notifier',
-                    },
-                },
-                {
-                    path: 'progressbar',
-                    component: OwlNGProgressBarComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'progressbar',
-                    },
-                },
-                {
-                    path: 'radio',
-                    component: OwlNGRadioComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'radio',
-                    },
-                },
-                {
-                    path: 'rating',
-                    component: OwlNGRatingComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'rating',
-                    },
-                },
-                {
-                    path: 'ripple-effect',
-                    component: OwlNGRippleComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'ripple-effect',
-                    },
-                },
-                {
-                    path: 'select',
-                    component: OwlNGSelectComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'select',
-                    },
-                },
-                {
-                    path: 'slider',
-                    component: OwlNGSliderComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'slider',
-                    },
-                },
-                {
-                    path: 'stop-watch',
-                    component: OwlNGStopWatchComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'stop-watch',
-                    },
-                },
-                {
-                    path: 'sweet-alert',
-                    component: OwlNGSweetAlertComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'sweet-alert',
-                    },
-                },
-                {
-                    path: 'switch',
-                    component: OwlNGSwitchComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'switch',
-                    },
-                },
-                {
-                    path: 'tab-view',
-                    component: OwlNGTabsComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'tab-view',
-                    },
-                },
-                {
-                    path: 'timer',
-                    component: OwlNGTimerComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'timer',
-                    },
-                },
-                {
-                    path: 'tooltip',
-                    component: OwlNGTooltipComponent,
-                    data: {
-                        name: 'page-owlng',
-                        showSidePanel: true,
-                        animation: 'tooltip',
-                    },
-                },
-            ]
-        },
-    ])],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class OwlNGRoutingModule {
