@@ -1,0 +1,212 @@
+@import "../../sass/base/variables";
+
+.home-row {
+  width: 100vw;
+}
+
+.home-wrapper {
+  width: 90vw;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.profile-row {
+  height: calc(100vh - #{$topbar-height});
+  background-color: #ffffff;
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem .5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-img-wrapper {
+  width: 200px;
+  height: 200px;
+  border: 6px solid #e9e9e9;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 0 #000;
+  background-color: #e9e9e9;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.profile-inform {
+  margin: 0 0 2rem;
+  font-size: 1.5rem;
+}
+
+.profile-contact-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.profile-space {
+  flex: 1;
+}
+
+.mouse-scroll-btn {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  user-select: none;
+  border: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none !important;
+
+  span {
+    display: block;
+  }
+
+  .mouse {
+    height: 21px;
+    width: 14px;
+    border-radius: 10px;
+    transform: none;
+    border: 2px solid #000000;
+  }
+
+  .mouse-in {
+    height: 5px;
+    width: 2px;
+    margin: 5px auto;
+    background: #000000;
+    position: relative;
+    animation: animated-mouse 1.2s ease infinite;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    margin: 0 0 3px 5px;
+  }
+
+  .down-arrow-1,
+  .down-arrow-2,
+  .down-arrow-3 {
+    animation: mouse-scroll 1s infinite;
+    animation-direction: alternate;
+  }
+
+  .down-arrow-1 {
+    margin-top: 6px;
+    animation-delay: .1s;
+  }
+
+  .down-arrow-2 {
+    animation-delay: .2s;
+  }
+
+  .down-arrow-3 {
+    animation-delay: .3s;
+  }
+}
+
+.project-row {
+  background-color: #ededed;
+}
+
+.project-wrapper {
+  padding: 2rem 1rem;
+
+  h1 {
+    margin: 0 0 2rem;
+  }
+
+  .project-list {
+    padding: 0 1rem;
+    margin: 0;
+    list-style: none;
+  }
+
+  .project-list-item {
+    width: 100%;
+    margin: 0 0 1.5rem;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+    h2 {
+      margin: 0 0 1.5rem;
+      color: #135593;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+  }
+
+  .project-list-anchor {
+    display: block;
+    width: 100%;
+    min-height: 6rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, .03);
+    }
+  }
+}
+
+@-webkit-keyframes animated-mouse {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@-webkit-keyframes mouse-scroll {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mouse-scroll {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
