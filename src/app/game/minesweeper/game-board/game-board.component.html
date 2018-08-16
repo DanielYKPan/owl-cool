@@ -10,9 +10,11 @@
 </div>
 <div class="game-minesweeper-panel">
     <div class="game-minesweeper-panel-inner game-minesweeper-{{(selectedLevel$ | async).name}}">
-        <app-game-minesweeper-tile
-                *ngFor="let tile of tiles$ | async; trackBy:tile?.Id" [tile]="tile"
-                (clickTile)="clickTile($event)" (rightClickTile)="clickTile($event, true)"></app-game-minesweeper-tile>
+        <ng-container *ngIf="tiles$ | async as tiles">
+            <app-game-minesweeper-tile
+                    *ngFor="let tile of tiles; trackBy:tile?.Id" [tile]="tile"
+                    (clickTile)="clickTile($event)" (rightClickTile)="clickTile($event, true)"></app-game-minesweeper-tile>
+        </ng-container>
     </div>
 </div>
 <div class="game-minesweeper-inform">
