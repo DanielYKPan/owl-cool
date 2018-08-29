@@ -7,6 +7,9 @@
     </div>
     <app-game-2048-over-panel *ngIf="(stats$| async)?.gameOver" (restart)="newGame()"></app-game-2048-over-panel>
 </div>
+<p class="game-2048-instruction" *ngIf="!(stats$| async)?.gameWon">
+    Instruction: Use keyboard arrows(swiping in mobile device) to merge tiles
+</p>
 <p class="game-2048-won-message" *ngIf="(stats$| async)?.gameWon">
     Congratulations! You have made a 2048 tile! Continue to make 4096, 8192 tiles...
 </p>
