@@ -5,13 +5,14 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background: #ffffff url('../../../assets/images/games/memory/background.png') repeat;
+  background-color: rgb(131, 71, 16);
   font-family: "Bungee", cursive, sans-serif;
 }
 
 .game-memory-body {
   display: flex;
   flex: 1;
+  position: relative;
 }
 
 .game-home-btn {
