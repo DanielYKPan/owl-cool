@@ -2,14 +2,16 @@
 
 :host {
   display: flex;
+  position: relative;
   flex-direction: column;
-  background: #ffffff url('../../../assets/images/games/2048/background-1.png') repeat;
+  background-color: #ffffff;
   font-family: "Bungee", cursive, sans-serif;
 }
 
 .game-2048-body {
   display: flex;
   flex: 1;
+  position: relative;
 }
 
 .game-home-btn {
