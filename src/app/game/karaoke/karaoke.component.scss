@@ -5,7 +5,7 @@
   position: relative;
   height: 100vh;
   background-image: radial-gradient(#374566, #010203);
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .canvas {
@@ -15,8 +15,11 @@
 .game-karaoke-body {
   position: relative;
   width: 100%;
+  height: 100%;
   max-width: 700px;
   margin: 0 auto;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .game-karaoke-header {
@@ -56,6 +59,23 @@
   margin: 1rem 0;
   padding: .5rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+}
+
+.game-karaoke-social {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+
+.game-home-btn {
+  position: fixed;
+  top: 30px;
+  right: 5%;
+  z-index: 100;
 }
 
 @keyframes flicker {

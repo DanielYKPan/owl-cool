@@ -11,12 +11,14 @@ import { SongAudioComponent } from './song-audio/song-audio.component';
 import { TimeFormatPipe } from './song-audio/time-format.pipe';
 import { SongSpeechDirective } from './song-speech/song-speech.directive';
 import { SongPointsComponent } from './song-points/song-points.component';
+import { GameShareModule } from '../share/share.module';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpClientModule,
         KaraokeRoutingModule,
+        GameShareModule,
     ],
     declarations: [
         KaraokeComponent,
