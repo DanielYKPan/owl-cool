@@ -5,6 +5,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { OwlDialogService } from 'owl-ng';
 import { ContactDialogComponent } from './contact-dialog.component';
+import { SkillDialogComponent } from './skill-dialog.component';
 
 @Component({
     selector: 'app-home',
@@ -31,6 +32,11 @@ export class HomeComponent implements OnInit {
 
     public handleClickOnContactIcon( event: any ): void {
         this.dialogService.open(ContactDialogComponent);
+        event.preventDefault();
+    }
+
+    public handleClickOnSkillDialogBtn( event: any ) {
+        this.dialogService.open(SkillDialogComponent);
         event.preventDefault();
     }
 }

@@ -9,6 +9,7 @@ import { HomeRoutingModule } from './home.routing';
 import { ShareModule } from '../share/share.module';
 import { OwlDialogModule, OwlTooltipModule } from 'owl-ng';
 import { ContactDialogComponent } from './contact-dialog.component';
+import { SkillDialogComponent } from './skill-dialog.component';
 
 @NgModule({
     imports: [
@@ -20,9 +21,9 @@ import { ContactDialogComponent } from './contact-dialog.component';
         OwlDialogModule,
     ],
     exports: [],
-    declarations: [HomeComponent, ContactDialogComponent],
+    declarations: [HomeComponent, ContactDialogComponent, SkillDialogComponent],
     providers: [],
-    entryComponents: [ContactDialogComponent]
+    entryComponents: [ContactDialogComponent, SkillDialogComponent]
 })
 export class HomeModule {
 }

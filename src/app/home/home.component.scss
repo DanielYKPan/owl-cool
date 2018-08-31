@@ -1,4 +1,5 @@
 @import "../../sass/base/variables";
+@import "../../sass/base/breakPoints";
 
 .home-row {
   width: 100vw;
@@ -177,8 +178,36 @@
 }
 
 .skill-list {
-  padding: 0;
+  padding: 0 0 0 1rem;
   margin: 0 0 1rem;
+
+  @media #{$small-only} {
+    display: none;
+  }
+}
+
+.skill-list-dialog-btn {
+  display: none;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none !important;
+  white-space: nowrap;
+  margin: 0 0 2rem;
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.2rem;
+  color: #135593;
+
+  @media #{$small-only} {
+    display: block;
+  }
 }
 
 @-webkit-keyframes animated-mouse {
